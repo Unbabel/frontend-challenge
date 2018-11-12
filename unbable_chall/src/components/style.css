@@ -1,0 +1,220 @@
+/*Import all the fonts*/
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+.headPage {
+  top: 0; /* Position the navbar at the top of the page */
+  width: 100%; /* Full width */
+  height: 30%;
+  background-color: #FFFFFF;
+  display:block;
+  margin: 3% auto;
+}
+
+.effect1{
+  -webkit-box-shadow: 0px 4px 10px -3px rgba(0,0,0,0.43);
+  -moz-box-shadow: 0px 4px 10px -3px rgba(0,0,0,0.43);
+  box-shadow: 0px 4px 10px -3px rgba(0,0,0,0.43);
+}
+
+/*APP TITLE*/
+.headPage span{
+  /*Montserrat, the weight is Medium, the size is 18px
+  , and the color is #414C5E*/
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  color: #414C5E;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  margin-left: 18%;
+  display: inline-block;
+}
+
+/*Upload Data Button*/
+#upload-icon {
+  cursor: pointer;
+  float: right;
+  margin-top: 2%;
+  margin-right: 5%;
+  display: inline-block;
+}
+
+/*Get Data button*/
+#fetch-icon{
+  cursor: pointer;
+  float: right;
+  margin-top: 2%;
+  margin-right: 20%;
+  display: inline-block;
+}
+
+/*Row Formating*/
+.rowPage {
+  width: 70%;
+  overflow: auto;
+  background-color: #FFFFFF;
+  padding: 0% 0%;
+  margin: 0.15% auto;
+  border-radius: 5px;
+  display:block;
+}
+
+/*Add Line Button*/
+.add-icon{
+  cursor: pointer;
+  display: inline;
+  margin-top: 2%;
+  margin-left: 50%;
+  margin-right: 50%;
+  margin-bottom: 5%;
+}
+
+/*
+------------------------------------
+              CHECKBOX
+------------------------------------
+*/
+
+/* The container */
+.container {
+  display: inline-block;
+  position: relative;
+  float:left;
+
+  margin-left: 3.2%;
+  margin-top: 3.2%;
+
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 16px;
+    width: 16px;
+    background-color: #FFFFFF;
+    border: 1.5px solid #859EFF;
+    border-radius: 2px;
+
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+    background-color: #859EFF;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+    left: 4px;
+    top: 1px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+/*
+------------------------------------
+              END OF CHECKBOX
+------------------------------------
+*/
+
+
+/*Person Icon*/
+#person-icon{
+  display: inline-block;
+  float:left;
+  margin-left: 5%;
+  margin-top: 2.6%;
+}
+
+.voice-input {
+  /*The font-family of the item title is Montserrat,
+  the weight is SemiBold, the size is 16px, and the color is #566074*/
+  border: block;
+
+  margin-top: 2.9%;
+  margin-left: 13%;
+  margin-right: 30%;
+  border: 0px solid #d1d4d7;
+}
+
+/*Item Title*/
+#voice-text{
+  /*Montserrat, the weight is SemiBold,
+  the size is 16px, and the color is #566074*/
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  color: #566074;
+}
+
+/*Delete Row Button*/
+.delete-button{
+  display: none;
+  cursor: pointer;
+  float:right;
+  margin-right: 3.2%;
+  margin-top: 0%;
+}
+.rowPage:hover .delete-button{
+  display: block;
+}
+
+/*Styling the input box for the item content*/
+.text-input{
+    border: block;
+
+    margin-top: 2%;
+    margin-left: 13%;
+    margin-right: 10%;
+    margin-bottom: 4%;
+    border: 0px solid #d1d4d7;
+  }
+
+/*Item Content*/
+  #Fulltext{
+    /*Open Sans, the weight is Regular,
+    the size is 16px, and the color is #778195*/
+    font-family: 'Open Sans', sans-serif;
+    font-weight: Regular;
+    font-size: 16px;
+    color: #778195;
+  }
