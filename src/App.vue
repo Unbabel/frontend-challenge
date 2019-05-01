@@ -20,8 +20,4 @@ export default {
 
 <style lang="scss">
 @import "assets/style/main.scss";
-
-* {
-  color: $color-main;
-}
 </style>

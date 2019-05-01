@@ -1,5 +1,18 @@
-* {
-  color: red;
-}
+//--- Generic ---//
+@import 'generic/reset';
 
-$color-main: blue;
+//--- Settings ---//
+// @import 'settings/colors';
+// @import 'settings/typography';
+// @import 'settings/global';
+
+//--- Tools ---//
+// @import 'tools/font-mixin';
+
+//--- Objects ---//
+// @import 'objects/divisor';
+
+//--- Components ---//
+
+//--- Trumps ---//
+// @import 'trumps/helpers';
