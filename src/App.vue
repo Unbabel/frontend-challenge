@@ -6,17 +6,22 @@
 </template>
 
 <script>
-import NavbarMenu from './components/NavbarMenu.vue';
-import ListContent from './components/ListContent.vue';
+import NavbarMenu from "./components/NavbarMenu.vue";
+import ListContent from "./components/ListContent.vue";
 
 export default {
-  name: 'app',
+  name: "app",
   components: {
     NavbarMenu,
-    ListContent,
-  },
+    ListContent
+  }
 };
 </script>
 
 <style lang="scss">
+@import "assets/style/main.scss";
+
+* {
+  color: $color-main;
+}
 </style>
