@@ -1,16 +1,19 @@
 <template>
   <nav id="navbar-menu">
-    <h1>Transcriptions</h1>
-    <button>b1</button>
-    <button>b2</button>
+    <h1 class="app-title">Transcriptions</h1>
+    <ul>
+      <button @click="uploadData()">up</button>
+      <button @click="getData()">gd</button>
+    </ul>
   </nav>
 </template>
 
 <script>
 export default {
   name: "NavbarMenu",
-  props: {}
+  methods: {
+    uploadData: function() { this.$emit("uploadData") },
+    getData: function() { this.$emit("getData") }
+  }
 };
 </script>
-<style scoped lang="scss">
-</style>

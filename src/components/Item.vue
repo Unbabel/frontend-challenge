@@ -1,16 +1,16 @@
 <template>
-  <main id="list-content">
+  <div class="item">
     <pre>
-    {{listData}}
+    {{item}}
     </pre>
-  </main>
+  </div>
 </template>
 
 <script>
 export default {
-  name: "ListContent",
+  name: "Item",
   props: {
-    listData: []
+    item: {}
   }
 };
 </script>

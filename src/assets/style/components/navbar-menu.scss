@@ -1,0 +1,19 @@
+#navbar-menu {
+  // grid-area: NavbarMenu;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .5);
+
+  .app-title {
+    color: $app-title;
+    font-family: $font-montserrat;
+    font-weight: 500;
+    font-size: 18px;
+  }
+
+  button {
+    border: 0;
+    background: none;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
