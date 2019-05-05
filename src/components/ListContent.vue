@@ -1,7 +1,7 @@
 <template>
   <main id="list-content">
     <div class="wrapper">
-      <Item v-for="(item, index) in listData" :item="item" :key="index"/>
+      <Item v-for="(item, index) in listData" :item="item" :key="index" @removeItem="removeItem"/>
     </div>
     <button class="add-item" @click="addItem()">
       <img src="../assets/images/add-row.svg" alt="Add Item">
@@ -23,6 +23,10 @@ export default {
   methods: {
     addItem() {
       this.$emit("addItem");
+    },
+
+    removeItem(id) {
+      this.listData.splice(this.listData.findIndex(item => item.id === id), 1);
     }
   }
 };

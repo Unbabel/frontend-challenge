@@ -6,12 +6,12 @@
         <span class="checkmark"></span>
       </label>
       <img class="icon-person" src="../assets/images/person.svg" alt="Person Icon">
-      <span class="title">{{item.voice}}</span>
-      <button class="remove-item" @click="removeItem()">
+      <span class="title" contenteditable="true">{{item.voice}}</span>
+      <button class="remove-item" @click="removeItem(item.id)">
         <img src="../assets/images/delete.svg" alt="Remove Item">
       </button>
     </div>
-    <p class="content">{{item.text}}</p>
+    <p class="content" contenteditable="true">{{item.text}}</p>
   </div>
 </template>
 
@@ -21,9 +21,9 @@ export default {
   props: {
     item: {}
   },
-  methods:{
-    removeItem() {
-      this.$emit("removeItem");
+  methods: {
+    removeItem(id) {
+      this.$emit("removeItem", id);
     }
   }
 };
