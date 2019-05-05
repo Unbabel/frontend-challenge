@@ -33,7 +33,7 @@ export default {
     },
 
     async uploadData() {
-      api.post(this.listData);
+      api.post("", this.listData);
     },
 
     addItem() {
