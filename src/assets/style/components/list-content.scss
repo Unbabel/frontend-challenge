@@ -1,5 +1,14 @@
 #list-content {
-  // grid-area: ListContent;
+  display: block;
+  margin: 0 auto;
+  margin-top: 40px;
 
-  background-color: aquamarine;
+  .wrapper {
+    margin-bottom: 40px;
+  }
+
+  .add-item {
+    display: block;
+    margin: 0 auto;
+  }
 }

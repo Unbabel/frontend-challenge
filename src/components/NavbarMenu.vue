@@ -1,10 +1,16 @@
 <template>
   <nav id="navbar-menu">
-    <h1 class="app-title">Transcriptions</h1>
-    <ul>
-      <button @click="uploadData()">up</button>
-      <button @click="getData()">gd</button>
-    </ul>
+    <div class="wrapper">
+      <h1 class="app-title">Transcriptions</h1>
+      <ul class="actions">
+        <button @click="uploadData()">
+          <img src="../assets/images/upload.svg" alt="Upload Data">
+        </button>
+        <button @click="getData()">
+          <img src="../assets/images/fetch-document.svg" alt="Get Data">
+        </button>
+      </ul>
+    </div>
   </nav>
 </template>
 
@@ -12,8 +18,13 @@
 export default {
   name: "NavbarMenu",
   methods: {
-    uploadData: function() { this.$emit("uploadData") },
-    getData: function() { this.$emit("getData") }
+    uploadData() {
+      this.$emit("uploadData");
+    },
+
+    getData() {
+      this.$emit("getData");
+    }
   }
 };
 </script>
