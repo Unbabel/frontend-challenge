@@ -1,19 +1,31 @@
 #navbar-menu {
-  // grid-area: NavbarMenu;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .5);
+  background-color: white;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.5);
+  width: 100vw;
+  height: 80px;
 
   .app-title {
     color: $app-title;
     font-family: $font-montserrat;
     font-weight: 500;
     font-size: 18px;
+    line-height: 80px;
+    margin: 0;
+    margin-left: 40px;
   }
 
-  button {
-    border: 0;
-    background: none;
-    &:hover {
-      cursor: pointer;
+  .actions {
+    margin: 0;
+    margin-right: 40px;
+    padding: 0px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    button {
+      margin: 26px 0px;
+      &:first-of-type {
+        margin-right: 40px;
+      }
     }
   }
 }
