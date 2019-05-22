@@ -1,0 +1,18 @@
+.btn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: .5em;
+  border-radius: $default-border-radius;
+  min-width: 1.500em;
+  transition: background $default-transition-speed;
+  @include shadow-on-hover();
+  
+  &:active{
+    background: $gray-lighter;
+    &:hover{
+      box-shadow: none;
+      transition: box-shadow $default-transition-speed;
+    }
+  }
+}
