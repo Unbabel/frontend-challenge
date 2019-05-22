@@ -6,6 +6,8 @@
   border-radius: $default-border-radius;
   min-width: 1.500em;
   transition: background $default-transition-speed;
+  text-decoration: none;
+  color: $gray;
   @include shadow-on-hover();
   
   &:active{
@@ -21,5 +23,9 @@
     padding: 0;
     border-radius: 50%;
     min-width: 0;
+  }
+
+  &.primary{
+    color: $purple;
   }
 }

@@ -52,7 +52,7 @@ export default {
       this.$store
         .dispatch('transcriptions/GET_TRANSCRIPTS')
         .then(res => {
-          res.data.map(item => {
+          res.data.map(item => {
             item['selected'] = false
           })
           this.$store.commit('transcriptions/saveTranscripts', res.data)
@@ -62,7 +62,14 @@ export default {
         })
     },
     pushTranscripts () {
-      console.log('pushTranscripts')
+      this.$store
+        .dispatch('transcriptions/PUSH_TRANSCRIPTS')
+        .then(res => {
+          console.log('🤙')
+        })
+        .catch(err => {
+          console.log(err)
+        })
     }
   }
 }

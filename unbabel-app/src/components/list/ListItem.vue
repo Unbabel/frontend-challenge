@@ -1,5 +1,9 @@
 <template>
-  <div class="list-item">
+  <div
+    class="list-item"
+    @mouseover="toggleHover(true)"
+    @mouseleave="toggleHover(false)"
+  >
 
     <div class="left-actions">
       <div class="actions">
@@ -8,7 +12,9 @@
           :id-for="id"
           @changedValue="toggleSelection"
         />
-        <img src="@/assets/icons/person.svg" alt="Person icon">
+        <PersonIcon
+          :active="isHovering"
+        />
       </div>
     </div>
 
@@ -25,6 +31,7 @@
         <a
           href="#"
           class="btn"
+          title="Remove item"
           @click.prevent="removeItem"
         >
           <img src="@/assets/icons/delete.svg" alt="Trash icon">
@@ -46,12 +53,14 @@
 <script>
 import Checkbox from '@/components/inputs/Checkbox'
 import TextInput from '@/components/inputs/TextInput'
+import PersonIcon from '@/components/svg/PersonIcon'
 
 export default {
   name: 'ListItem',
   components: {
     Checkbox,
-    TextInput
+    TextInput,
+    PersonIcon
   },
   props: {
     id: {
@@ -74,29 +83,39 @@ export default {
       default: false
     }
   },
+  data () {
+    return {
+      isHovering: false
+    }
+  },
   methods: {
+    toggleHover (value) {
+      this.isHovering = value
+    },
     toggleSelection () {
       this.$emit('toggleSelection', {
         id: this.id,
         selected: !this.selected
       })
     },
-    saveTitle (value) {
-      this.$store.commit('transcriptions/updateField', {
+    saveTitle (value) {
+      this.$store.commit('transcriptions/updateField', {
         id: this.id,
         field: 'voice',
         value: value
       })
     },
-    saveBody (value) {
-      this.$store.commit('transcriptions/updateField', {
+    saveBody (value) {
+      this.$store.commit('transcriptions/updateField', {
         id: this.id,
         field: 'text',
         value: value
       })
     },
     removeItem () {
-      this.$emit('removeItem', this.id)
+      this.$emit('removeItem', {
+        id: this.id
+      })
     }
   }
 }
@@ -151,7 +170,7 @@ export default {
         .checkbox{
           margin-top: 0.3em;
         }
-        img{
+        svg{
           margin-left: 1em;
         }
       }

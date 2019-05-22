@@ -10,8 +10,12 @@
       @toggleSelection="toggleSelection"
       @removeItem="removeItem"
     />
+    <NewItem
+      v-if="addItem"
+      @close="closeItem"
+    />
     <div
-      v-if="transcripts.length === 0"
+      v-if="transcripts.length === 0 && !addItem"
       class="empty-list"
     >
       <p>No transcripts available</p>
@@ -30,27 +34,41 @@
 
 <script>
 import ListItem from '@/components/list/ListItem'
+import NewItem from '@/components/list/NewItem'
 import { mapGetters } from 'vuex'
 
 export default {
   name: 'List',
   components: {
-    ListItem
+    ListItem,
+    NewItem
   },
-  computed: {
-      ...mapGetters('transcriptions', [
-        'transcripts'
-      ])
-    },
+  data () {
+    return {
+      addItem: false
+    }
+  },
+  computed: {
+    ...mapGetters('transcriptions', [
+      'transcripts'
+    ])
+  },
   methods: {
     newItem () {
-      console.log('new item')
+      this.addItem = true
+    },
+    closeItem () {
+      this.addItem = false
     },
     toggleSelection (data) {
-      this.$store.commit('transcriptions/toggleSelection', data)
+      this.$store.commit('transcriptions/updateField', {
+        id: data.id,
+        field: 'selected',
+        value: data.selected
+      })
     },
-    removeItem () {
-      console.log('removeItem')
+    removeItem (data) {
+      this.$store.commit('transcriptions/removeItem', data)
     }
   }
 }

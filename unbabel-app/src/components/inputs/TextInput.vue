@@ -27,67 +27,72 @@
 </template>
 
 <script>
-  export default {
-    name: 'TextInput',
-    props: {
-      initialValue: {
-        type: String,
-        default: ''
-      },
-      extraClass: {
-        type: String,
-        default: ''
-      }
+import { positionCursorEnd } from '@/utils/inputs'
+
+//  Timeout for focus/blur to allow input to change editable state
+const eventIntervalBuffer = 50
+
+export default {
+  name: 'TextInput',
+  props: {
+    initialValue: {
+      type: String,
+      default: ''
     },
-    data () {
-      return {
-        value: '',
-        localValue: '',
-        isEditing: false,
-        isSaving: false,
-        dynamicWidth: 0,
-        maxWidth: 0
-      }
+    extraClass: {
+      type: String,
+      default: ''
+    }
+  },
+  data () {
+    return {
+      value: '',
+      localValue: '',
+      isEditing: false,
+      isSaving: false,
+      maxWidth: 0
+    }
+  },
+  mounted () {
+    this.value = this.localValue = this.initialValue
+    this.maxWidth = `${this.$refs.inputControl.getBoundingClientRect().width - 20}px`
+  },
+  methods: {
+    triggerEdit () {
+      this.isEditing = true
+      setTimeout(() => {
+        this.$refs.textInput.focus()
+        positionCursorEnd(this.$refs.textInput)
+      }, eventIntervalBuffer)
     },
-    mounted () {
-      this.value = this.localValue = this.initialValue
-      this.maxWidth = `${this.$refs.inputControl.getBoundingClientRect().width - 20}px`
+    storeValue (e) {
+      this.localValue = e.target.innerText
     },
-    methods: {
-      triggerEdit () {
-        this.isEditing = true
+    blurInput () {
+      //  Hackish: avoids double method trigger when pressing Enter/Esc to save value.
+      //  Ideally should handle Esc to cancel changes & Enter to submit.
+      if (!this.isSaving) {
+        this.isSaving = true
+
         setTimeout(() => {
-          this.$refs.textInput.focus()
-        }, 50)
-      },
-      storeValue (e) {
-        this.localValue = e.target.innerText
-      },
-      blurInput () {
-        //  Hackish: avoids double method trigger when pressing Enter/Esc to save value.
-        //  Ideally should handle Esc to cancel changes & Enter to submit.
-        if (!this.isSaving) {
-          this.isSaving = true
+          this.$refs.textInput.blur()
 
-          setTimeout(() => {
-            this.$refs.textInput.blur()
+          if (this.localValue.length === 0) {
+            this.value = this.initialValue
+          }
 
-            if (this.localValue.length === 0) {
-              this.value = this.initialValue
-            }
+          if (this.localValue !== this.initialValue) {
+            this.$emit('changedValue', this.localValue)
+            this.value = this.localValue
+          }
 
-            if (this.localValue !== this.initialValue) {
-              this.$emit('changedValue', this.localValue)
-              this.value = this.localValue
-            }
-
-            this.isEditing = false
-            this.isSaving = false
-          }, 50)
-        }
+          this.isEditing = false
+          this.isSaving = false
+        }, eventIntervalBuffer)
       }
     }
   }
+}
 </script>
 
 <style lang="scss">
@@ -109,6 +114,7 @@
     .input{
       display: inline-block;
       width: auto;
+      min-height: 23px;
       min-width: 50px;
       max-width: 100px;
       box-shadow: inset 0 0px 0px 2px rgba(transparent, 0);
