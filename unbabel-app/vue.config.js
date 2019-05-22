@@ -6,7 +6,7 @@ module.exports = {
       sass: {
         data: `
           @import "@/assets/stylesheets/utils/_variables.scss";
-          @import "@/assets/stylesheets/mixins/_shadow.scss";
+          @import "@/assets/stylesheets/mixins/_mixins.scss";
         `
       }
     }

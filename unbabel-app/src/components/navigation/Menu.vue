@@ -49,7 +49,11 @@ export default {
       justify-content: space-between;
       margin: 0 auto;
       width: 100%;
-      max-width: 80vw;
+      max-width: 95vw;
+
+      @include from($mobile) {
+        max-width: 80vw;
+      }
 
       .nav{
         &-left, &-right{
