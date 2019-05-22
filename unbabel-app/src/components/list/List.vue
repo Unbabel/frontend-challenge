@@ -6,6 +6,9 @@
       :id="transcript.id"
       :voice="transcript.voice"
       :text="transcript.text"
+      :selected="transcript.selected"
+      @toggleSelection="toggleSelection"
+      @removeItem="removeItem"
     />
     <div
       v-if="transcripts.length === 0"
@@ -42,6 +45,12 @@ export default {
   methods: {
     newItem () {
       console.log('new item')
+    },
+    toggleSelection (data) {
+      this.$store.commit('transcriptions/toggleSelection', data)
+    },
+    removeItem () {
+      console.log('removeItem')
     }
   }
 }

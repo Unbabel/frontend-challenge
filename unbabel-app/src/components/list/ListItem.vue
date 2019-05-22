@@ -5,29 +5,37 @@
       <div class="actions">
         <Checkbox
           :initial-value="selected"
-          :id="id"
+          :id-for="id"
           @changedValue="toggleSelection"
         />
         <img src="@/assets/icons/person.svg" alt="Person icon">
       </div>
     </div>
+
     <div class="title">
-      <h3 v-text="voice" />
+      <TextInput
+        :initial-value="voice"
+        :extra-class="'headline'"
+      />
     </div>
+
     <div class="right-actions">
       <div class="actions">
         <a
           href="#"
           class="btn"
-          @click.prevent="selectItem"
+          @click.prevent="removeItem"
         >
-          <img src="@/assets/icons/delete.svg" alt="Person icon">
+          <img src="@/assets/icons/delete.svg" alt="Trash icon">
         </a>
       </div>
     </div>
 
     <div class="body">
-      <p v-text="text" />
+      <TextInput
+        :initial-value="text"
+        :extra-class="'fullwidth'"
+      />
     </div>
 
   </div>
@@ -35,11 +43,13 @@
 
 <script>
 import Checkbox from '@/components/inputs/Checkbox'
+import TextInput from '@/components/inputs/TextInput'
 
 export default {
   name: 'ListItem',
   components: {
-    Checkbox
+    Checkbox,
+    TextInput
   },
   props: {
     id: {
@@ -64,7 +74,16 @@ export default {
   },
   methods: {
     toggleSelection () {
-      this.$emit('toggleSelection', this.id)
+      this.$emit('toggleSelection', {
+        id: this.id,
+        selected: !this.selected
+      })
+    },
+    removeItem () {
+      this.$emit('removeItem', this.id)
+    },
+    editBody () {
+      console.log('editBody!')
     }
   }
 }
@@ -109,15 +128,16 @@ export default {
     }
 
     .left-actions, .right-actions{
-      display: flex;
-      justify-content: center;
+      justify-content: flex-start;
     }
 
     //  Individual grid positioning
     .left-actions{
       grid-area: left;
-      justify-content: flex-start;
       .actions{
+        .checkbox{
+          margin-top: 0.3em;
+        }
         img{
           margin-left: 1em;
         }
@@ -126,26 +146,15 @@ export default {
 
     .title{
       grid-area: title;
-      > * {
-        color: $gray;
-        font-family: $font-montserrat;
-        font-weight: $font-weight-semibold;
-        margin: 0;
-      }
     }
 
     .right-actions{
       grid-area: right;
-      justify-content: flex-end;
       z-index: -1;
       .actions{
         opacity: 0;
         transition: opacity $default-transition-speed;
       }
-    }
-
-    .title, .body{
-      padding: 0 .5em;
     }
 
     .body{

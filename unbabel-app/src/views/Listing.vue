@@ -14,10 +14,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-  .container{
-    width: 100%;
-    margin-top: 1.5em;
-  }
-</style>

@@ -2,6 +2,7 @@
 @import './utils/_variables';
 @import './imports/_btn';
 @import './imports/_checkbox';
+@import './imports/_inputs';
 
 html, body{
   font-family: $font-open-sans;
@@ -11,6 +12,7 @@ html, body{
 
 body{
   background: $gray-lighter;
+  line-height: $default-line-height;
 }
 
 img{
@@ -18,4 +20,14 @@ img{
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+
+//  Structure
+.layout{
+  position: relative;
+}
+
+.container{
+  width: 100%;
+  margin-top: 6em;
 }
