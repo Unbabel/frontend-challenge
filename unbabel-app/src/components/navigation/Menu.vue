@@ -14,12 +14,14 @@
         <MenuAction
           :icon="'upload'"
           :icon-alt="'Upload icon'"
-          :name="'Upload'"
+          :name="'upload'"
+          @click="dispatchAction"
         />
         <MenuAction
           :icon="'fetch'"
           :icon-alt="'Fetch icon'"
-          :name="'Fetch'"
+          :name="'fetch'"
+          @click="dispatchAction"
         />
       </div>
 
@@ -33,6 +35,32 @@ export default {
   name: 'Menu',
   components: {
     MenuAction
+  },
+  methods: {
+    dispatchAction (action) {
+      switch (action) {
+        case 'fetch':
+          this.getTranscripts()
+          break
+
+        case 'upload':
+          this.pushTranscripts()
+          break
+      }
+    },
+    getTranscripts () {
+      this.$store
+        .dispatch('transcriptions/GET_TRANSCRIPTS')
+        .then(res => {
+          console.log(res.data)
+        })
+        .catch(err => {
+          console.log(err)
+        })
+    },
+    pushTranscripts () {
+      console.log('pushTranscripts')
+    }
   }
 }
 </script>

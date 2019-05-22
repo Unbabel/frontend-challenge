@@ -3,6 +3,7 @@
     href=""
     class="nav-item btn"
     :name="name"
+    @click.prevent="emitClick"
   >
     <img
       :src="require(`@/assets/icons/${icon}.svg`)"
@@ -28,6 +29,11 @@ export default {
     name: {
       type: String,
       default: ''
+    }
+  },
+  methods: {
+    emitClick () {
+      this.$emit('click', this.name)
     }
   }
 }
