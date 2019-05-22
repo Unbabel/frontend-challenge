@@ -52,7 +52,10 @@ export default {
       this.$store
         .dispatch('transcriptions/GET_TRANSCRIPTS')
         .then(res => {
-          console.log(res.data)
+          res.data.map(item => {
+            item['selected'] = false
+          })
+          this.$store.commit('transcriptions/saveTranscripts', res.data)
         })
         .catch(err => {
           console.log(err)
@@ -67,6 +70,9 @@ export default {
 
 <style lang="scss">
   .nav{
+    position: fixed;
+    top: 0;
+    left: 0;
     background: $white;
     width: 100%;
     @include shadow-no-hover();

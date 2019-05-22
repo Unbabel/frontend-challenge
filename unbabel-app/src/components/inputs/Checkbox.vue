@@ -1,15 +1,18 @@
 <template>
-  <div class="checkbox">
+  <div
+    class="checkbox"
+    :title="value ? 'Unselect' : 'Select'"
+  >
     <input
-      :id="`checkbox_${id}`"
-      type="checkbox"
+      :id="`checkbox_${idFor}`"
       :class="{ 'checked': value}"
+      type="checkbox"
       class="styled-checkbox"
       v-model="value"
       @change="emitChange"
     >
     <label
-      :for="`checkbox_${id}`"
+      :for="`checkbox_${idFor}`"
       v-html="`&nbsp;`"
     />
   </div>
@@ -30,7 +33,7 @@ export default {
       default: false,
       required: true
     },
-    id: {
+    idFor: {
       type: Number,
       default: 0,
       required: true
