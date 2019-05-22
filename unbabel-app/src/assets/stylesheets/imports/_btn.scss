@@ -15,4 +15,11 @@
       transition: box-shadow $default-transition-speed;
     }
   }
+
+  &.rounded{
+    display: inline-flex;
+    padding: 0;
+    border-radius: 50%;
+    min-width: 0;
+  }
 }

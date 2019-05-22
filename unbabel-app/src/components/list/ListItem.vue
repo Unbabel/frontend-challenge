@@ -6,6 +6,7 @@
         <Checkbox
           :initial-value="selected"
           :id="id"
+          @changedValue="toggleSelection"
         />
         <img src="@/assets/icons/person.svg" alt="Person icon">
       </div>
@@ -62,8 +63,8 @@ export default {
     }
   },
   methods: {
-    selectItem () {
-      this.$emit('selectItem', this.id)
+    toggleSelection () {
+      this.$emit('toggleSelection', this.id)
     }
   }
 }
@@ -141,6 +142,10 @@ export default {
         opacity: 0;
         transition: opacity $default-transition-speed;
       }
+    }
+
+    .title, .body{
+      padding: 0 .5em;
     }
 
     .body{
