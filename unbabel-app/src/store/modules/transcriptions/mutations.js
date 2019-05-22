@@ -11,11 +11,17 @@ export default {
     Vue.set(state, 'transcripts', [...value])
   },
   toggleSelection (state, data) {
-
     let indexPos = transcriptIndex(state, data.id)
 
     if (indexPos >= 0) {
       state.transcripts[indexPos].selected = data.selected
+    }
+  },
+  updateField (state, data) {
+    let indexPos = transcriptIndex(state, data.id)
+
+    if (indexPos >= 0) {
+      state.transcripts[indexPos][data.field] = data.value
     }
   }
 }

@@ -16,6 +16,7 @@
       <TextInput
         :initial-value="voice"
         :extra-class="'headline'"
+        @changedValue="saveTitle"
       />
     </div>
 
@@ -35,6 +36,7 @@
       <TextInput
         :initial-value="text"
         :extra-class="'fullwidth'"
+        @changedValue="saveBody"
       />
     </div>
 
@@ -79,11 +81,22 @@ export default {
         selected: !this.selected
       })
     },
+    saveTitle (value) {
+      this.$store.commit('transcriptions/updateField', {
+        id: this.id,
+        field: 'voice',
+        value: value
+      })
+    },
+    saveBody (value) {
+      this.$store.commit('transcriptions/updateField', {
+        id: this.id,
+        field: 'text',
+        value: value
+      })
+    },
     removeItem () {
       this.$emit('removeItem', this.id)
-    },
-    editBody () {
-      console.log('editBody!')
     }
   }
 }

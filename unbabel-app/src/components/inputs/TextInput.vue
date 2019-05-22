@@ -18,6 +18,7 @@
       class="input"
       title="Click to edit"
       @click.self="triggerEdit"
+      @input="storeValue"
       @blur="blurInput"
       @keydown.enter.prevent="blurInput"
       @keydown.esc.prevent="blurInput"
@@ -41,13 +42,15 @@
     data () {
       return {
         value: '',
+        localValue: '',
         isEditing: false,
+        isSaving: false,
         dynamicWidth: 0,
         maxWidth: 0
       }
     },
     mounted () {
-      this.value = this.initialValue
+      this.value = this.localValue = this.initialValue
       this.maxWidth = `${this.$refs.inputControl.getBoundingClientRect().width - 20}px`
     },
     methods: {
@@ -57,22 +60,31 @@
           this.$refs.textInput.focus()
         }, 50)
       },
+      storeValue (e) {
+        this.localValue = e.target.innerText
+      },
       blurInput () {
-        this.value = this.value.trim()
+        //  Hackish: avoids double method trigger when pressing Enter/Esc to save value.
+        //  Ideally should handle Esc to cancel changes & Enter to submit.
+        if (!this.isSaving) {
+          this.isSaving = true
 
-        setTimeout(() => {
-          this.$refs.textInput.blur()
-        }, 50)
+          setTimeout(() => {
+            this.$refs.textInput.blur()
 
-        if (this.value.length === 0) {
-          this.value = this.initialValue
+            if (this.localValue.length === 0) {
+              this.value = this.initialValue
+            }
+
+            if (this.localValue !== this.initialValue) {
+              this.$emit('changedValue', this.localValue)
+              this.value = this.localValue
+            }
+
+            this.isEditing = false
+            this.isSaving = false
+          }, 50)
         }
-
-        if (this.value !== this.initialValue) {
-          console.log('save it!')
-        }
-
-        this.isEditing = false
       }
     }
   }
