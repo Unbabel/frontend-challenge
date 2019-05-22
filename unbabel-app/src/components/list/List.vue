@@ -43,6 +43,10 @@ export default {
     justify-content: flex-start;
     margin: 0 auto;
     width: 100%;
-    max-width: 80vw;
+    max-width: 95vw;
+
+    @include from($mobile) {
+      max-width: 80vw;
+    }
   }
 </style>

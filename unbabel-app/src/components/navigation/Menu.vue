@@ -47,14 +47,18 @@ export default {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 1em 1.5em;
       margin: 0 auto;
       width: 100%;
-      max-width: 80vw;
+      max-width: 95vw;
+
+      @include from($mobile) {
+        max-width: 80vw;
+      }
 
       .nav{
         &-left, &-right{
           display: flex;
+          padding: 1em;
         }
       }
     }

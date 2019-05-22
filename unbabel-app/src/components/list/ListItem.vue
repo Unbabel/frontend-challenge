@@ -3,7 +3,10 @@
 
     <div class="left-actions">
       <div class="actions">
-        <input type="checkbox">
+        <Checkbox
+          :initial-value="selected"
+          :id="id"
+        />
         <img src="@/assets/icons/person.svg" alt="Person icon">
       </div>
     </div>
@@ -30,12 +33,17 @@
 </template>
 
 <script>
+import Checkbox from '@/components/inputs/Checkbox'
+
 export default {
   name: 'ListItem',
+  components: {
+    Checkbox
+  },
   props: {
     id: {
       type: Number,
-      default: '',
+      default: 0,
       required: true
     },
     voice: {
@@ -69,13 +77,13 @@ export default {
         'left title right'
         '.... content ....';
     grid-gap: .5em;
-    padding: 1em 1.5em;
+    padding: 1em;
     background: $white;
     border: 2px solid darken($gray-lighter, 1%);
     border-bottom: 0;
     border-top-right-radius: $default-border-radius;
     border-top-left-radius: $default-border-radius;
-    width: 100%;
+    width: auto;
 
     &:last-child{
       border-top: 2px solid darken($gray-lighter, 1%);
