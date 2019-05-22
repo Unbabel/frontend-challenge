@@ -1,10 +1,10 @@
-import Vue from 'vue'
+import Vue from './configs/vue'
+import router from './configs/router'
+import store from './store/store'
 import App from './App.vue'
-import router from './router'
-import store from './store'
-import './registerServiceWorker'
 
-Vue.config.productionTip = false
+import './assets/stylesheets/app.scss'
+import './registerServiceWorker'
 
 new Vue({
   router,
