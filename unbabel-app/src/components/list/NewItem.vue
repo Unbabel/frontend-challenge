@@ -1,16 +1,23 @@
 <template>
-  <div class="new-item">
+  <div
+    ref="mewItem"
+    :class="transition"
+    class="new-item"
+  >
     <div class="header">
       <TextInput
-        :initial-value="'Title'"
-        :extra-class="'headline'"
+        :initial-value="''"
+        :extra-class="'headline fullwidth'"
+        :placeholder="'Title'"
         :name="'title'"
         @changedValue="saveTitle"
       />
     </div>
     <div class="body">
       <TextInput
-        :initial-value="'Transcript...'"
+        :initial-value="''"
+        :extra-class="'fullwidth'"
+        :placeholder="'Transcript...'"
         @changedValue="saveBody"
       />
     </div>
@@ -18,11 +25,15 @@
       <a
         href="#"
         class="btn close"
+        title="Cancel"
+        aria-label="Close"
         @click.prevent="close"
       >Cancel</a>
       <a
         href="#"
         class="btn primary"
+        title="Save item"
+        aria-label="Save"
         @click.prevent="saveItem"
       >Save</a>
     </div>
@@ -32,6 +43,8 @@
 <script>
 import TextInput from '@/components/inputs/TextInput'
 
+const animTimeout = 200
+
 export default {
   name: 'NewItem',
   components: {
@@ -40,8 +53,16 @@ export default {
   data () {
     return {
       title: '',
-      body: ''
+      body: '',
+      transition: ''
     }
+  },
+  mounted () {
+    this.transition = 'ease-in'
+    setTimeout(() => {
+      this.transition += ' visible'
+      this.$refs.mewItem.scrollIntoView({ behavior: 'smooth', block: 'end' })
+    }, animTimeout)
   },
   methods: {
     saveTitle (value) {
@@ -60,9 +81,14 @@ export default {
       }
     },
     close () {
-      this.$emit('close')
-      this.title = ''
-      this.body = ''
+      this.transition = 'prepare-ease-out'
+      setTimeout(() => {
+        this.transition += ' ease-out'
+      })
+
+      setTimeout(() => {
+        this.$emit('close')
+      }, animTimeout)
     }
   }
 }
@@ -72,15 +98,48 @@ export default {
   .new-item{
     display: flex;
     flex-direction: column;
+    border: none;
     padding: 1em;
-    background: $white;
-    border: 2px solid darken($gray-lighter, 1%);
-    border-bottom: 0;
-    border-top-right-radius: $default-border-radius;
-    border-top-left-radius: $default-border-radius;
-    margin: 15px auto 0 auto;
-    max-width: 80%;
+    margin: 0 auto 15px auto;
+    height: 0;
+    max-height: 115px;
     width: 100%;
+    max-width: 80%;
+
+    background: $white;
+    @include shadow-no-hover();
+
+    overflow: hidden;
+    transform: scale(.8);
+
+    &.ease-in{
+      height: 115px;
+      transform: scale(1);
+      transition: all $default-transition-speed ease-in-out;
+      &.visible{
+        height: auto;
+        max-height: 100%;
+        overflow: visible;
+        transition: all $default-transition-speed ease-in-out;
+      }
+    }
+
+    &.prepare-ease-out{
+      transform: scale(1);
+      height: 115px;
+      max-height: 115px;
+      overflow: hidden;
+      transition: height $default-transition-speed ease-in-out;
+
+      &.ease-out{
+        height: 0;
+        transform: scale(.8);
+        opacity: 0;
+        transition: height $default-transition-speed ease-in-out,
+                    transform $default-transition-speed ease-in-out,
+                    opacity $default-transition-speed ease-in-out;
+      }
+    }
 
     .footer{
       display: flex;
@@ -90,6 +149,5 @@ export default {
         margin-left: .5em;
       }
     }
-
   }
 </style>

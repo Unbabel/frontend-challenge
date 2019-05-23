@@ -13,6 +13,7 @@ html, body{
 body{
   background: $gray-lighter;
   line-height: $default-line-height;
+  transition: background $default-transition-speed;
 }
 
 img{
@@ -22,7 +23,6 @@ img{
   user-select: none;
 }
 
-//  Structure
 .layout{
   position: relative;
 }
@@ -30,4 +30,72 @@ img{
 .container{
   width: 100%;
   margin-top: 6em;
+}
+
+//  Darkmode. Because why not
+
+html[data-theme="darkmode"]{
+  body{
+    background: lighten($purple-dark, 5%);
+    transition: background $default-transition-speed;
+  }
+  .nav{
+    background: $purple-dark;
+    transition: background $default-transition-speed;
+
+    .nav-item{
+      color: $gray-light;
+      transition: background $default-transition-speed;
+    }
+  }
+
+  .list-item, .new-item{
+    background: $purple-dark;
+  }
+
+  .list-item{
+    border-color: rgba($purple, .4);
+    &:nth-last-of-type(2){
+      border-color: rgba($purple, .4);
+    }
+  }
+
+  .input-control{
+    span, span.headline{
+      background: transparent;
+      color: $gray-lighter;
+    }
+    .input:hover{
+      box-shadow: inset 0 0px 0px 2px rgba($gray, .7);
+    }
+  }
+
+  .btn{
+    &:hover{
+      background: rgba($gray-light, .5);
+      transition: background $default-transition-speed;
+      &:not(.primary){
+        color: $white;
+        transition: color $default-transition-speed;
+      }
+    }
+    &:focus{
+      background: rgba($gray, .5); 
+      transition: background $default-transition-speed;
+    }
+  }
+
+  .styled-checkbox {
+    position: absolute;
+    opacity: 0;
+
+    // Box.
+    & + label:before {
+      background: transparent;
+    }
+
+    &.checked + label:before {
+      background: $purple;
+    }
+  }
 }

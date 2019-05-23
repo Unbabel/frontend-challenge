@@ -8,10 +8,6 @@
       :text="transcript.text"
       :selected="transcript.selected"
     />
-    <NewItem
-      v-if="addItem"
-      @close="closeItem"
-    />
     <div
       v-if="transcripts.length === 0 && !addItem"
       class="empty-list"
@@ -19,13 +15,19 @@
       <p>No transcripts available</p>
     </div>
     <div class="list-action">
-      <a
-        href="#"
-        class="btn rounded"
-        @click.prevent="newItem"
-      >
-        <img src="@/assets/icons/add.svg" alt="Add icon">
-      </a>
+      <NewItem
+        v-if="addItem"
+        @close="closeItem"
+      />
+      <div class="action-wrapper">
+        <a
+          href="#"
+          class="btn rounded"
+          @click.prevent="newItem"
+        >
+          <img src="@/assets/icons/add.svg" alt="Add icon">
+        </a>
+      </div>
     </div>
   </div>
 </template>
@@ -72,11 +74,11 @@ export default {
     max-width: 95vw;
 
     .empty-list, .list-action{
-      text-align: center;
       padding: 1.5em;
     }
 
     .empty-list{
+      text-align: center;
       padding: .5em;
       > *{
         color: $gray;
@@ -85,7 +87,14 @@ export default {
     }
 
     .list-action{
+      display: flex;
+      flex-direction: column;
       padding: 1.5em;
+
+      .action-wrapper{
+        text-align: center;
+        width: 100%;
+      }
     }
 
     @include from($mobile) {

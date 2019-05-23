@@ -6,7 +6,10 @@
   >
     <div class="inner-nav">
       <div class="nav-left">
-        <span class="nav-item brand">
+        <span
+          class="nav-item brand"
+          @click.prevent="toggleTheme"
+        >
           Transcriptions
         </span>
       </div>
@@ -15,12 +18,14 @@
           :icon="'upload'"
           :icon-alt="'Upload icon'"
           :name="'upload'"
+          :descriptor="'Push items'"
           @click="dispatchAction"
         />
         <MenuAction
           :icon="'fetch'"
           :icon-alt="'Fetch icon'"
           :name="'fetch'"
+          :descriptor="'Fetch items'"
           @click="dispatchAction"
         />
       </div>
@@ -37,6 +42,15 @@ export default {
     MenuAction
   },
   methods: {
+    toggleTheme () {
+      let html = document.querySelector('html')
+
+      if (html.hasAttribute('data-theme')) {
+        html.removeAttribute('data-theme')
+      } else {
+        html.setAttribute('data-theme', 'darkmode')
+      }
+    },
     dispatchAction (action) {
       switch (action) {
         case 'fetch':
@@ -94,6 +108,10 @@ export default {
 
       @include from($mobile) {
         max-width: 80vw;
+      }
+
+      .brand:hover{
+        cursor: pointer;
       }
 
       .nav{

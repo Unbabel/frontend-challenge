@@ -47,6 +47,10 @@ export default {
     extraClass: {
       type: String,
       default: ''
+    },
+    placeholder: {
+      type: String,
+      default: ''
     }
   },
   data () {
@@ -59,18 +63,32 @@ export default {
     }
   },
   mounted () {
-    this.value = this.localValue = this.initialValue
-    this.maxWidth = `${this.$refs.inputControl.getBoundingClientRect().width - 20}px`
+    if (this.initialValue.length > 0) {
+      this.value = this.localValue = this.initialValue
+    } else {
+      this.value = this.placeholder
+    }
+
+    this.maxWidth = `${this.$refs.inputControl.offsetWidth - 15}px`
   },
   computed: {
     valueChanged () {
       return this.localValue !== this.initialValue
+    },
+    hasPlaceholder () {
+      return this.placeholder.length > 0
     }
   },
   methods: {
     triggerEdit () {
       this.isEditing = true
       setTimeout(() => {
+        if (this.hasPlaceholder) {
+          if (!this.valueChanged) {
+            this.value = ''
+          }
+        }
+
         this.$refs.textInput.focus()
         positionCursorEnd(this.$refs.textInput)
       }, eventIntervalBuffer)
@@ -91,7 +109,11 @@ export default {
         this.$refs.textInput.blur()
 
         if (this.localValue.length === 0) {
-          this.value = this.initialValue
+          if (this.hasPlaceholder) {
+            this.value = this.placeholder
+          } else {
+            this.value = this.initialValue
+          }
         }
 
         if (this.valueChanged) {
@@ -135,6 +157,10 @@ export default {
       transition: box-shadow $default-transition-speed;
       margin: 0;
 
+      &:before {
+        content: "\feff ";
+      }
+
       &:hover{
         box-shadow: inset 0 0px 0px 2px rgba($gray, .1);
         transition: box-shadow $default-transition-speed;
@@ -148,6 +174,7 @@ export default {
 
       &.fullwidth{
         width: 100%;
+        max-width: 100%;
       }
 
       &.editing{

@@ -3,6 +3,7 @@
     href=""
     :name="name"
     :class="name"
+    :title="descriptor"
     class="nav-item btn"
     @click.prevent="emitClick"
   >
@@ -30,6 +31,10 @@ export default {
     name: {
       type: String,
       default: ''
+    },
+    descriptor: {
+      type: String,
+      default: 'Menu action'
     }
   },
   methods: {
