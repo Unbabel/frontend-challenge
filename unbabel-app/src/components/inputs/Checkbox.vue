@@ -49,6 +49,7 @@ export default {
   },
   methods: {
     emitChange () {
+      console.log('changedValue')
       this.$emit('changedValue', this.value)
     }
   }

@@ -4,6 +4,7 @@
       <TextInput
         :initial-value="'Title'"
         :extra-class="'headline'"
+        :name="'title'"
         @changedValue="saveTitle"
       />
     </div>
@@ -16,7 +17,7 @@
     <div class="footer">
       <a
         href="#"
-        class="btn"
+        class="btn close"
         @click.prevent="close"
       >Cancel</a>
       <a
