@@ -134,11 +134,14 @@ export default {
     background: $white;
     border: 2px solid darken($gray-lighter, 1%);
     border-bottom: 0;
-    border-top-right-radius: $default-border-radius;
-    border-top-left-radius: $default-border-radius;
     width: auto;
 
-    &:last-child{
+    &:first-child{
+      border-top-right-radius: $default-border-radius;
+      border-top-left-radius: $default-border-radius;
+    }
+
+    &:nth-last-of-type(2){
       border-top: 2px solid darken($gray-lighter, 1%);
       border-bottom: 2px solid darken($gray-lighter, 1%);
       border-bottom-right-radius: $default-border-radius;
