@@ -1,8 +1,10 @@
 <template>
   <a
     href=""
-    class="nav-item btn"
     :name="name"
+    :class="name"
+    :title="descriptor"
+    class="nav-item btn"
     @click.prevent="emitClick"
   >
     <img
@@ -29,6 +31,10 @@ export default {
     name: {
       type: String,
       default: ''
+    },
+    descriptor: {
+      type: String,
+      default: 'Menu action'
     }
   },
   methods: {

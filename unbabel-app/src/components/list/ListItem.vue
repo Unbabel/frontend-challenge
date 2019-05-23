@@ -1,33 +1,50 @@
 <template>
-  <div class="list-item">
+  <div
+    class="list-item"
+    @mouseover="toggleHover(true)"
+    @mouseleave="toggleHover(false)"
+  >
 
     <div class="left-actions">
       <div class="actions">
         <Checkbox
           :initial-value="selected"
-          :id="id"
+          :id-for="id"
           @changedValue="toggleSelection"
         />
-        <img src="@/assets/icons/person.svg" alt="Person icon">
+        <PersonIcon
+          :active="isHovering"
+        />
       </div>
     </div>
+
     <div class="title">
-      <h3 v-text="voice" />
+      <TextInput
+        :initial-value="voice"
+        :extra-class="'headline'"
+        @changedValue="saveTitle"
+      />
     </div>
+
     <div class="right-actions">
       <div class="actions">
         <a
           href="#"
-          class="btn"
-          @click.prevent="selectItem"
+          class="btn remove"
+          title="Remove item"
+          @click.prevent="removeItem"
         >
-          <img src="@/assets/icons/delete.svg" alt="Person icon">
+          <img src="@/assets/icons/delete.svg" alt="Trash icon">
         </a>
       </div>
     </div>
 
     <div class="body">
-      <p v-text="text" />
+      <TextInput
+        :initial-value="text"
+        :extra-class="'fullwidth'"
+        @changedValue="saveBody"
+      />
     </div>
 
   </div>
@@ -35,11 +52,15 @@
 
 <script>
 import Checkbox from '@/components/inputs/Checkbox'
+import TextInput from '@/components/inputs/TextInput'
+import PersonIcon from '@/components/svg/PersonIcon'
 
 export default {
   name: 'ListItem',
   components: {
-    Checkbox
+    Checkbox,
+    TextInput,
+    PersonIcon
   },
   props: {
     id: {
@@ -62,9 +83,40 @@ export default {
       default: false
     }
   },
+  data () {
+    return {
+      isHovering: false
+    }
+  },
   methods: {
+    toggleHover (value) {
+      this.isHovering = value
+    },
     toggleSelection () {
-      this.$emit('toggleSelection', this.id)
+      this.$store.commit('transcriptions/updateField', {
+        id: this.id,
+        field: 'selected',
+        value: this.selected
+      })
+    },
+    saveTitle (value) {
+      this.$store.commit('transcriptions/updateField', {
+        id: this.id,
+        field: 'voice',
+        value: value
+      })
+    },
+    saveBody (value) {
+      this.$store.commit('transcriptions/updateField', {
+        id: this.id,
+        field: 'text',
+        value: value
+      })
+    },
+    removeItem () {
+      this.$store.commit('transcriptions/removeItem', {
+        id: this.id
+      })
     }
   }
 }
@@ -82,11 +134,14 @@ export default {
     background: $white;
     border: 2px solid darken($gray-lighter, 1%);
     border-bottom: 0;
-    border-top-right-radius: $default-border-radius;
-    border-top-left-radius: $default-border-radius;
     width: auto;
 
-    &:last-child{
+    &:first-child{
+      border-top-right-radius: $default-border-radius;
+      border-top-left-radius: $default-border-radius;
+    }
+
+    &:nth-last-of-type(2){
       border-top: 2px solid darken($gray-lighter, 1%);
       border-bottom: 2px solid darken($gray-lighter, 1%);
       border-bottom-right-radius: $default-border-radius;
@@ -109,16 +164,17 @@ export default {
     }
 
     .left-actions, .right-actions{
-      display: flex;
-      justify-content: center;
+      justify-content: flex-start;
     }
 
     //  Individual grid positioning
     .left-actions{
       grid-area: left;
-      justify-content: flex-start;
       .actions{
-        img{
+        .checkbox{
+          margin-top: 0.3em;
+        }
+        svg{
           margin-left: 1em;
         }
       }
@@ -126,26 +182,15 @@ export default {
 
     .title{
       grid-area: title;
-      > * {
-        color: $gray;
-        font-family: $font-montserrat;
-        font-weight: $font-weight-semibold;
-        margin: 0;
-      }
     }
 
     .right-actions{
       grid-area: right;
-      justify-content: flex-end;
       z-index: -1;
       .actions{
         opacity: 0;
         transition: opacity $default-transition-speed;
       }
-    }
-
-    .title, .body{
-      padding: 0 .5em;
     }
 
     .body{

@@ -6,7 +6,10 @@
   >
     <div class="inner-nav">
       <div class="nav-left">
-        <span class="nav-item brand">
+        <span
+          class="nav-item brand"
+          @click.prevent="toggleTheme"
+        >
           Transcriptions
         </span>
       </div>
@@ -15,12 +18,14 @@
           :icon="'upload'"
           :icon-alt="'Upload icon'"
           :name="'upload'"
+          :descriptor="'Push items'"
           @click="dispatchAction"
         />
         <MenuAction
           :icon="'fetch'"
           :icon-alt="'Fetch icon'"
           :name="'fetch'"
+          :descriptor="'Fetch items'"
           @click="dispatchAction"
         />
       </div>
@@ -37,6 +42,15 @@ export default {
     MenuAction
   },
   methods: {
+    toggleTheme () {
+      let html = document.querySelector('html')
+
+      if (html.hasAttribute('data-theme')) {
+        html.removeAttribute('data-theme')
+      } else {
+        html.setAttribute('data-theme', 'darkmode')
+      }
+    },
     dispatchAction (action) {
       switch (action) {
         case 'fetch':
@@ -52,14 +66,24 @@ export default {
       this.$store
         .dispatch('transcriptions/GET_TRANSCRIPTS')
         .then(res => {
-          console.log(res.data)
+          res.data.map(item => {
+            item['selected'] = false
+          })
+          this.$store.commit('transcriptions/saveTranscripts', res.data)
         })
         .catch(err => {
           console.log(err)
         })
     },
     pushTranscripts () {
-      console.log('pushTranscripts')
+      this.$store
+        .dispatch('transcriptions/PUSH_TRANSCRIPTS')
+        .then(res => {
+          console.log('🤙')
+        })
+        .catch(err => {
+          console.log(err)
+        })
     }
   }
 }
@@ -67,6 +91,9 @@ export default {
 
 <style lang="scss">
   .nav{
+    position: fixed;
+    top: 0;
+    left: 0;
     background: $white;
     width: 100%;
     @include shadow-no-hover();
@@ -81,6 +108,10 @@ export default {
 
       @include from($mobile) {
         max-width: 80vw;
+      }
+
+      .brand:hover{
+        cursor: pointer;
       }
 
       .nav{

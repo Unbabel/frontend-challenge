@@ -6,42 +6,59 @@
       :id="transcript.id"
       :voice="transcript.voice"
       :text="transcript.text"
+      :selected="transcript.selected"
     />
     <div
-      v-if="transcripts.length === 0"
+      v-if="transcripts.length === 0 && !addItem"
       class="empty-list"
     >
       <p>No transcripts available</p>
     </div>
     <div class="list-action">
-      <a
-        href="#"
-        class="btn rounded"
-        @click.prevent="newItem"
-      >
-        <img src="@/assets/icons/add.svg" alt="Add icon">
-      </a>
+      <NewItem
+        v-if="addItem"
+        @close="closeItem"
+      />
+      <div class="action-wrapper">
+        <a
+          href="#"
+          class="btn rounded"
+          @click.prevent="newItem"
+        >
+          <img src="@/assets/icons/add.svg" alt="Add icon">
+        </a>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import ListItem from '@/components/list/ListItem'
+import NewItem from '@/components/list/NewItem'
 import { mapGetters } from 'vuex'
 
 export default {
   name: 'List',
   components: {
-    ListItem
+    ListItem,
+    NewItem
   },
-  computed: {
-      ...mapGetters('transcriptions', [
-        'transcripts'
-      ])
-    },
+  data () {
+    return {
+      addItem: false
+    }
+  },
+  computed: {
+    ...mapGetters('transcriptions', [
+      'transcripts'
+    ])
+  },
   methods: {
     newItem () {
-      console.log('new item')
+      this.addItem = true
+    },
+    closeItem () {
+      this.addItem = false
     }
   }
 }
@@ -57,11 +74,11 @@ export default {
     max-width: 95vw;
 
     .empty-list, .list-action{
-      text-align: center;
       padding: 1.5em;
     }
 
     .empty-list{
+      text-align: center;
       padding: .5em;
       > *{
         color: $gray;
@@ -70,7 +87,14 @@ export default {
     }
 
     .list-action{
+      display: flex;
+      flex-direction: column;
       padding: 1.5em;
+
+      .action-wrapper{
+        text-align: center;
+        width: 100%;
+      }
     }
 
     @include from($mobile) {
