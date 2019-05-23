@@ -7,8 +7,6 @@
       :voice="transcript.voice"
       :text="transcript.text"
       :selected="transcript.selected"
-      @toggleSelection="toggleSelection"
-      @removeItem="removeItem"
     />
     <NewItem
       v-if="addItem"
@@ -59,16 +57,6 @@ export default {
     },
     closeItem () {
       this.addItem = false
-    },
-    toggleSelection (data) {
-      this.$store.commit('transcriptions/updateField', {
-        id: data.id,
-        field: 'selected',
-        value: data.selected
-      })
-    },
-    removeItem (data) {
-      this.$store.commit('transcriptions/removeItem', data)
     }
   }
 }

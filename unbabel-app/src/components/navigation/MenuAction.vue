@@ -1,8 +1,9 @@
 <template>
   <a
     href=""
-    class="nav-item btn"
     :name="name"
+    :class="name"
+    class="nav-item btn"
     @click.prevent="emitClick"
   >
     <img

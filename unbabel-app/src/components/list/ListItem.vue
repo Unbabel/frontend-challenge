@@ -30,7 +30,7 @@
       <div class="actions">
         <a
           href="#"
-          class="btn"
+          class="btn remove"
           title="Remove item"
           @click.prevent="removeItem"
         >
@@ -93,9 +93,10 @@ export default {
       this.isHovering = value
     },
     toggleSelection () {
-      this.$emit('toggleSelection', {
+      this.$store.commit('transcriptions/updateField', {
         id: this.id,
-        selected: !this.selected
+        field: 'selected',
+        value: this.selected
       })
     },
     saveTitle (value) {
@@ -113,7 +114,7 @@ export default {
       })
     },
     removeItem () {
-      this.$emit('removeItem', {
+      this.$store.commit('transcriptions/removeItem', {
         id: this.id
       })
     }

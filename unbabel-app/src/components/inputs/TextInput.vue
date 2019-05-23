@@ -12,16 +12,17 @@
     <span
       ref="textInput"
       v-text="value"
-      :class="[{ 'editing': isEditing }, extraClass]"
+      :class="[{ 'editing': isEditing }, extraClass, name]"
       :style="{ maxWidth: maxWidth }"
       :contenteditable="isEditing"
+      :name="name"
       class="input"
       title="Click to edit"
       @click.self="triggerEdit"
       @input="storeValue"
-      @blur="blurInput"
-      @keydown.enter.prevent="blurInput"
-      @keydown.esc.prevent="blurInput"
+      @blur="handleBlur"
+      @keydown.enter.prevent="handleBlur"
+      @keydown.esc.prevent="handleBlur"
     />
   </div>
 </template>
@@ -36,6 +37,10 @@ export default {
   name: 'TextInput',
   props: {
     initialValue: {
+      type: String,
+      default: ''
+    },
+    name: {
       type: String,
       default: ''
     },
@@ -57,6 +62,11 @@ export default {
     this.value = this.localValue = this.initialValue
     this.maxWidth = `${this.$refs.inputControl.getBoundingClientRect().width - 20}px`
   },
+  computed: {
+    valueChanged () {
+      return this.localValue !== this.initialValue
+    }
+  },
   methods: {
     triggerEdit () {
       this.isEditing = true
@@ -68,28 +78,32 @@ export default {
     storeValue (e) {
       this.localValue = e.target.innerText
     },
-    blurInput () {
+    handleBlur () {
       //  Hackish: avoids double method trigger when pressing Enter/Esc to save value.
       //  Ideally should handle Esc to cancel changes & Enter to submit.
       if (!this.isSaving) {
         this.isSaving = true
-
-        setTimeout(() => {
-          this.$refs.textInput.blur()
-
-          if (this.localValue.length === 0) {
-            this.value = this.initialValue
-          }
-
-          if (this.localValue !== this.initialValue) {
-            this.$emit('changedValue', this.localValue)
-            this.value = this.localValue
-          }
-
-          this.isEditing = false
-          this.isSaving = false
-        }, eventIntervalBuffer)
+        this.dispatchChange()
       }
+    },
+    dispatchChange () {
+      setTimeout(() => {
+        this.$refs.textInput.blur()
+
+        if (this.localValue.length === 0) {
+          this.value = this.initialValue
+        }
+
+        if (this.valueChanged) {
+          this.$emit('changedValue', this.localValue)
+          this.value = this.localValue
+        }
+
+        this.resetStates()
+      }, eventIntervalBuffer)
+    },
+    resetStates () {
+      this.isEditing = this.isSaving = false
     }
   }
 }
