@@ -1,0 +1,10 @@
+<ul>
+  <li 
+    *ngFor="let transcription of transcriptions; let first = first" 
+    class="list-item">
+    <ts-transcription
+      [t-title]="transcription.voice"
+      [t-transcription]="transcription.text">
+    </ts-transcription>
+  </li>
+</ul>

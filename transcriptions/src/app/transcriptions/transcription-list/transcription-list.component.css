@@ -1,0 +1,10 @@
+.list-item-first {
+    border: 1px solid #eaedef;
+}
+
+.list-item {
+    border-width: 1px 1px 1px 1px;
+    border-style: solid;
+    border-color:  #eaedef;
+    margin-top: -1px;
+}

@@ -1,2 +1,9 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+
+.flex{
+    display: flex;
+    flex-direction: column;
+}
+.transcription-list {
+    background-color: #ffffff;
+    margin: 22px 143px 0 143px;
+}

@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:600&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+
+.grid-container {
+    padding: 24px;
+    display: grid;
+    grid-template-columns: 56px 34px 1fr 50px;
+    grid-template-rows: 30px 1fr;
+    align-items: center;
+}
+
+.item-c {
+    grid-column: 3;
+    grid-row: 1;
+}
+
+.item-d {
+    grid-column: 3;
+    grid-row: 2;
+}
+
+textarea {
+    resize: none;
+    text-align: justify;
+    border: none;
+
+    height: 100px;
+    width: 100%;
+
+    font-family: 'Open Sans', sans-serif;
+    font-weight:400;
+    font-size: 16px;
+    color: #414C5E;
+}
+
+input[type="text"] {
+    border: none;
+    height: 26px;
+    width: 100%;
+
+    font-family: 'Montserrat';
+    font-weight:600;
+    font-size: 16px;
+    color: #566074;
+}
+
+#trash-img {
+    justify-self: end;
+}
