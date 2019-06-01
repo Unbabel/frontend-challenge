@@ -4,7 +4,7 @@
 .grid-container {
     padding: 24px;
     display: grid;
-    grid-template-columns: 56px 34px 1fr 50px;
+    grid-template-columns: 38px 34px 1fr 50px;
     grid-template-rows: 30px 1fr;
     align-items: center;
 }
@@ -46,4 +46,12 @@ input[type="text"] {
 
 #delete-button {
     justify-self: end;
+}
+
+#checkbox {
+    margin-right:16px;
+}
+
+#person-img {
+    margin-right:8px;
 }

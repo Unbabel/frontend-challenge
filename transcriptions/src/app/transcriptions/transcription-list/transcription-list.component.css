@@ -23,3 +23,7 @@ ul {
     align-self: center;
     justify-self:  center;
 }
+
+.margin-top {
+    margin-top: 24px;
+}

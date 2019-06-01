@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:500&display=swap');
 header {
     background-color: #FFFFFF;
     height: 69px;
@@ -15,11 +15,17 @@ nav {
 }
 
 a {
-    font-family: 'Montserrat Medium', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    font-weight: 500;   
     display: flex;
     align-items: center;
     justify-content: flex-start; 
     flex-grow: 1;
     color: #414C5E;
     text-decoration: none;
+}
+
+.margin-right {
+    margin-right: 24px;
 }
