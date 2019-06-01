@@ -6,7 +6,7 @@ import { Component, OnInit, Output, HostListener, EventEmitter } from '@angular/
   styleUrls: ['./checkbox.component.css']
 })
 export class CheckboxComponent implements OnInit {
-  
+
   private checked: boolean = false;
 
   @Output('t-checked') checkedEmitter = new EventEmitter();
@@ -21,5 +21,4 @@ export class CheckboxComponent implements OnInit {
     this.checked = !this.checked;
     this.checkedEmitter.emit(this.checked);
   }
-
 }
