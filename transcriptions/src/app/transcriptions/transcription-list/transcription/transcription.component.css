@@ -44,6 +44,6 @@ input[type="text"] {
     color: #566074;
 }
 
-#trash-img {
+#delete-button {
     justify-self: end;
 }

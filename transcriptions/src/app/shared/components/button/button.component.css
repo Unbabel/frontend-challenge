@@ -1,0 +1,12 @@
+img {
+    padding: 5px;
+}
+
+img:hover {
+    border: 1px solid #eaedef;
+    box-shadow: 0 1px 1px 0px #414C5E;;
+}
+
+img:active {
+    transform: translateY(1.5px);
+}

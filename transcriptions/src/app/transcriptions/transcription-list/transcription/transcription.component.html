@@ -8,7 +8,13 @@
 
     <textarea name="textarea" class="item-d" id="transcription">{{ transcription }}</textarea>
 
-    <img src="assets/images/transcription/delete.svg" id="trash-img" [style.display]="hover ? 'block' : 'none'">
+    <ts-button
+        id="delete-button"
+        [style.display]="hover ? 'block' : 'none'"
+        t-type='delete'
+        t-height="20"
+        t-width="16">>
+    </ts-button>
 </section>
     
 
