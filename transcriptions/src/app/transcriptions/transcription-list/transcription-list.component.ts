@@ -17,6 +17,7 @@ export class TranscriptionListComponent implements OnInit {
   constructor(private transcriptionService: TranscriptionService) { }
 
   ngOnInit() {
+    this.addTranscription();
     
   }
 

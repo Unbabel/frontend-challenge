@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 
 import { TranscriptionComponent } from './transcription.component';
 import { ButtonModule } from 'src/app/shared/components/button/button.module';
+import { CheckboxModule } from 'src/app/shared/components/checkbox/checkbox.module';
 
 @NgModule({
   declarations: [TranscriptionComponent],
@@ -14,7 +15,8 @@ import { ButtonModule } from 'src/app/shared/components/button/button.module';
     BrowserModule,
     HttpClientModule,
     ButtonModule,
-    FormsModule
+    FormsModule,
+    CheckboxModule
   ],
   exports: [TranscriptionComponent],
 })

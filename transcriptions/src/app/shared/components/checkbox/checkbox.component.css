@@ -1,0 +1,27 @@
+.box {
+    width: 14px;
+    height: 14px;
+    border: 2px solid #859EFF;
+    border-radius: 2px;
+}
+
+.background {
+    background-color: #859EFF;
+}
+
+.check {
+    background: #fff;
+    height: 4px;
+    position: relative;
+    width: 2px;
+    transform: rotate(-45deg) translate(-2px,6px);
+}
+.check:after {
+    background: #fff;
+    content: "";
+    height: 2px;
+    left: 0px;
+    position: absolute;
+    top: 4px;
+    width: 10px;
+}
