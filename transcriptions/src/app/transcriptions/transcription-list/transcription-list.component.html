@@ -1,10 +1,24 @@
-<ul>
-  <li 
-    *ngFor="let transcription of transcriptions; let first = first" 
-    class="list-item">
-    <ts-transcription
-      [t-title]="transcription.voice"
-      [t-transcription]="transcription.text">
-    </ts-transcription>
-  </li>
-</ul>
+<div class="flex-container">
+  <ul>
+    <li 
+      *ngFor="let transcription of transcriptions; let first = first; let index = index" 
+      class="list-item">
+      <ts-transcription
+        (t-delete)="deleteTranscription(index)"
+        [t-id]="transcription.id"
+        [t-title]="transcription.voice"
+        [t-transcription]="transcription.text">
+      </ts-transcription>
+    </li>
+  </ul>
+
+  <div class="center">
+      <ts-button
+        t-type="add"
+        t-heigh="32"
+        t-width="32"
+        (t-click)="addTranscription()">
+    </ts-button>
+  </div>
+
+</div>

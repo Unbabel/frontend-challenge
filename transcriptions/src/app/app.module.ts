@@ -3,8 +3,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { AppComponent } from './app.component';
-import { HeaderModule } from './core/header/header.module';
-import { TranscriptionListModule } from './transcriptions/transcription-list/transcription-list.module';
+import { HomeModule } from './home/home.module';
 
 @NgModule({
   declarations: [
@@ -13,8 +12,7 @@ import { TranscriptionListModule } from './transcriptions/transcription-list/tra
   imports: [
     BrowserModule,
     CommonModule,
-    HeaderModule,
-    TranscriptionListModule
+    HomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

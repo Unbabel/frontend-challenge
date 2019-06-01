@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener, Input } from '@angular/core';
+import { Component, OnInit, HostListener, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'ts-transcription',
@@ -7,7 +7,9 @@ import { Component, OnInit, HostListener, Input } from '@angular/core';
 })
 export class TranscriptionComponent implements OnInit {
   public hover: boolean = false;
-  
+
+  @Output('t-delete') delete = new EventEmitter();
+  @Input('t-id')  id: number; 
   @Input('t-title') title: string = "";
   @Input('t-transcription') transcription: string = "";
 
@@ -15,7 +17,7 @@ export class TranscriptionComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  
   @HostListener('mouseenter')
   mouseEnter() {
     this.hover = true;
@@ -26,4 +28,7 @@ export class TranscriptionComponent implements OnInit {
     this.hover = false;
   }
 
+  deleteTranscription() {
+    this.delete.emit()
+  }
 }

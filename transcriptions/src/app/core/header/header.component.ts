@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'ts-header',
@@ -7,9 +7,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+  @Output('t-click-upload') uploadEmitter = new EventEmitter();
+  @Output('t-click-fetch') fetchEmitter = new EventEmitter();
+
   constructor() { }
 
   ngOnInit() {
   }
+
+  upload() {
+    this.uploadEmitter.emit()
+  }
+
+  fetch() {
+    this.fetchEmitter.emit()
+  }
+
 
 }

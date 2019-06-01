@@ -7,7 +7,7 @@ import { Component, OnInit, Input, HostListener, EventEmitter, Output } from '@a
 })
 export class ButtonComponent implements OnInit {
 
-  @Output('t-click') clicked = new EventEmitter();
+  @Output('t-click') clickEmitter = new EventEmitter();
   @Input('t-type') type: string = 'default';
   @Input('t-height') height: string = '24';
   @Input('t-width') width: string = '24';
@@ -19,6 +19,6 @@ export class ButtonComponent implements OnInit {
 
   @HostListener('click')
   onClick() {
-    this.clicked.emit();
+    this.clickEmitter.emit();
   }
 }

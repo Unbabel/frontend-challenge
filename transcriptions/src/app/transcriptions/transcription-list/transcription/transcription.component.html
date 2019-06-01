@@ -4,16 +4,26 @@
 
     <img src="assets/images/transcription/person.svg"  id="person-img">
 
-    <input type="text" [value]="title" class="item-c" id="title">
+    <input
+        [(ngModel)]="title"
+        type="text"  
+        class="item-c" 
+        id="title">
 
-    <textarea name="textarea" class="item-d" id="transcription">{{ transcription }}</textarea>
+    <textarea 
+        [(ngModel)]="transcription"
+        name="textarea" 
+        class="item-d" 
+        id="transcription">
+    </textarea>
 
     <ts-button
         id="delete-button"
         [style.display]="hover ? 'block' : 'none'"
         t-type='delete'
         t-height="20"
-        t-width="16">>
+        t-width="16"
+        (t-click)="deleteTranscription()">
     </ts-button>
 </section>
     

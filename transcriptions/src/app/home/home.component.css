@@ -1,0 +1,7 @@
+.flex{
+    display: flex;
+    flex-direction: column;
+}
+.transcription-list {
+    margin: 22px 143px 0 143px;
+}
