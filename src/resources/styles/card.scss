@@ -1,0 +1,47 @@
+@import './_master.scss';
+.card{
+    border: 1px solid #eceff1;
+    background-color: #fff;
+    padding: 26px;
+    &:hover{
+        background-color: #ececec;
+    }
+    .item{
+        display: flex;
+       
+    }
+    .icon{
+        margin-left: 20px;
+        margin-top:-3px;
+        cursor: pointer;
+       
+    }
+    .deleteIcon{
+        text-align: right;
+        margin-left: auto;
+        cursor: pointer;
+    }
+    .title{
+        font-family: Montserrat;
+        font-weight: $font-weight;
+        font-size: 16px;
+        color: #566074;
+        margin-left: 20px;
+    }
+    .content{
+        font-family: open Sans;
+        font-weight: $Regular;
+        font-size: 16px;
+        color: #778195;
+        text-align: left;
+        margin-left: 90px;
+        textarea{
+            width:100%;
+            min-height: 50px;
+        }
+       
+        @media #{$information-phone} {
+            margin-left: 0px;
+          }
+    }
+}

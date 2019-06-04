@@ -1,0 +1,22 @@
+@import'./_master.scss';
+.checkbox{
+    .label-checkbox {
+        width: $width;
+        height: $height;
+        color: #859EFF;
+        display:inline-block;
+        background-repeat:no-repeat;
+        font-size:17px;
+        cursor:pointer;
+        background-image:url('../../../src/resources/icons/checkbox-withoutsign.png');
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        &.checked{ 
+            background-image:url('../../../src/resources/icons/checkbox-withsign.png');
+        }
+    }
+}

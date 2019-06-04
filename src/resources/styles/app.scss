@@ -1,0 +1,47 @@
+
+    .app{
+        border: 1px solid;
+        border-color: #dedede;
+        -webkit-box-shadow: 0px 0px 2px 1px rgba(222,222,222,1);
+        -moz-box-shadow: 0px 0px 2px 1px rgba(222,222,222,1);
+        box-shadow: 0px 0px 2px 1px rgba(222,222,222,1);
+        .header{
+            display: flex;
+            border-bottom: 2px solid #c6c7c8;
+            .title{
+                margin-left: 130px;
+                font-family: Montserrat;
+                font-weight: 500;
+                font-size: 18px;
+                color: #414C5E;
+            }
+            .icon{
+                display: flex;
+                margin-top: 17px;
+                margin-left: auto;
+                margin-right: 135px;
+                cursor: pointer;
+                .upload{
+                    margin-right: 30px;
+                }
+            }
+        }
+        .container{
+            padding:40px 100px 30px 100px;
+            .addRow{
+                text-align: center;
+            }
+            .icon{
+                cursor: pointer;
+            }
+            .card-list{
+                margin-bottom: 18px;
+            }
+        }
+       
+        .body{
+           background-color:  #f6f7f8;
+           min-height: calc(100vh-64px);
+        }
+    }
+
