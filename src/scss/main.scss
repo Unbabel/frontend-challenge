@@ -1,25 +1,2 @@
 @import 'fonts.scss';
 @import 'variables.scss';
-
-body {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-h1 {
-  font-family: $ff-m-medium;
-  font-size: 18px;
-  color: #414C5E;
-}
-
-h2 {
-  font-family: $ff-m-semibold;
-  font-size: 16px;
-  color: #566074;
-}
-
-p {
-  font-family: $ff-os;
-  font-size: 16px;
-  color: #778195;
-}

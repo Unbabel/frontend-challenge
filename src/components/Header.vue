@@ -41,6 +41,10 @@ header {
     align-items: center;
     justify-content: space-between;
 
+    h1 {
+      @include header-title;
+    }
+
     span {
       width: 24px;
       height: 24px;

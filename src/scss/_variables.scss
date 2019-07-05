@@ -3,12 +3,12 @@ $ff-os: 'Open Sans', Helvetica, Arial, sans-serif;
 $ff-m-medium: 'Montserrat Medium', Helvetica, Arial, sans-serif;
 $ff-m-semibold: 'Montserrat SemiBold', Helvetica, Arial, sans-serif;
 
-
-// $default-time: 150ms;
-// $default-time-long: 400ms;
-// $default-loader-time: 400ms;
-// $default-easing: ease-in-out;
-// $custom-easing: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+// timings and easings
+$default-time: 150ms;
+$default-time-long: 400ms;
+$default-loader-time: 400ms;
+$default-easing: ease-in-out;
+$custom-easing: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
 // dimensions
 $header-height: 69px;
@@ -18,14 +18,25 @@ $content-width: 738px;
 
 // colors
 $proj-bg: #F6F7F8;
-$border-color: #EAEDEF;
-
-
+$list-border-color: #EAEDEF;
+$checkbox-border-color: #859EFF;
 
 // mixins
-@mixin titles {
-  font-family: $ff-semibold;
+@mixin header-title {
+  font-family: $ff-m-medium;
   font-size: 18px;
+  color: #414C5E;
+}
+@mixin list-title {
+  font-family: $ff-m-semibold;
+  font-size: 16px;
+  color: #566074;
+}
+@mixin list-text {
+  font-family: $ff-os;
+  font-size: 16px;
+  line-height: 22px;
+  color: #778195;
 }
 
 // Responsive sizes
