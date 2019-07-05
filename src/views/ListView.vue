@@ -1,8 +1,8 @@
 <template>
   <div>
-    <Header></Header>
+    <Header @uploadData="handleDataUpload" @fetchData="handleDataFetch"></Header>
     <section>
-      <List :list-data="data"></List>
+      <List :list-data="data" @deleteData="handleDataDeletion"></List>
     </section>
   </div>
 </template>
@@ -17,20 +17,21 @@ export default {
     Header,
     List
   },
-  data: function () {
-    return {
-      fetchListData: function () {
-        this.$store.dispatch('fetchListData')
-      }
+  methods: {
+    handleDataUpload: function () {
+      console.log('data upload handled!')
+    },
+    handleDataFetch: function () {
+      this.$store.dispatch('fetchListData')
+    },
+    handleDataDeletion: function (ev, id) {
+      console.log('data deletion handled!', id)
     }
   },
   computed: {
     data () {
       return this.$store.state.list.listData
     }
-  },
-  created () {
-    this.fetchListData()
   }
 }
 </script>
@@ -39,7 +40,8 @@ export default {
 @import '@/scss/main.scss';
 
 section {
-  width: $content-width;
+  width: 100%;
+  max-width: $content-width;
   margin: $default-margin auto;
 }
 </style>

@@ -3,8 +3,8 @@
     <div class="content">
       <h1>Transcriptions</h1>
       <div>
-        <span class="upload"></span>
-        <span class="fetch"></span>
+        <span class="upload" v-on:click="uploadData"></span>
+        <span class="fetch" v-on:click="fetchData"></span>
       </div>
     </div>
   </header>
@@ -15,8 +15,13 @@
 
 export default {
   name: 'Header',
-  props: {
-    msg: String
+  methods: {
+    uploadData: function () {
+      this.$emit('uploadData')
+    },
+    fetchData: function () {
+      this.$emit('fetchData')
+    }
   }
 }
 </script>
@@ -34,7 +39,7 @@ header {
   justify-content: center;
 
   .content {
-    width: $content-width;
+    width: $header-width;
     padding: 0 $default-padding;
     display: flex;
     flex-flow: row nowrap;

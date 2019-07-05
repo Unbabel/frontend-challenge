@@ -5,12 +5,11 @@
 </template>
 
 <style lang="scss">
-@import '@/scss/reset.scss';
 @import '@/scss/main.scss';
+@import '@/scss/reset.scss';
 
 #app {
-  background-color: $proj-bg;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
 }
 </style>

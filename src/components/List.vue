@@ -2,14 +2,14 @@
   <div>
     <ul>
       <li v-for="item in listData" :key="item.id">
-        <input type="checkbox" :id="item.id" v-model="checked">
+        <input type="checkbox" :id="item.id">
         <label :for="item.id"></label>
         <i class="person"></i>
         <div>
           <h2>{{ item.voice }}</h2>
           <p>{{ item.text }}</p>
         </div>
-        <i class="delete"></i>
+        <i class="delete" v-on:click="deleteData(item.id)"></i>
       </li>
     </ul>
     <i class="add-row"></i>
@@ -24,8 +24,11 @@ export default {
   props: {
     listData: Array
   },
-  mounted: function () {
-    console.log('listData', this.listData)
+  methods: {
+    deleteData: function (id) {
+      console.log('delete', id)
+      this.$emit('deleteData', id)
+    }
   }
 }
 </script>
@@ -36,7 +39,7 @@ export default {
 ul {
   list-style: none;
   margin: 0 0 $default-margin 0;
-  padding: 0;
+  padding: 0 $default-padding;
 
   li {
     position: relative;
