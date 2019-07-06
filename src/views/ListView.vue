@@ -33,7 +33,7 @@ export default {
   },
   computed: {
     data () {
-      return this.$store.state.list.listData
+      return this.$store.state.transcriptions.transcriptionsData
     }
   }
 }

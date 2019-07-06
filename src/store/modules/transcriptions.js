@@ -3,14 +3,14 @@ import _ from 'lodash'
 
 export default {
   state: {
-    listData: null
+    transcriptionsData: []
   },
   mutations: {
     modifyListData (state, data) {
-      state.listData = data
+      state.transcriptionsData = data
     },
     deleteListItem (state, id) {
-      state.listData = _.remove(state.listData, (arr) => {
+      state.transcriptionsData = _.remove(state.transcriptionsData, (arr) => {
         return arr.id !== id
       })
     },
@@ -20,7 +20,7 @@ export default {
         voice: '',
         text: ''
       }
-      state.listData.push(listItem)
+      state.transcriptionsData.push(listItem)
     }
   },
   actions: {
@@ -39,8 +39,8 @@ export default {
       ctx.commit('deleteListItem', id)
     },
     uploadListData (ctx, data) {
-      console.log('list state before save', this.state.list.listData)
-      listApi.saveListData(this.state.list.listData).then((res) => {
+      console.log('list state before save', this.state.transcriptions.transcriptionsData)
+      listApi.saveListData(this.state.transcriptions.transcriptionsData).then((res) => {
         console.log('list data correctly saved', res)
       }, (err) => {
         console.log('error saving list data', err)

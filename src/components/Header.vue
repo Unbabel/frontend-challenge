@@ -3,16 +3,14 @@
     <div class="content">
       <h1>Transcriptions</h1>
       <div>
-        <span class="upload" v-on:click="uploadData"></span>
-        <span class="fetch" v-on:click="fetchData"></span>
+        <i class="upload" v-on:click="uploadData"></i>
+        <i class="fetch" v-on:click="fetchData"></i>
       </div>
     </div>
   </header>
 </template>
 
 <script>
-// import Header from '@/components/Header.vue'
-
 export default {
   name: 'Header',
   methods: {
@@ -50,7 +48,7 @@ header {
       @include header-title;
     }
 
-    span {
+    i {
       width: 24px;
       height: 24px;
       cursor: pointer;

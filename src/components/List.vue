@@ -2,12 +2,11 @@
   <div>
     <ul>
       <li v-for="item in listData" :key="item.id">
-        <input type="checkbox" :id="item.id">
-        <label :for="item.id"></label>
+        <Checkbox :id="item.id"></Checkbox>
         <i class="person"></i>
-        <div>
-          <h2>{{ item.voice }}</h2>
-          <p>{{ item.text }}</p>
+        <div class="text-container">
+          <EditableText v-model="item.voice" :custom-class="'voice'"></EditableText>
+          <EditableText v-model="item.text" :custom-class="'text'" :type="'multiline'"></EditableText>
         </div>
         <i class="delete" v-on:click="deleteData(item.id)"></i>
       </li>
@@ -17,10 +16,17 @@
 </template>
 
 <script>
+import Checkbox from '@/components/Checkbox.vue'
+import EditableText from '@/components/EditableText.vue'
+
 export default {
   name: 'Header',
   props: {
     listData: Array
+  },
+  components: {
+    Checkbox,
+    EditableText
   },
   methods: {
     deleteData: function (id) {
@@ -61,41 +67,6 @@ ul {
       opacity: 1;
     }
 
-    input {
-      display: none;
-    }
-
-    label {
-      width: 16px;
-      height: 16px;
-      border-radius: 2px;
-      border: 2px solid $checkbox-border-color;
-      flex-shrink: 0;
-      cursor: pointer;
-      position: relative;
-      margin: 5px 16px 0 0;
-
-      &::before {
-        content: '';
-        position: absolute;
-        top: 2px;
-        left: 1px;
-        width: 11px;
-        height: 8px;
-        z-index: 1;
-        background: url('/images/check-mark.svg') center / cover no-repeat;
-        display: none;
-      }
-    }
-
-    input:checked + label {
-      background-color: $checkbox-border-color;
-
-      &::before {
-        display: block;
-      }
-    }
-
     i {
       &.person {
         background: url('/images/person.svg') center / cover no-repeat;
@@ -119,16 +90,8 @@ ul {
       }
     }
 
-    div {
-
-      h2 {
-        @include list-title;
-        margin: 5px 0 8px 0;
-      }
-
-      p {
-        @include list-text;
-      }
+    .text-container {
+      width: 100%;
     }
   }
 }

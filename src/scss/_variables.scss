@@ -31,6 +31,7 @@ $checkbox-border-color: #859EFF;
 @mixin list-title {
   font-family: $ff-m-semibold;
   font-size: 16px;
+  line-height: 22px;
   color: #566074;
 }
 @mixin list-text {
