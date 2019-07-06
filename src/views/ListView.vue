@@ -2,7 +2,7 @@
   <div>
     <Header @uploadData="handleDataUpload" @fetchData="handleDataFetch"></Header>
     <section>
-      <List :list-data="data" @deleteData="handleDataDeletion"></List>
+      <List :list-data="data" @deleteData="handleDataDeletion" @addData="handleNewData"></List>
     </section>
   </div>
 </template>
@@ -19,13 +19,16 @@ export default {
   },
   methods: {
     handleDataUpload: function () {
-      console.log('data upload handled!')
+      this.$store.dispatch('uploadListData')
     },
     handleDataFetch: function () {
       this.$store.dispatch('fetchListData')
     },
-    handleDataDeletion: function (ev, id) {
-      console.log('data deletion handled!', id)
+    handleDataDeletion: function (id) {
+      this.$store.dispatch('deleteListData', id)
+    },
+    handleNewData: function () {
+      this.$store.dispatch('addNewData')
     }
   },
   computed: {

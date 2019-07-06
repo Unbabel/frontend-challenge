@@ -12,13 +12,11 @@
         <i class="delete" v-on:click="deleteData(item.id)"></i>
       </li>
     </ul>
-    <i class="add-row"></i>
+    <i class="add-row" v-on:click="addNewData"></i>
   </div>
 </template>
 
 <script>
-// import Header from '@/components/Header.vue'
-
 export default {
   name: 'Header',
   props: {
@@ -26,8 +24,10 @@ export default {
   },
   methods: {
     deleteData: function (id) {
-      console.log('delete', id)
       this.$emit('deleteData', id)
+    },
+    addNewData: function () {
+      this.$emit('addData')
     }
   }
 }
