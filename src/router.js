@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import ListView from './views/ListView.vue'
+import TranscriptionsView from './views/TranscriptionsView.vue'
 
 Vue.use(Router)
 
@@ -10,8 +10,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'list',
-      component: ListView
+      name: 'transcriptions',
+      component: TranscriptionsView
     }
   ]
 })

@@ -2,20 +2,20 @@
   <div>
     <Header @uploadData="handleDataUpload" @fetchData="handleDataFetch"></Header>
     <section>
-      <List :list-data="data" @deleteData="handleDataDeletion" @addData="handleNewData"></List>
+      <TranscriptionsList :list-data="data"></TranscriptionsList>
     </section>
   </div>
 </template>
 
 <script>
-import Header from '@/components/Header.vue'
-import List from '@/components/List.vue'
+import Header from '@/components/core/Header.vue'
+import TranscriptionsList from '@/components/transcriptions/TranscriptionsList.vue'
 
 export default {
-  name: 'ListView',
+  name: 'TranscriptionsView',
   components: {
     Header,
-    List
+    TranscriptionsList
   },
   methods: {
     handleDataUpload: function () {
@@ -23,12 +23,6 @@ export default {
     },
     handleDataFetch: function () {
       this.$store.dispatch('fetchListData')
-    },
-    handleDataDeletion: function (id) {
-      this.$store.dispatch('deleteListData', id)
-    },
-    handleNewData: function () {
-      this.$store.dispatch('addNewData')
     }
   },
   computed: {

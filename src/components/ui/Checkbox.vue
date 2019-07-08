@@ -41,7 +41,7 @@ label {
     width: 11px;
     height: 8px;
     z-index: 1;
-    background: url('/images/check-mark.svg') center / cover no-repeat;
+    background: url('~@/assets/images/check-mark.svg') center / cover no-repeat;
     display: none;
   }
 }

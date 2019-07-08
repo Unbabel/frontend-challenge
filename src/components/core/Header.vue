@@ -56,11 +56,11 @@ header {
       display: inline-block;
 
       &.upload {
-        background: url('/images/upload.svg') center / cover no-repeat;
+        background: url('~@/assets/images/upload.svg') center / cover no-repeat;
       }
 
       &.fetch {
-        background: url('/images/fetch-document.svg') center / cover no-repeat;
+        background: url('~@/assets/images/fetch-document.svg') center / cover no-repeat;
       }
     }
   }

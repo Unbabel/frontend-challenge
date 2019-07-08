@@ -3,8 +3,8 @@
     <span :class="[{'empty': !value}, {'hide': activeInput}, customClass]" v-on:click="toogleInput">
       {{ value ? value : 'Click to add content here...' }}
     </span>
-    <input v-if="type !== 'multiline'" ref="input" type="text" :value="value" v-on:input="$emit('input', $event.target.value)" v-on:blur="toogleInput">
-    <textarea v-if="type === 'multiline'" ref="input" type="text" :value="value" v-on:input="$emit('input', $event.target.value)" v-on:blur="toogleInput"></textarea>
+    <input v-if="type !== 'multiline'" ref="input" type="text" :value="value" v-on:input="inputEvent" v-on:blur="toogleInput">
+    <textarea v-if="type === 'multiline'" ref="input" :value="value" v-on:input="inputEvent" v-on:blur="toogleInput"></textarea>
   </div>
 </template>
 
@@ -33,6 +33,9 @@ export default {
           input.focus()
         }, 50)
       }
+    },
+    inputEvent: function (ev) {
+      this.$emit('input', ev.target.value.trim())
     }
   }
 }
@@ -93,6 +96,7 @@ span {
     display: none;
     width: 100%;
     resize: none;
+    height: 150px;
   }
 }
 </style>

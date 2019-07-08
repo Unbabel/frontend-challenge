@@ -1,4 +1,4 @@
-import listApi from '@/api/listApi'
+import transcriptionsApi from '@/api/transcriptionsApi'
 import _ from 'lodash'
 
 export default {
@@ -25,7 +25,7 @@ export default {
   },
   actions: {
     fetchListData (ctx) {
-      listApi.fetchListData().then((res) => {
+      transcriptionsApi.fetchListData().then((res) => {
         ctx.commit('modifyListData', res.data)
         console.log('list data correctly fetched', res)
       }, (err) => {
@@ -40,7 +40,7 @@ export default {
     },
     uploadListData (ctx, data) {
       console.log('list state before save', this.state.transcriptions.transcriptionsData)
-      listApi.saveListData(this.state.transcriptions.transcriptionsData).then((res) => {
+      transcriptionsApi.saveListData(this.state.transcriptions.transcriptionsData).then((res) => {
         console.log('list data correctly saved', res)
       }, (err) => {
         console.log('error saving list data', err)
