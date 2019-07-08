@@ -10,7 +10,10 @@
 export default {
   name: 'Checkbox',
   props: {
-    id: Number
+    id: {
+      required: true,
+      type: Number
+    }
   }
 }
 </script>

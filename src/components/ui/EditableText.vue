@@ -13,7 +13,10 @@
 export default {
   name: 'EditableText',
   props: {
-    value: String,
+    value: {
+      required: true,
+      type: String
+    },
     customClass: String,
     type: String
   },

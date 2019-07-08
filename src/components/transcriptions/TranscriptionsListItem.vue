@@ -17,7 +17,10 @@ import EditableText from '@/components/ui/EditableText.vue'
 export default {
   name: 'TranscriptionsListItem',
   props: {
-    item: Object
+    item: {
+      required: true,
+      type: Object
+    }
   },
   components: {
     Checkbox,
@@ -25,7 +28,7 @@ export default {
   },
   methods: {
     deleteData: function (id) {
-      this.$store.dispatch('deleteListData', id)
+      this.$store.dispatch('deleteTranscription', id)
     }
   }
 }

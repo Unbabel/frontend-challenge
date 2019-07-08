@@ -1,9 +1,10 @@
 import axios from 'axios'
+import appConfig from '@/config'
 
 export default {
-  fetchListData () {
+  fetchTranscriptions () {
     return new Promise((resolve, reject) => {
-      axios.get('http://www.mocky.io/v2/5ae1c5792d00004d009d7e5c')
+      axios.get(appConfig.apiPath)
         .then(function (res) {
           resolve(res)
         })
@@ -12,9 +13,9 @@ export default {
         })
     })
   },
-  saveListData (data) {
+  saveTranscriptions (data) {
     return new Promise(function (resolve, reject) {
-      axios.post('http://www.mocky.io/v2/5ae1c5792d00004d009d7e5c', data)
+      axios.post(appConfig.apiPath, data)
         .then(function (res) {
           resolve(res)
         })

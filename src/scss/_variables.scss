@@ -3,7 +3,7 @@ $ff-os: 'Open Sans', Helvetica, Arial, sans-serif;
 $ff-m-medium: 'Montserrat Medium', Helvetica, Arial, sans-serif;
 $ff-m-semibold: 'Montserrat SemiBold', Helvetica, Arial, sans-serif;
 
-// timings and easings
+// timings and easings (if needed)
 $default-time: 150ms;
 $default-time-long: 400ms;
 $default-loader-time: 400ms;
@@ -21,24 +21,27 @@ $content-width: 786px;
 $proj-bg: #F6F7F8;
 $list-border-color: #EAEDEF;
 $checkbox-border-color: #859EFF;
+$header-title-color: #414C5E;
+$list-title-color: #566074;
+$list-text-color: #778195;
 
 // mixins
 @mixin header-title {
   font-family: $ff-m-medium;
   font-size: 18px;
-  color: #414C5E;
+  color: $header-title-color;
 }
 @mixin list-title {
   font-family: $ff-m-semibold;
   font-size: 16px;
   line-height: 22px;
-  color: #566074;
+  color: $list-title-color;
 }
 @mixin list-text {
   font-family: $ff-os;
   font-size: 16px;
   line-height: 22px;
-  color: #778195;
+  color: $list-text-color;
 }
 
 // Responsive sizes

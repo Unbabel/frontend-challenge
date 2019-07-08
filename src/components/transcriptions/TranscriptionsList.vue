@@ -15,14 +15,17 @@ import TranscriptionsListItem from '@/components/transcriptions/TranscriptionsLi
 export default {
   name: 'TranscriptionsList',
   props: {
-    listData: Array
+    listData: {
+      required: true,
+      type: Array
+    }
   },
   components: {
     TranscriptionsListItem
   },
   methods: {
     addNewData: function () {
-      this.$store.dispatch('addNewData')
+      this.$store.dispatch('addNewTranscription')
     }
   }
 }

@@ -1,9 +1,11 @@
 import transcriptionsApi from '@/api/transcriptionsApi'
+import appConfig from '@/config'
 import _ from 'lodash'
 
 export default {
   state: {
-    transcriptionsData: []
+    transcriptionsData: [],
+    errorMessage: ''
   },
   mutations: {
     modifyListData (state, data) {
@@ -21,29 +23,39 @@ export default {
         text: ''
       }
       state.transcriptionsData.push(listItem)
+    },
+    displayError (state, err) {
+      state.errorMessage = err
+
+      window.setTimeout(() => {
+        state.errorMessage = ''
+      }, appConfig.defaultNotificationDisplayTime)
     }
   },
   actions: {
-    fetchListData (ctx) {
-      transcriptionsApi.fetchListData().then((res) => {
+    fetchTranscriptionsData (ctx) {
+      transcriptionsApi.fetchTranscriptions().then((res) => {
         ctx.commit('modifyListData', res.data)
-        console.log('list data correctly fetched', res)
       }, (err) => {
-        console.log('error fetching list data', err)
+        if (err) {
+          ctx.commit('displayError', 'An error occured while retrieving the transcriptions. Please try again.')
+        }
       })
     },
-    addNewData (ctx) {
+    addNewTranscription (ctx) {
       ctx.commit('addListItem')
     },
-    deleteListData (ctx, id) {
+    deleteTranscription (ctx, id) {
       ctx.commit('deleteListItem', id)
     },
-    uploadListData (ctx, data) {
-      console.log('list state before save', this.state.transcriptions.transcriptionsData)
-      transcriptionsApi.saveListData(this.state.transcriptions.transcriptionsData).then((res) => {
-        console.log('list data correctly saved', res)
+    uploadTranscriptionsData (ctx, data) {
+      // console.log('data before save', this.state.transcriptions.transcriptionsData)
+      transcriptionsApi.saveTranscriptions(this.state.transcriptions.transcriptionsData).then((res) => {
+        //
       }, (err) => {
-        console.log('error saving list data', err)
+        if (err) {
+          ctx.commit('displayError', 'An error occured while saving the transcriptions. Please try again.')
+        }
       })
     }
   }
