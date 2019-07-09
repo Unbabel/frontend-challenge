@@ -9,6 +9,7 @@ Some considerations regarding my resolution of this challenge:
 - Created a general config file in order to store all common config variables that are used throughout the application
 - Adapted base folder structure to show how we could organize the project's structure if the project scales
 - Created some animations using Vue transitions for the transcription list items and for the error messages component just to showcase how transitions can be used on Vue
+- Did not create the Vue project with unit testing tools (Jest or Mocha) because I have had almost no contact with TDD in my career, so no testing was included on my project
 
 ## Project requirements
 - Use node version 8.9 or above (developed on node v8.9.4)
@@ -22,7 +23,7 @@ npm run build
 
 npm install -g serve
 # -s flag means serve it in Single-Page Application mode
-# which deals with the routing problem below
+# which deals with the routing problem above
 
 serve -s dist
 ```
@@ -40,11 +41,6 @@ npm run serve
 ### Compiles and minifies for production
 ```
 npm run build
-```
-
-### Run your tests
-```
-npm run test
 ```
 
 ### Lints and fixes files
