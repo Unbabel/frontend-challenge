@@ -1,5 +1,5 @@
 <template>
-  <transition name="bottom">
+  <transition name="bottom-to-left">
     <p v-if="errorMessage">{{ errorMessage }}</p>
   </transition>
 </template>
@@ -29,12 +29,17 @@ p {
   background-color: $list-text-color;
 }
 
-.bottom-enter-active, .bottom-leave-active {
+.bottom-to-left-enter-active, .bottom-to-left-leave-active {
   transition: all $default-time $default-easing;
 }
 
-.bottom-enter, .bottom-leave-to {
+.bottom-to-left-enter {
   opacity: 0;
   bottom: -80px;
+}
+
+.bottom-to-left-leave-to {
+  opacity: 0;
+  left: -100vw;
 }
 </style>

@@ -49,7 +49,6 @@ export default {
       ctx.commit('deleteListItem', id)
     },
     uploadTranscriptionsData (ctx, data) {
-      // console.log('data before save', this.state.transcriptions.transcriptionsData)
       transcriptionsApi.saveTranscriptions(this.state.transcriptions.transcriptionsData).then((res) => {
         //
       }, (err) => {
