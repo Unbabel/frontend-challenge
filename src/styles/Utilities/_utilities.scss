@@ -1,0 +1,14 @@
+/* ALL THE HELPER CLASSES SHOULD BE PLACED HERE */
+
+// Hides component only visually, but have it available for screenreaders: h5bp.com/v
+.visually-hidden {
+  position: absolute;
+  clip: rect(1px, 1px, 1px, 1px);
+
+  // Extends the .visually-hidden class to allow the element to be focusable
+  // when navigated to via the keyboard: h5bp.com/p
+  &.focusable:focus {
+    position: static;
+    clip: auto;
+  }
+}

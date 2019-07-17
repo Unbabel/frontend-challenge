@@ -1,0 +1,26 @@
+# Overview of all rules: https://github.com/stylelint/stylelint/blob/master/docs/user-guide/rules.md
+{
+  "extends": "stylelint-config-recommended",
+  "rules": {
+    "at-rule-no-unknown": [true, {
+      "ignoreAtRules": ["function", "if", "each", "include", "mixin", "error", "return"]
+    }],
+    "indentation": null,
+    "selector-max-specificity": "0,3,0",
+    "selector-max-compound-selectors": 4,
+    "declaration-no-important": true,
+    "declaration-property-unit-whitelist": {
+        "font-size": ["rem", "px"]
+    },
+    "no-missing-end-of-source-newline": null,
+    "max-nesting-depth": [
+      3,
+      {
+        "ignoreAtRules": [
+          "include",
+          "media"
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+/* THE DEFAULT SETTINGS OF THE APP SHOULD BE PLACED HERE */
+
+@import url(https://fonts.googleapis.com/css?family=Montserrat:500,600|Open+Sans:400&display=swap);
+
+$font-size: 62.5%;
+$font-title-font-family: "Roboto", sans-serif;
+$font-text-font-family: 'Open Sans', sans-serif;
+
+$color-map: (
+  white: #fff,
+  main-background-color: #ececec,
+  app-title-color: #414C5E,
+  item-title-color: #566074,
+  item-content-color: #778195,
+  highligh-color: #859EFF
+);

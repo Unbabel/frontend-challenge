@@ -1,0 +1,29 @@
+/* ALL THE BASE ELEMENTS THAT NEED STYLING SHOULD BE STYLED HERE */
+
+html {
+  font-size: #{$font-size};
+}
+
+body,
+html {
+  line-height: 1.5;
+  font-size: 1rem;
+  text-align: left;
+  background-color: colormapper($color-map, main-background-color);
+}
+
+ul {
+  list-style-type: none;
+}
+
+input[type="checkbox"] {
+  @include transition-mixin(background, 0.2s, ease-in-out);
+
+  border: 0.2rem solid colormapper($color-map, highligh-color);
+
+  &:checked + label::after{
+    background-color: colormapper($color-map, highligh-color);
+    color: colormapper($color-map, white);
+  }
+}
+

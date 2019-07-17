@@ -1,0 +1,40 @@
+/* ALL THE MIXINS, FUNCTION, ETC. SHOULD BE PLACED HERE */
+
+@function colormapper($map-name, $color-name) {
+  @if (not(map-get($map: $map-name, $key: $color-name))) {
+    @error The requested color does not exist on this map, please verify your color code;
+  }
+
+  @return map-get($map: $map-name, $key: $color-name);
+}
+
+@mixin transition-mixin(
+  $transitionType,
+  $transitionDuration,
+  $transitionTimingFunction
+) {
+  backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0);
+  -o-transition: $transitionType $transitionDuration $transitionTimingFunction;
+  -webkit-transition:
+    $transitionType $transitionDuration
+    $transitionTimingFunction;
+  -moz-transition: $transitionType $transitionDuration $transitionTimingFunction;
+  transition: $transitionType $transitionDuration $transitionTimingFunction;
+}
+
+@mixin remove-button-appearance-mixin {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+
+  &:active,
+  &:focus {
+    outline: none;
+  }
+}
