@@ -1,1 +1,118 @@
 /* ALL THE APPS UI COMPONENTS SHOULD BE STYLED HERE */
+
+// List of items
+.item-list {
+  &--item {
+    display: flex;
+    align-items: flex-start;
+    background-color: colormapper($color-map, white);
+    padding: 1rem;
+    width: 738px;
+    margin: 0 auto;
+    border-bottom: solid 1px colormapper($color-map, list-item-border);
+
+    .person-image {
+      width: 26px;
+      height: 26px;
+      margin: 0 1rem 0 2rem;
+    }
+
+    .item-info {
+      flex: 1;
+
+      &--name {
+        font-weight: 500;
+        font-size: #{$text-font-size};
+        margin: 0 0 0.5rem 0;
+        color: colormapper($color-map, item-title-color);
+      }
+    }
+  }
+}
+
+// Custom checkbox
+.checkbox-container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: #{$text-font-size};
+    width: #{$text-font-size};
+    background-color: colormapper($color-map, white);
+    border: solid 2px colormapper($color-map, highlight-color);
+    border-radius: 3px;
+
+    &::after {
+      content: "";
+      position: absolute;
+      display: none;
+      left: 5px;
+      top: 2px;
+      width: 3px;
+      height: 6px;
+      border: solid white;
+      border-width: 0 3px 3px 0;
+      -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      transform: rotate(45deg);
+    }
+  }
+
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+
+    &:checked ~ .checkmark {
+      background-color: colormapper($color-map, highlight-color);
+
+      &::after {
+        display: block;
+      }
+    }
+  }
+}
+
+// Inplace editor
+.inplace-editor {
+  .long-text,
+  input[type="text"] {
+    @include transition-mixin(all, 0.3s, ease-in-out);
+
+    border: none;
+    color: colormapper($color-map, item-title-color);
+    width: 95%;
+    font-size: #{$text-font-size};
+    line-height: 1.5;
+
+    &:active,
+    &:focus {
+      @include transition-mixin(all, 0.3s, ease-in-out);
+
+      outline: none;
+      border: solid 2px colormapper($color-map, highlight-color);
+      border-radius: 3px;
+      padding: 5px;
+    }
+  }
+
+  input[type="text"] {
+    font-family: #{$title-font-family};
+    height: #{$text-font-size};
+  }
+
+  .long-text {
+    font-family: #{$text-font-family};
+  }
+}

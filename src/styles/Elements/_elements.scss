@@ -16,14 +16,21 @@ ul {
   list-style-type: none;
 }
 
-input[type="checkbox"] {
-  @include transition-mixin(background, 0.2s, ease-in-out);
-
-  border: 0.2rem solid colormapper($color-map, highligh-color);
-
-  &:checked + label::after{
-    background-color: colormapper($color-map, highligh-color);
-    color: colormapper($color-map, white);
-  }
+button {
+  @include remove-appearance-mixin;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: #{$title-font-family};
+}
+
+p {
+  font-family: #{$text-font-family};
+  font-weight: 400;
+  color: colormapper($color-map, item-content-color);
+  font-size: #{$text-font-size};
+}

@@ -25,7 +25,7 @@
   transition: $transitionType $transitionDuration $transitionTimingFunction;
 }
 
-@mixin remove-button-appearance-mixin {
+@mixin remove-appearance-mixin {
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;

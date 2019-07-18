@@ -1,6 +1,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ZipPlugin = require("zip-webpack-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 module.exports = env => {
   let sourceMap = undefined;
@@ -43,6 +44,11 @@ module.exports = env => {
           loader: "ts-loader"
         },
         {
+          enforce: "pre",
+          test: /\.js$/,
+          loader: "source-map-loader"
+        },
+        {
           test: /\.scss$/,
           use: [
             {
@@ -67,9 +73,8 @@ module.exports = env => {
           ]
         },
         {
-          enforce: "pre",
-          test: /\.js$/,
-          loader: "source-map-loader"
+          test: /\.(png)$/,
+          loader: "url-loader?limit=8192"
         }
       ]
     },
@@ -84,6 +89,12 @@ module.exports = env => {
         filename: "index.html",
         template: path.resolve(__dirname, "./public/index.html")
       }),
+      new CopyWebpackPlugin([
+        {
+          from: path.join(__dirname, "./public/images"),
+          to: path.join(__dirname, "dist/assets/images")
+        }
+      ]),
       new ZipPlugin({
         path: "zip",
         filename: "front-end-challenge.zip",
