@@ -2,16 +2,25 @@
 
 // List of items
 .item-list {
+  padding: 15px;
+
   &--item {
+    position: relative;
     display: flex;
     align-items: flex-start;
     background-color: colormapper($color-map, white);
     padding: 1rem;
-    width: 738px;
+    max-width: 738px;
     margin: 0 auto;
     border-bottom: solid 1px colormapper($color-map, list-item-border);
 
-    .person-image {
+    .delete-icon {
+      position: absolute;
+      right: 0;
+      visibility: hidden;
+    }
+
+    .person-icon {
       width: 26px;
       height: 26px;
       margin: 0 1rem 0 2rem;
@@ -25,6 +34,22 @@
         font-size: #{$text-font-size};
         margin: 0 0 0.5rem 0;
         color: colormapper($color-map, item-title-color);
+      }
+    }
+
+    &:hover {
+      .delete-icon {
+        @include transition-mixin(all, 0.3s, ease-in-out);
+
+        visibility: visible;
+      }
+
+      .person-icon {
+        svg {
+          #head {
+            fill: colormapper($color-map, highlight-color);
+          }
+        }
       }
     }
   }
@@ -42,6 +67,8 @@
   user-select: none;
 
   .checkmark {
+    @include transition-mixin(all, 0.3s, ease-in-out);
+
     position: absolute;
     top: 0;
     left: 0;
@@ -92,9 +119,9 @@
 
     border: none;
     color: colormapper($color-map, item-title-color);
-    width: 95%;
     font-size: #{$text-font-size};
     line-height: 1.5;
+    cursor: pointer;
 
     &:active,
     &:focus {
@@ -110,9 +137,12 @@
   input[type="text"] {
     font-family: #{$title-font-family};
     height: #{$text-font-size};
+    margin-bottom: 0.5rem;
+    width: 45%;
   }
 
   .long-text {
+    width: 95%;
     font-family: #{$text-font-family};
   }
 }

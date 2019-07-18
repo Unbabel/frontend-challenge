@@ -49,6 +49,14 @@ module.exports = env => {
           loader: "source-map-loader"
         },
         {
+          test: /.*\/node_modules\/.*\.svg$/,
+          use: ["file-loader"]
+        },
+        {
+          test: /\.svg$/,
+          loader: "raw-loader"
+        },
+        {
           test: /\.scss$/,
           use: [
             {
@@ -91,7 +99,7 @@ module.exports = env => {
       }),
       new CopyWebpackPlugin([
         {
-          from: path.join(__dirname, "./public/images"),
+          from: path.join(__dirname, "./public/icons/images"),
           to: path.join(__dirname, "dist/assets/images")
         }
       ]),

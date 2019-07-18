@@ -1,9 +1,15 @@
 import * as React from "react";
 import { connect, Dispatch } from "react-redux";
+import fetchIcon from "../../../../public/icons/images/fetch-document.svg";
+import uploadIcon from "../../../../public/icons/images/upload.svg";
 import { IAppState } from "../../store/store";
+import { GET_TRANSCRIPTION_LIST } from "../../store/transcriptions/actions";
+import { SvgIcon } from "../svg-icon/svg-icon";
 import "./navigation-component.scss";
 
-export interface INavigationComponentProps {}
+export interface INavigationComponentProps {
+  getTranscriptionList?: () => void;
+}
 
 export class NavigationComponent extends React.Component<
   INavigationComponentProps
@@ -13,17 +19,25 @@ export class NavigationComponent extends React.Component<
   }
 
   render() {
+    const { getTranscriptionList } = this.props;
+
     return (
       <nav className="navigation">
-        <h2 className="navigation--app-title">Transcription</h2>
-        <ul className="navigation--buttons">
-          <li>
-            <button>1</button>
-          </li>
-          <li>
-            <button>2</button>
-          </li>
-        </ul>
+        <div className="navigation--wrapper">
+          <h2 className="navigation--app-title">Transcription</h2>
+          <ul className="navigation--buttons">
+            <li>
+              <button className="navigation--buttons--button">
+                <SvgIcon svg={uploadIcon} />
+              </button>
+            </li>
+            <li>
+              <button onClick={() => getTranscriptionList()}>
+                <SvgIcon svg={fetchIcon} />
+              </button>
+            </li>
+          </ul>
+        </div>
       </nav>
     );
   }
@@ -36,5 +50,9 @@ export const Navigation = connect(
   ): Partial<INavigationComponentProps> => {
     return {};
   },
-  (dispatch: Dispatch, ownProps: INavigationComponentProps) => ({})
+  (dispatch: Dispatch, ownProps: INavigationComponentProps) => ({
+    getTranscriptionList: () => {
+      dispatch(GET_TRANSCRIPTION_LIST());
+    }
+  })
 )(NavigationComponent);
