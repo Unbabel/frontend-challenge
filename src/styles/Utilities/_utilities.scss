@@ -12,3 +12,28 @@
     clip: auto;
   }
 }
+
+.input-highlight {
+  @include transition-mixin(all, 0.3s, ease-in-out);
+
+  outline: none;
+  box-shadow: none;
+  border: solid 2px colormapper($color-map, highlight-color);
+  border-radius: 3px;
+  padding: 5px;
+}
+
+.input-title-text {
+  @include item-text(title);
+}
+
+.input-content-text {
+  @include item-text(text);
+}
+
+.warning-message {
+  color: colormapper($color-map, warning-color);
+  font-family: #{$title-font-family};
+  font-weight: 600;
+  margin-top: 1rem;
+}

@@ -3,7 +3,7 @@
   "extends": "stylelint-config-standard",
   "rules": {
     "at-rule-no-unknown": [true, {
-      "ignoreAtRules": ["function", "if", "each", "include", "mixin", "error", "return"]
+      "ignoreAtRules": ["function", "if", "each", "include", "mixin", "error", "return", "extend"]
     }],
     "indentation": null,
     "selector-max-specificity": "0,3,0",
@@ -14,7 +14,7 @@
     },
     "no-missing-end-of-source-newline": null,
     "max-nesting-depth": [
-      3,
+      4,
       {
         "ignoreAtRules": [
           "include",

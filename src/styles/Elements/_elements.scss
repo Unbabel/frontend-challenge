@@ -18,6 +18,10 @@ ul {
 
 button {
   @include remove-appearance-mixin;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
 }
 
 h1,
@@ -31,6 +35,6 @@ h5 {
 p {
   font-family: #{$text-font-family};
   font-weight: 400;
-  color: colormapper($color-map, item-content-color);
+  color: colormapper($color-map, item-text-color);
   font-size: #{$text-font-size};
 }

@@ -10,12 +10,22 @@ $title-font-size: 18px;
 $text-font-family: "Open Sans", sans-serif;
 $text-font-size: 16px;
 
+%text-font-family {
+  font-family: #{$text-font-family};
+}
+
+%title-font-family {
+  font-family: #{$title-font-family};
+}
+
 $color-map: (
   white: #fff,
   main-background-color: #ececec,
   app-title-color: #414c5e,
   item-title-color: #566074,
-  item-content-color: #778195,
+  item-text-color: #778195,
   highlight-color: #859eff,
-  list-item-border: #eaedef
+  list-item-border: #eaedef,
+  warning-color: #ffc107,
+  light-blue: #34a5ff
 );

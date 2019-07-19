@@ -10,9 +10,10 @@
         "trailing-comma": false,
         "new-parens": true,
         "no-arg": true,
-        "no-bitwise": true,
+        "no-bitwise": false,
         "no-conditional-assignment": true,
         "no-consecutive-blank-lines": false,
+        "one-variable-per-declaration": false,
         "no-console": {
             "severity": "warning",
             "options": ["debug", "info", "log", "time", "timeEnd", "trace"]

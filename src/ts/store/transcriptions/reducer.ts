@@ -1,5 +1,5 @@
 import { Action } from "redux";
-import { SET_LIST_ON_STATE } from "./actions";
+import { ADD_NEW_ROW, SET_LIST_ON_STATE } from "./actions";
 import { initialTranscriptionListState, ITranscriptionsState } from "./state";
 
 export function transcriptionsReducer(
@@ -10,6 +10,13 @@ export function transcriptionsReducer(
     return {
       ...state,
       list: action.transcriptionList
+    };
+  }
+
+  if (ADD_NEW_ROW.is(action)) {
+    return {
+      ...state,
+      list: state.list ? [...state.list, action.newRow] : [action.newRow]
     };
   }
   return state;

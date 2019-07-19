@@ -18,8 +18,7 @@
   -webkit-backface-visibility: hidden;
   transform: translateZ(0);
   -o-transition: $transitionType $transitionDuration $transitionTimingFunction;
-  -webkit-transition:
-    $transitionType $transitionDuration
+  -webkit-transition: $transitionType $transitionDuration
     $transitionTimingFunction;
   -moz-transition: $transitionType $transitionDuration $transitionTimingFunction;
   transition: $transitionType $transitionDuration $transitionTimingFunction;
@@ -37,4 +36,11 @@
   &:focus {
     outline: none;
   }
+}
+
+@mixin item-text($type) {
+  @extend %#{$type}-font-family;
+
+  color: colormapper($color-map, item-#{$type}-color);
+  font-size: #{$text-font-size};
 }

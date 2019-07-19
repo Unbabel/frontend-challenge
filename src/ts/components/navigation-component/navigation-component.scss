@@ -22,6 +22,7 @@
     font-weight: 600;
     font-size: #{$title-font-size};
     color: colormapper($color-map, app-title-color);
+    cursor: default;
   }
 
   &--buttons {

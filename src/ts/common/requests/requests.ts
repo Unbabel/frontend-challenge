@@ -1,4 +1,5 @@
 import axios from "axios";
+import { ITranscription } from "ts/types/types";
 import { run } from "../../utils/promise-utils/promise-utils";
 
 async function getData(): Promise<{}> {
@@ -11,4 +12,12 @@ export async function getTranscriptionList(): Promise<{}> {
   const { data } = await run(getData());
 
   return data;
+}
+
+export function uploadTranscriptionList(
+  listToUpdate: ITranscription[]
+): Promise<{}> {
+  return run(
+    axios.post("https://www.mocky.io/v2/5ae1c5792d00004d009d7e5c", listToUpdate)
+  );
 }

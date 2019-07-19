@@ -57,7 +57,7 @@ module.exports = env => {
           loader: "raw-loader"
         },
         {
-          test: /\.scss$/,
+          test: /\.(css|sass|scss)$/,
           use: [
             {
               loader: "style-loader",
@@ -83,6 +83,14 @@ module.exports = env => {
         {
           test: /\.(png)$/,
           loader: "url-loader?limit=8192"
+        },
+        {
+          test: /\.(woff|woff2|eot|ttf|otf)$/,
+          use: ["file-loader"]
+        },
+        {
+          test: /\.(png|jpg|gif)$/,
+          use: ["file-loader"]
         }
       ]
     },

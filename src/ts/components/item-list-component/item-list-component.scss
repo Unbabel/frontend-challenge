@@ -4,5 +4,7 @@
 
 .add-row {
   margin: 2rem auto;
-  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
