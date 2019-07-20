@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <Header/>
-    <List/>
+    <Header @get-data="getData"/>
+    <List :items="items"/>
   </div>
 </template>
 
@@ -9,10 +9,25 @@
 import Header from './components/layout/Header'
 import List from './components/List'
 
+const URL = 'http://www.mocky.io/v2/5ae1c5792d00004d009d7e5c';
+import axios from'axios';
+
 import './styles/main.scss'
 
 export default {
   name: 'app',
+  data: () => {
+    return {
+      items: []
+    }
+  },
+  methods: {
+    getData() {
+      axios(URL)
+        .then(res => this.items = res.data)
+        .catch(error => console.error('Error getting data: ', error))
+    }
+  },
   components: {
     Header,
     List

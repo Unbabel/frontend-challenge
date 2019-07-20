@@ -6,7 +6,7 @@
                 <img src="../../assets/upload.svg" aria-hiden="true">
                 <span class="sr-only">Upload data</span>
             </button>
-            <button>
+            <button @click="$emit('get-data')">
                 <img src="../../assets/fetch-document.svg" aria-hiden="true">
                 <span class="sr-only">Get data</span>
             </button>
@@ -17,7 +17,7 @@
 <script>
 
 export default {
-    name: 'Header'
+    name: 'Header',
 }
 
 </script>
