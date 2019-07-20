@@ -2,6 +2,10 @@
   <div id="app">
     <Header @get-data="getData"/>
     <List :items="items"/>
+    <button @click="$emit('add-item')">
+        <img src="./assets/add-row.svg" aria-hiden="true">
+        <span class="sr-only">Add row</span>
+    </button>
   </div>
 </template>
 
@@ -34,3 +38,10 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+  button {
+    display: block;
+    margin: 1rem auto;
+  }
+</style>

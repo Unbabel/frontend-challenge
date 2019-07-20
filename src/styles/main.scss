@@ -1,9 +1,16 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:500,600&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:500,600|Open+Sans&display=swap');
+
 :root {
     --semi-bold: 600;
     --medium: 600;
 
     --title-color: #414C5E;
+    --title-item-color: #566074;
+
+    --item-color: #778195;
+
+    --checkbox-color: #859EFF;
+    --checkbox-size: 16px;
 }
 
 * {
