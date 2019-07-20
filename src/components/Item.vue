@@ -3,8 +3,8 @@
         <Checkbox/>
         <img src="../assets/person.svg" alt="user image">
         <div class="info-container">
-            <h1>{{ item.voice  }}</h1>
-            <p>{{ item.text }}</p>
+            <h1 contenteditable="true" @focusout="editItem($event, 'voice')">{{ item.voice  }}</h1>
+            <p contenteditable="true" @focusout="editItem($event, 'text')">{{ item.text }}</p>
         </div>
         <button @click="$emit('del-item', item.id)">
             <img src="../assets/delete.svg" aria-hiden="true">
@@ -29,6 +29,12 @@ export default {
                     text: String
                 })
             }
+    },
+    methods: {
+        editItem($event, target) {
+            this.item[target] = $event.target.innerText;
+            this.$emit('edit-item', this.item)
+        }
     }
 }
 </script>

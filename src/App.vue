@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <Header @get-data="getData"/>
-    <List :items="items"/>
-    <button @click="$emit('add-item')">
+    <Header @get-data="getData" @upload-data="uploadData"/>
+    <List :items="items" @edit-item="editItem"/>
+    <button @click="addItem">
         <img src="./assets/add-row.svg" aria-hiden="true">
         <span class="sr-only">Add row</span>
     </button>
@@ -26,11 +26,27 @@ export default {
     }
   },
   methods: {
+    addItem() {
+      this.items.push({
+        id: new Date().getTime(),
+        voice: "Add yout title here...",
+        text: "Add yout hiper awesome content here..."
+      })
+    },
+    editItem(newItem) {
+      this.items = [...this.items, newItem]
+    },
     getData() {
       axios(URL)
         .then(res => this.items = res.data)
         .catch(error => console.error('Error getting data: ', error))
-    }
+    },
+    uploadData() {
+      axios(URL, this.items)
+        .then(res => console.log('Data added with sucess!'))
+        .catch(error => console.error('Error getting data: ', error))
+    },
+
   },
   components: {
     Header,
