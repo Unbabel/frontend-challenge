@@ -42,10 +42,4 @@ export default {
             color: var(--title-color);
         }
     }
-
-    button {
-        border: none;
-        margin-right: 1rem;
-        padding: 5px 1rem;
-    }
 </style>

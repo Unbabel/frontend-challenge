@@ -16,6 +16,13 @@ body {
     background: #f6f7f8;
 }
 
+button {
+    margin-right: 1rem;
+    padding: 5px 1rem;
+    background: transparent;
+    border: none;
+}
+
 /* 
  * Utility class to hide content visually while keeping it screen reader-accessible.
  * Source: https://www.scottohara.me/blog/2017/04/14/inclusively-hidden.html 
