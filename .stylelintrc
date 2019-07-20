@@ -6,9 +6,9 @@
       "ignoreAtRules": ["function", "if", "each", "include", "mixin", "error", "return", "extend"]
     }],
     "indentation": null,
-    "selector-max-specificity": "0,3,0",
+    "selector-max-specificity": "0,4,0",
     "selector-max-compound-selectors": 4,
-    "declaration-no-important": true,
+    "declaration-no-important": false,
     "declaration-property-unit-whitelist": {
         "font-size": ["rem", "px"]
     },

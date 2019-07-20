@@ -91,11 +91,13 @@ export class ItemListComponent extends React.Component<
 
   private onRowEdit(e: any, rowId: string) {
     e.persist();
-
+    const { onRowEdition } = this.props;
     const transcriptionListClone = [...this.state.transcriptionList];
     const rowToEdit = transcriptionListClone.find(
       transcription => transcription.id === rowId
     );
+
+    onRowEdition(e.target.id, e.target.value, rowId);
 
     rowToEdit[e.target.id] = e.target.value;
 
@@ -106,7 +108,8 @@ export class ItemListComponent extends React.Component<
   }
 
   render() {
-    const { transcriptionList, showAddRowWarning } = this.state;
+    const { transcriptionList } = this.props;
+    const { showAddRowWarning } = this.state;
 
     return (
       <div className="item-list-container">
@@ -163,8 +166,8 @@ export class ItemListComponent extends React.Component<
                     <InplaceContent>
                       <InputTextarea
                         id="text"
-                        value={transcription.text}
                         autoFocus
+                        value={transcription.text}
                         onChange={e => {
                           this.onRowEdit(e, transcription.id);
                         }}
@@ -177,9 +180,7 @@ export class ItemListComponent extends React.Component<
           ))}
         </ul>
         <div className="add-row">
-          <button
-            onClick={() => this.addNewRow()}
-          >
+          <button onClick={() => this.addNewRow()}>
             <SvgIcon svg={addRow} />
           </button>
           {showAddRowWarning && (

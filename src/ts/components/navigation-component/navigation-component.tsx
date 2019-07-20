@@ -1,6 +1,5 @@
 import * as React from "react";
 import { connect, Dispatch } from "react-redux";
-import { ITranscription } from "ts/types/types";
 import fetchIcon from "../../../../public/icons/images/fetch-document.svg";
 import uploadIcon from "../../../../public/icons/images/upload.svg";
 import { IAppState } from "../../store/store";
@@ -8,12 +7,14 @@ import {
   GET_TRANSCRIPTION_LIST,
   UPLOAD_DATA
 } from "../../store/transcriptions/actions";
+import { arrayIsValid } from "../../utils/object-utils/object-utils";
 import { SvgIcon } from "../svg-icon/svg-icon";
 import "./navigation-component.scss";
 
 export interface INavigationComponentProps {
-  transcriptionList?: ITranscription[];
+  loading?: boolean;
   unlockUpload?: boolean;
+  uploading?: boolean;
   getTranscriptionList?: () => void;
   uploadList?: () => void;
 }
@@ -26,7 +27,13 @@ export class NavigationComponent extends React.Component<
   }
 
   render() {
-    const { getTranscriptionList, unlockUpload, uploadList } = this.props;
+    const {
+      unlockUpload,
+      uploadList,
+      getTranscriptionList,
+      loading,
+      uploading
+    } = this.props;
 
     return (
       <nav className="navigation">
@@ -34,20 +41,28 @@ export class NavigationComponent extends React.Component<
           <h2 className="navigation--app-title">Transcription</h2>
           <ul className="navigation--buttons">
             <li>
-              <button
-                className="navigation--buttons--button"
-                disabled={unlockUpload}
-                onClick={() => {
-                  uploadList();
-                }}
-              >
-                <SvgIcon svg={uploadIcon} />
-              </button>
+              {uploading ? (
+                <i className="loading pi pi-spin pi-spinner" />
+              ) : (
+                <button
+                  className="navigation--buttons--button"
+                  disabled={unlockUpload}
+                  onClick={() => {
+                    uploadList();
+                  }}
+                >
+                  <SvgIcon svg={uploadIcon} />
+                </button>
+              )}
             </li>
             <li>
-              <button onClick={() => getTranscriptionList()}>
-                <SvgIcon svg={fetchIcon} />
-              </button>
+              {loading ? (
+                <i className="loading pi pi-spin pi-spinner" />
+              ) : (
+                <button onClick={() => getTranscriptionList()}>
+                  <SvgIcon svg={fetchIcon} />
+                </button>
+              )}
             </li>
           </ul>
         </div>
@@ -61,14 +76,18 @@ export const Navigation = connect(
     state: IAppState,
     ownProps: INavigationComponentProps
   ): Partial<INavigationComponentProps> => {
+    const transcriptionList = state.transcriptionsState.list || [];
     const unlockUpload =
       state.transcriptionsState.list === undefined ||
-      state.transcriptionsState.list.length === 0;
+      state.transcriptionsState.list.length === 0 ||
+      arrayIsValid(transcriptionList);
+    const loading = state.transcriptionsState.loadingList;
+    const uploading = state.transcriptionsState.uploading;
 
-    const transcriptionList = state.transcriptionsState.list || [];
     return {
-      transcriptionList,
-      unlockUpload
+      loading,
+      unlockUpload,
+      uploading
     };
   },
   (dispatch: Dispatch, ownProps: INavigationComponentProps) => ({

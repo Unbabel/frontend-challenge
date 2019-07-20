@@ -28,6 +28,12 @@
   &--buttons {
     display: flex;
     flex-direction: row;
+    align-items: center;
+
+    .loading {
+      color: colormapper($color-map, item-text-color);
+      margin-right: 15px;
+    }
 
     &--button:first-child {
       margin-right: 15px;
