@@ -3,11 +3,16 @@
         <Checkbox/>
         <img src="../assets/person.svg" alt="user image">
         <div class="info-container">
-            <h1 contenteditable="true" @focusout="editItem($event, 'voice')">{{ item.voice  }}</h1>
-            <p contenteditable="true" @focusout="editItem($event, 'text')">{{ item.text }}</p>
+            <h1 contenteditable="true" 
+                @focusout="editItem($event, 'voice')"
+            >{{ item.voice  }}</h1>
+            <p 
+                contenteditable="true" 
+                @focusout="editItem($event, 'text')"
+            >{{ item.text }}</p>
         </div>
         <button @click="$emit('del-item', item.id)">
-            <img src="../assets/delete.svg" aria-hiden="true">
+            <img src="../assets/delete.svg" alt="Delete item" >
             <span class="sr-only">Delete item</span>
         </button>
     </li>

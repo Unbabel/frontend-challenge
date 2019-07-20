@@ -1,13 +1,13 @@
 <template>
     <nav>
         <h1 class="Logo">Transcriptions</h1>
-        <div class="btn-container" aria-labelledby="Button container">
+        <div class="btn-container">
             <button @click="$emit('upload-data')">
-                <img src="../../assets/upload.svg" aria-hiden="true">
+                <img src="../../assets/upload.svg"  alt="Upload data">
                 <span class="sr-only">Upload data</span>
             </button>
             <button @click="$emit('get-data')">
-                <img src="../../assets/fetch-document.svg" aria-hiden="true">
+                <img src="../../assets/fetch-document.svg"  alt="Get data">
                 <span class="sr-only">Get data</span>
             </button>
         </div>

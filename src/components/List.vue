@@ -1,7 +1,12 @@
 <template>
     <main class="container" v-if="items.length">
         <ul>
-            <Item :key="item.id" v-for="item of items" :item="item"/>
+            <Item 
+                :key="item.id" 
+                v-for="item of items" 
+                :item="item" 
+                @edit-item="$emit('edit-item', item)" 
+                @del-item="$emit('del-item', item.id)"/>
         </ul>
     </main>
 </template>
@@ -35,6 +40,8 @@ export default {
         ul {
             padding: 0;
             list-style: none;
+            border-radius: 1px;
+            border: 1px solid #eee;
         }
     }
     .container {

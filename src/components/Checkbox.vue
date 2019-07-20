@@ -1,13 +1,20 @@
 <template>
-    <label class="custom-checkbox">
-        <input name="custom checkbox" type="checkbox">
+    <label class="custom-checkbox" tabindex="0">
+        <input type="checkbox" id="checkbox" v-model="checked" role="checkbox" :aria-checked="checked" name="custom checkbox">
         <span class="checkmark"></span>
     </label>
 </template>
 
+
+
 <script>
 export default {
-    name: 'Checkbox'
+    name: 'Checkbox',
+    data() {
+        return {
+            checked: false
+        }
+    }
 }
 </script>
 
