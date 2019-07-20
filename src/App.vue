@@ -1,9 +1,9 @@
 <template>
   <div id="app">
     <Header @get-data="getData" @upload-data="uploadData"/>
-    <List :items="items" @edit-item="editItem"/>
+    <List :items="items" @edit-item="editItem" @del-item="dellItem"/>
     <button @click="addItem">
-        <img src="./assets/add-row.svg" aria-hiden="true">
+        <img src="./assets/add-row.svg" alt="Add row">
         <span class="sr-only">Add row</span>
     </button>
   </div>
@@ -34,7 +34,11 @@ export default {
       })
     },
     editItem(newItem) {
-      this.items = [...this.items, newItem]
+      this.items = this.items.filter(({ id }) => id !== newItem.id)
+      this.items = [...this.items, newItem];
+    },
+    dellItem(removeId) {
+      this.items = this.items.filter(({ id }) => id !== removeId)
     },
     getData() {
       axios(URL)
