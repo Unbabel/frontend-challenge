@@ -110,6 +110,14 @@ module.exports = env => {
         {
           from: path.join(__dirname, "./public/icons/images"),
           to: path.join(__dirname, "dist/assets/images")
+        },
+        {
+          from: path.join(__dirname, "public/favicon"),
+          to: path.join(__dirname, "dist/assets/favicon")
+        },
+        {
+          from: path.join(__dirname, "public/manifest.json"),
+          to: path.join(__dirname, "dist/assets")
         }
       ]),
       new ZipPlugin({
