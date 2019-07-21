@@ -1,5 +1,5 @@
 export interface ITranscription {
-  id: string;
+  id: number;
   voice: string;
   text: string;
 }

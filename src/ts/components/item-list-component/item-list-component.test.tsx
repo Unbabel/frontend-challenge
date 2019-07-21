@@ -3,19 +3,10 @@ import * as Adapter from "enzyme-adapter-react-16";
 import * as React from "react";
 import { Provider } from "react-redux";
 import configureMockStore from "redux-mock-store";
-import {
-  ADD_NEW_ROW,
-  DELETE_DATA,
-  ON_ROW_EDIT
-} from "../../store/transcriptions/actions";
+import { ADD_NEW_ROW, DELETE_DATA, ON_ROW_EDIT } from "../../store/transcriptions/actions";
 import { ITranscriptionsState } from "../../store/transcriptions/state";
 import { ITranscription } from "../../types/types";
-import { uuidv4 } from "../../utils/utils";
-import {
-  IItemListComponentProps,
-  ItemList,
-  ItemListComponent
-} from "./item-list-component";
+import { IItemListComponentProps, ItemList, ItemListComponent } from "./item-list-component";
 
 configure({ adapter: new Adapter() });
 
@@ -58,7 +49,7 @@ describe("ItemList Snapshot and functionality test", () => {
     instance = page.instance();
 
     newTranscritpion = {
-      id: uuidv4(),
+      id: 4,
       text: "",
       voice: ""
     };
@@ -78,7 +69,7 @@ describe("ItemList Snapshot and functionality test", () => {
 
     store.dispatch(ADD_NEW_ROW({ newRow: newTranscritpion }));
     store.dispatch(
-      ON_ROW_EDIT({ field: "text", newValue: "test value", rowId: "1" })
+      ON_ROW_EDIT({ field: "text", newValue: "test value", rowId: 1 })
     );
 
     store.dispatch(DELETE_DATA({ transcription: newTranscritpion }));

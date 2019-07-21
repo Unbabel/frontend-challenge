@@ -8,20 +8,15 @@ import addRow from "../../../../public/icons/images/add-row.svg";
 import deleteIcon from "../../../../public/icons/images/delete.svg";
 import personIcon from "../../../../public/icons/images/person.svg";
 import { IAppState } from "../../store/store";
-import {
-  ADD_NEW_ROW,
-  DELETE_DATA,
-  ON_ROW_EDIT
-} from "../../store/transcriptions/actions";
-import { arrayIsValid } from "../../utils/array-utils/array-utils";
-import { uuidv4 } from "../../utils/utils";
+import { ADD_NEW_ROW, DELETE_DATA, ON_ROW_EDIT } from "../../store/transcriptions/actions";
+import { listHasInvalidFields } from "../../utils/array-utils/array-utils";
 import { SvgIcon } from "../svg-icon/svg-icon";
 import "./item-list-component.scss";
 
 export interface IItemListComponentProps {
   transcriptionList?: ITranscription[];
   onNewRowAdd?: (newRow: ITranscription) => void;
-  onRowEdition?: (field: string, newValue: string, rowId: string) => void;
+  onRowEdition?: (field: string, newValue: string, rowId: number) => void;
   onTranscriptionDelete?: (transcription: ITranscription) => void;
   onRowDelete?: (transcription: ITranscription) => void;
 }
@@ -56,10 +51,11 @@ export class ItemListComponent extends React.Component<
     }
   }
 
+  // Note the use of new Date().getUTCMilliseconds() to generate a unique int number
   addNewRow() {
     const { transcriptionList } = this.state;
 
-    if (arrayIsValid(transcriptionList)) {
+    if (listHasInvalidFields(transcriptionList)) {
       this.setState({ ...this.state, showAddRowWarning: true });
 
       setTimeout(
@@ -72,7 +68,7 @@ export class ItemListComponent extends React.Component<
 
     const { onNewRowAdd } = this.props;
     const newTranscritpion: ITranscription = {
-      id: uuidv4(),
+      id: new Date().getUTCMilliseconds(),
       text: "",
       voice: ""
     };
@@ -80,7 +76,7 @@ export class ItemListComponent extends React.Component<
     return onNewRowAdd(newTranscritpion);
   }
 
-  onRowEdit(e: any, rowId: string) {
+  onRowEdit(e: any, rowId: number) {
     e.persist();
     const { onRowEdition } = this.props;
     const transcriptionListClone = [...this.state.transcriptionList];
@@ -217,7 +213,7 @@ export const ItemList = connect(
     onNewRowAdd: (newRow: ITranscription) => {
       dispatch(ADD_NEW_ROW({ newRow }));
     },
-    onRowEdition: (field: string, newValue: string, rowId: string) => {
+    onRowEdition: (field: string, newValue: string, rowId: number) => {
       dispatch(ON_ROW_EDIT({ field, newValue, rowId }));
     },
     onTranscriptionDelete: (transcription: ITranscription) => {

@@ -14,7 +14,7 @@ export const ADD_NEW_ROW = defineAction<{ newRow: ITranscription }>(
 export const ON_ROW_EDIT = defineAction<{
   field: string;
   newValue: string;
-  rowId: string;
+  rowId: number;
 }>("ON_ROW_EDIT");
 
 export const GET_TRANSCRIPTION_LIST = defineAction<{}>(

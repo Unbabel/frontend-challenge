@@ -7,7 +7,7 @@ import {
   GET_TRANSCRIPTION_LIST,
   UPLOAD_DATA
 } from "../../store/transcriptions/actions";
-import { arrayIsValid } from "../../utils/array-utils/array-utils";
+import { listHasInvalidFields } from "../../utils/array-utils/array-utils";
 import { SvgIcon } from "../svg-icon/svg-icon";
 import "./navigation-component.scss";
 
@@ -80,7 +80,7 @@ export const Navigation = connect(
     const unlockUpload =
       state.transcriptionsState.list === undefined ||
       state.transcriptionsState.list.length === 0 ||
-      arrayIsValid(transcriptionList);
+      listHasInvalidFields(transcriptionList);
     const loading = state.transcriptionsState.loadingList;
     const uploading = state.transcriptionsState.uploading;
 

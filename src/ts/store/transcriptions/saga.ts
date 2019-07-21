@@ -61,9 +61,10 @@ function* uploadData() {
   );
 }
 
-function* deleteData(a: typeof DELETE_DATA.typeInterface) {
+export function* deleteData(a: typeof DELETE_DATA.typeInterface) {
   const appState = (yield select()) as IAppState;
-  const transcriptionList = appState.transcriptionsState.list;
+  const transcriptionList =
+    (appState.transcriptionsState && appState.transcriptionsState.list) || [];
   const rowToDeleteIndex = transcriptionList.indexOf(a.transcription);
 
   if (rowToDeleteIndex > -1) {
@@ -75,6 +76,12 @@ function* deleteData(a: typeof DELETE_DATA.typeInterface) {
       })
     );
   }
+
+  yield put(
+    SET_LIST_ON_STATE({
+      transcriptionList
+    })
+  );
 }
 
 export function* transcriptionsSaga(): any {

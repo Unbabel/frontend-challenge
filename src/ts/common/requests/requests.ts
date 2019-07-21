@@ -1,15 +1,15 @@
-import axios from "axios";
+import axios, { AxiosPromise } from "axios";
 import { ITranscription } from "ts/types/types";
 import { run } from "../../utils/promise-utils/promise-utils";
 
-async function getData(): Promise<{}> {
+export async function getData(): Promise<AxiosPromise> {
   return await run(
     axios.get("https://www.mocky.io/v2/5ae1c5792d00004d009d7e5c")
   );
 }
 
-export async function getTranscriptionList(): Promise<{}> {
-  const { data } = await run(getData());
+export async function getTranscriptionList(): Promise<ITranscription[]> {
+  const { data } = await getData();
 
   return data;
 }
