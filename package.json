@@ -1,17 +1,16 @@
 {
   "name": "front-end-challenge",
   "version": "0.1.0",
-  "description": "",
+  "description": "Front-End Challenge for Unbabel",
+  "author": "João Bicho",
+  "license": "ISC",
   "main": "index.js",
   "scripts": {
     "server": "webpack-dev-server --https --env=development --colors --hide-modules",
-    "build:dev": "webpack --env=development --profile --colors",
-    "build:prod": "webpack --env=production --profile --colors",
+    "build:prod": "webpack --env=production --profile --colors && npm run test -- --coverage",
     "build": "webpack",
     "test": "jest"
   },
-  "author": "João Bicho",
-  "license": "ISC",
   "devDependencies": {
     "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "^7.0.0",

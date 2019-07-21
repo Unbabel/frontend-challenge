@@ -14,10 +14,14 @@ import {
   UPLOAD_DATA
 } from "./actions";
 
-function* loadTranscriptionsList() {
+export function* loadTranscriptionsList() {
   const appState = (yield select()) as IAppState;
   const response = yield run(getTranscriptionList());
-  const transcriptionList = appState.transcriptionsState.list;
+  const transcriptionList =
+    (appState &&
+      appState.transcriptionsState &&
+      appState.transcriptionsState.list) ||
+    [];
 
   yield put(
     SET_LIST_ON_STATE({
@@ -25,20 +29,29 @@ function* loadTranscriptionsList() {
       transcriptionList:
         transcriptionList && transcriptionList.length
           ? mergeArrays(transcriptionList, response)
-          : response,
+          : response || [],
       uploading: false
     })
   );
 }
 
-function* editRow(a: typeof ON_ROW_EDIT.typeInterface) {
+export function* editRow(a: typeof ON_ROW_EDIT.typeInterface) {
   const appState = (yield select()) as IAppState;
-  const transcriptionList = appState.transcriptionsState.list;
+  const transcriptionList =
+    (appState.transcriptionsState && appState.transcriptionsState.list) || [];
   const rowToEdit = transcriptionList.find(
     transcription => transcription.id === a.rowId
   );
 
-  rowToEdit[a.field] = a.newValue;
+  if (transcriptionList.length) {
+    rowToEdit[a.field] = a.newValue;
+
+    yield put(
+      SET_LIST_ON_STATE({
+        transcriptionList
+      })
+    );
+  }
 
   yield put(
     SET_LIST_ON_STATE({
@@ -47,11 +60,15 @@ function* editRow(a: typeof ON_ROW_EDIT.typeInterface) {
   );
 }
 
-function* uploadData() {
+export function* uploadData() {
   const appState = (yield select()) as IAppState;
-  const transcriptionList = appState.transcriptionsState.list;
+  const transcriptionList =
+    (appState &&
+      appState.transcriptionsState &&
+      appState.transcriptionsState.list) ||
+    [];
 
-  yield run(uploadTranscriptionList(appState.transcriptionsState.list));
+  yield run(uploadTranscriptionList(transcriptionList));
 
   yield put(
     SET_LIST_ON_STATE({
