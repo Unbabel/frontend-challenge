@@ -171,8 +171,8 @@
   textarea {
     @extend .input-content-text;
 
-    width: 95%;
-    max-width: 95%;
+    width: 95% !important;
+    max-width: 95% !important;
   }
 
   textarea,
