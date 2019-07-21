@@ -1,17 +1,10 @@
-import { History, Location } from "history";
 import * as React from "react";
 import { connect, Dispatch } from "react-redux";
-import { RouteComponentProps } from "react-router";
 import { ItemList } from "../../components/item-list-component/item-list-component";
 import { Navigation } from "../../components/navigation-component/navigation-component";
 import { IAppState } from "../../store/store";
-import { ITranscription } from "../../types/types";
 
-export interface IDashboardComponentProps extends RouteComponentProps<{}> {
-  history: History;
-  location: Location;
-  transcriptionList: ITranscription[];
-}
+export interface IDashboardComponentProps {}
 
 export class DashboardComponent extends React.Component<
   IDashboardComponentProps

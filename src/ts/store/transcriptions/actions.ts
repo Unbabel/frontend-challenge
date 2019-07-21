@@ -24,5 +24,5 @@ export const GET_TRANSCRIPTION_LIST = defineAction<{}>(
 export const UPLOAD_DATA = defineAction<{}>("UPLOAD_DATA");
 
 export const DELETE_DATA = defineAction<{
-  trancription: ITranscription;
+  transcription: ITranscription;
 }>("DELETE_DATA");

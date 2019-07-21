@@ -7,6 +7,7 @@ import { mergeArrays } from "../../utils/array-utils/array-utils";
 import { run } from "../../utils/promise-utils/promise-utils";
 import { IAppState } from "../store";
 import {
+  DELETE_DATA,
   GET_TRANSCRIPTION_LIST,
   ON_ROW_EDIT,
   SET_LIST_ON_STATE,
@@ -46,7 +47,7 @@ function* editRow(a: typeof ON_ROW_EDIT.typeInterface) {
   );
 }
 
-function* uploadData(a: typeof UPLOAD_DATA.typeInterface) {
+function* uploadData() {
   const appState = (yield select()) as IAppState;
   const transcriptionList = appState.transcriptionsState.list;
 
@@ -60,10 +61,27 @@ function* uploadData(a: typeof UPLOAD_DATA.typeInterface) {
   );
 }
 
+function* deleteData(a: typeof DELETE_DATA.typeInterface) {
+  const appState = (yield select()) as IAppState;
+  const transcriptionList = appState.transcriptionsState.list;
+  const rowToDeleteIndex = transcriptionList.indexOf(a.transcription);
+
+  if (rowToDeleteIndex > -1) {
+    transcriptionList.splice(rowToDeleteIndex, 1);
+
+    yield put(
+      SET_LIST_ON_STATE({
+        transcriptionList
+      })
+    );
+  }
+}
+
 export function* transcriptionsSaga(): any {
   yield all([
     takeEvery(GET_TRANSCRIPTION_LIST.type, loadTranscriptionsList),
     takeEvery(ON_ROW_EDIT.type, editRow),
-    takeEvery(UPLOAD_DATA.type, uploadData)
+    takeEvery(UPLOAD_DATA.type, uploadData),
+    takeEvery(DELETE_DATA.type, deleteData)
   ]);
 }

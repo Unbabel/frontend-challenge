@@ -41,6 +41,7 @@ module.exports = env => {
       rules: [
         {
           test: /\.tsx?$/,
+          exclude: /\.test.tsx?$/,
           loader: "ts-loader"
         },
         {

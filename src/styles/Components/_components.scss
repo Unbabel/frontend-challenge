@@ -119,14 +119,10 @@
     @extend .input-highlight;
   }
 
-  .p-button {
-    background-color: colormapper($color-map, light-blue);
-    border-color: colormapper($color-map, light-blue);
-
-    &:enabled:hover {
-      background-color: colormapper($color-map, highlight-color);
-      border-color: colormapper($color-map, highlight-color);
-    }
+  .p-inplace-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
   }
 
   &--title {
@@ -142,6 +138,26 @@
       @extend .input-content-text;
 
       padding: 0 !important;
+    }
+  }
+
+  .p-button {
+    background-color: colormapper($color-map, light-blue);
+    border-color: colormapper($color-map, light-blue);
+    margin-left: 1rem;
+
+    .pi::before {
+      content: "\E909";
+    }
+
+    &:enabled:hover {
+      background-color: colormapper($color-map, highlight-color);
+      border-color: colormapper($color-map, highlight-color);
+    }
+
+    &:enabled:focus:active {
+      outline: none;
+      box-shadow: none;
     }
   }
 
@@ -164,12 +180,15 @@
 
     border: solid 1px colormapper($color-map, highlight-color);
     line-height: 1.5;
+    max-width: 95%;
     cursor: pointer;
 
     &:active,
     &:focus,
     &hover,
     &:placeholder-shown {
+      @include transition-mixin(none);
+
       @extend .input-highlight;
     }
   }

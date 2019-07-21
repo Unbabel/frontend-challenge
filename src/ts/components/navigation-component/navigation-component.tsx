@@ -7,7 +7,7 @@ import {
   GET_TRANSCRIPTION_LIST,
   UPLOAD_DATA
 } from "../../store/transcriptions/actions";
-import { arrayIsValid } from "../../utils/object-utils/object-utils";
+import { arrayIsValid } from "../../utils/array-utils/array-utils";
 import { SvgIcon } from "../svg-icon/svg-icon";
 import "./navigation-component.scss";
 
@@ -45,7 +45,7 @@ export class NavigationComponent extends React.Component<
                 <i className="loading pi pi-spin pi-spinner" />
               ) : (
                 <button
-                  className="navigation--buttons--button"
+                  className="upload-data navigation--buttons--button"
                   disabled={unlockUpload}
                   onClick={() => {
                     uploadList();
@@ -59,7 +59,7 @@ export class NavigationComponent extends React.Component<
               {loading ? (
                 <i className="loading pi pi-spin pi-spinner" />
               ) : (
-                <button onClick={() => getTranscriptionList()}>
+                <button className="fetch-data" onClick={() => getTranscriptionList()}>
                   <SvgIcon svg={fetchIcon} />
                 </button>
               )}

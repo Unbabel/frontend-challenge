@@ -8,8 +8,12 @@ import addRow from "../../../../public/icons/images/add-row.svg";
 import deleteIcon from "../../../../public/icons/images/delete.svg";
 import personIcon from "../../../../public/icons/images/person.svg";
 import { IAppState } from "../../store/store";
-import { ADD_NEW_ROW, ON_ROW_EDIT } from "../../store/transcriptions/actions";
-import { arrayIsValid } from "../../utils/object-utils/object-utils";
+import {
+  ADD_NEW_ROW,
+  DELETE_DATA,
+  ON_ROW_EDIT
+} from "../../store/transcriptions/actions";
+import { arrayIsValid } from "../../utils/array-utils/array-utils";
 import { uuidv4 } from "../../utils/utils";
 import { SvgIcon } from "../svg-icon/svg-icon";
 import "./item-list-component.scss";
@@ -18,10 +22,11 @@ export interface IItemListComponentProps {
   transcriptionList?: ITranscription[];
   onNewRowAdd?: (newRow: ITranscription) => void;
   onRowEdition?: (field: string, newValue: string, rowId: string) => void;
-  onDeleteRow?: (trancription: ITranscription) => void;
+  onTranscriptionDelete?: (transcription: ITranscription) => void;
+  onRowDelete?: (transcription: ITranscription) => void;
 }
 
-export interface IItemListComponentState {
+interface IItemListComponentState {
   transcriptionList: ITranscription[];
   showAddRowWarning: boolean;
 }
@@ -35,7 +40,7 @@ export class ItemListComponent extends React.Component<
 
     this.state = {
       showAddRowWarning: false,
-      transcriptionList: this.props.transcriptionList
+      transcriptionList: this.props.transcriptionList || []
     };
 
     this.addNewRow = this.addNewRow.bind(this);
@@ -51,21 +56,7 @@ export class ItemListComponent extends React.Component<
     }
   }
 
-  private deleteRow(rowToDelete: ITranscription) {
-    const transcriptionList = this.state.transcriptionList;
-    const rowToDeleteIndex = transcriptionList.indexOf(rowToDelete);
-
-    if (rowToDeleteIndex > -1) {
-      transcriptionList.splice(rowToDeleteIndex, 1);
-
-      this.setState({
-        ...this.state,
-        transcriptionList
-      });
-    }
-  }
-
-  private addNewRow() {
+  addNewRow() {
     const { transcriptionList } = this.state;
 
     if (arrayIsValid(transcriptionList)) {
@@ -86,10 +77,10 @@ export class ItemListComponent extends React.Component<
       voice: ""
     };
 
-    onNewRowAdd(newTranscritpion);
+    return onNewRowAdd(newTranscritpion);
   }
 
-  private onRowEdit(e: any, rowId: string) {
+  onRowEdit(e: any, rowId: string) {
     e.persist();
     const { onRowEdition } = this.props;
     const transcriptionListClone = [...this.state.transcriptionList];
@@ -105,6 +96,23 @@ export class ItemListComponent extends React.Component<
       ...this.state,
       transcriptionList: transcriptionListClone
     });
+  }
+
+  deleteRow(rowToDelete: ITranscription) {
+    const transcriptionListClone = [...this.state.transcriptionList];
+    const rowToDeleteIndex = transcriptionListClone.indexOf(rowToDelete);
+    const { onTranscriptionDelete } = this.props;
+
+    if (rowToDeleteIndex > -1) {
+      onTranscriptionDelete(rowToDelete);
+
+      transcriptionListClone.splice(rowToDeleteIndex, 1);
+
+      this.setState({
+        ...this.state,
+        transcriptionList: transcriptionListClone
+      });
+    }
   }
 
   render() {
@@ -211,6 +219,9 @@ export const ItemList = connect(
     },
     onRowEdition: (field: string, newValue: string, rowId: string) => {
       dispatch(ON_ROW_EDIT({ field, newValue, rowId }));
+    },
+    onTranscriptionDelete: (transcription: ITranscription) => {
+      dispatch(DELETE_DATA({ transcription }));
     }
   })
 )(ItemListComponent);

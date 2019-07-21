@@ -8,20 +8,15 @@
   @return map-get($map: $map-name, $key: $color-name);
 }
 
-@mixin transition-mixin(
-  $transitionType,
-  $transitionDuration,
-  $transitionTimingFunction
-) {
+@mixin transition-mixin($args...) {
   backface-visibility: hidden;
   -moz-backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   transform: translateZ(0);
-  -o-transition: $transitionType $transitionDuration $transitionTimingFunction;
-  -webkit-transition: $transitionType $transitionDuration
-    $transitionTimingFunction;
-  -moz-transition: $transitionType $transitionDuration $transitionTimingFunction;
-  transition: $transitionType $transitionDuration $transitionTimingFunction;
+  -o-transition: $args;
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  transition: $args;
 }
 
 @mixin remove-appearance-mixin {
@@ -35,6 +30,7 @@
   &:active,
   &:focus {
     outline: none;
+    box-shadow: none;
   }
 }
 

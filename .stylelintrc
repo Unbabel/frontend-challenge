@@ -3,12 +3,11 @@
   "extends": "stylelint-config-standard",
   "rules": {
     "at-rule-no-unknown": [true, {
-      "ignoreAtRules": ["function", "if", "each", "include", "mixin", "error", "return", "extend"]
+      "ignoreAtRules": ["function", "if", "each", "include", "mixin", "error", "return", "extend", "content"]
     }],
     "indentation": null,
     "selector-max-specificity": "0,4,0",
     "selector-max-compound-selectors": 4,
-    "declaration-no-important": false,
     "declaration-property-unit-whitelist": {
         "font-size": ["rem", "px"]
     },
