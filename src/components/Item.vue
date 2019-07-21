@@ -47,15 +47,15 @@ export default {
 <style lang="scss" scoped>
     li {
         border-bottom: 1px solid #eee;
-        padding: 1rem;
+        padding: 1.5rem 1rem;
         display: grid;
-        grid-template-columns: 10px 20px auto 60px;
+        grid-template-columns: 16px 20px auto 60px;
         grid-gap: 15px;
         &:hover button {
             opacity: 1;
         }
         .info-container {
-            width: 90%;
+            padding-bottom: 1rem;
         }
 
         h1 {

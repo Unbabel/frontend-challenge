@@ -21,44 +21,47 @@ export default {
 <style lang="scss" scoped>
     .custom-checkbox {
         position: relative;
-        border: 1px solid #859EFF;
+        border: 2px solid #859EFF;
+        border-radius: 2px;
         width: 16px;
         height: 16px;
-        border-radius: 1px;
+        margin-top: 5px;
         &:hover {
             cursor: pointer;
         }
         input {
             opacity: 0;
+            position: absolute;
+            left: 0;
+            top: 0;
             &:checked ~ .checkmark {
                 background-color: #859EFF;
             }
             &:checked ~ .checkmark:after {
                 opacity: 1;
             }
+            &:focus ~ .checkmark:after {
+                outline: rgb(59, 153, 252) auto 5px;
+            }
         }
+
         .checkmark {
             display: block;
 
             position: absolute;
-            top: 0;
-            left: 0;
-            height: 15px;
-            width: 15px;
-            background-color: transparent;
+            top: -2px;
+            left: -2px;
+            height: 16px;
+            width: 16px;
+            border-radius: 2px;
             &:after {
                 content: "";
-                border: 2px solid #fff;
-                border-left: 0;
-                border-top: 0;
-                height: 9px;
-                width: 4px;
-                left: 4px;
-                top: 0;
-                border-radius: 1px;
-                opacity: 0;
-                position: absolute;
-                transform: rotate(45deg);
+                display: block;
+                height: 16px;
+                width: 16px;
+                background-image: url(/img/check.ee008a56.svg);
+                background-repeat: no-repeat;
+                background-position: center;
                 transition: opacity 0.2s ease-in-out;
             }
         }
