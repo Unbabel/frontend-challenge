@@ -1,70 +1,68 @@
-# Frontend Challenge
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-The goal is to understand how knowledgeable you are and how well you structure your app.
+## Available Scripts
 
-Your challenge will consist of the following:
+In the project directory, you can run:
 
-You'll have to build a small web app that is able to **fetch data** from an endpoint we provide, **list the data** from the endpoint, allow **editing the data**, **adding and removing** rows, and then **pushing the data** to another endpoint.
+### `npm start`
 
-Please fork this repo and commit your changes to the fork.
+Runs the app in the development mode.<br>
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-Here is a preview of what we are expecting:
+The page will reload if you make edits.<br>
+You will also see any lint errors in the console.
 
-![Sample](_README_assets/sample.png)
+### `npm test`
 
-Keep in mind that we may ask you about some of the decisions you made while building the app.
+Launches the test runner in the interactive watch mode.<br>
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-## Important information to complete the challenge
+### `npm run build`
 
-### Data source
+Builds the app for production to the `build` folder.<br>
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-Fetch the data from this endpoint [http://www.mocky.io/v2/5ae1c5792d00004d009d7e5c](http://www.mocky.io/v2/5ae1c5792d00004d009d7e5c)
+The build is minified and the filenames include the hashes.<br>
+Your app is ready to be deployed!
 
-Using Mocky should produce no cross origin errors and should work fine for this challenge. If you do find issues, it's OK to copy the JSON into your preferred method to then provide the data to the app.
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### Assets, measurements, and other details
+### `npm run eject`
 
-Inside this repository you'll find a folder named `assets-for-challenge`. Inside this folder you can find all the icons we expect you to use, in multiple formats, use what you think is best.
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-## Detailed comments on each element
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-![Elements Numbered](_README_assets/challenge-elements-numbered.png)
+Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-**Functionality**
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-The app should let the user do the following:
+## Learn More
 
-- **1** - _Get data_ button. When the user **clicks on this button**, your app will **get the data from the URL** in [Data source](#Data source) and fill the list
-- **2** - _Upload data_ button. When the user **clicks on this button**, your app will **make a POST request to the same url** as the _Get data_ button. You should send the latest information on the list using the same structure as you have received it.
-- **3** - _Custom checkbox_. When the user **clicks on the checkbox**, it will become checked. It will not have any other functionality.
-- **4** - _Add line_ button. When the user **clicks on this button**, a **new row will be added to the list** and the user should be able to **write text in both fields**.
-- **5** - _Delete row_ button. This button should be **visible only when hovering** each row item. When the user **clicks on this button**, your app will **remove that row** from the list.
-- **6** - List _item title_ **This title should be editable**.
-- **7** - List _item content_. **This content should be editable**.
-- **8** - _App title_. No functionality.
-- **9** - _Person icon_ linked to each row. No functionality.
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-Notes:
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-- Don't worry about the blank state before loading the content.
+### Code Splitting
 
-**Style Attributes**
+This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
 
-These are some and useful details about some of the elements
+### Analyzing the Bundle Size
 
-- **3** - The checkbox is 16px wide and 16px high. The purple color is `#859EFF`
-- **6** - The font-family of the _item title_ is `Montserrat`, the weight is `SemiBold`, the size is `16px`, and the color is `#566074`
-- **7** - The font-family of the _item content_ is `Open Sans`, the weight is `Regular`, the size is `16px`, and the color is `#778195`
-- **8** - The font-family of the _app title_ is `Montserrat`, the weight is `Medium`, the size is `18px`, and the color is `#414C5E`
+This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
 
-The data above is enough to complete challenge. We also include the source Sketch file in the repository, in case you want to check the original file. You can find it in `_README_assets/Challenge.sketch`
+### Making a Progressive Web App
 
-## Typography
+This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
 
-- You can find [Montserrat on Google Fonts](https://fonts.google.com/specimen/Montserrat)
-- You can find [Open Sans on Google Fonts](https://fonts.google.com/specimen/Open+Sans)
+### Advanced Configuration
 
-## Bonus points:
+This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
 
-- Don't use a UI framework like Bootstrap. It's important for us to understand how you structure your HTML and build your CSS, that's why.
-- Please use a javascript framework such as Vue (We love Vue), React, or Angular. Make use of its Component system.
+### Deployment
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+
+### `npm run build` fails to minify
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
