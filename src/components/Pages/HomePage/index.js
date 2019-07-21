@@ -3,6 +3,9 @@ import styled from "styled-components";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
+import Icon from '../../Atoms/icon'
+import SvgImage from '../../Atoms/icon/icons/delete.svg'
+
 import {
   requestTranscriptionData,
   postTranscriptionData,
@@ -18,13 +21,16 @@ class HomePage extends Component {
       addElementTranscriptionData,
     } = this.props;
 
-    // requestTranscriptionData()
+     requestTranscriptionData()
   }
 
   render() {
+    const {transcriptions} = this.props;
     return (
       <div>
+        <img src={SvgImage}/>
         <h1>Home Page</h1>
+        <Icon icon="person" />
       </div>
     );
   }
@@ -51,3 +57,4 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(HomePage);
+
