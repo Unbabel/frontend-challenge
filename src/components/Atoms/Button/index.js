@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
-import Link from 'react-router-dom/Link'
+import {Link} from 'react-router-dom'
 import { font, palette } from 'styled-theme'
 import { ifProp } from 'styled-tools'
 
@@ -45,7 +45,7 @@ const styles = css`
 `
 
 const StyledLink = styled(({
-  disabled, transparent, reverse, palette, height, theme, ...props
+  disabled, transparent, palette, height, theme, ...props
 }) => <Link {...props} />)`${styles}`
 
 const Anchor = styled.a`${styles}`
@@ -65,7 +65,6 @@ Button.propTypes = {
   disabled: PropTypes.bool,
   palette: PropTypes.string,
   transparent: PropTypes.bool,
-  reverse: PropTypes.bool,
   height: PropTypes.number,
   type: PropTypes.string,
   to: PropTypes.string,
