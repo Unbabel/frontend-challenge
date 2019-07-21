@@ -30,12 +30,14 @@ export default {
       this.items.push({
         id: new Date().getTime(),
         voice: "Add yout title here...",
-        text: "Add yout hiper awesome content here..."
+        text: "Add your hiper awesome content here..."
       })
     },
     editItem(newItem) {
-      this.items = this.items.filter(({ id }) => id !== newItem.id)
-      this.items = [...this.items, newItem];
+      const editItemIndex = this.items.findIndex(({ id })=> id === newItem.id);
+      if (editItemIndex) {
+        this.items[editItemIndex] = newItem;
+      }
     },
     dellItem(removeId) {
       this.items = this.items.filter(({ id }) => id !== removeId)
