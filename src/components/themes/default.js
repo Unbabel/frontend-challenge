@@ -1,7 +1,12 @@
 // https://github.com/diegohaz/arc/wiki/Styling
 import { reversePalette } from 'styled-theme/composer'
+import { background } from '@storybook/theming';
 
 const theme = {}
+
+theme.base = {
+  background: "black";
+}
 
 theme.palette = {
   primary: ['#1976d2', '#2196f3', '#71bcf7', '#c2e2fb'],
