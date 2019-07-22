@@ -10,8 +10,6 @@ const Block = styled.div`
 
 Block.propTypes = {
   palette: PropTypes.string,
-  reverse: PropTypes.bool,
-  opaque: PropTypes.bool,
 }
 
 Block.defaultProps = {
