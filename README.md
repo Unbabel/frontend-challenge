@@ -24,6 +24,11 @@ $ npm run storybook
 $ npm run build-dev
 ```
 
+## Front-end Store implementation
+
+To implement the store in the front-end  is used redux and redux saga 
+
+
 ## Front-end Architecture
 
 To develop the application i used atomic design methodology
@@ -53,6 +58,7 @@ To develop the application i used atomic design methodology
     - PageTemplate
 ### Page
     -HomePage
+
 
 ## License
 
