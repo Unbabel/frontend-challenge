@@ -1,0 +1,27 @@
+{
+  "name": "frontend-challenge",
+  "version": "1.0.0",
+  "repository": "https://github.com/dagadbm/frontend-challenge.git",
+  "license": "MIT",
+  "author": "David Maia <dagadbm@gmail.com>",
+  "main": "index.js",
+  "scripts": {
+    "build": "next build",
+    "posbuild": "next export -o dist",
+    "predeploy": "yarn run build",
+    "deploy": "npx surge dist --domain frontend-challenge.surge.sh",
+    "dev": "next",
+    "start": "next start",
+    "test": "jest"
+  },
+  "dependencies": {
+    "next": "^9.0.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^4.0.0",
+    "@testing-library/react": "^8.0.5",
+    "jest": "^24.8.0"
+  }
+}
