@@ -1,4 +1,4 @@
-// https://github.com/diegohaz/arc/wiki/Atomic-Design#templates
+
 import 'babel-polyfill'
 import React from 'react'
 import PropTypes from 'prop-types'

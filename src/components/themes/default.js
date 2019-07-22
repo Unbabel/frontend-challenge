@@ -1,4 +1,4 @@
-// https://github.com/diegohaz/arc/wiki/Styling
+
 import { reversePalette } from 'styled-theme/composer'
 import { background } from '@storybook/theming';
 
