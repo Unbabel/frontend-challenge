@@ -7,6 +7,7 @@ export const RECEIVE_TRANSCRIPTION_DATA = 'RECEIVE_TRANSCRIPTION_DATA'
 export const ADD_ELEMENT_TRANSCRIPTION_LIST = 'ADD_ELEMENT_TRANSCRIPTION_LIST'
 export const UPDATE_ELEMENT_TRANSCRIPTION_LIST = 'UPDATE_ELEMENT_TRANSCRIPTION_LIST'
 export const REMOVE_ELEMENT_TRANSCRIPTION_LIST = 'REMOVE_ELEMENT_TRANSCRIPTION_LIST'
+export const FAILURE_TRANSCRIPTION = 'FAILURE_TRANSCRIPTION'
 
 
 export const addElementTranscriptionData = data => ({ type: ADD_ELEMENT_TRANSCRIPTION_LIST, data })
@@ -15,3 +16,5 @@ export const removeElementTranscriptionData = data => ({ type: REMOVE_ELEMENT_TR
 export const requestTranscriptionData = () => ({ type: REQUEST_TRANSCRIPTION_DATA })
 export const postTranscriptionData = data => ({ type: POST_TRANSCRIPTION_DATA, data })
 export const receiveTranscriptionData = data => ({ type: RECEIVE_TRANSCRIPTION_DATA, data })
+export const failureTranscription = data => ({ type: FAILURE_TRANSCRIPTION, data })
+

@@ -3,8 +3,10 @@ import styled from "styled-components";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
-import Icon from '../../Atoms/icon'
-import SvgImage from '../../Atoms/icon/icons/delete.svg'
+import Modal from "../../Molecules/Modal/";
+import Header from "../../Organisms/Header/";
+import TranscriptionList from "../../Organisms/TranscriptionList/";
+import PageTemplate from "../../Templates/PageTemplate/";
 
 import {
   requestTranscriptionData,
@@ -15,29 +17,110 @@ import {
 } from "../../../redux/actions";
 
 class HomePage extends Component {
+  state = {
+    showModal: false
+  };
   componentDidMount() {
     const {
       requestTranscriptionData,
-      addElementTranscriptionData,
+      addElementTranscriptionData
     } = this.props;
 
-     requestTranscriptionData()
+    requestTranscriptionData();
+  }
+  handleAddElement = (e, data) => {
+    const { addElementTranscriptionData } = this.props;
+    const dataToSend = {
+      id: Math.random(),
+      voice: "voice 22",
+      text: "New element in transcription list"
+    };
+    addElementTranscriptionData(dataToSend);
+  };
+
+  handleAddRow = () => {
+    const { addElementTranscriptionData } = this.props;
+    const dataToSend = {
+      id: Math.random(),
+      voice: "New Element Title",
+      text: "New Element Content"
+    };
+    addElementTranscriptionData(dataToSend);
+  };
+
+  handleDeleteElement = id => {
+    const { removeElementTranscriptionData } = this.props;
+    removeElementTranscriptionData(id);
+  };
+
+  handleUpdateElement = (id, element, content) => {
+    const { updateElementTranscriptionData } = this.props;
+    const dataElement = {
+      id,
+      element,
+      content
+    };
+    updateElementTranscriptionData(dataElement);
+  };
+
+  handlePostTranscriptions = transcriptionList => {
+    const { postTranscriptionData } = this.props;
+    postTranscriptionData(transcriptionList);
+  };
+
+  componentDidCatch(err) {
+    // console.log("ERROR IN CATCH")
+    // console.log(err);
   }
 
   render() {
-    const {transcriptions} = this.props;
+    const {
+      transcriptions,
+      requestTranscriptionData,
+      postTranscriptionData,
+      error,
+      isLoading
+    } = this.props;
+
+
     return (
-      <div>
-        <img src={SvgImage}/>
-        <h1>Home Page</h1>
-        <Icon icon="person" />
-      </div>
+      <PageTemplate
+        header={
+          <Header
+            requestDataAction={requestTranscriptionData}
+            postDataAction={() => {
+              this.handlePostTranscriptions(transcriptions);
+            }}
+          />
+        }
+        footer={null}
+      >
+        {/* <Modal
+          onClose={() => {
+            ;
+          }}
+          title="Hello"
+          closeable
+          isOpen={this.state.showModal}
+        >
+          {error}
+        </Modal> */}
+
+        <TranscriptionList
+          isLoading={isLoading}
+          items={transcriptions}
+          handleDeleteElement={this.handleDeleteElement}
+          handleAddRow={this.handleAddRow}
+          handleUpdateElement={this.handleUpdateElement}
+        />
+      </PageTemplate>
     );
   }
 }
 
 const mapStateToProps = state => ({
   isLoading: state.transcription.isLoading,
+  error: state.transcription.error,
   transcriptions: state.transcription.list
 });
 
@@ -57,4 +140,3 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(HomePage);
-

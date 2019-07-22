@@ -81,12 +81,12 @@ const TranscriptioList = ({ items, ...props }) => {
   const {
     isLoading, handleDeleteElement, handleAddRow, handleUpdateElement,
   } = props
-  const mappedItems = items.length >= 0 && items.map((el, i) => {
+  const mappedItems = (typeof items !== 'undefined' && items.length > 0) && items.map((el, i) => {
     const EditableTitle = ContentEditable('span')
     const EditableContent = ContentEditable('span')
     return (
-      <>
-        <ListItem key={i} onMouseEnter={() => { setShowDeleteIcon(0) }} onMouseLeave={() => { setShowDeleteIcon(1) }}>
+      <div key={i}>
+        <ListItem key={el.id} onMouseEnter={() => { setShowDeleteIcon(0) }} onMouseLeave={() => { setShowDeleteIcon(1) }}>
           <ColIcon>
             <Checkbox onChange={handleCheckboxChange} />
           </ColIcon>
@@ -95,11 +95,11 @@ const TranscriptioList = ({ items, ...props }) => {
           </ColIcon>
           <Col>
             <StyledHeading level={2} variant="itemTitle">
-              <EditableTitle value={el.voice} idElement={el.id} propElement="voice" handleUpdateElement={handleUpdateElement} suppressContentEditableWarning="true" />
+              <EditableTitle value={el.voice} idelement={el.id} propelement="voice" handleUpdateElement={handleUpdateElement} suppressContentEditableWarning="true" />
             </StyledHeading>
 
             <StyledParagraph>
-              <EditableContent value={el.text} idElement={el.id} propElement="text" handleUpdateElement={handleUpdateElement} suppressContentEditableWarning="true" />
+              <EditableContent value={el.text} idelement={el.id} propelement="text" handleUpdateElement={handleUpdateElement} suppressContentEditableWarning="true" />
             </StyledParagraph>
 
           </Col>
@@ -108,7 +108,7 @@ const TranscriptioList = ({ items, ...props }) => {
           </ColIcon>
         </ListItem>
         <HorizontalRule />
-      </>
+      </div>
     )
   })
 

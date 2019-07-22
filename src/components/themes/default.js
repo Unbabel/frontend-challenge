@@ -4,10 +4,6 @@ import { background } from '@storybook/theming';
 
 const theme = {}
 
-theme.base = {
-  background: "black";
-}
-
 theme.palette = {
   primary: ['#1976d2', '#2196f3', '#71bcf7', '#c2e2fb'],
   secondary: ['#f8bbd0', '#e91e63', '#f06292', '#f8bbd0'],
