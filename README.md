@@ -1,5 +1,4 @@
-# Unbabel frontend-challenge
-
+# Unbabel Frontend Challenge - Ronaiza Cardoso
 ## Project setup
 ```
 npm install
