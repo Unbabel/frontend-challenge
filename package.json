@@ -7,7 +7,7 @@
   "main": "index.js",
   "scripts": {
     "build": "next build",
-    "posbuild": "next export -o dist",
+    "postbuild": "next export -o dist",
     "predeploy": "yarn run build",
     "deploy": "npx surge dist --domain frontend-challenge.surge.sh",
     "dev": "next",
