@@ -11,6 +11,7 @@ import {
 const defaultState = {
   isLoading: false,
   list: ['test'],
+  error:{}
 }
 
 export default (state = defaultState, { type, data }) => {
@@ -26,7 +27,6 @@ export default (state = defaultState, { type, data }) => {
         isLoading: true,
       }
     case 'RECEIVE_TRANSCRIPTION_DATA':
-      console.log(data)
       return {
         isLoading: false,
         list: data,
@@ -34,8 +34,6 @@ export default (state = defaultState, { type, data }) => {
     case 'UPDATE_TRANSCRIPTION_LIST':
       return { data: 'test' }
     case 'UPDATE_ELEMENT_TRANSCRIPTION_LIST':
-      console.log('UPDATE ELEMENT TRANSCRIPTION LIST REDUCER')
-      console.log(data)
       return {
         ...state,
         list: state.list.map((el) => {
@@ -45,7 +43,6 @@ export default (state = defaultState, { type, data }) => {
           }
           return el
         }),
-        // Here i have to update only the element with id
       }
     case 'ADD_ELEMENT_TRANSCRIPTION_LIST':
       return {
@@ -61,6 +58,13 @@ export default (state = defaultState, { type, data }) => {
           }
           return true
         }),
+      }
+      case 'FAILURE_TRANSCRIPTION':
+      console.log("FAILURE_TRANSCRIPTION")
+      console.log(data)
+      return {
+        ...state,
+        error:'An error occurred while trying to make the request'
       }
 
     default:

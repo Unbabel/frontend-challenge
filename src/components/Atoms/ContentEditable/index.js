@@ -27,7 +27,7 @@ const ContentEditable = (WrappedComponent) => {
       };
 
       save = () => {
-        const { idElement, propElement, handleUpdateElement } = this.props
+        const { idelement, propelement, handleUpdateElement } = this.props
         this.setState(
           {
             editing: false,
@@ -35,7 +35,7 @@ const ContentEditable = (WrappedComponent) => {
           () => {
             if (handleUpdateElement && this.isValueChanged()) {
               console.log('Value is changed', this.domElm.textContent)
-              handleUpdateElement(idElement, propElement, this.domElm.textContent)
+              handleUpdateElement(idelement, propelement, this.domElm.textContent)
             }
           }
         )

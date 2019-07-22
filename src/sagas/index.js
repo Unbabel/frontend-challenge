@@ -8,19 +8,16 @@ import {
     REQUEST_TRANSCRIPTION_DATA,
     POST_TRANSCRIPTION_DATA,
     receiveTranscriptionData,
+    failureTranscription
   } from '../redux/actions/'
   
   
   function* postApiData(action) {
     try {
-      console.log('POST API DATA')
-      console.log(action)
-      console.log('POST API DATA')
       const data = yield call(postTranscriptions, action.data)
-      yield put(receiveTranscriptionData(data))
+      yield put(receiveTranscriptionData(data.data))
     } catch (e) {
-      // yield put(fetchTranslationList(e))
-      // CREATE A ACTION
+      // yield put(failureTranscription(e))
       console.log('Errror')
       console.log(e)
     }
@@ -30,10 +27,11 @@ import {
   function* getApiData(action) {
     try {
       const data = yield call(fetchTranscriptions)
-      yield put(receiveTranscriptionData(data))
+      console.log(data)
+      yield put(receiveTranscriptionData(data.data))
     } catch (e) {
-      // yield put(fetchTranslationList(e))
-      // CREATE A ACTION
+      // yield put(failureTranscription(e))
+
       console.log('Errror')
       console.log(e)
     }
