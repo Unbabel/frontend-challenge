@@ -1,8 +1,13 @@
-import React from "react";
-import Header from "./Header";
+import React from 'react';
+import Header from './Header';
+import Transcriptions from './Transcriptions';
+import { withStore } from './store';
 
-const App = () => {
-  return <Header />;
-};
+const App = () => (
+  <>
+    <Header />
+    <Transcriptions />
+  </>
+);
 
-export default App;
+export default withStore(App);
