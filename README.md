@@ -1,6 +1,13 @@
 # Frontend Challenge
 
-The goal is to understand how knowledgeable you are and how well you structure your app.
+Our goal is to understand:
+- How knowledgeable you are
+- How well you structure your app
+- How well can you visually reproduce a mockup
+
+Some restrictions:
+- Use the Vue javascript framework and its Component system
+- Don't use a UI framework like Bootstrap
 
 Your challenge will consist of the following:
 
@@ -66,5 +73,7 @@ The data above is enough to complete challenge. We also include the source Sketc
 
 ## Bonus points:
 
-- Don't use a UI framework like Bootstrap. It's important for us to understand how you structure your HTML and build your CSS, that's why.
-- Please use a javascript framework such as Vue (We love Vue), React, or Angular. Make use of its Component system.
+- Keeping in mind accessibility
+- Adding tests to your components and app
+- Using a store (Vuex) to manage the application data
+- Using vue-router to prepare the app for a future where it would have multiple routes
