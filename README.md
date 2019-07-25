@@ -1,9 +1,9 @@
 # Frontend Challenge
 
 Our goal is to understand:
-- how knowledgeable you are
-- how well you structure your app
-- how well can you visually reproduce a mockup
+- How knowledgeable you are
+- How well you structure your app
+- How well can you visually reproduce a mockup
 
 Some restrictions:
 - Use the Vue javascript framework and its Component system
