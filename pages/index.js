@@ -7,9 +7,19 @@ const Index = () => {
       <App />
       <style jsx global>
         {`
+          html {
+            box-sizing: border-box;
+          }
+          *,
+          *:before,
+          *:after {
+            box-sizing: inherit;
+          }
+
           body {
             margin: 0;
           }
+
           /* open-sans-regular - latin */
           @font-face {
             font-family: 'Open Sans';

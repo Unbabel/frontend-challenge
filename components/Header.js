@@ -33,12 +33,10 @@ const Header = () => {
         <span className='icon upload'>
           <Upload />
         </span>
-        {JSON.stringify(store)}
       </div>
       <style jsx>
         {`
           .container {
-            background: white;
             box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.24),
               0 1px 3px 0 rgba(0, 0, 0, 0.12);
             width: 100%;

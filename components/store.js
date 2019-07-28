@@ -15,7 +15,7 @@ const reducer = (store, { type, payload }) => {
   switch (type) {
     case 'fetch':
       return {
-        transcriptions: payload.reduce((acc, t) => (acc[t.id] = t), {}),
+        transcriptions: payload.reduce((acc, t) => ((acc[t.id] = t), acc), {}),
       };
 
     case 'update':
