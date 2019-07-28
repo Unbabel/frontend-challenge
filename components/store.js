@@ -18,6 +18,23 @@ const reducer = (store, { type, payload }) => {
         transcriptions: payload.reduce((acc, t) => ((acc[t.id] = t), acc), {}),
       };
 
+    case 'create':
+      const nextId =
+        Object.keys(store.transcriptions).reduce((acc, cur) =>
+          Math.max(acc, cur)
+        ) + 1;
+      debugger;
+      return {
+        transcriptions: {
+          ...store.transcriptions,
+          [nextId]: {
+            id: nextId,
+            voice: '',
+            text: '',
+          },
+        },
+      };
+
     case 'update':
       return {
         transcriptions: {

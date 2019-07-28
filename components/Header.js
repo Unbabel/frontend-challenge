@@ -19,9 +19,25 @@ const Header = () => {
     });
 
     dispatch({ type: 'fetch', payload: response });
-
-    debugger;
   });
+
+  const uploadTranscriptions = useCallback(async () => {
+    fetch('http://www.mocky.io/v2/5ae1c5792d00004d009d7e5c', {
+      method: 'POST',
+      body: JSON.stringify(Object.values(store.transcriptions)),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    }).then(function(response) {
+      if (response.status >= 400) {
+        throw new Error('Unable to upload Transcriptions');
+      }
+    });
+  });
+
+  React.useEffect(() => {
+    fetchTranscriptions();
+  }, []);
 
   return (
     <div className='container'>
@@ -31,7 +47,7 @@ const Header = () => {
           <FetchDocument onClick={fetchTranscriptions} />
         </span>
         <span className='icon upload'>
-          <Upload />
+          <Upload onClick={uploadTranscriptions} />
         </span>
       </div>
       <style jsx>

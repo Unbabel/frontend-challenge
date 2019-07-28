@@ -10,6 +10,9 @@ const Transcriptions = () => {
   const editTranscription = useCallback(id => () =>
     setEditable(state => ({ ...state, [id]: true }))
   );
+  const addTranscription = useCallback(() => {
+    dispatch({ type: 'create' });
+  }, [dispatch]);
 
   return (
     <>
@@ -40,7 +43,7 @@ const Transcriptions = () => {
               })}
             </div>
           </div>
-          <div className='add-row'>
+          <div className='add-row' onClick={addTranscription}>
             <AddRow />
           </div>
         </>
@@ -90,6 +93,7 @@ const Transcriptions = () => {
             justify-content: center;
             align-items: center;
             margin: 24px 0;
+            cursor: pointer;
           }
         `}
       </style>
