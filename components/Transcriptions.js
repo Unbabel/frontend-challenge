@@ -48,7 +48,7 @@ const Transcriptions = () => {
       {transcriptions.length > 0 && (
         <>
           <div className='grid'>
-            {transcriptions.map(({ id, text, voice }, idx, arr) => {
+            {transcriptions.map(({ id, text, voice }) => {
               return (
                 <div
                   key={id}
@@ -69,7 +69,7 @@ const Transcriptions = () => {
                     contentEditable={editable[id] === 'voice'}
                     suppressContentEditableWarning
                   >
-                    {voice}
+                    {voice || 'Insert Voice'}
                   </div>
                   <div
                     className='text'
@@ -78,7 +78,7 @@ const Transcriptions = () => {
                     contentEditable={editable[id] === 'text'}
                     suppressContentEditableWarning
                   >
-                    {text}
+                    {text || 'Insert Text'}
                   </div>
                   {deletable[id] && (
                     <div className='delete' onClick={deleteTranscription(id)}>
@@ -166,6 +166,9 @@ const Transcriptions = () => {
             justify-content: center;
             align-items: center;
             margin: 24px 0;
+          }
+
+          .add-row :global(svg) {
             cursor: pointer;
           }
         `}
