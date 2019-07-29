@@ -6,6 +6,8 @@
     "extends": "stylelint-config-standard"
   },
   "scripts": {
+    "icons": "vsvg -s src/assets/ -t src/components/icons",
+    "prebuild": "npm run icons",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
@@ -18,6 +20,7 @@
     "vue-class-component": "^7.0.2",
     "vue-property-decorator": "^8.1.0",
     "vue-router": "^3.0.3",
+    "vue-svgicon": "^3.2.6",
     "vuex": "^3.0.1"
   },
   "devDependencies": {

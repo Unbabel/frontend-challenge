@@ -10,6 +10,15 @@ html {
   font-size: 1rem;
   text-align: left;
   background-color: colormapper($color-map, main-background-color);
+  overflow: hidden;
+  font-family: $title-font-family;
+}
+
+a {
+  background-color: colormapper($color-map, white);
+  padding: 1rem;
+  text-decoration: none;
+  color: colormapper($color-map, app-title-color);
 }
 
 ul {

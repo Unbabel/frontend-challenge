@@ -1,5 +1,18 @@
 <template>
-  <div>
-    <h1>The transcription list component will live here</h1>
-  </div>
+  <header>
+    <NavigationComponent />
+  </header>
 </template>
+
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator';
+import NavigationComponent from '../components/Navigation-component/Navigation-component.vue';
+
+@Component({
+  components: {
+    NavigationComponent
+  }
+})
+
+export default class TranscriptionList extends Vue {}
+</script>
