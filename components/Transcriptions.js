@@ -2,17 +2,35 @@ import React, { Fragment, useState, useCallback } from 'react';
 import { useStore } from './store';
 import Person from '../static/svg/person.svg';
 import AddRow from '../static/svg/add-row.svg';
+import Delete from '../static/svg/delete.svg';
+import { updateExpression } from '@babel/types';
 
 const Transcriptions = () => {
   const [store, dispatch] = useStore();
   const transcriptions = Object.values(store.transcriptions);
   const [editable, setEditable] = useState({});
-  const editTranscription = useCallback(id => () =>
-    setEditable(state => ({ ...state, [id]: true }))
+
+  const editTranscription = useCallback(
+    ({ id, type }) => () =>
+      // there can be only one currently editable transcription
+      setEditable({ [id]: true, [type]: true }),
+    [setEditable]
   );
-  const addTranscription = useCallback(() => {
-    dispatch({ type: 'create' });
-  }, [dispatch]);
+  const updateTranscription = useCallback(
+    ({ id, type }) => ({ target: { textContent } }) =>
+      dispatch({
+        type: 'update',
+        payload: { id, [type]: textContent },
+      }),
+    [dispatch]
+  );
+  const addTranscription = useCallback(
+    () =>
+      dispatch({
+        type: 'create',
+      }),
+    [dispatch]
+  );
 
   return (
     <>
@@ -23,19 +41,35 @@ const Transcriptions = () => {
               {transcriptions.map(({ id, text, voice }, idx, arr) => {
                 return (
                   <Fragment key={id}>
-                    {/* <div className='top'> */}
                     <div className='checkbox'>
                       <input type='checkbox' />
                     </div>
                     <div className='icon'>
                       <Person />
                     </div>
-                    {/* </div> */}
-                    <div className='voice' onClick={editTranscription(id)}>
-                      {editable[id] ? <textarea>{voice}</textarea> : voice}
+                    <div
+                      className='voice'
+                      onClick={editTranscription({ id, type: 'voice' })}
+                      onBlur={updateTranscription({ id, type: 'voice' })}
+                      contentEditable={
+                        Object.prototype.hasOwnProperty.call(editable, id) &&
+                        editable.voice
+                      }
+                      suppressContentEditableWarning
+                    >
+                      {voice}
                     </div>
-                    <div className='text' onClick={editTranscription(id)}>
-                      {editable[id] ? <textarea>{text}</textarea> : text}
+                    <div
+                      className='text'
+                      onClick={editTranscription({ id, type: 'text' })}
+                      onBlur={updateTranscription({ id, type: 'text' })}
+                      contentEditable={
+                        Object.prototype.hasOwnProperty.call(editable, id) &&
+                        editable.text
+                      }
+                      suppressContentEditableWarning
+                    >
+                      {text}
                     </div>
                     {arr.length - 1 !== idx && <hr className='separator' />}
                   </Fragment>
@@ -58,7 +92,7 @@ const Transcriptions = () => {
 
           .grid {
             display: grid;
-            grid-template-columns: [checkbox] 1fr [icon] 1fr [content] auto;
+            grid-template-columns: [checkbox] 0fr [icon] 0fr [content] auto;
             grid-column-gap: 16px;
           }
 
@@ -75,7 +109,19 @@ const Transcriptions = () => {
 
           .text {
             font-family: 'Open Sans';
-            grid-column: 3 / 4;
+            grid-column: content;
+          }
+
+          .voice:global(:focus),
+          .text:gloval(:focus) {
+            box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+            padding: 3px 0px 3px 3px;
+            margin: 5px 1px 3px 0px;
+            border: 1px solid rgba(81, 203, 238, 1);
+          }
+
+          .error {
+            grid-column: delete;
           }
 
           .icon :global(svg) {

@@ -19,11 +19,11 @@ const reducer = (store, { type, payload }) => {
       };
 
     case 'create':
+      // I could get the last item from the array, but this is safer
       const nextId =
         Object.keys(store.transcriptions).reduce((acc, cur) =>
           Math.max(acc, cur)
         ) + 1;
-      debugger;
       return {
         transcriptions: {
           ...store.transcriptions,
@@ -40,7 +40,8 @@ const reducer = (store, { type, payload }) => {
         transcriptions: {
           ...store.transcriptions,
           [payload.id]: {
-            ...action.payload,
+            ...store.transcriptions[payload.id],
+            ...payload,
           },
         },
       };

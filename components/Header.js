@@ -43,11 +43,11 @@ const Header = () => {
     <div className='container'>
       <div>Transcriptions</div>
       <div className='icons'>
-        <span className='icon fetch'>
-          <FetchDocument onClick={fetchTranscriptions} />
-        </span>
         <span className='icon upload'>
           <Upload onClick={uploadTranscriptions} />
+        </span>
+        <span className='icon fetch'>
+          <FetchDocument onClick={fetchTranscriptions} />
         </span>
       </div>
       <style jsx>
@@ -58,14 +58,15 @@ const Header = () => {
             width: 100%;
             height: 64px;
             display: flex;
-            justify-content: space-around;
+            justify-content: space-between;
             align-items: center;
             font-family: Montserrat;
             font-size: 18px;
             font-weight: 600;
+            padding: 0 calc(40vh + 24px);
           }
 
-          .fetch {
+          .upload {
             margin-right: 24px;
           }
 
