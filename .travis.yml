@@ -6,7 +6,7 @@ addons:
     packages:
       - libgconf-2-4
 cache:
-  npm: true
+  yarn: true
   directories:
     - ~/.cache
 install:
