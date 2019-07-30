@@ -57,7 +57,13 @@ const Transcriptions = () => {
                   className='grid-item'
                 >
                   <div className='checkbox'>
-                    <input type='checkbox' />
+                    <input type='checkbox' className='checkbox-input' />
+                    <svg width='10' height='8' className='checkbox-mark'>
+                      <path
+                        fill='white'
+                        d='M3.35 5.26L8.3.31a1 1 0 0 1 1.414 1.414L4.057 7.38a1 1 0 0 1-1.414 0l-.707-.707-1.65-1.65A1 1 0 1 1 1.7 3.609l1.65 1.65z'
+                      />
+                    </svg>
                   </div>
                   <div className='icon'>
                     <Person />
@@ -98,12 +104,12 @@ const Transcriptions = () => {
         {`
           .grid {
             border: 1px #eaedef solid;
-            margin: 10vh 40vh 0 40vh;
+            margin: 10vh 20vh 0 20vh;
           }
 
           .grid-item {
             display: grid;
-            grid-template-columns: [checkbox] 0fr [icon] 0fr [content] auto [delete] min-content;
+            grid-template-columns: [checkbox] min-content [icon] min-content [content] auto [delete] 24px;
             grid-column-gap: 16px;
             padding: 32px 24px;
             border-bottom: 1px #eaedef solid;
@@ -111,14 +117,6 @@ const Transcriptions = () => {
 
           .grid-item:hover {
             box-shadow: 0 0 2px #859eff;
-          }
-
-          .hover {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: -24px;
-            left: -24px;
           }
 
           .delete {
@@ -129,7 +127,7 @@ const Transcriptions = () => {
             cursor: pointer;
           }
 
-          .delete :global(svg) {
+          svg {
             display: block;
           }
 
@@ -139,26 +137,56 @@ const Transcriptions = () => {
             align-self: center;
           }
 
+          .checkbox,
+          .icon {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+
+          .checkbox-input {
+            width: 16px;
+            height: 16px;
+            border: 2px solid #859eff;
+            border-radius: 2px;
+            appearance: none;
+            outline: none;
+            cursor: pointer;
+          }
+
+          .checkbox-input:checked {
+            border: 2px solid #859eff;
+            border-radius: 2px;
+            background: #859eff;
+          }
+
+          .checkbox-input + .checkbox-mark {
+            display: none;
+          }
+
+          .checkbox-input:checked + .checkbox-mark {
+            display: block;
+            position: absolute;
+            left: 7px;
+            top: 7px;
+            pointer-events: none;
+          }
+
           .voice {
             font-family: 'Montserrat';
             font-weight: 600;
+            color: #566074;
           }
 
           .text {
             font-family: 'Open Sans';
             grid-column: content;
-          }
-
-          .voice:global(:focus),
-          .text:gloval(:focus) {
+            color: #778195;
           }
 
           .error {
             grid-column: delete;
-          }
-
-          .icon :global(svg) {
-            display: block;
           }
 
           .add-row {

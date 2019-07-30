@@ -46,6 +46,15 @@ const reducer = (store, { type, payload }) => {
         },
       };
 
+    case 'delete':
+      // If the name of the property to remove is from a variable
+      const { [payload.id]: _, ...deleted } = store.transcriptions;
+      return {
+        transcriptions: {
+          ...deleted,
+        },
+      };
+
     default:
       return store;
   }

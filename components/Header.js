@@ -35,10 +35,6 @@ const Header = () => {
     });
   });
 
-  React.useEffect(() => {
-    fetchTranscriptions();
-  }, []);
-
   return (
     <div className='container'>
       <div>Transcriptions</div>
@@ -63,7 +59,8 @@ const Header = () => {
             font-family: Montserrat;
             font-size: 18px;
             font-weight: 600;
-            padding: 0 calc(40vh + 24px);
+            color: #414c5e;
+            padding: 0 calc(20vh + 24px);
           }
 
           .upload {
