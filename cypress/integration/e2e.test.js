@@ -53,7 +53,7 @@ context('E2E Tests', () => {
     cy.get('.grid-item:first-child').trigger('mouseover');
     cy.get('.grid-item:first-child')
       .find('.delete')
-      .click();
+      .click({ force: true });
     cy.get('.grid-item').should('have.length', 2);
   });
 
