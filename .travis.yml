@@ -1,10 +1,19 @@
 language: node_js
 node_js:
   - 'lts/*'
-script:
+addons:
+  apt:
+    packages:
+      - libgconf-2-4
+cache:
+  npm: true
+  directories:
+    - ~/.cache
+install:
   - yarn install
-  - yarn test
+script:
   - yarn build
+  - yarn test
 deploy:
   provider: surge
   project: ./dist/
