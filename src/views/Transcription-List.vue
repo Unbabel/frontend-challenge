@@ -10,7 +10,7 @@
         :key="transcription.id"
       >
         <div class="delete-icon">
-          <button>
+          <button @click="deleteRow(transcription.id)">
             <svgicon
               class="person-icon"
               name="delete"
@@ -39,7 +39,7 @@
       </li>
     </ul>
     <div class="add-row">
-      <button>
+      <button @click="getRow()">
         <svgicon name="add-row" height="1.7rem" width="1.7rem" :original="true"></svgicon>
       </button>
       <h3 v-if="isItemListValid" class="warning-message">
@@ -51,7 +51,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import { State } from 'vuex-class';
+import { State, Action } from 'vuex-class';
 import NavigationComponent from '../components/Navigation-component/Navigation-component.vue';
 import InplaceEditor from '../components/Inplace-editor-component/Inplace-editor-component.vue';
 import { transcription } from '../store/modules/transcriptions';
@@ -60,16 +60,29 @@ import '../components/icons/delete';
 import '../components/icons/person';
 import '../components/icons/add-row';
 
+const namespace: string = 'transcription';
+
 @Component({
   components: {
     NavigationComponent,
     InplaceEditor
   }
 })
+
 export default class TranscriptionList extends Vue {
   @State('transcription') private transcription!: ITranscriptionState;
+  @Action('addTranscription', { namespace }) private addTranscription: any;
+  @Action('deleteTranscription', { namespace }) private deleteTranscription: any;
 
   private isItemListValid: boolean = false;
+
+  private getRow() {
+    this.addTranscription();
+  }
+
+  private deleteRow(rowId: number) {
+    this.deleteTranscription(rowId);
+  }
 
   get transcriptionList() {
     const transcriptionList =

@@ -8,5 +8,27 @@ export const mutations: MutationTree<ITranscriptionState> = {
 
   transcriptionListError(state) {
     state.transcriptionList = [];
+  },
+
+  addTranscription(state) {
+    const newTranscription: ITranscription = {
+      id: new Date().getUTCMilliseconds(),
+      voice: '',
+      text: ''
+    };
+
+    state.transcriptionList.push(newTranscription);
+  },
+
+  deleteTranscription(state, transcriptionId) {
+    const transcriptionToDelete = state.transcriptionList.find((transcription) => transcription.id === transcriptionId);
+
+    if (transcriptionToDelete) {
+      const index = state.transcriptionList.indexOf(transcriptionToDelete);
+
+      if (index > -1) {
+        state.transcriptionList.splice(index, 1);
+      }
+    }
   }
 };

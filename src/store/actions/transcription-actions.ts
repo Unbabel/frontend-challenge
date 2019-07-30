@@ -14,5 +14,13 @@ export const actions: ActionTree<ITranscriptionState, IRootState> = {
         }, (error) => {
             commit('transcriptionListError');
         });
+    },
+
+    addTranscription({commit}): any {
+      commit('addTranscription');
+    },
+
+    deleteTranscription({commit}, transcriptionId: number): any {
+      commit('deleteTranscription', transcriptionId);
     }
 };
