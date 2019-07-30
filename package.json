@@ -17,7 +17,6 @@
   },
   "dependencies": {
     "@svgr/webpack": "^4.3.2",
-    "fontfaceobserver": "^2.1.0",
     "isomorphic-unfetch": "^3.0.0",
     "next": "^9.0.2",
     "react": "^16.8.6",
