@@ -7,11 +7,13 @@
           <button class="upload-data navigation--buttons--button">
             <svgicon name="upload" height="1.5rem" width="1.5rem" :original="true"></svgicon>
           </button>
+          <svgicon v-if="isLoading" name="loading" height="1.5rem" width="1.5rem" :original="true"></svgicon>
         </li>
         <li>
-          <button class="fetch-data">
+          <button class="fetch-data" @click="getData()">
             <svgicon name="fetch-document" height="1.5rem" width="1.5rem" :original="true"></svgicon>
           </button>
+          <svgicon v-if="isUploading" name="loading" height="1.5rem" width="1.5rem" :original="true"></svgicon>
         </li>
       </ul>
     </div>
@@ -20,11 +22,24 @@
 
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator';
+import { State, Action, Getter } from 'vuex-class';
 import '../icons/upload';
 import '../icons/fetch-document';
+import '../icons/loading';
+import {actions} from '../../store/actions/transcription-actions';
+const namespace: string = 'transcription';
 
 @Component
-export default class NavigationComponent extends Vue {}
+export default class NavigationComponent extends Vue {
+  private isLoading: boolean = false;
+  private isUploading: boolean = false;
+
+  @Action('fetchData', { namespace }) private fetchData: any;
+
+  private getData() {
+    this.fetchData();
+  }
+}
 </script>
 
 <style lang="scss">
@@ -37,12 +52,11 @@ export default class NavigationComponent extends Vue {}
   background-color: colormapper($color-map, white);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   height: 69px;
-  position: fixed;
   width: 100%;
 
   &--wrapper {
     padding: 15px;
-    width: 50%;
+    width: 992px;
     display: flex;
     flex-direction: row;
     align-items: center;

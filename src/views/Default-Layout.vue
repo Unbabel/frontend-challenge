@@ -1,8 +1,12 @@
 <template>
   <main class="landing-page">
     <hgroup class="landing-page--titles">
-      <h1 class="main-title">{{titles.title}}</h1>
-      <h2 class="subtitle">{{titles.subtitle}}</h2>
+      <h1
+        class="main-title"
+      >{{titles.title && titles.subtitle ? titles.title : "A Problem occurred"}}</h1>
+      <h2
+        class="subtitle"
+      >{{titles.subtitle && titles.title ? titles.subtitle : "Please refresh the page or try again in a bit"}}</h2>
     </hgroup>
     <div class="landing-page--links">
       <router-link tag="a" to="/transcription-list">Transcriptions</router-link>
@@ -68,7 +72,8 @@ export default class DefaultLayout extends Vue {
     background-image: none;
     background-color: colormapper($color-map, highlight-color);
 
-    &--titles, &--links {
+    &--titles,
+    &--links {
       width: 100%;
       margin-left: 0;
     }

@@ -3,6 +3,8 @@
 // List of items
 .item-list {
   padding: 15px;
+  width: fit-content;
+  margin: 2rem auto;
 
   &--item {
     position: relative;
@@ -10,7 +12,7 @@
     align-items: flex-start;
     background-color: colormapper($color-map, white);
     padding: 1rem;
-    max-width: 738px;
+    width: 992px;
     margin: 0 auto;
     border-bottom: solid 1px colormapper($color-map, list-item-border);
 
@@ -39,16 +41,12 @@
 
     &:hover {
       .delete-icon {
-        @include transition-mixin(all, 0.3s, ease-in-out);
-
         visibility: visible;
       }
 
       .person-icon {
-        svg {
-          #head {
-            @include transition-mixin(all, 0.3s, ease-in-out);
-
+        g {
+          rect {
             fill: colormapper($color-map, highlight-color);
           }
         }
@@ -69,8 +67,6 @@
   user-select: none;
 
   .checkmark {
-    @include transition-mixin(all, 0.3s, ease-in-out);
-
     position: absolute;
     top: 0;
     left: 0;
@@ -84,8 +80,8 @@
       content: "";
       position: absolute;
       display: none;
-      left: 3px;
-      top: 1px;
+      left: 5px;
+      top: 2px;
       width: 3px;
       height: 6px;
       border: solid white;
@@ -115,49 +111,26 @@
 
 // Inplace editor
 .inplace-editor {
-  .p-inputtext:enabled:focus {
-    @extend .input-highlight;
+  &--button {
+    background-color: colormapper($color-map, highlight-color);
+    border-radius: 3px;
+    padding: 10px;
+    color: colormapper($color-map, white);
   }
 
-  .p-inplace-content {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+  &--voice {
+    @extend .input-title-text;
   }
 
-  &--title {
-    .p-inplace-display {
-      @extend .input-title-text;
+  &--voice, &--text {
+    width: fit-content;
+    cursor: pointer;
+    padding: 0 10px;
+    border: solid 2px colormapper($color-map, white);
+    border-radius: 3px;
 
-      padding: 0 !important;
-    }
-  }
-
-  &--text {
-    .p-inplace-display {
-      @extend .input-content-text;
-
-      padding: 0 !important;
-    }
-  }
-
-  .p-button {
-    background-color: colormapper($color-map, light-blue);
-    border-color: colormapper($color-map, light-blue);
-    margin-left: 1rem;
-
-    .pi::before {
-      content: "\E909";
-    }
-
-    &:enabled:hover {
-      background-color: colormapper($color-map, highlight-color);
+    &:hover {
       border-color: colormapper($color-map, highlight-color);
-    }
-
-    &:enabled:focus:active {
-      outline: none;
-      box-shadow: none;
     }
   }
 
@@ -173,24 +146,37 @@
 
     width: 95% !important;
     max-width: 95% !important;
+    height: 100px;
   }
 
   textarea,
   input {
-    @include transition-mixin(all, 0.3s, ease-in-out);
+    @extend .input-highlight;
 
     border: solid 1px colormapper($color-map, highlight-color);
     line-height: 1.5;
     max-width: 95%;
+    margin-right: 10px;
     cursor: pointer;
 
     &:active,
     &:focus,
-    &hover,
+    &:hover,
     &:placeholder-shown {
       @include transition-mixin(none);
+    }
+  }
+}
 
-      @extend .input-highlight;
+@media screen and (max-width: 1068px) {
+  .item-list {
+    width: fit-content;
+
+    &--item {
+      width: -webkit-fill-available;
+      width: -moz-available;
+      width: -webkit-fill-available;
+      width: stretch;
     }
   }
 }
