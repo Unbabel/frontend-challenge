@@ -56,15 +56,10 @@ const Transcriptions = () => {
                   onMouseLeave={setDeleteTranscription(id, false)}
                   className='grid-item'
                 >
-                  <div className='checkbox'>
-                    <input type='checkbox' className='checkbox-input' />
-                    <svg width='10' height='8' className='checkbox-mark'>
-                      <path
-                        fill='white'
-                        d='M3.35 5.26L8.3.31a1 1 0 0 1 1.414 1.414L4.057 7.38a1 1 0 0 1-1.414 0l-.707-.707-1.65-1.65A1 1 0 1 1 1.7 3.609l1.65 1.65z'
-                      />
-                    </svg>
-                  </div>
+                  <label className='checkbox'>
+                    <input type='checkbox' className='sr-only' />
+                    <span className='checkbox-mark' />
+                  </label>
                   <div className='icon'>
                     <Person />
                   </div>
@@ -145,32 +140,27 @@ const Transcriptions = () => {
             align-items: center;
           }
 
-          .checkbox-input {
+          .checkbox-mark {
+            display: flex;
+            justify-content: center;
             width: 16px;
             height: 16px;
             border: 2px solid #859eff;
             border-radius: 2px;
-            appearance: none;
-            outline: none;
             cursor: pointer;
           }
 
-          .checkbox-input:checked {
-            border: 2px solid #859eff;
-            border-radius: 2px;
-            background: #859eff;
+          .checkbox input:checked + .checkbox-mark {
+            background-color: #859eff;
           }
 
-          .checkbox-input + .checkbox-mark {
-            display: none;
-          }
-
-          .checkbox-input:checked + .checkbox-mark {
-            display: block;
-            position: absolute;
-            left: 7px;
-            top: 7px;
-            pointer-events: none;
+          .checkbox input:checked + .checkbox-mark::after {
+            content: '';
+            width: 5px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
           }
 
           .voice {
@@ -198,6 +188,20 @@ const Transcriptions = () => {
 
           .add-row :global(svg) {
             cursor: pointer;
+          }
+
+          /* https://accessibility.18f.gov/hidden-content/ */
+          .sr-only {
+            border: 0;
+            clip: rect(0 0 0 0);
+            clip-path: polygon(0px 0px, 0px 0px, 0px 0px);
+            height: 1px;
+            margin: -1px;
+            overflow: hidden;
+            padding: 0;
+            position: absolute;
+            width: 1px;
+            white-space: nowrap;
           }
         `}
       </style>
