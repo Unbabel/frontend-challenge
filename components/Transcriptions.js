@@ -57,7 +57,13 @@ const Transcriptions = () => {
         {`
           .grid {
             border: 1px #eaedef solid;
-            margin: 10vh 20vh 0 20vh;
+            margin: 10vh 5vh 0 5vh;
+          }
+
+          @media (min-width: 768px) {
+            .grid {
+              margin: 10vh 20vh 0 20vh;
+            }
           }
 
           .add-row {

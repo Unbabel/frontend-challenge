@@ -60,13 +60,18 @@ const Header = () => {
             font-size: 18px;
             font-weight: 600;
             color: #414c5e;
-            padding: 0 calc(20vh + 24px);
+            padding: 0 calc(5vh + 24px);
+          }
+
+          @media (min-width: 768px) {
+            .container {
+              padding: 0 calc(20vh + 24px);
+            }
           }
 
           .upload {
             margin-right: 24px;
           }
-
           .icon {
             cursor: pointer;
           }
