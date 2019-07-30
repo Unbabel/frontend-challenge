@@ -12,7 +12,8 @@
     "deploy": "npx surge dist --domain frontend-challenge.surge.sh",
     "dev": "next",
     "start": "next start",
-    "test": "jest"
+    "test": "cypress run",
+    "cypress": "cypress open"
   },
   "dependencies": {
     "@svgr/webpack": "^4.3.2",
@@ -23,8 +24,6 @@
     "react-dom": "^16.8.6"
   },
   "devDependencies": {
-    "@testing-library/jest-dom": "^4.0.0",
-    "@testing-library/react": "^8.0.5",
-    "jest": "^24.8.0"
+    "cypress": "^3.4.1"
   }
 }

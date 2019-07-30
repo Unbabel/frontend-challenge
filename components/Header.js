@@ -40,10 +40,10 @@ const Header = () => {
       <div>Transcriptions</div>
       <div className='icons'>
         <span className='icon upload'>
-          <Upload onClick={uploadTranscriptions} />
+          <Upload data-testid='upload' onClick={uploadTranscriptions} />
         </span>
         <span className='icon fetch'>
-          <FetchDocument onClick={fetchTranscriptions} />
+          <FetchDocument data-testid='fetch' onClick={fetchTranscriptions} />
         </span>
       </div>
       <style jsx>
