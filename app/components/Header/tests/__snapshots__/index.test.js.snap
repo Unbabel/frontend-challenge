@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Header /> should render a div 1`] = `
+<div>
+  <a
+    class="HeaderLink-qm8rh7-0 byfMdl"
+    href="/"
+  >
+    <span>
+      transcriptions
+    </span>
+  </a>
+  <div
+    class="ActionsBar-sc-13646o-0 bMgcSY"
+  >
+    download upload
+  </div>
+</div>
+`;

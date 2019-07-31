@@ -5,15 +5,14 @@
  *
  */
 
-import React, { useEffect, memo } from 'react';
+import React, { useContext, useEffect, memo } from 'react';
 import PropTypes from 'prop-types';
-import { FormattedMessage } from 'react-intl';
 import { Helmet } from 'react-helmet';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
+import { ThemeContext } from 'styled-components';
 import { createStructuredSelector } from 'reselect';
 
-import { useInjectReducer } from 'utils/injectReducer';
 import { useInjectSaga } from 'utils/injectSaga';
 
 import { makeSelectState, makeSelectError, makeSelectTranscriptions } from 'containers/App/selectors';
@@ -22,10 +21,10 @@ import { STATE } from 'containers/App/constants';
 
 // import messages from './messages';
 
-import TranscriptionListItem from 'containers/TranscriptionListItem';
-
 import TranscriptionList from 'components/TranscriptionList';
 import saga from './saga';
+
+import Wrapper from './Wrapper';
 
 const key = 'home';
 
@@ -44,17 +43,17 @@ export function HomePage({ state, error, transcriptions, loadData }) {
   };
 
   return (
-    <main>
+    <Wrapper theme={useContext(ThemeContext)}>
       <Helmet>
-        <title>Home Page</title>
-        <meta name="description" content="A React.js Boilerplate application homepage" />
+        <title>Transcriptions</title>
       </Helmet>
       <TranscriptionList {...listProps} />
-    </main>
+    </Wrapper>
   );
 }
 
 HomePage.propTypes = {
+  theme: PropTypes.object,
   state: PropTypes.oneOf(Object.values(STATE)),
   error: PropTypes.oneOfType([PropTypes.object, PropTypes.bool]),
   transcriptions: PropTypes.oneOfType([PropTypes.array, PropTypes.bool]),
