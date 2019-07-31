@@ -8,6 +8,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import ListItem from 'components/ListItem';
+import Checkbox from 'components/Checkbox';
+
 import Div from './Div';
 
 export function TranscriptionListItem(props) {
@@ -16,6 +18,7 @@ export function TranscriptionListItem(props) {
   // Put together the content of the repository
   const content = (
     <Div>
+      <Checkbox />
       {item.voice}
       {item.text}
     </Div>
