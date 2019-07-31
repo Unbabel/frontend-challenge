@@ -8,17 +8,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import ListItem from 'components/ListItem';
-import Wrapper from './Wrapper';
+import Div from './Div';
 
 export function TranscriptionListItem(props) {
   const { item } = props;
 
   // Put together the content of the repository
   const content = (
-    <Wrapper>
+    <Div>
       {item.voice}
       {item.text}
-    </Wrapper>
+    </Div>
   );
 
   // Render the content into a list item

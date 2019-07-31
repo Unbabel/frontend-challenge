@@ -19,12 +19,14 @@ import { makeSelectState, makeSelectError, makeSelectTranscriptions } from 'cont
 import { loadTranscriptions } from 'containers/App/actions';
 import { STATE } from 'containers/App/constants';
 
+import Container from 'components/Container';
+
 // import messages from './messages';
 
 import TranscriptionList from 'components/TranscriptionList';
 import saga from './saga';
 
-import Wrapper from './Wrapper';
+import Main from './Main';
 
 const key = 'home';
 
@@ -43,12 +45,14 @@ export function HomePage({ state, error, transcriptions, loadData }) {
   };
 
   return (
-    <Wrapper theme={useContext(ThemeContext)}>
+    <Main theme={useContext(ThemeContext)}>
       <Helmet>
         <title>Transcriptions</title>
       </Helmet>
-      <TranscriptionList {...listProps} />
-    </Wrapper>
+      <Container>
+        <TranscriptionList {...listProps} />
+      </Container>
+    </Main>
   );
 }
 

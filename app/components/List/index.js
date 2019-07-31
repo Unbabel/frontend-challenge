@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
+import { ThemeContext } from 'styled-components';
 
 import Ul from './Ul';
 import Div from './Div';
@@ -17,7 +18,7 @@ function List(props) {
   }
 
   return (
-    <Div>
+    <Div theme={useContext(ThemeContext)}>
       <Ul>{content}</Ul>
     </Div>
   );

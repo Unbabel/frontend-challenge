@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
+import { ThemeContext } from 'styled-components';
 
 import Item from './Item';
 import Li from './Li';
 
 function ListItem(props) {
   return (
-    <Li>
+    <Li theme={useContext(ThemeContext)}>
       <Item>{props.item}</Item>
     </Li>
   );

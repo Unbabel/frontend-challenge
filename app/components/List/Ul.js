@@ -4,9 +4,8 @@ const Ul = styled.ul`
   list-style: none;
   margin: 0;
   width: 100%;
-  max-height: 30em;
-  overflow-y: auto;
-  padding: 0 1em;
+  margin: ${props => `${props.theme.gutterRule} 0`};
+  border: ${props => `1px solid ${props.theme.greyLighter}`};
 `;
 
 export default Ul;
