@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 
+import Container from 'components/Container';
 import Logo from 'components/Logo';
 import Button from 'components/Button';
 import Icon from 'components/Icon';
@@ -12,9 +13,11 @@ import HeaderLink from './HeaderLink';
 function Header() {
   return (
     <Wrapper theme={useContext(ThemeContext)}>
-      <HeaderLink to="/">
-        <Logo />
-      </HeaderLink>
+      <Container gutter>
+        <HeaderLink to="/">
+          <Logo />
+        </HeaderLink>
+      </Container>
       <ActionsBar>
         <Button>
           <Icon name="upload" />
