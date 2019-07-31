@@ -4,6 +4,7 @@ import Section from 'components/Container/Section';
 
 export default styled.nav`
   display: flex;
+  box-shadow: ${props => props.theme.boxShadow};
 
   ${Section} {
     padding: 1.5rem;
