@@ -9,8 +9,11 @@ import PropTypes from 'prop-types';
 
 import ListItem from 'components/ListItem';
 import Checkbox from 'components/Checkbox';
+import Icon from 'components/Icon';
 
 import Div from './Div';
+
+import { COLORS } from '../../theme';
 
 export function TranscriptionListItem(props) {
   const { item } = props;
@@ -18,9 +21,14 @@ export function TranscriptionListItem(props) {
   // Put together the content of the repository
   const content = (
     <Div>
-      <Checkbox />
-      {item.voice}
-      {item.text}
+      <div>
+        <Checkbox />
+        <Icon name="person" size={26} color={COLORS.BLUE} />
+      </div>
+      <div>
+        {item.voice}
+        {item.text}
+      </div>
     </Div>
   );
 

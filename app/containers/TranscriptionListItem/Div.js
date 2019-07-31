@@ -5,6 +5,17 @@ const Div = styled.div`
   height: 100%;
   display: flex;
   background-color: white;
+
+  > div:first-of-type {
+    display: flex;
+    align-items: center;
+    margin-right: 8px;
+
+    > label {
+      top: 4px;
+      margin-right: 10px;
+    }
+  }
 `;
 
 export default Div;
