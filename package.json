@@ -1,16 +1,16 @@
 {
-  "name": "react-boilerplate",
-  "version": "4.0.0",
-  "description": "A highly scalable, offline-first foundation with the best DX and a focus on performance and best practices",
+  "name": "unbabel-frontend-challenge",
+  "version": "1.0.0",
+  "description": "Unbabel frotend Challenge",
   "repository": {
     "type": "git",
-    "url": "git://github.com/react-boilerplate/react-boilerplate.git"
+    "url": "git://github.com/migcarva/frontend-challenge.git"
   },
   "engines": {
     "npm": ">=5",
     "node": ">=8.15.1"
   },
-  "author": "Max Stoiber",
+  "author": "Miguel Carvalho",
   "license": "MIT",
   "scripts": {
     "analyze:clean": "rimraf stats.json",
