@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export default styled.h1`
   color: ${props => props.theme.titleColor};
-  font-family: ${props => props.theme.secondaryFont};
   font-size: 18px;
   font-weight: 500;
   line-height: 22px;

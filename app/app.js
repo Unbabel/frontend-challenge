@@ -7,6 +7,7 @@
 
 // Needed for redux-saga es6 generator support
 import '@babel/polyfill';
+import 'react-app-polyfill/ie11';
 
 // Import all the third party stuff
 import React from 'react';
@@ -14,6 +15,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
 import { ConnectedRouter } from 'connected-react-router';
+import FontFaceObserver from 'fontfaceobserver';
 import history from 'utils/history';
 import 'sanitize.css/sanitize.css';
 
@@ -34,6 +36,15 @@ import theme from './theme';
 
 // Import i18n messages
 import { translationMessages } from './i18n';
+
+// Observe loading of Open Sans and Montserrat
+const openSansObserver = new FontFaceObserver('Open Sans', {});
+const montserratObserver = new FontFaceObserver('Montserrat', {});
+
+// When Open Sans is loaded, add a font-family using Open Sans to the body
+Promise.all([openSansObserver.load(), montserratObserver.load()]).then(function() {
+  document.body.classList.add('fontsLoaded');
+});
 
 // Create redux store with history
 const initialState = {};
