@@ -11,7 +11,7 @@ function Header() {
       <HeaderLink to="/">
         <Logo />
       </HeaderLink>
-      <ActionsBar>download upload</ActionsBar>
+      <ActionsBar />
     </div>
   );
 }
