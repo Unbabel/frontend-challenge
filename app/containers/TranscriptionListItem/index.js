@@ -14,10 +14,15 @@ export function TranscriptionListItem(props) {
   const { item } = props;
 
   // Put together the content of the repository
-  const content = <Wrapper />;
+  const content = (
+    <Wrapper>
+      {item.voice}
+      {item.text}
+    </Wrapper>
+  );
 
   // Render the content into a list item
-  return <ListItem key={`repo-list-item-${item.full_name}`} item={content} />;
+  return <ListItem key={`transcription-${item.id}`} item={content} />;
 }
 
 TranscriptionListItem.propTypes = {

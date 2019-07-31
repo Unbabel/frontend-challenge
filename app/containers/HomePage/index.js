@@ -43,7 +43,6 @@ export function HomePage({ state, error, transcriptions, loadData }) {
     transcriptions,
   };
 
-  debugger;
   return (
     <main>
       <Helmet>
