@@ -52,7 +52,7 @@ const GlobalStyle = createGlobalStyle`
   body.fontsLoaded {
     font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     h1 {
-      font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     }
   }
   
