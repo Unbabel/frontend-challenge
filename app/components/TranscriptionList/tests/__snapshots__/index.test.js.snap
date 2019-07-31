@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TranscriptionListItem /> should render the loading indicator when its loading 1`] = `
+<div
+  class="Wrapper-sc-826t1v-0 dyVxjk"
+>
+  <ul
+    class="Ul-sc-17caovy-0 kDrHX"
+  >
+    <div
+      class="Wrapper-sc-1mle2ye-0 hNKddp"
+    >
+      <div
+        class="Circle__CirclePrimitive-sc-1o2kln2-0 bXGpDt"
+      />
+      <div
+        class="Circle__CirclePrimitive-sc-1o2kln2-0 bkFpKC"
+      />
+      <div
+        class="Circle__CirclePrimitive-sc-1o2kln2-0 gFZOrN"
+      />
+      <div
+        class="Circle__CirclePrimitive-sc-1o2kln2-0 gJQJDg"
+      />
+      <div
+        class="Circle__CirclePrimitive-sc-1o2kln2-0 iedMVT"
+      />
+      <div
+        class="Circle__CirclePrimitive-sc-1o2kln2-0 vpHmd"
+      />
+      <div
+        class="Circle__CirclePrimitive-sc-1o2kln2-0 klxaCG"
+      />
+      <div
+        class="Circle__CirclePrimitive-sc-1o2kln2-0 ixreFn"
+      />
+      <div
+        class="Circle__CirclePrimitive-sc-1o2kln2-0 bwRgXT"
+      />
+      <div
+        class="Circle__CirclePrimitive-sc-1o2kln2-0 gqQJhW"
+      />
+      <div
+        class="Circle__CirclePrimitive-sc-1o2kln2-0 ZaEQq"
+      />
+      <div
+        class="Circle__CirclePrimitive-sc-1o2kln2-0 bYbkFE"
+      />
+    </div>
+  </ul>
+</div>
+`;
+
+exports[`<TranscriptionListItem /> should render the repositories if loading was successful 1`] = `
+<div
+  class="Wrapper-sc-826t1v-0 dyVxjk"
+>
+  <ul
+    class="Ul-sc-17caovy-0 kDrHX"
+  >
+    <li
+      class="Wrapper-sc-14y9d5o-0 iLHUmP"
+    >
+      <div
+        class="Item-sc-1wdy6vf-0 cuMxiu"
+      >
+        <div
+          class="Wrapper-nauwn6-0 kawEeG"
+        />
+      </div>
+    </li>
+  </ul>
+</div>
+`;
