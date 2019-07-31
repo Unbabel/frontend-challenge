@@ -25,7 +25,7 @@ function TranscriptionList({ loading, error, transcriptions }) {
       <Div>
         <List items={transcriptions} component={TranscriptionListItem} />
         <Button>
-          <Icon name="add" />
+          <Icon name="add-row" />
         </Button>
       </Div>
     );

@@ -12,7 +12,7 @@ const buttonStyles = css`
   font-size: 16px;
 
   &:active {
-    border: 1px solid red;
+    transform: translateY(1px);
   }
 `;
 
