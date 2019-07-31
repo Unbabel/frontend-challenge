@@ -30,14 +30,6 @@ const GlobalStyle = createGlobalStyle`
     }
   }
   
-  .hidden {
-    position: absolute;
-    overflow: hidden;
-    width: 0;
-    height: 0;
-    pointer-events: none;
-  }
-  
   html,
   body {
     height: 100%;
@@ -66,6 +58,14 @@ const GlobalStyle = createGlobalStyle`
   label {
     font-family: Georgia, Times, 'Times New Roman', serif;
     line-height: 1.5em;
+  }
+  
+  .hidden {
+    position: absolute;
+    overflow: hidden;
+    width: 0;
+    height: 0;
+    pointer-events: none;
   }
 `;
 
