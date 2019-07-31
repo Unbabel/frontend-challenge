@@ -10,6 +10,7 @@ import PropTypes from 'prop-types';
 import ListItem from 'components/ListItem';
 import Checkbox from 'components/Checkbox';
 import Icon from 'components/Icon';
+import TextInput from 'components/TextInput';
 
 import Div from './Div';
 
@@ -26,8 +27,8 @@ export function TranscriptionListItem(props) {
         <Icon name="person" size={26} color={COLORS.BLUE} />
       </div>
       <div>
-        {item.voice}
-        {item.text}
+        <TextInput id={`voice-${item.id}`} value={item.voice} label="title" />
+        <textArea>asd</textArea>
       </div>
     </Div>
   );
