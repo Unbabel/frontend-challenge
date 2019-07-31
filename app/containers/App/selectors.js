@@ -1,11 +1,30 @@
+/**
+ * The global state selectors
+ */
+
 import { createSelector } from 'reselect';
+import { initialState } from './reducer';
+
+const selectGlobal = state => state.global || initialState;
 
 const selectRouter = state => state.router;
 
-const makeSelectLocation = () =>
+const makeSelectState = () =>
   createSelector(
-    selectRouter,
-    routerState => routerState.location,
+    selectGlobal,
+    globalState => globalState.state,
   );
 
-export { makeSelectLocation };
+const makeSelectError = () =>
+  createSelector(
+    selectGlobal,
+    globalState => globalState.error,
+  );
+
+const makeSelectTranscriptions = () =>
+  createSelector(
+    selectGlobal,
+    globalState => globalState.data,
+  );
+
+export { selectGlobal, makeSelectState, makeSelectError, makeSelectTranscriptions };
