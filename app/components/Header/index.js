@@ -16,10 +16,10 @@ function Header() {
         <Logo />
         <Div>
           <Button>
-            <Icon name="upload" />
+            <Icon name="upload" size={24} />
           </Button>
           <Button>
-            <Icon name="download" />
+            <Icon name="fetch-document" size={24} />
           </Button>
         </Div>
       </Container>

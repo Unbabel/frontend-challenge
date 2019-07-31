@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 
-import Button from 'components/Button';
-
 const Div = styled.div`
   position: relative;
 

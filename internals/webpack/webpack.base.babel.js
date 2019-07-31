@@ -4,6 +4,7 @@
 
 const path = require('path');
 const webpack = require('webpack');
+const SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
 
 module.exports = options => ({
   mode: options.mode,
@@ -57,6 +58,15 @@ module.exports = options => ({
             },
           },
         ],
+      },
+      {
+        test: /\.svg$/,
+        loader: 'svg-sprite-loader',
+        options: {
+          extract: false,
+          spriteFilename: '../app/static/icons.svg', // this is the destination of your sprite sheet
+          runtimeCompat: true,
+        },
       },
       {
         test: /\.(jpg|png|gif)$/,
@@ -113,6 +123,9 @@ module.exports = options => ({
     // drop any unreachable code.
     new webpack.EnvironmentPlugin({
       NODE_ENV: 'development',
+    }),
+    new SpriteLoaderPlugin({
+      plainSprite: true
     }),
   ]),
   resolve: {
