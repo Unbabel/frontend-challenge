@@ -6,27 +6,24 @@ import Logo from 'components/Logo';
 import Button from 'components/Button';
 import Icon from 'components/Icon';
 
-import Wrapper from './Wrapper';
-import ActionsBar from './ActionsBar';
-import HeaderLink from './HeaderLink';
+import Nav from './Nav';
+import Div from './Div';
 
 function Header() {
   return (
-    <Wrapper theme={useContext(ThemeContext)}>
-      <Container gutter>
-        <HeaderLink to="/">
-          <Logo />
-        </HeaderLink>
+    <Nav theme={useContext(ThemeContext)}>
+      <Container>
+        <Logo />
+        <Div>
+          <Button>
+            <Icon name="upload" />
+          </Button>
+          <Button>
+            <Icon name="download" />
+          </Button>
+        </Div>
       </Container>
-      <ActionsBar>
-        <Button>
-          <Icon name="upload" />
-        </Button>
-        <Button>
-          <Icon name="download" />
-        </Button>
-      </ActionsBar>
-    </Wrapper>
+    </Nav>
   );
 }
 

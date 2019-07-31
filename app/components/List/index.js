@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Ul from './Ul';
-import Wrapper from './Wrapper';
+import Div from './Div';
 
 function List(props) {
   const ComponentToRender = props.component;
@@ -19,9 +19,9 @@ function List(props) {
   }
 
   return (
-    <Wrapper>
+    <Div>
       <Ul>{content}</Ul>
-    </Wrapper>
+    </Div>
   );
 }
 

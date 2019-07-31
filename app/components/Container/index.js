@@ -10,24 +10,18 @@ import React, { Children, useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 import PropTypes from 'prop-types';
 
-import Wrapper from './Wrapper';
+import Section from './Section';
 
 function Container(props) {
-  debugger;
   return (
-    <Wrapper gutter={props.gutter} theme={useContext(ThemeContext)}>
+    <Section theme={useContext(ThemeContext)}>
       {Children.toArray(props.children)}
-    </Wrapper>
+    </Section>
   );
 }
 
 Container.propTypes = {
-  gutter: PropTypes.bool,
   children: PropTypes.node.isRequired,
-};
-
-Container.defaultProps = {
-  gutter: false,
 };
 
 export default Container;

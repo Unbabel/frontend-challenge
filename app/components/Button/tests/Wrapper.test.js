@@ -1,10 +1,10 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 
-import Wrapper from '../Wrapper';
+import Div from '../Wrapper';
 
 const renderComponent = (props = {}) => {
-  const utils = render(<Wrapper {...props}>Wrapper</Wrapper>);
+  const utils = render(<Div {...props}>Wrapper</Div>);
   const wrapper = utils.queryByText('Wrapper');
   return { ...utils, wrapper };
 };

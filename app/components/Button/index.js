@@ -11,7 +11,7 @@ import PropTypes from 'prop-types';
 
 import A from './A';
 import StyledButton from './StyledButton';
-import Wrapper from './Wrapper';
+import Div from './Div';
 
 function Button(props) {
   // Render an anchor tag
@@ -26,7 +26,7 @@ function Button(props) {
     button = <StyledButton onClick={props.handleRoute}>{Children.toArray(props.children)}</StyledButton>;
   }
 
-  return <Wrapper>{button}</Wrapper>;
+  return <Div>{button}</Div>;
 }
 
 Button.propTypes = {

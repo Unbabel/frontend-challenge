@@ -2,13 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Item from './Item';
-import Wrapper from './Wrapper';
+import Li from './Li';
 
 function ListItem(props) {
   return (
-    <Wrapper>
+    <Li>
       <Item>{props.item}</Item>
-    </Wrapper>
+    </Li>
   );
 }
 

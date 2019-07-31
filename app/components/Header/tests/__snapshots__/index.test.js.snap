@@ -1,19 +1,47 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Header /> should render a div 1`] = `
-<div>
-  <a
-    class="HeaderLink-qm8rh7-0 byfMdl"
-    href="/"
-  >
-    <span>
-      transcriptions
-    </span>
-  </a>
+<nav
+  class="Wrapper-xaxau5-0 fQEAVn"
+>
   <div
-    class="ActionsBar-sc-13646o-0 bMgcSY"
+    class="Wrapper-sc-1emwvq-0 hmqJJf"
   >
-    download upload
+    <h1
+      class="H1-sc-1uc3xdc-0 gcICYC"
+    >
+      Transcriptions
+    </h1>
+    <div
+      class="ActionsBar-sc-13646o-0 ibBVIn"
+    >
+      <div
+        class="Wrapper-sc-12j7mp-0 ksKEZl"
+      >
+        <a
+          class="A-w99s3k-0 fAIjMX"
+        >
+          <div
+            class="Svg-sc-1x9ofvp-0 cKvrhD"
+          >
+            upload
+          </div>
+        </a>
+      </div>
+      <div
+        class="Wrapper-sc-12j7mp-0 ksKEZl"
+      >
+        <a
+          class="A-w99s3k-0 fAIjMX"
+        >
+          <div
+            class="Svg-sc-1x9ofvp-0 cKvrhD"
+          >
+            download
+          </div>
+        </a>
+      </div>
+    </div>
   </div>
-</div>
+</nav>
 `;

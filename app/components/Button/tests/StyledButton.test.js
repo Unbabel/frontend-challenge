@@ -1,10 +1,10 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 
-import StyledButton from '../StyledButton';
+import Button from '../StyledButton';
 
 const renderComponent = (props = {}) => {
-  const utils = render(<StyledButton {...props}>Button</StyledButton>);
+  const utils = render(<Button {...props}>Button</Button>);
   const button = utils.queryByText('Button');
   return { ...utils, button };
 };

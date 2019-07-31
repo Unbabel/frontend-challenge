@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Wrapper = styled.li`
+const Li = styled.li`
   width: 100%;
   height: 3em;
   display: flex;
@@ -13,4 +13,4 @@ const Wrapper = styled.li`
   }
 `;
 
-export default Wrapper;
+export default Li;
