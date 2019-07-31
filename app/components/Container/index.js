@@ -13,11 +13,7 @@ import PropTypes from 'prop-types';
 import Section from './Section';
 
 function Container(props) {
-  return (
-    <Section theme={useContext(ThemeContext)}>
-      {Children.toArray(props.children)}
-    </Section>
-  );
+  return <Section theme={useContext(ThemeContext)}>{Children.toArray(props.children)}</Section>;
 }
 
 Container.propTypes = {
