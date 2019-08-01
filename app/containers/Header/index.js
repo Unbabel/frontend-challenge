@@ -24,23 +24,15 @@ const key = 'Header';
 function Header({ transcriptions, loadData, saveData }) {
   useInjectSaga({ key, saga });
 
-  const handleLoadData = () => {
-    loadData();
-  };
-
-  const handleSaveData = () => {
-    saveData(transcriptions);
-  };
-
   return (
     <Nav theme={useContext(ThemeContext)}>
       <Container>
         <Logo />
         <Div>
-          <Button onClick={handleSaveData}>
+          <Button onClick={() => saveData(transcriptions)}>
             <Icon name="upload" size={24} />
           </Button>
-          <Button onClick={handleLoadData}>
+          <Button onClick={loadData}>
             <Icon name="fetch-document" size={24} />
           </Button>
         </Div>

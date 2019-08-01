@@ -34,12 +34,14 @@ export function TranscriptionListItem({ item, updateItem, deleteItem }) {
   const [body, setBody] = useState(item.text);
 
   useEffect(() => {
-    const nItem = {
-      id: item.id,
-      voice: title,
-      text: body,
-    };
-    updateItem(nItem);
+    if (title !== item.voice || body !== item.text) {
+      const nItem = {
+        id: item.id,
+        voice: title,
+        text: body,
+      };
+      updateItem(nItem);
+    }
   }, [title, body]);
 
   const handleUpdateTitle = ntitle => {

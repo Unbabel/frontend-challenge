@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import { useInjectSaga } from 'utils/injectSaga';
-import { createTranscription } from 'containers/App/actions';
+import { loadTranscriptions, createTranscription } from 'containers/App/actions';
 import { makeSelectError, makeSelectState, makeSelectTranscriptions } from 'containers/App/selectors';
 
 import TranscriptionListItem from 'containers/TranscriptionListItem';
@@ -27,11 +27,11 @@ import saga from './saga';
 
 const key = 'TranscriptionList';
 
-function TranscriptionList({ state, error, transcriptions, createItem }) {
+function TranscriptionList({ state, error, transcriptions, createItem, loadData }) {
   useInjectSaga({ key, saga });
 
   const handleItemCreation = () => {
-    const lastID = transcriptions[transcriptions.length - 1].id;
+    const lastID = (transcriptions.length > 0 && transcriptions[transcriptions.length - 1].id) || 0;
     const newItem = {
       id: lastID,
       voice: '',
@@ -60,7 +60,9 @@ function TranscriptionList({ state, error, transcriptions, createItem }) {
       <div>
         <P color={COLORS.GREY_LIGHT}>Nothing to show. Please click on the</P>
         <span>
-          <Icon name="fetch-document" size={22} color={COLORS.GREY_LIGHT} />
+          <Button onClick={loadData}>
+            <Icon name="fetch-document" size={22} color={COLORS.GREY_LIGHT} />
+          </Button>
         </span>
         <P color={COLORS.GREY_LIGHT}>to load transcriptions.</P>
       </div>
@@ -78,9 +80,11 @@ function TranscriptionList({ state, error, transcriptions, createItem }) {
   return (
     <Div theme={useContext(ThemeContext)}>
       {content}
-      <Button onClick={handleItemCreation}>
-        <Icon name="add-row" color={COLORS.GREY_DARK} />
-      </Button>
+      {transcriptions.length > 0 && (
+        <Button onClick={handleItemCreation}>
+          <Icon name="add-row" color={COLORS.GREY_DARK} />
+        </Button>
+      )}
     </Div>
   );
 }
@@ -90,6 +94,7 @@ TranscriptionList.propTypes = {
   error: PropTypes.oneOfType([PropTypes.object, PropTypes.bool]),
   transcriptions: PropTypes.oneOfType([PropTypes.array, PropTypes.bool]),
   createItem: PropTypes.func,
+  loadData: PropTypes.func,
 };
 
 const mapStateToProps = createStructuredSelector({
@@ -101,6 +106,7 @@ const mapStateToProps = createStructuredSelector({
 export function mapDispatchToProps(dispatch) {
   return {
     createItem: () => dispatch(createTranscription()),
+    loadData: () => dispatch(loadTranscriptions()),
   };
 }
 
