@@ -7,7 +7,6 @@ import { compose } from 'redux';
 import { withToastManager } from 'react-toast-notifications';
 import { injectIntl, intlShape } from 'react-intl';
 
-import { useInjectSaga } from 'utils/injectSaga';
 import { loadTranscriptions, createTranscription } from 'containers/App/actions';
 import { makeSelectError, makeSelectState, makeSelectTranscriptions } from 'containers/App/selectors';
 
@@ -25,42 +24,7 @@ import { COLORS } from 'theme';
 import Div from './Div';
 import P from './P';
 
-import saga from './saga';
-import messages from './messages';
-
-const key = 'TranscriptionList';
-
-function TranscriptionList({ intl, state, error, transcriptions, createItem, loadData, toastManager }) {
-  useInjectSaga({ key, saga });
-
-  useEffect(() => {
-    const toast = {};
-    switch (state) {
-      case STATE.loaded:
-        toast.type = 'success';
-        toast.message = intl.formatMessage(messages.loaded);
-        break;
-      case STATE.saved:
-        toast.type = 'success';
-        toast.message = intl.formatMessage(messages.saved);
-        break;
-      case STATE.error:
-        toast.type = 'error';
-        toast.message = intl.formatMessage(messages.savingError);
-        break;
-      default:
-        toast.type = '';
-        toast.message = '';
-    }
-    if (toast.message !== '') {
-      toastManager.add(toast.message, {
-        appearance: toast.type,
-        autoDismiss: true,
-        pauseOnHover: false,
-      });
-    }
-  }, [state]);
-
+function TranscriptionList({ state, error, transcriptions, createItem, loadData }) {
   const handleItemCreation = () => {
     const lastID = (transcriptions.length > 0 && transcriptions[transcriptions.length - 1].id) || 0;
     const newItem = {

@@ -7,7 +7,6 @@
 import React, { memo, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-import { useInjectSaga } from 'utils/injectSaga';
 import { updateTranscription, deleteTranscription } from 'containers/App/actions';
 
 import ListItem from 'components/ListItem';
@@ -23,13 +22,7 @@ import Div from './Div';
 
 import { COLORS } from '../../theme';
 
-import saga from './saga';
-
-const key = 'TranscriptionListItem';
-
 export function TranscriptionListItem({ item, updateItem, deleteItem }) {
-  useInjectSaga({ key, saga });
-
   const [title, setTitle] = useState(item.voice);
   const [body, setBody] = useState(item.text);
 
