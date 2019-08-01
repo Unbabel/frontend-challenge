@@ -35,9 +35,14 @@ export default class NavigationComponent extends Vue {
   private isUploading: boolean = false;
 
   @Action('fetchData', { namespace }) private fetchData: any;
+  @Action('uploadTranscriptions', { namespace }) private uploadTranscriptions: any;
 
   private getData() {
     this.fetchData();
+  }
+
+  private uploadData() {
+    this.uploadTranscriptions();
   }
 }
 </script>

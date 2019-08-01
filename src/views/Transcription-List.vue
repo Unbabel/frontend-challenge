@@ -1,5 +1,6 @@
 <template>
   <div class="item-list-container">
+    <Toast />
     <header>
       <NavigationComponent />
     </header>
@@ -7,7 +8,7 @@
       <li
         class="item-list--item"
         v-for="transcription in transcriptionList"
-        :key="transcription.id"
+        v-bind:key="transcription.id"
       >
         <div class="delete-icon">
           <button @click="deleteRow(transcription.id)">
@@ -35,17 +36,10 @@
             ></svgicon>
           </figure>
         </div>
-        <InplaceEditor v-bind:transcriptionInfo="{voice: transcription.voice, text: transcription.text}" />
+        <InplaceEditor v-bind:transcriptionInfo="{voice: transcription.voice, text: transcription.text, id: transcription.id}" />
       </li>
     </ul>
-    <div class="add-row">
-      <button @click="getRow()">
-        <svgicon name="add-row" height="1.7rem" width="1.7rem" :original="true"></svgicon>
-      </button>
-      <h3 v-if="isItemListValid" class="warning-message">
-        Please fill the already created transcription
-      </h3>
-    </div>
+    <AddRow />
   </div>
 </template>
 
@@ -54,31 +48,27 @@ import { Component, Vue } from 'vue-property-decorator';
 import { State, Action } from 'vuex-class';
 import NavigationComponent from '../components/Navigation-component/Navigation-component.vue';
 import InplaceEditor from '../components/Inplace-editor-component/Inplace-editor-component.vue';
+import AddRow from '../components/add-row-component/add-row-component.vue';
+import Toast from '../components/toast-component/toast-component.vue';
 import { transcription } from '../store/modules/transcriptions';
 import { ITranscriptionState } from '../store/types';
 import '../components/icons/delete';
 import '../components/icons/person';
-import '../components/icons/add-row';
 
 const namespace: string = 'transcription';
 
 @Component({
   components: {
     NavigationComponent,
-    InplaceEditor
+    InplaceEditor,
+    AddRow,
+    Toast
   }
 })
 
 export default class TranscriptionList extends Vue {
   @State('transcription') private transcription!: ITranscriptionState;
-  @Action('addTranscription', { namespace }) private addTranscription: any;
   @Action('deleteTranscription', { namespace }) private deleteTranscription: any;
-
-  private isItemListValid: boolean = false;
-
-  private getRow() {
-    this.addTranscription();
-  }
 
   private deleteRow(rowId: number) {
     this.deleteTranscription(rowId);
@@ -95,15 +85,3 @@ export default class TranscriptionList extends Vue {
   }
 }
 </script>
-
-<style lang="scss">
-  .add-row {
-    width: fit-content;
-    margin: 2rem auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-</style>
-

@@ -168,6 +168,24 @@
   }
 }
 
+// TOAST COMPONENT
+
+.toast {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  width: 200px;
+  padding: 10px;
+  background-color: rgba(220, 53, 69, 0.9);
+  border-radius: 5px;
+
+  &-error {
+    &--title, &--description {
+      color: white;
+    }
+  }
+}
+
 @media screen and (max-width: 1068px) {
   .item-list {
     width: fit-content;

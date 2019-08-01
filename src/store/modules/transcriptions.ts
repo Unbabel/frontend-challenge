@@ -4,7 +4,8 @@ import { mutations } from '../mutations/transcription-mutations';
 import { IRootState, ITranscriptionState } from '../types';
 
 export const state: ITranscriptionState = {
-  transcriptionList: []
+  transcriptionList: [],
+  errors: []
 };
 
 const namespaced: boolean = true;
