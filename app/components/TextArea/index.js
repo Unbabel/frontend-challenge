@@ -16,6 +16,7 @@ import TArea from './TextArea';
 import P from './P';
 
 function TextArea(props) {
+  const [value, setValue] = useState(props.value);
   const [isActive, setActive] = useState(false);
   const [height, setHeight] = useState(0);
   const placeholder = <FormattedMessage {...messages.inputPlaholder} />;
@@ -35,17 +36,18 @@ function TextArea(props) {
             {!!props.label && props.label}
           </label>
           <TArea
-            height={height}
             onBlur={() => setActive(!isActive)}
+            onChange={e => setValue(e.target.value)}
+            height={height}
             id={`ta-${props.id}`}
             type="text"
             placeholder={placeholder}
-            value={props.value}
+            value={value}
           />
         </div>
       ) : (
         <P id={`p-${props.id}`} onClick={acivateTextArea}>
-          {props.value}
+          {value}
         </P>
       )}
     </Div>
