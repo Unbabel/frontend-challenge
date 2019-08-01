@@ -50,7 +50,6 @@ const appReducer = (state = initialState, action) =>
 
       case SAVE_TRANSCRIPTIONS_SUCCESS:
         draft.state = STATE.saved;
-        draft.data = action.transcriptions;
         break;
 
       case SAVE_TRANSCRIPTIONS_ERROR:

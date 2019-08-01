@@ -22,13 +22,7 @@ import saga from './saga';
 const key = 'Header';
 
 function Header({ transcriptions, loadData, saveData, noActions }) {
-  console.log(transcriptions);
   useInjectSaga({ key, saga });
-
-  const handleSaveClick = () => {
-    console.log(transcriptions);
-    saveData(transcriptions);
-  };
 
   return (
     <Nav theme={useContext(ThemeContext)}>
@@ -36,7 +30,7 @@ function Header({ transcriptions, loadData, saveData, noActions }) {
         <Logo />
         {!noActions && (
           <Div>
-            <Button onClick={handleSaveClick}>
+            <Button onClick={() => saveData(transcriptions)}>
               <Icon name="upload" size={24} />
             </Button>
             <Button onClick={loadData}>
