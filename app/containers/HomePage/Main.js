@@ -3,14 +3,14 @@ import styled from 'styled-components';
 import Section from 'components/Container/Section';
 
 export default styled.main`
-  height: 50vh;
+  height: auto;
 
   > ${Section} {
     width: 100%;
     padding: 1.5rem;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     box-sizing: border-box;
   }
 `;

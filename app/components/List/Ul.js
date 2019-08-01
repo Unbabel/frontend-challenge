@@ -2,9 +2,8 @@ import styled from 'styled-components';
 
 const Ul = styled.ul`
   list-style: none;
-  margin: 0;
   width: 100%;
-  margin: ${props => `${props.theme.gutterRule} 0`};
+  margin: ${props => `0 0 ${props.theme.gutterRule}`};
   border: ${props => `1px solid ${props.theme.greyLighter}`};
 `;
 

@@ -15,9 +15,7 @@ describe('<List />', () => {
 
     const component = ({ item }) => <li>{item.name}</li>; // eslint-disable-line react/prop-types
 
-    const { container, queryByText } = render(
-      <List items={items} component={component} />,
-    );
+    const { container, queryByText } = render(<List items={items} component={component} />);
     const elements = container.querySelectorAll('li');
     expect(elements).toHaveLength(2);
     expect(queryByText(items[0].name)).toBeInTheDocument();

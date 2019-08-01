@@ -83,13 +83,7 @@ function TranscriptionList({ intl, state, error, transcriptions, createItem, loa
   if (transcriptions !== false) {
     const item = (
       <div>
-        <P color={COLORS.GREY_LIGHT}>Nothing to show. Please click on the</P>
-        <span>
-          <Button onClick={loadData}>
-            <Icon name="fetch-document" size={22} color={COLORS.GREY_LIGHT} />
-          </Button>
-        </span>
-        <P color={COLORS.GREY_LIGHT}>to load transcriptions.</P>
+        <P color={COLORS.GREY_LIGHT}>No transcriptions to show. Use the icons above to load/save.</P>
       </div>
     );
     const EmptyList = () => <ListItem item={item} />;
