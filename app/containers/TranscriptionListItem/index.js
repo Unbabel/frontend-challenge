@@ -11,6 +11,7 @@ import ListItem from 'components/ListItem';
 import Checkbox from 'components/Checkbox';
 import Icon from 'components/Icon';
 import TextInput from 'components/TextInput';
+import TextArea from 'components/TextArea';
 
 import Div from './Div';
 
@@ -28,7 +29,7 @@ export function TranscriptionListItem(props) {
       </div>
       <div>
         <TextInput id={`voice-${item.id}`} value={item.voice} label="title" />
-        <textArea>asd</textArea>
+        <TextArea id={`text-${item.id}`} value={item.text} label="text" />
       </div>
     </Div>
   );
