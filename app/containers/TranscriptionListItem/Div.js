@@ -2,9 +2,10 @@ import styled from 'styled-components';
 
 const Div = styled.div`
   height: 100%;
-  padding: ${props => props.theme.gutterRule};
+  width: 100%;
 
   article {
+    width: 100%;
     display: flex;
     align-items: flex-start;
     background-color: white;
