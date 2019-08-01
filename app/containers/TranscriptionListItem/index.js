@@ -8,7 +8,7 @@ import React, { memo, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import { useInjectSaga } from 'utils/injectSaga';
-import { createTranscription, updateTranscription, deleteTranscription } from 'containers/App/actions';
+import { updateTranscription, deleteTranscription } from 'containers/App/actions';
 
 import ListItem from 'components/ListItem';
 import Checkbox from 'components/Checkbox';

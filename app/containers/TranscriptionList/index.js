@@ -5,6 +5,8 @@ import { createStructuredSelector } from 'reselect';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
+import { useInjectSaga } from 'utils/injectSaga';
+import { createTranscription } from 'containers/App/actions';
 import { makeSelectError, makeSelectState, makeSelectTranscriptions } from 'containers/App/selectors';
 
 import TranscriptionListItem from 'containers/TranscriptionListItem';
@@ -21,7 +23,23 @@ import { COLORS } from 'theme';
 import Div from './Div';
 import P from './P';
 
-function TranscriptionList({ state, error, transcriptions }) {
+import saga from './saga';
+
+const key = 'TranscriptionList';
+
+function TranscriptionList({ state, error, transcriptions, createItem }) {
+  useInjectSaga({ key, saga });
+
+  const handleItemCreation = () => {
+    const lastID = transcriptions[transcriptions.length - 1].id;
+    const newItem = {
+      id: lastID,
+      voice: '',
+      text: '',
+    };
+    createItem(newItem);
+  };
+
   let content;
   if (state === STATE.loading) {
     content = <List component={LoadingIndicator} />;
@@ -60,7 +78,7 @@ function TranscriptionList({ state, error, transcriptions }) {
   return (
     <Div theme={useContext(ThemeContext)}>
       {content}
-      <Button>
+      <Button onClick={handleItemCreation}>
         <Icon name="add-row" color={COLORS.GREY_DARK} />
       </Button>
     </Div>
@@ -71,7 +89,7 @@ TranscriptionList.propTypes = {
   state: PropTypes.oneOf(Object.values(STATE)),
   error: PropTypes.oneOfType([PropTypes.object, PropTypes.bool]),
   transcriptions: PropTypes.oneOfType([PropTypes.array, PropTypes.bool]),
-  handleUpdateItem: PropTypes.func,
+  createItem: PropTypes.func,
 };
 
 const mapStateToProps = createStructuredSelector({
@@ -80,9 +98,15 @@ const mapStateToProps = createStructuredSelector({
   error: makeSelectError(),
 });
 
+export function mapDispatchToProps(dispatch) {
+  return {
+    createItem: () => dispatch(createTranscription()),
+  };
+}
+
 const withConnect = connect(
   mapStateToProps,
-  null,
+  mapDispatchToProps,
 );
 
 export default compose(
