@@ -14,7 +14,7 @@ import { STATE, LOAD_TRANSCRIPTIONS, LOAD_TRANSCRIPTIONS_SUCCESS, LOAD_TRANSCRIP
 export const initialState = {
   state: STATE.initial,
   error: false,
-  data: false,
+  data: [],
 };
 
 /* eslint-disable default-case, no-param-reassign */

@@ -33,10 +33,9 @@ const key = 'home';
 export function HomePage({ state, error, transcriptions, loadData }) {
   useInjectSaga({ key, saga });
 
-  useEffect(() => {
-    // When initial state username is not null, submit the form to load repos
-    if (state === STATE.initial) loadData();
-  }, []);
+  // useEffect(() => {
+  //   if (state === STATE.initial) loadData();
+  // }, []);
 
   const listProps = {
     state,
