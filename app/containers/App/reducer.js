@@ -34,6 +34,7 @@ const appReducer = (state = initialState, action) =>
     switch (action.type) {
       case LOAD_TRANSCRIPTIONS:
         draft.state = STATE.loading;
+        draft.data = [];
         draft.error = false;
         break;
 
