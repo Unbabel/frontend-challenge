@@ -1,9 +1,11 @@
-import React, { memo, useContext } from 'react';
+import React, { memo, useContext, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
 import { createStructuredSelector } from 'reselect';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
+import { withToastManager } from 'react-toast-notifications';
+import { injectIntl, intlShape } from 'react-intl';
 
 import { loadTranscriptions, createTranscription } from 'containers/App/actions';
 import { makeSelectError, makeSelectState, makeSelectTranscriptions } from 'containers/App/selectors';
@@ -22,7 +24,37 @@ import { COLORS } from 'theme';
 import Div from './Div';
 import P from './P';
 
-function TranscriptionList({ state, error, transcriptions, createItem, loadData }) {
+import messages from './messages';
+
+function TranscriptionList({ intl, state, error, transcriptions, createItem, loadData, toastManager }) {
+  useEffect(() => {
+    const toast = {};
+    switch (state) {
+      case STATE.loaded:
+        toast.type = 'success';
+        toast.message = intl.formatMessage(messages.loaded);
+        break;
+      case STATE.saved:
+        toast.type = 'success';
+        toast.message = intl.formatMessage(messages.saved);
+        break;
+      case STATE.error:
+        toast.type = 'error';
+        toast.message = intl.formatMessage(messages.savingError);
+        break;
+      default:
+        toast.type = '';
+        toast.message = '';
+    }
+    if (toast.message !== '') {
+      toastManager.add(toast.message, {
+        appearance: toast.type,
+        autoDismiss: true,
+        pauseOnHover: false,
+      });
+    }
+  }, [state]);
+
   const handleItemCreation = () => {
     const lastID = (transcriptions.length > 0 && transcriptions[transcriptions.length - 1].id) || 0;
     const newItem = {
@@ -33,9 +65,9 @@ function TranscriptionList({ state, error, transcriptions, createItem, loadData 
     createItem(newItem);
   };
 
-  let content;
+  let componentToRender;
   if (state === STATE.loading) {
-    content = <List component={LoadingIndicator} />;
+    componentToRender = <List component={LoadingIndicator} />;
   }
 
   if (state === STATE.loaded && error !== false) {
@@ -45,7 +77,7 @@ function TranscriptionList({ state, error, transcriptions, createItem, loadData 
       </div>
     );
     const ErrorComponent = () => <ListItem item={item} />;
-    content = <List component={ErrorComponent} />;
+    componentToRender = <List component={ErrorComponent} />;
   }
 
   if (transcriptions !== false) {
@@ -63,16 +95,16 @@ function TranscriptionList({ state, error, transcriptions, createItem, loadData 
     const EmptyList = () => <ListItem item={item} />;
 
     if (transcriptions.length === 0) {
-      content = <List component={EmptyList} />;
+      componentToRender = <List component={EmptyList} />;
     }
     if (transcriptions.length > 0) {
-      content = <List items={transcriptions} component={TranscriptionListItem} />;
+      componentToRender = <List items={transcriptions} component={TranscriptionListItem} />;
     }
   }
 
   return (
     <Div theme={useContext(ThemeContext)}>
-      {content}
+      {componentToRender}
       {transcriptions.length > 0 && (
         <Button onClick={handleItemCreation}>
           <Icon name="add-row" color={COLORS.GREY_DARK} />
@@ -83,6 +115,7 @@ function TranscriptionList({ state, error, transcriptions, createItem, loadData 
 }
 
 TranscriptionList.propTypes = {
+  intl: intlShape.isRequired,
   state: PropTypes.oneOf(Object.values(STATE)),
   error: PropTypes.oneOfType([PropTypes.object, PropTypes.bool]),
   transcriptions: PropTypes.oneOfType([PropTypes.array, PropTypes.bool]),
@@ -109,6 +142,8 @@ const withConnect = connect(
 );
 
 export default compose(
+  withToastManager,
+  injectIntl,
   withConnect,
   memo,
 )(TranscriptionList);
