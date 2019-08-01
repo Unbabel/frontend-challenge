@@ -9,6 +9,7 @@ import PropTypes from 'prop-types';
 
 import ListItem from 'components/ListItem';
 import Checkbox from 'components/Checkbox';
+import Button from 'components/Button';
 import Icon from 'components/Icon';
 import TextInput from 'components/TextInput';
 import TextArea from 'components/TextArea';
@@ -23,14 +24,21 @@ export function TranscriptionListItem(props) {
   // Put together the content of the repository
   const content = (
     <Div>
-      <div>
-        <Checkbox />
-        <Icon name="person" size={26} color={COLORS.BLUE} />
-      </div>
-      <div>
-        <TextInput id={`voice-${item.id}`} value={item.voice} label="title" />
-        <TextArea id={`text-${item.id}`} value={item.text} label="text" />
-      </div>
+      <article>
+        <div>
+          <Checkbox />
+          <Icon name="person" size={26} color={COLORS.BLUE} />
+        </div>
+        <div>
+          <TextInput id={`voice-${item.id}`} value={item.voice} label="title" />
+          <TextArea id={`text-${item.id}`} value={item.text} label="text" />
+        </div>
+        <div>
+          <Button>
+            <Icon name="delete" size={16} />
+          </Button>
+        </div>
+      </article>
     </Div>
   );
 

@@ -13,7 +13,8 @@ export const COLORS = {
   PURPLE: '859EFF',
   GREY_LIGHTER: 'EAEDEF',
   GREY_LIGHT: 'D0D4DA',
-  GREY_DARK: '8F97A8',
+  GREY_DARK: 'BFC4CE',
+  GREY_DARKER: '8F97A8',
 };
 
 export const SHADOWBOX = {
@@ -35,6 +36,7 @@ const theme = {
   greyLighter: `#${COLORS.GREY_LIGHTER}`,
   greyLight: `#${COLORS.GREY_LIGHT}`,
   greyDark: `#${COLORS.GREY_DARK}`,
+  greyDarker: `#${COLORS.GREY_DARKER}`,
   boxShadow: `${SHADOWBOX.HEADER}`,
 };
 

@@ -1,25 +1,36 @@
 import styled from 'styled-components';
 
 const Div = styled.div`
-  width: 100%;
   height: 100%;
-  display: flex;
-  align-items: flex-start;
-  background-color: white;
+  padding: ${props => props.theme.gutterRule};
 
-  > div:first-of-type {
+  article {
     display: flex;
-    align-items: center;
-    margin-right: 8px;
+    align-items: flex-start;
+    background-color: white;
 
-    > label {
-      top: 4px;
-      margin-right: 10px;
+    > div:first-of-type {
+      display: flex;
+      align-items: center;
+      margin-right: 8px;
+
+      > label {
+        top: 4px;
+        margin-right: 10px;
+      }
+    }
+
+    > div:nth-child(2) {
+      width: 100%;
+    }
+
+    > div:nth-child(3) {
+      visibility: hidden;
     }
   }
 
-  > div:nth-child(2) {
-    width: 100%;
+  &:hover article > div:nth-child(3) {
+    visibility: visible;
   }
 `;
 

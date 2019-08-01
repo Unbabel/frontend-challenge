@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 const Li = styled.li`
-  padding: ${props => props.theme.gutterRule};
   border-bottom: ${props => `1px solid ${props.theme.greyLighter}`};
   background-color: white;
 `;
