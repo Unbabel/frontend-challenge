@@ -15,6 +15,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
 import { ConnectedRouter } from 'connected-react-router';
+import { ToastProvider } from 'react-toast-notifications';
 import FontFaceObserver from 'fontfaceobserver';
 import history from 'utils/history';
 import 'sanitize.css/sanitize.css';
@@ -57,7 +58,9 @@ const render = messages => {
       <LanguageProvider messages={messages}>
         <ConnectedRouter history={history}>
           <ThemeProvider theme={theme}>
-            <App />
+            <ToastProvider autoDismissTimeout={4000} placement="bottom-center">
+              <App />
+            </ToastProvider>
           </ThemeProvider>
         </ConnectedRouter>
       </LanguageProvider>
