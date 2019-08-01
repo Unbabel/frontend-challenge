@@ -1,6 +1,6 @@
 /*
  *
- * Toasts actions
+ * Alerts actions
  *
  */
 
