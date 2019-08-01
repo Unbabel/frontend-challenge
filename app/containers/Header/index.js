@@ -1,29 +1,46 @@
 import React, { memo, useContext } from 'react';
-import { connect } from 'react-redux';
-import { compose } from 'redux';
 import { ThemeContext } from 'styled-components';
 import PropTypes from 'prop-types';
+import { createStructuredSelector } from 'reselect';
+import { connect } from 'react-redux';
+import { compose } from 'redux';
+
+import { useInjectSaga } from 'utils/injectSaga';
+import { makeSelectTranscriptions } from 'containers/App/selectors';
+import { loadTranscriptions, saveTranscriptions } from 'containers/App/actions';
 
 import Container from 'components/Container';
 import Logo from 'components/Logo';
 import Button from 'components/Button';
 import Icon from 'components/Icon';
 
-import { loadTranscriptions, saveTranscriptions } from 'containers/App/actions';
-
 import Nav from './Nav';
 import Div from './Div';
 
-function Header({ loadData, saveData }) {
+import saga from './saga';
+
+const key = 'Header';
+
+function Header({ transcriptions, loadData, saveData }) {
+  useInjectSaga({ key, saga });
+
+  const handleLoadData = () => {
+    loadData();
+  };
+
+  const handleSaveData = () => {
+    saveData(transcriptions);
+  };
+
   return (
     <Nav theme={useContext(ThemeContext)}>
       <Container>
         <Logo />
         <Div>
-          <Button onClick={saveData}>
+          <Button onClick={handleSaveData}>
             <Icon name="upload" size={24} />
           </Button>
-          <Button onClick={loadData}>
+          <Button onClick={handleLoadData}>
             <Icon name="fetch-document" size={24} />
           </Button>
         </Div>
@@ -33,9 +50,14 @@ function Header({ loadData, saveData }) {
 }
 
 Header.propTypes = {
+  transcriptions: PropTypes.oneOfType([PropTypes.array, PropTypes.bool]),
   loadData: PropTypes.func,
   saveData: PropTypes.func,
 };
+
+const mapStateToProps = createStructuredSelector({
+  transcriptions: makeSelectTranscriptions(),
+});
 
 export function mapDispatchToProps(dispatch) {
   return {
@@ -49,7 +71,7 @@ export function mapDispatchToProps(dispatch) {
 }
 
 const withConnect = connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps,
 );
 

@@ -16,6 +16,9 @@ import {
   SAVE_TRANSCRIPTIONS,
   SAVE_TRANSCRIPTIONS_SUCCESS,
   SAVE_TRANSCRIPTIONS_ERROR,
+  CREATE_TRANSCRIPTION,
+  DELETE_TRANSCRIPTION,
+  UPDATE_TRANSCRIPTION,
 } from './constants';
 
 // The initial state of the App
@@ -42,6 +45,7 @@ const appReducer = (state = initialState, action) =>
 
       case SAVE_TRANSCRIPTIONS:
         draft.state = STATE.saving;
+        draft.data = action.transcriptions;
         draft.error = false;
         break;
 
@@ -54,6 +58,25 @@ const appReducer = (state = initialState, action) =>
       case LOAD_TRANSCRIPTIONS_ERROR:
         draft.error = action.error;
         draft.state = STATE.error;
+        break;
+
+      case CREATE_TRANSCRIPTION:
+        draft.data = [...draft.data, action.item];
+        break;
+
+      case UPDATE_TRANSCRIPTION:
+        draft.data = draft.data.map(item => {
+          if (item.id === action.transcription.id) {
+            const updatedItem = { ...item, ...action.transcription };
+            debugger;
+            return updatedItem;
+          }
+          return item;
+        });
+        break;
+
+      case DELETE_TRANSCRIPTION:
+        draft.data = draft.data.filter(item => item.id !== action.id);
         break;
     }
   });

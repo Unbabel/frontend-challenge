@@ -1,6 +1,11 @@
-import React, { useContext } from 'react';
+import React, { memo, useContext } from 'react';
 import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
+import { createStructuredSelector } from 'reselect';
+import { connect } from 'react-redux';
+import { compose } from 'redux';
+
+import { makeSelectError, makeSelectState, makeSelectTranscriptions } from 'containers/App/selectors';
 
 import Button from 'components/Button';
 import Icon from 'components/Icon';
@@ -15,13 +20,13 @@ import { COLORS } from '../../theme';
 import Div from './Div';
 import P from './P';
 
-function TranscriptionList({ state, error, transcriptions }) {
+function TranscriptionList({ state, error, transcriptions, handleUpdateItem }) {
   let content;
   if (state === STATE.loading) {
     content = <List component={LoadingIndicator} />;
   }
 
-  if (error !== false) {
+  if (state === STATE.loaded && error !== false) {
     const item = (
       <div>
         <P color={COLORS.GREY_LIGHT}>Something went wrong, please try again!</P>
@@ -34,19 +39,19 @@ function TranscriptionList({ state, error, transcriptions }) {
   if (transcriptions !== false) {
     const item = (
       <div>
-        <P color={COLORS.GREY_LIGHT}>
-          Nothing to show. Please click on the
-          <span>
-            <Icon name="fetch-document" size={22} color={COLORS.GREY_LIGHT} />
-          </span>
-          to load transcriptions.
-        </P>
+        <P color={COLORS.GREY_LIGHT}>Nothing to show. Please click on the</P>
+        <span>
+          <Icon name="fetch-document" size={22} color={COLORS.GREY_LIGHT} />
+        </span>
+        <P color={COLORS.GREY_LIGHT}>to load transcriptions.</P>
       </div>
     );
     const EmptyList = () => <ListItem item={item} />;
+
     if (transcriptions.length === 0) {
       content = <List component={EmptyList} />;
-    } else if (transcriptions.length > 0) {
+    }
+    if (transcriptions.length > 0) {
       content = <List items={transcriptions} component={TranscriptionListItem} />;
     }
   }
@@ -62,9 +67,24 @@ function TranscriptionList({ state, error, transcriptions }) {
 }
 
 TranscriptionList.propTypes = {
-  state: PropTypes.string,
-  error: PropTypes.any,
-  transcriptions: PropTypes.any,
+  state: PropTypes.oneOf(Object.values(STATE)),
+  error: PropTypes.oneOfType([PropTypes.object, PropTypes.bool]),
+  transcriptions: PropTypes.oneOfType([PropTypes.array, PropTypes.bool]),
+  handleUpdateItem: PropTypes.func,
 };
 
-export default TranscriptionList;
+const mapStateToProps = createStructuredSelector({
+  transcriptions: makeSelectTranscriptions(),
+  state: makeSelectState(),
+  error: makeSelectError(),
+});
+
+const withConnect = connect(
+  mapStateToProps,
+  null,
+);
+
+export default compose(
+  withConnect,
+  memo,
+)(TranscriptionList);

@@ -4,7 +4,7 @@
  *
  */
 
-import React, { useState, useContext, memo } from 'react';
+import React, { useEffect, useState, useContext, memo } from 'react';
 import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
 
@@ -14,21 +14,20 @@ import messages from './messages';
 import Div from './Div';
 import Input from './Input';
 
-function TextInput(props) {
-  const [value, setValue] = useState(props.value);
+function TextInput({ id, label, value, updateTitle }) {
+  const [title, setTitle] = useState(value);
+
+  useEffect(() => {
+    updateTitle(title);
+  }, [title]);
+
   const placeholder = <FormattedMessage {...messages.inputPlaholder} />;
   return (
     <Div theme={useContext(ThemeContext)}>
-      <label className="hidden" htmlFor={`${props.id}`}>
-        {!!props.label && props.label}
+      <label className="hidden" htmlFor={`${id}`}>
+        {!!label && label}
       </label>
-      <Input
-        onChange={e => setValue(e.target.value)}
-        id={props.id}
-        type="text"
-        placeholder={placeholder}
-        value={value}
-      />
+      <Input onChange={e => setTitle(e.target.value)} id={id} type="text" placeholder={placeholder} value={value} />
     </Div>
   );
 }
@@ -37,6 +36,7 @@ TextInput.propTypes = {
   id: PropTypes.string.isRequired,
   label: PropTypes.string,
   value: PropTypes.string,
+  updateTitle: PropTypes.func,
 };
 
 export default memo(TextInput);

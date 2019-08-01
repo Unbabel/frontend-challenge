@@ -17,6 +17,10 @@ export const SAVE_TRANSCRIPTIONS = 'App/SAVE_TRANSCRIPTIONS';
 export const SAVE_TRANSCRIPTIONS_SUCCESS = 'App/SAVE_TRANSCRIPTIONS_SUCCESS';
 export const SAVE_TRANSCRIPTIONS_ERROR = 'App/SAVE_TRANSCRIPTIONS_ERROR';
 
+export const CREATE_TRANSCRIPTION = 'TranscriptionListItem/CREATE_TRANSCRIPTION';
+export const UPDATE_TRANSCRIPTION = 'TranscriptionListItem/UPDATE_TRANSCRIPTION';
+export const DELETE_TRANSCRIPTION = 'TranscriptionListItem/DELETE_TRANSCRIPTION';
+
 export const STATE = {
   initial: 'initial',
   error: 'error',

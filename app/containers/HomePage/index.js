@@ -18,9 +18,8 @@ import { useInjectSaga } from 'utils/injectSaga';
 import { makeSelectState, makeSelectError, makeSelectTranscriptions } from 'containers/App/selectors';
 import { STATE } from 'containers/App/constants';
 
+import Header from 'containers/Header';
 import Container from 'components/Container';
-
-import Header from 'components/Header';
 import TranscriptionList from 'components/TranscriptionList';
 
 import saga from './saga';
@@ -29,21 +28,7 @@ import Main from './Main';
 
 const key = 'home';
 
-export function HomePage({ state, error, transcriptions }) {
-  useInjectSaga({ key, saga });
-
-  const [draftList, setDraftList] = useState(transcriptions);
-
-  useEffect(() => {
-    setDraftList(transcriptions);
-  }, [transcriptions]);
-
-  const listProps = {
-    state,
-    error,
-    transcriptions: draftList,
-  };
-
+export function HomePage() {
   return (
     <Main theme={useContext(ThemeContext)}>
       <Helmet>
@@ -51,7 +36,7 @@ export function HomePage({ state, error, transcriptions }) {
       </Helmet>
       <Header />
       <Container>
-        <TranscriptionList {...listProps} />
+        <TranscriptionList />
       </Container>
     </Main>
   );

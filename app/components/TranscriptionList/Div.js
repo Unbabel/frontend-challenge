@@ -10,6 +10,14 @@ const Div = styled.div`
 
   ul > li {
     padding: 1.5rem;
+
+    > div > div {
+      display: inline-flex;
+
+      span {
+        margin: 0 4px;
+      }
+    }
   }
 `;
 

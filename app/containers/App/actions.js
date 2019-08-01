@@ -22,6 +22,9 @@ import {
   SAVE_TRANSCRIPTIONS,
   SAVE_TRANSCRIPTIONS_SUCCESS,
   SAVE_TRANSCRIPTIONS_ERROR,
+  CREATE_TRANSCRIPTION,
+  DELETE_TRANSCRIPTION,
+  UPDATE_TRANSCRIPTION,
 } from './constants';
 
 /**
@@ -102,5 +105,24 @@ export function transcriptionsSavingError(error) {
   return {
     type: SAVE_TRANSCRIPTIONS_ERROR,
     error,
+  };
+}
+
+export function createTranscription(transcription) {
+  return {
+    type: CREATE_TRANSCRIPTION,
+    transcription,
+  };
+}
+export function updateTranscription(transcription) {
+  return {
+    type: UPDATE_TRANSCRIPTION,
+    transcription,
+  };
+}
+export function deleteTranscription(id) {
+  return {
+    type: DELETE_TRANSCRIPTION,
+    id,
   };
 }
