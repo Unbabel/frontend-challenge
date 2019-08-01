@@ -4,18 +4,11 @@
  * Lists the name and the issue count of a repository
  */
 
-import React, { memo, useState } from 'react';
+import React, { memo, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import { useInjectSaga } from 'utils/injectSaga';
-import { makeSelectTranscriptions } from 'containers/App/selectors';
-import {
-  createTranscription,
-  updateTranscription,
-  deleteTranscription,
-  loadTranscriptions,
-  saveTranscriptions,
-} from 'containers/App/actions';
+import { createTranscription, updateTranscription, deleteTranscription } from 'containers/App/actions';
 
 import ListItem from 'components/ListItem';
 import Checkbox from 'components/Checkbox';
@@ -24,7 +17,6 @@ import Icon from 'components/Icon';
 import TextInput from 'components/TextInput';
 import TextArea from 'components/TextArea';
 
-import { createStructuredSelector } from 'reselect';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import Div from './Div';
@@ -35,18 +27,31 @@ import saga from './saga';
 
 const key = 'TranscriptionListItem';
 
-export function TranscriptionListItem({ item, createItem, updateItem, deleteItem }) {
+export function TranscriptionListItem({ item, updateItem, deleteItem }) {
   useInjectSaga({ key, saga });
 
   const [title, setTitle] = useState(item.voice);
-  const [text, setText] = useState(item.text);
+  const [body, setBody] = useState(item.text);
 
-  const handleUpdateTitle = title => {
-    setTitle(title);
+  useEffect(() => {
+    const nItem = {
+      id: item.id,
+      voice: title,
+      text: body,
+    };
+    updateItem(nItem);
+  }, [title, body]);
+
+  const handleUpdateTitle = ntitle => {
+    setTitle(ntitle);
   };
 
-  const handleUpdateText = text => {
-    setText(text);
+  const handleUpdateText = ntext => {
+    setBody(ntext);
+  };
+
+  const handleDeleteItem = () => {
+    deleteItem(item.id);
   };
 
   const content = (
@@ -58,10 +63,10 @@ export function TranscriptionListItem({ item, createItem, updateItem, deleteItem
         </div>
         <div>
           <TextInput updateTitle={handleUpdateTitle} id={`voice-${item.id}`} value={title} label="title" />
-          <TextArea updateText={handleUpdateText} id={`text-${item.id}`} value={text} label="text" />
+          <TextArea updateText={handleUpdateText} id={`text-${item.id}`} value={body} label="text" />
         </div>
         <div>
-          <Button>
+          <Button onClick={handleDeleteItem}>
             <Icon name="delete" size={16} />
           </Button>
         </div>
@@ -75,14 +80,12 @@ export function TranscriptionListItem({ item, createItem, updateItem, deleteItem
 
 TranscriptionListItem.propTypes = {
   item: PropTypes.object,
-  createItem: PropTypes.func,
   updateItem: PropTypes.func,
   deleteItem: PropTypes.func,
 };
 
 export function mapDispatchToProps(dispatch) {
   return {
-    createItem: transcriptions => dispatch(createTranscription(transcriptions)),
     updateItem: transcriptions => dispatch(updateTranscription(transcriptions)),
     deleteItem: id => dispatch(deleteTranscription(id)),
   };

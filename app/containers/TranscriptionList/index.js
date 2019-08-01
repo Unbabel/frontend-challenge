@@ -7,20 +7,21 @@ import { compose } from 'redux';
 
 import { makeSelectError, makeSelectState, makeSelectTranscriptions } from 'containers/App/selectors';
 
+import TranscriptionListItem from 'containers/TranscriptionListItem';
+
 import Button from 'components/Button';
 import Icon from 'components/Icon';
 import List from 'components/List';
 import ListItem from 'components/ListItem';
 import LoadingIndicator from 'components/LoadingIndicator';
-import TranscriptionListItem from 'containers/TranscriptionListItem';
 
 import { STATE } from 'containers/App/constants';
-import { COLORS } from '../../theme';
+import { COLORS } from 'theme';
 
 import Div from './Div';
 import P from './P';
 
-function TranscriptionList({ state, error, transcriptions, handleUpdateItem }) {
+function TranscriptionList({ state, error, transcriptions }) {
   let content;
   if (state === STATE.loading) {
     content = <List component={LoadingIndicator} />;

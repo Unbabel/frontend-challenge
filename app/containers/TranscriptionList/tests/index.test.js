@@ -4,8 +4,8 @@ import { Provider } from 'react-redux';
 import { browserHistory } from 'react-router-dom';
 import { render } from '@testing-library/react';
 
-import TranscriptionListItem from '../index';
-import configureStore from '../../../configureStore';
+import TranscriptionListItem from 'TranscriptionList/index';
+import configureStore from 'configureStore';
 
 describe('<TranscriptionListItem />', () => {
   it('should render the loading indicator when its loading', () => {
@@ -16,10 +16,7 @@ describe('<TranscriptionListItem />', () => {
   it('should render an error if loading failed', () => {
     const { queryByText } = render(
       <IntlProvider locale="en">
-        <TranscriptionListItem
-          loading={false}
-          error={{ message: 'Loading failed!' }}
-        />
+        <TranscriptionListItem loading={false} error={{ message: 'Loading failed!' }} />
       </IntlProvider>,
     );
     expect(queryByText(/Something went wrong/)).toBeInTheDocument();
@@ -37,10 +34,7 @@ describe('<TranscriptionListItem />', () => {
     const { container } = render(
       <Provider store={store}>
         <IntlProvider locale="en">
-          <TranscriptionListItem
-            transcriptions={transcriptions}
-            error={false}
-          />
+          <TranscriptionListItem transcriptions={transcriptions} error={false} />
         </IntlProvider>
       </Provider>,
     );
@@ -49,9 +43,7 @@ describe('<TranscriptionListItem />', () => {
   });
 
   it('should not render anything if nothing interesting is provided', () => {
-    const { container } = render(
-      <TranscriptionListItem repos={false} error={false} loading={false} />,
-    );
+    const { container } = render(<TranscriptionListItem repos={false} error={false} loading={false} />);
 
     expect(container).toBeEmpty();
   });

@@ -20,7 +20,7 @@ import { STATE } from 'containers/App/constants';
 
 import Header from 'containers/Header';
 import Container from 'components/Container';
-import TranscriptionList from 'components/TranscriptionList';
+import TranscriptionList from 'containers/TranscriptionList';
 
 import saga from './saga';
 
