@@ -58,7 +58,7 @@ const render = messages => {
       <LanguageProvider messages={messages}>
         <ConnectedRouter history={history}>
           <ThemeProvider theme={theme}>
-            <ToastProvider autoDismissTimeout={4000} placement="bottom-center">
+            <ToastProvider autoDismissTimeout={3000} placement="bottom-center">
               <App />
             </ToastProvider>
           </ThemeProvider>
