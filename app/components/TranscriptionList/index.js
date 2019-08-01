@@ -9,13 +9,14 @@ import ListItem from 'components/ListItem';
 import LoadingIndicator from 'components/LoadingIndicator';
 import TranscriptionListItem from 'containers/TranscriptionListItem';
 
+import { STATE } from 'containers/App/constants';
 import { COLORS } from '../../theme';
 
 import Div from './Div';
 import P from './P';
 
-function TranscriptionList({ loading, error, transcriptions }) {
-  if (loading) {
+function TranscriptionList({ state, error, transcriptions }) {
+  if (state === STATE.loading) {
     return <List component={LoadingIndicator} />;
   }
 
@@ -57,7 +58,7 @@ function TranscriptionList({ loading, error, transcriptions }) {
 }
 
 TranscriptionList.propTypes = {
-  loading: PropTypes.bool,
+  state: PropTypes.string,
   error: PropTypes.any,
   transcriptions: PropTypes.any,
 };

@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
+import PropTypes from 'prop-types';
 
 import Container from 'components/Container';
 import Logo from 'components/Logo';
@@ -9,7 +10,7 @@ import Icon from 'components/Icon';
 import Nav from './Nav';
 import Div from './Div';
 
-function Header() {
+function Header(props) {
   return (
     <Nav theme={useContext(ThemeContext)}>
       <Container>
@@ -18,7 +19,7 @@ function Header() {
           <Button>
             <Icon name="upload" size={24} />
           </Button>
-          <Button>
+          <Button onClick={props.handleLoadClick}>
             <Icon name="fetch-document" size={24} />
           </Button>
         </Div>
@@ -26,5 +27,9 @@ function Header() {
     </Nav>
   );
 }
+
+Header.propTypes = {
+  handleLoadClick: PropTypes.func,
+};
 
 export default Header;

@@ -13,7 +13,6 @@ import { Switch, Route } from 'react-router-dom';
 
 import HomePage from 'containers/HomePage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
-import Header from 'components/Header';
 
 import GlobalStyle from '../../global-styles';
 
@@ -23,7 +22,6 @@ export default function App() {
       <Helmet titleTemplate="%s - Unbabel Frontend Challenge" defaultTitle="Unbabel Frontend Challenge">
         <meta name="description" content="Unbabel Frontend Challenge" />
       </Helmet>
-      <Header />
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route component={NotFoundPage} />

@@ -21,9 +21,9 @@ import { STATE } from 'containers/App/constants';
 
 import Container from 'components/Container';
 
-// import messages from './messages';
-
+import Header from 'components/Header';
 import TranscriptionList from 'components/TranscriptionList';
+
 import saga from './saga';
 
 import Main from './Main';
@@ -37,6 +37,10 @@ export function HomePage({ state, error, transcriptions, loadData }) {
   //   if (state === STATE.initial) loadData();
   // }, []);
 
+  const handleLoadClick = () => {
+    loadData();
+  };
+
   const listProps = {
     state,
     error,
@@ -48,6 +52,7 @@ export function HomePage({ state, error, transcriptions, loadData }) {
       <Helmet>
         <title>Transcriptions</title>
       </Helmet>
+      <Header handleLoadClick={handleLoadClick} />
       <Container>
         <TranscriptionList {...listProps} />
       </Container>
