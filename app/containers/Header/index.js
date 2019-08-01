@@ -21,21 +21,23 @@ import saga from './saga';
 
 const key = 'Header';
 
-function Header({ transcriptions, loadData, saveData }) {
+function Header({ transcriptions, loadData, saveData, noActions }) {
   useInjectSaga({ key, saga });
 
   return (
     <Nav theme={useContext(ThemeContext)}>
       <Container>
         <Logo />
-        <Div>
-          <Button onClick={() => saveData(transcriptions)}>
-            <Icon name="upload" size={24} />
-          </Button>
-          <Button onClick={() => loadData()}>
-            <Icon name="fetch-document" size={24} />
-          </Button>
-        </Div>
+        {!noActions && (
+          <Div>
+            <Button onClick={() => saveData(transcriptions)}>
+              <Icon name="upload" size={24} />
+            </Button>
+            <Button onClick={() => loadData()}>
+              <Icon name="fetch-document" size={24} />
+            </Button>
+          </Div>
+        )}
       </Container>
     </Nav>
   );
@@ -43,6 +45,7 @@ function Header({ transcriptions, loadData, saveData }) {
 
 Header.propTypes = {
   transcriptions: PropTypes.oneOfType([PropTypes.array, PropTypes.bool]),
+  noActions: PropTypes.bool,
   loadData: PropTypes.func,
   saveData: PropTypes.func,
 };

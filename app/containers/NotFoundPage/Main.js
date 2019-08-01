@@ -9,8 +9,19 @@ export default styled.main`
     width: 100%;
     padding: 1.5rem;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
+
+    > span {
+      font-size: 12rem;
+      font-weight: bolder;
+      color: ${props => props.theme.greyLight};
+
+      & ~ span {
+        font-size: 2rem;
+      }
+    }
   }
 `;
