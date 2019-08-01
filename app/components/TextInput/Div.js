@@ -13,6 +13,10 @@ const Div = styled.div`
     outline: none;
     box-sizing: border-box;
     padding: 4px;
+    color: ${props => props.theme.transcriptionTitleColor};
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 0;
 
     &:focus {
       border-bottom: ${props => `2px solid ${props.theme.blue}`};

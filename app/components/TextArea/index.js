@@ -1,10 +1,10 @@
 /**
  *
- * TextInput
+ * TextArea
  *
  */
 
-import React, { useContext, memo } from 'react';
+import React, { useState, useContext, memo } from 'react';
 import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
 
@@ -12,23 +12,50 @@ import { FormattedMessage } from 'react-intl';
 import messages from './messages';
 
 import Div from './Div';
+import TArea from './TextArea';
+import P from './P';
 
-function TextInput(props) {
+function TextArea(props) {
+  const [isActive, setActive] = useState(false);
+  const [height, setHeight] = useState(0);
   const placeholder = <FormattedMessage {...messages.inputPlaholder} />;
+
+  function acivateTextArea() {
+    const paragraph = document.getElementById(`p-${props.id}`);
+    const pHeight = paragraph.offsetHeight;
+    setHeight(pHeight);
+    setActive(!isActive);
+  }
+
   return (
     <Div theme={useContext(ThemeContext)}>
-      <label className="hidden" htmlFor={`${props.id}`}>
-        {!!props.label && props.label}
-      </label>
-      <textarea id={props.id} type="text" placeholder={placeholder} value={props.value} />
+      {isActive ? (
+        <div>
+          <label className="hidden" htmlFor={props.id}>
+            {!!props.label && props.label}
+          </label>
+          <TArea
+            height={height}
+            onBlur={() => setActive(!isActive)}
+            id={`ta-${props.id}`}
+            type="text"
+            placeholder={placeholder}
+            value={props.value}
+          />
+        </div>
+      ) : (
+        <P id={`p-${props.id}`} onClick={acivateTextArea}>
+          {props.value}
+        </P>
+      )}
     </Div>
   );
 }
 
-TextInput.propTypes = {
+TextArea.propTypes = {
   id: PropTypes.string.isRequired,
   label: PropTypes.string,
   value: PropTypes.string,
 };
 
-export default memo(TextInput);
+export default memo(TextArea);
