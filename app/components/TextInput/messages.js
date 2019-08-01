@@ -11,6 +11,6 @@ export const scope = 'app.components.TextInput';
 export default defineMessages({
   placeholder: {
     id: `${scope}.placeholder`,
-    defaultMessage: 'Title',
+    defaultMessage: 'Name',
   },
 });
