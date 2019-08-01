@@ -9,13 +9,19 @@
  * export const YOUR_ACTION_CONSTANT = 'yourproject/YourContainer/YOUR_ACTION_CONSTANT';
  */
 
-export const LOAD_TRANSCRIPTIONS = 'boilerplate/App/LOAD_TRANSCRIPTIONS';
-export const LOAD_TRANSCRIPTIONS_SUCCESS = 'boilerplate/App/LOAD_TRANSCRIPTIONS_SUCCESS';
-export const LOAD_TRANSCRIPTIONS_ERROR = 'boilerplate/App/LOAD_TRANSCRIPTIONS_ERROR';
+export const LOAD_TRANSCRIPTIONS = 'App/LOAD_TRANSCRIPTIONS';
+export const LOAD_TRANSCRIPTIONS_SUCCESS = 'App/LOAD_TRANSCRIPTIONS_SUCCESS';
+export const LOAD_TRANSCRIPTIONS_ERROR = 'App/LOAD_TRANSCRIPTIONS_ERROR';
+
+export const SAVE_TRANSCRIPTIONS = 'App/SAVE_TRANSCRIPTIONS';
+export const SAVE_TRANSCRIPTIONS_SUCCESS = 'App/SAVE_TRANSCRIPTIONS_SUCCESS';
+export const SAVE_TRANSCRIPTIONS_ERROR = 'App/SAVE_TRANSCRIPTIONS_ERROR';
 
 export const STATE = {
   initial: 'initial',
   error: 'error',
   loading: 'loading',
   loaded: 'loaded',
+  saving: 'saving',
+  saved: 'saved',
 };

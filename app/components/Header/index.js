@@ -1,6 +1,6 @@
-import React, { memo, useContext } from "react";
-import { connect } from "react-redux";
-import { compose } from "redux";
+import React, { memo, useContext } from 'react';
+import { connect } from 'react-redux';
+import { compose } from 'redux';
 import { ThemeContext } from 'styled-components';
 import PropTypes from 'prop-types';
 
@@ -9,18 +9,18 @@ import Logo from 'components/Logo';
 import Button from 'components/Button';
 import Icon from 'components/Icon';
 
-import { loadTranscriptions } from 'containers/App/actions';
+import { loadTranscriptions, saveTranscriptions } from 'containers/App/actions';
 
 import Nav from './Nav';
 import Div from './Div';
 
-function Header({ loadData }) {
+function Header({ loadData, saveData }) {
   return (
     <Nav theme={useContext(ThemeContext)}>
       <Container>
         <Logo />
         <Div>
-          <Button>
+          <Button onClick={saveData}>
             <Icon name="upload" size={24} />
           </Button>
           <Button onClick={loadData}>
@@ -34,17 +34,19 @@ function Header({ loadData }) {
 
 Header.propTypes = {
   loadData: PropTypes.func,
+  saveData: PropTypes.func,
 };
 
 export function mapDispatchToProps(dispatch) {
   return {
     loadData: () => dispatch(loadTranscriptions()),
+    saveData: transcriptions => dispatch(saveTranscriptions(transcriptions)),
     // loadData: evt => {
     //   if (evt !== undefined && evt.preventDefault) evt.preventDefault();
     //   dispatch(loadTranscriptions());
     // },
   };
-};
+}
 
 const withConnect = connect(
   null,

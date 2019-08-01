@@ -15,12 +15,19 @@
  *    }
  */
 
-import { LOAD_TRANSCRIPTIONS, LOAD_TRANSCRIPTIONS_SUCCESS, LOAD_TRANSCRIPTIONS_ERROR } from './constants';
+import {
+  LOAD_TRANSCRIPTIONS,
+  LOAD_TRANSCRIPTIONS_SUCCESS,
+  LOAD_TRANSCRIPTIONS_ERROR,
+  SAVE_TRANSCRIPTIONS,
+  SAVE_TRANSCRIPTIONS_SUCCESS,
+  SAVE_TRANSCRIPTIONS_ERROR,
+} from './constants';
 
 /**
  * Load the transcriptions, this action starts the request saga
  *
- * @return {object} An action object with a type of LOAD_REPOS
+ * @return {object} An action object with a type of LOAD_TRANSCRIPTIONS
  */
 export function loadTranscriptions() {
   return {
@@ -33,7 +40,7 @@ export function loadTranscriptions() {
  *
  * @param  {array} transcriptions The repository data
  *
- * @return {object}      An action object with a type of LOAD_REPOS_SUCCESS passing the repos
+ * @return {object}      An action object with a type of LOAD_TRANSCRIPTIONS_SUCCESS passing the repos
  */
 export function transcriptionsLoaded(transcriptions) {
   return {
@@ -47,11 +54,53 @@ export function transcriptionsLoaded(transcriptions) {
  *
  * @param  {object} error The error
  *
- * @return {object}       An action object with a type of LOAD_REPOS_ERROR passing the error
+ * @return {object}       An action object with a type of LOAD_TRANSCRIPTIONS_ERROR passing the error
  */
 export function transcriptionsLoadingError(error) {
   return {
     type: LOAD_TRANSCRIPTIONS_ERROR,
+    error,
+  };
+}
+
+/**
+ * Load the transcriptions, this action starts the request saga
+ *
+ * @param  {array} transcriptions The repository data
+ *
+ * @return {object} An action object with a type of SAVE_TRANSCRIPTIONS passing the transcriptions
+ */
+export function saveTranscriptions(transcriptions) {
+  return {
+    type: SAVE_TRANSCRIPTIONS,
+    transcriptions,
+  };
+}
+
+/**
+ * Dispatched when the repositories are loaded by the request saga
+ *
+ * @param  {array} transcriptions The repository data
+ *
+ * @return {object}      An action object with a type of SAVE_TRANSCRIPTIONS_SUCCESS
+ */
+export function transcriptionsSaved(transcriptions) {
+  return {
+    type: SAVE_TRANSCRIPTIONS_SUCCESS,
+    transcriptions,
+  };
+}
+
+/**
+ * Dispatched when loading the transcriptions fails
+ *
+ * @param  {object} error The error
+ *
+ * @return {object}       An action object with a type of SAVE_REPOS_ERROR passing the error
+ */
+export function transcriptionsSavingError(error) {
+  return {
+    type: SAVE_TRANSCRIPTIONS_ERROR,
     error,
   };
 }

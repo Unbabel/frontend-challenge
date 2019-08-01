@@ -7,3 +7,18 @@ const API = {
 export async function loadTranscriptions() {
   return request(API.transcriptions);
 }
+
+export async function saveTranscriptions(transcriptions) {
+  const headers = {
+    Accept: 'application/json',
+    'Content-Type': 'application/json',
+  };
+  const method = 'POST';
+  const payload = JSON.stringify(transcriptions);
+
+  return request(API.transcriptions, {
+    headers,
+    method,
+    body: payload,
+  });
+}

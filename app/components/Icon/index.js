@@ -18,7 +18,7 @@ function Icon(props) {
 }
 
 Icon.propTypes = {
-  name: PropTypes.oneOf(['add-row', 'avatar', 'fetch-document', 'person', 'upload']).isRequired,
+  name: PropTypes.oneOf(['add-row', 'delete', 'fetch-document', 'person', 'upload']).isRequired,
   color: PropTypes.oneOf([COLORS.BLUE, COLORS.GREY_DARKER, COLORS.GREY_DARK, COLORS.GREY_LIGHT, COLORS.GREY_LIGHTER]),
   size: PropTypes.number,
   viewBox: PropTypes.string,

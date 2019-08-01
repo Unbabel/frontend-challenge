@@ -8,7 +8,15 @@
  */
 
 import produce from 'immer';
-import { STATE, LOAD_TRANSCRIPTIONS, LOAD_TRANSCRIPTIONS_SUCCESS, LOAD_TRANSCRIPTIONS_ERROR } from './constants';
+import {
+  STATE,
+  LOAD_TRANSCRIPTIONS,
+  LOAD_TRANSCRIPTIONS_SUCCESS,
+  LOAD_TRANSCRIPTIONS_ERROR,
+  SAVE_TRANSCRIPTIONS,
+  SAVE_TRANSCRIPTIONS_SUCCESS,
+  SAVE_TRANSCRIPTIONS_ERROR,
+} from './constants';
 
 // The initial state of the App
 export const initialState = {
@@ -32,6 +40,17 @@ const appReducer = (state = initialState, action) =>
         draft.data = action.transcriptions;
         break;
 
+      case SAVE_TRANSCRIPTIONS:
+        draft.state = STATE.saving;
+        draft.error = false;
+        break;
+
+      case SAVE_TRANSCRIPTIONS_SUCCESS:
+        draft.state = STATE.saved;
+        draft.data = action.transcriptions;
+        break;
+
+      case SAVE_TRANSCRIPTIONS_ERROR:
       case LOAD_TRANSCRIPTIONS_ERROR:
         draft.error = action.error;
         draft.state = STATE.error;
