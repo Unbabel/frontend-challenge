@@ -5,15 +5,13 @@
  *
  */
 
-import React, { useState, useContext, useEffect, memo } from 'react';
+import React, { useContext, memo } from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { ThemeContext } from 'styled-components';
 import { createStructuredSelector } from 'reselect';
-
-import { useInjectSaga } from 'utils/injectSaga';
 
 import { makeSelectState, makeSelectError, makeSelectTranscriptions } from 'containers/App/selectors';
 import { STATE } from 'containers/App/constants';
@@ -22,11 +20,7 @@ import Header from 'containers/Header';
 import Container from 'components/Container';
 import TranscriptionList from 'containers/TranscriptionList';
 
-import saga from './saga';
-
 import Main from './Main';
-
-const key = 'home';
 
 export function HomePage() {
   return (
