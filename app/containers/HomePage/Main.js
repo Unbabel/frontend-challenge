@@ -11,6 +11,5 @@ export default styled.main`
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    box-sizing: border-box;
   }
 `;

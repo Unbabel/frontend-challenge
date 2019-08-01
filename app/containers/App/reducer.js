@@ -42,15 +42,19 @@ const appReducer = (state = initialState, action) =>
         draft.data = action.transcriptions;
         break;
 
-      case SAVE_TRANSCRIPTIONS:
+      case SAVE_TRANSCRIPTIONS: {
+        debugger;
         draft.state = STATE.saving;
-        draft.data = action.transcriptions;
         draft.error = false;
         break;
+      }
 
-      case SAVE_TRANSCRIPTIONS_SUCCESS:
+      case SAVE_TRANSCRIPTIONS_SUCCESS: {
+        debugger;
+        draft.data = action.transcriptions;
         draft.state = STATE.saved;
         break;
+      }
 
       case SAVE_TRANSCRIPTIONS_ERROR:
       case LOAD_TRANSCRIPTIONS_ERROR:

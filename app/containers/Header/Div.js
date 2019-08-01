@@ -5,7 +5,7 @@ export default styled.div`
   justify-content: space-between;
   align-items: center;
 
-  > *:first-child {
-    padding-right: ${props => props.theme.gutterRule};
+  > div ~ div {
+    padding-left: ${props => props.theme.gutterRule};
   }
 `;
