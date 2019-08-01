@@ -16,13 +16,19 @@ import Div from './Div';
 import P from './P';
 
 function TranscriptionList({ state, error, transcriptions }) {
+  let content;
   if (state === STATE.loading) {
-    return <List component={LoadingIndicator} />;
+    content = <List component={LoadingIndicator} />;
   }
 
   if (error !== false) {
-    const ErrorComponent = () => <ListItem item="Something went wrong, please try again!" />;
-    return <List component={ErrorComponent} />;
+    const item = (
+      <div>
+        <P color={COLORS.GREY_LIGHT}>Something went wrong, please try again!</P>
+      </div>
+    );
+    const ErrorComponent = () => <ListItem item={item} />;
+    content = <List component={ErrorComponent} />;
   }
 
   if (transcriptions !== false) {
@@ -37,24 +43,22 @@ function TranscriptionList({ state, error, transcriptions }) {
         </P>
       </div>
     );
-
     const EmptyList = () => <ListItem item={item} />;
-    return (
-      // eslint-disable-next-line react-hooks/rules-of-hooks
-      <Div theme={useContext(ThemeContext)}>
-        {transcriptions.length === 0 ? (
-          <List component={EmptyList} />
-        ) : (
-          <List items={transcriptions} component={TranscriptionListItem} />
-        )}
-        <Button>
-          <Icon name="add-row" color={COLORS.GREY_DARK} />
-        </Button>
-      </Div>
-    );
+    if (transcriptions.length === 0) {
+      content = <List component={EmptyList} />;
+    } else if (transcriptions.length > 0) {
+      content = <List items={transcriptions} component={TranscriptionListItem} />;
+    }
   }
 
-  return null;
+  return (
+    <Div theme={useContext(ThemeContext)}>
+      {content}
+      <Button>
+        <Icon name="add-row" color={COLORS.GREY_DARK} />
+      </Button>
+    </Div>
+  );
 }
 
 TranscriptionList.propTypes = {
