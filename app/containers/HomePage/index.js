@@ -5,7 +5,7 @@
  *
  */
 
-import React, { useContext, useEffect, memo } from 'react';
+import React, { useState, useContext, useEffect, memo } from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import { connect } from 'react-redux';
@@ -16,7 +16,6 @@ import { createStructuredSelector } from 'reselect';
 import { useInjectSaga } from 'utils/injectSaga';
 
 import { makeSelectState, makeSelectError, makeSelectTranscriptions } from 'containers/App/selectors';
-import { loadTranscriptions } from 'containers/App/actions';
 import { STATE } from 'containers/App/constants';
 
 import Container from 'components/Container';
@@ -30,21 +29,19 @@ import Main from './Main';
 
 const key = 'home';
 
-export function HomePage({ state, error, transcriptions, loadData }) {
+export function HomePage({ state, error, transcriptions }) {
   useInjectSaga({ key, saga });
 
-  // useEffect(() => {
-  //   if (state === STATE.initial) loadData();
-  // }, []);
+  const [draftList, setDraftList] = useState(transcriptions);
 
-  const handleLoadClick = () => {
-    loadData();
-  };
+  useEffect(() => {
+    setDraftList(transcriptions);
+  }, [transcriptions]);
 
   const listProps = {
     state,
     error,
-    transcriptions,
+    transcriptions: draftList,
   };
 
   return (
@@ -52,7 +49,7 @@ export function HomePage({ state, error, transcriptions, loadData }) {
       <Helmet>
         <title>Transcriptions</title>
       </Helmet>
-      <Header handleLoadClick={handleLoadClick} />
+      <Header />
       <Container>
         <TranscriptionList {...listProps} />
       </Container>
@@ -65,7 +62,6 @@ HomePage.propTypes = {
   state: PropTypes.oneOf(Object.values(STATE)),
   error: PropTypes.oneOfType([PropTypes.object, PropTypes.bool]),
   transcriptions: PropTypes.oneOfType([PropTypes.array, PropTypes.bool]),
-  loadData: PropTypes.func,
 };
 
 const mapStateToProps = createStructuredSelector({
@@ -74,19 +70,9 @@ const mapStateToProps = createStructuredSelector({
   error: makeSelectError(),
 });
 
-export function mapDispatchToProps(dispatch) {
-  return {
-    loadData: () => dispatch(loadTranscriptions()),
-    // loadData: evt => {
-    //   if (evt !== undefined && evt.preventDefault) evt.preventDefault();
-    //   dispatch(loadTranscriptions());
-    // },
-  };
-}
-
 const withConnect = connect(
   mapStateToProps,
-  mapDispatchToProps,
+  null,
 );
 
 export default compose(
