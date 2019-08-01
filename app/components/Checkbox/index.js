@@ -10,7 +10,7 @@ function Checkbox() {
 
   return (
     <Label theme={useContext(ThemeContext)}>
-      <Input checked={isChecked} onClick={() => setChecked(!isChecked)} type="checkbox" />
+      <Input checked={isChecked} onChange={() => setChecked(!isChecked)} type="checkbox" />
       <Span>
         <span />
       </Span>
