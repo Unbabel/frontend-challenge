@@ -1,4 +1,4 @@
-import React, { memo, useContext } from 'react';
+import React, { memo, useEffect, useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 import PropTypes from 'prop-types';
 import { createStructuredSelector } from 'reselect';
@@ -22,7 +22,13 @@ import saga from './saga';
 const key = 'Header';
 
 function Header({ transcriptions, loadData, saveData, noActions }) {
+  console.log(transcriptions);
   useInjectSaga({ key, saga });
+
+  const handleSaveClick = () => {
+    console.log(transcriptions);
+    saveData(transcriptions);
+  };
 
   return (
     <Nav theme={useContext(ThemeContext)}>
@@ -30,10 +36,10 @@ function Header({ transcriptions, loadData, saveData, noActions }) {
         <Logo />
         {!noActions && (
           <Div>
-            <Button onClick={() => saveData(transcriptions)}>
+            <Button onClick={handleSaveClick}>
               <Icon name="upload" size={24} />
             </Button>
-            <Button onClick={() => loadData()}>
+            <Button onClick={loadData}>
               <Icon name="fetch-document" size={24} />
             </Button>
           </Div>
@@ -57,11 +63,7 @@ const mapStateToProps = createStructuredSelector({
 export function mapDispatchToProps(dispatch) {
   return {
     loadData: () => dispatch(loadTranscriptions()),
-    saveData: transcriptions => dispatch(saveTranscriptions(transcriptions)),
-    // loadData: evt => {
-    //   if (evt !== undefined && evt.preventDefault) evt.preventDefault();
-    //   dispatch(loadTranscriptions());
-    // },
+    saveData: data => dispatch(saveTranscriptions(data)),
   };
 }
 

@@ -48,6 +48,10 @@ const GlobalStyle = createGlobalStyle`
     }
   }
   
+  body > div:last-of-type {
+    overflow: hidden;
+  }
+  
   #app {
     background-color: #fafafa;
     min-height: 100%;

@@ -19,6 +19,7 @@ import GlobalStyle from '../../global-styles';
 export default function App() {
   return (
     <div>
+      <GlobalStyle />
       <Helmet titleTemplate="%s - Unbabel Frontend Challenge" defaultTitle="Unbabel Frontend Challenge">
         <meta name="description" content="Unbabel Frontend Challenge" />
       </Helmet>
@@ -26,7 +27,6 @@ export default function App() {
         <Route exact path="/" component={HomePage} />
         <Route component={NotFoundPage} />
       </Switch>
-      <GlobalStyle />
     </div>
   );
 }

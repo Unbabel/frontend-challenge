@@ -34,7 +34,6 @@ const appReducer = (state = initialState, action) =>
     switch (action.type) {
       case LOAD_TRANSCRIPTIONS:
         draft.state = STATE.loading;
-        draft.data = false;
         draft.error = false;
         break;
 
@@ -67,8 +66,7 @@ const appReducer = (state = initialState, action) =>
       case UPDATE_TRANSCRIPTION:
         draft.data = state.data.map(item => {
           if (item.id === action.transcription.id) {
-            const updatedItem = { ...item, ...action.transcription };
-            return updatedItem;
+            return { ...item, ...action.transcription };
           }
           return item;
         });
