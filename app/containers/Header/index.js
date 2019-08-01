@@ -32,7 +32,7 @@ function Header({ transcriptions, loadData, saveData }) {
           <Button onClick={() => saveData(transcriptions)}>
             <Icon name="upload" size={24} />
           </Button>
-          <Button onClick={loadData}>
+          <Button onClick={() => loadData()}>
             <Icon name="fetch-document" size={24} />
           </Button>
         </Div>

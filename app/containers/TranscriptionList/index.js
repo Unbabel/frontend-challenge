@@ -5,7 +5,6 @@ import { createStructuredSelector } from 'reselect';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
-import { useInjectSaga } from 'utils/injectSaga';
 import { loadTranscriptions, createTranscription } from 'containers/App/actions';
 import { makeSelectError, makeSelectState, makeSelectTranscriptions } from 'containers/App/selectors';
 
@@ -23,13 +22,7 @@ import { COLORS } from 'theme';
 import Div from './Div';
 import P from './P';
 
-import saga from './saga';
-
-const key = 'TranscriptionList';
-
 function TranscriptionList({ state, error, transcriptions, createItem, loadData }) {
-  useInjectSaga({ key, saga });
-
   const handleItemCreation = () => {
     const lastID = (transcriptions.length > 0 && transcriptions[transcriptions.length - 1].id) || 0;
     const newItem = {
