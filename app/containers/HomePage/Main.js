@@ -6,7 +6,7 @@ export default styled.main`
   height: auto;
 
   > ${Section} {
-    width: 100%;
+    width: auto;
     padding: 1.5rem;
     display: flex;
     justify-content: center;

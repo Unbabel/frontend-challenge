@@ -25,7 +25,7 @@ export function* getData() {
 export function* saveData(action) {
   try {
     yield call(saveTranscriptions, action.transcriptions);
-    yield put(transcriptionsSaved(action.transcriptions));
+    yield put(transcriptionsSaved());
   } catch (err) {
     yield put(transcriptionsSavingError(err));
   }

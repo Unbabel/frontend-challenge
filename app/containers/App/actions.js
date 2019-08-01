@@ -83,14 +83,11 @@ export function saveTranscriptions(transcriptions) {
 /**
  * Dispatched when the repositories are loaded by the request saga
  *
- * @param  {array} transcriptions The repository data
- *
  * @return {object}      An action object with a type of SAVE_TRANSCRIPTIONS_SUCCESS
  */
-export function transcriptionsSaved(transcriptions) {
+export function transcriptionsSaved() {
   return {
     type: SAVE_TRANSCRIPTIONS_SUCCESS,
-    transcriptions,
   };
 }
 
