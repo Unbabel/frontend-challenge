@@ -14,7 +14,7 @@ const Div = styled.div`
     > div > div {
       display: inline-flex;
 
-      span {
+      > span {
         margin: 0 4px;
       }
     }
