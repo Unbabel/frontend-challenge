@@ -24,7 +24,37 @@ import { COLORS } from 'theme';
 import Div from './Div';
 import P from './P';
 
-function TranscriptionList({ state, error, transcriptions, createItem, loadData }) {
+import messages from './messages';
+
+function TranscriptionList({ intl, state, error, transcriptions, createItem, loadData, toastManager }) {
+  useEffect(() => {
+    const toast = {};
+    switch (state) {
+      case STATE.loaded:
+        toast.type = 'success';
+        toast.message = intl.formatMessage(messages.loaded);
+        break;
+      case STATE.saved:
+        toast.type = 'success';
+        toast.message = intl.formatMessage(messages.saved);
+        break;
+      case STATE.error:
+        toast.type = 'error';
+        toast.message = intl.formatMessage(messages.savingError);
+        break;
+      default:
+        toast.type = '';
+        toast.message = '';
+    }
+    if (toast.message !== '') {
+      toastManager.add(toast.message, {
+        appearance: toast.type,
+        autoDismiss: true,
+        pauseOnHover: false,
+      });
+    }
+  }, [state]);
+
   const handleItemCreation = () => {
     const lastID = (transcriptions.length > 0 && transcriptions[transcriptions.length - 1].id) || 0;
     const newItem = {
