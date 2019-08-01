@@ -1,16 +1,16 @@
 /*
- * TextInput Messages
+ * TextArea Messages
  *
- * This contains all the text for the TextInput component.
+ * This contains all the text for the TextArea component.
  */
 
 import { defineMessages } from 'react-intl';
 
-export const scope = 'app.components.TextInput';
+export const scope = 'app.components.TextArea';
 
 export default defineMessages({
-  inputPlaholder: {
-    id: `${scope}.inputPlaholder`,
-    defaultMessage: 'Title',
+  placeholder: {
+    id: `${scope}.placeholder`,
+    defaultMessage: 'Text',
   },
 });

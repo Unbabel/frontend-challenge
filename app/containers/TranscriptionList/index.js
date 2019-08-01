@@ -33,7 +33,7 @@ function TranscriptionList({ state, error, transcriptions, createItem, loadData 
   const handleItemCreation = () => {
     const lastID = (transcriptions.length > 0 && transcriptions[transcriptions.length - 1].id) || 0;
     const newItem = {
-      id: lastID,
+      id: lastID + 1,
       voice: '',
       text: '',
     };
@@ -105,7 +105,7 @@ const mapStateToProps = createStructuredSelector({
 
 export function mapDispatchToProps(dispatch) {
   return {
-    createItem: () => dispatch(createTranscription()),
+    createItem: item => dispatch(createTranscription(item)),
     loadData: () => dispatch(loadTranscriptions()),
   };
 }

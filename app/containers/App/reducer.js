@@ -61,14 +61,13 @@ const appReducer = (state = initialState, action) =>
         break;
 
       case CREATE_TRANSCRIPTION:
-        draft.data = [...draft.data, action.item];
+        draft.data = [...state.data, action.transcription];
         break;
 
       case UPDATE_TRANSCRIPTION:
-        draft.data = draft.data.map(item => {
+        draft.data = state.data.map(item => {
           if (item.id === action.transcription.id) {
             const updatedItem = { ...item, ...action.transcription };
-            debugger;
             return updatedItem;
           }
           return item;
@@ -76,7 +75,7 @@ const appReducer = (state = initialState, action) =>
         break;
 
       case DELETE_TRANSCRIPTION:
-        draft.data = draft.data.filter(item => item.id !== action.id);
+        draft.data = state.data.filter(item => item.id !== action.id);
         break;
     }
   });

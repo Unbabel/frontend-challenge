@@ -4,25 +4,28 @@
  *
  */
 
-import React, { useState, useContext, memo } from 'react';
+import React, { useEffect, useState, useContext, memo } from 'react';
 import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
+import { injectIntl, intlShape } from 'react-intl';
 
-import { FormattedMessage } from 'react-intl';
 import messages from './messages';
 
 import Div from './Div';
 import TArea from './TextArea';
 import P from './P';
 
-function TextArea(props) {
-  const [value, setValue] = useState(props.value);
+function TextArea({ intl, id, label, value, updateText }) {
+  const [text, setText] = useState(value);
   const [isActive, setActive] = useState(false);
   const [height, setHeight] = useState(0);
-  const placeholder = <FormattedMessage {...messages.inputPlaholder} />;
+
+  useEffect(() => {
+    updateText(text);
+  }, [text]);
 
   function acivateTextArea() {
-    const paragraph = document.getElementById(`p-${props.id}`);
+    const paragraph = document.getElementById(`p-${id}`);
     const pHeight = paragraph.offsetHeight;
     setHeight(pHeight);
     setActive(!isActive);
@@ -32,22 +35,22 @@ function TextArea(props) {
     <Div theme={useContext(ThemeContext)}>
       {isActive ? (
         <div>
-          <label className="hidden" htmlFor={props.id}>
-            {!!props.label && props.label}
+          <label className="hidden" htmlFor={id}>
+            {!!label && label}
           </label>
           <TArea
             onBlur={() => setActive(!isActive)}
-            onChange={e => setValue(e.target.value)}
+            onChange={e => setText(e.target.value)}
             height={height}
-            id={`ta-${props.id}`}
+            id={`ta-${id}`}
             type="text"
-            placeholder={placeholder}
-            value={value}
+            placeholder={intl.formatMessage(messages.placeholder)}
+            value={text}
           />
         </div>
       ) : (
-        <P id={`p-${props.id}`} onClick={acivateTextArea}>
-          {value}
+        <P id={`p-${id}`} onClick={acivateTextArea}>
+          {text.length > 0 ? text : intl.formatMessage(messages.placeholder)}
         </P>
       )}
     </Div>
@@ -55,9 +58,11 @@ function TextArea(props) {
 }
 
 TextArea.propTypes = {
+  intl: intlShape,
   id: PropTypes.string.isRequired,
   label: PropTypes.string,
   value: PropTypes.string,
+  updateText: PropTypes.func,
 };
 
-export default memo(TextArea);
+export default memo(injectIntl(TextArea));
