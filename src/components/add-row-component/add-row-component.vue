@@ -3,7 +3,6 @@
     <button @click="getRow()">
       <svgicon name="add-row" height="1.7rem" width="1.7rem" :original="true"></svgicon>
     </button>
-    <h3 v-if="isItemListValid" class="warning-message">Please fill the already created transcription</h3>
   </div>
 </template>
 
@@ -11,14 +10,13 @@
 import { Component, Vue } from 'vue-property-decorator';
 import { Action } from 'vuex-class';
 import '../icons/add-row';
+import { ITranscriptionState } from '../../store/types';
 
 const namespace: string = 'transcription';
 
 @Component
 export default class AddRow extends Vue {
   @Action('addTranscription', { namespace }) private addTranscription: any;
-
-  private isItemListValid: boolean = false;
 
   private getRow() {
     this.addTranscription();

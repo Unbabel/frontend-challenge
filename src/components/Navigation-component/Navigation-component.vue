@@ -4,16 +4,14 @@
       <h2 class="navigation--app-title">Transcription</h2>
       <ul class="navigation--buttons">
         <li>
-          <button class="upload-data navigation--buttons--button">
+          <button class="upload-data navigation--buttons--button" @click="uploadData()">
             <svgicon name="upload" height="1.5rem" width="1.5rem" :original="true"></svgicon>
           </button>
-          <svgicon v-if="isLoading" name="loading" height="1.5rem" width="1.5rem" :original="true"></svgicon>
         </li>
         <li>
           <button class="fetch-data" @click="getData()">
             <svgicon name="fetch-document" height="1.5rem" width="1.5rem" :original="true"></svgicon>
           </button>
-          <svgicon v-if="isUploading" name="loading" height="1.5rem" width="1.5rem" :original="true"></svgicon>
         </li>
       </ul>
     </div>
@@ -25,8 +23,8 @@ import { Vue, Component } from 'vue-property-decorator';
 import { State, Action, Getter } from 'vuex-class';
 import '../icons/upload';
 import '../icons/fetch-document';
-import '../icons/loading';
 import {actions} from '../../store/actions/transcription-actions';
+import { ITranscriptionState, ITranscription } from '../../store/types';
 const namespace: string = 'transcription';
 
 @Component
@@ -34,15 +32,26 @@ export default class NavigationComponent extends Vue {
   private isLoading: boolean = false;
   private isUploading: boolean = false;
 
+  @State('transcription') private transcription!: ITranscriptionState;
   @Action('fetchData', { namespace }) private fetchData: any;
   @Action('uploadTranscriptions', { namespace }) private uploadTranscriptions: any;
+
+  get transcriptionList() {
+    const transcriptionList =
+      this.transcription.transcriptionList &&
+      this.transcription.transcriptionList.length > 0
+        ? this.transcription.transcriptionList
+        : [];
+
+    return transcriptionList;
+  }
 
   private getData() {
     this.fetchData();
   }
 
   private uploadData() {
-    this.uploadTranscriptions();
+    this.uploadTranscriptions(this.transcriptionList);
   }
 }
 </script>

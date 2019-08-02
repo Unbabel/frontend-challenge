@@ -2,6 +2,7 @@ import { ActionTree } from 'vuex';
 import axios from 'axios';
 import { ITranscriptionState, ITranscription } from '../types';
 import { IRootState } from '../types';
+import { listHasInvalidFields } from '@/utils/array-utils/array-utils';
 
 export const actions: ActionTree<ITranscriptionState, IRootState> = {
   fetchData({ commit }): any {
@@ -18,8 +19,8 @@ export const actions: ActionTree<ITranscriptionState, IRootState> = {
     );
   },
 
-  addTranscription({ commit }): any {
-    commit('addTranscription');
+  addTranscription({ commit }, transcriptionList: ITranscription[]): any {
+    commit('addTranscription', transcriptionList);
   },
 
   editTranscription({ commit }: any, payload: any): any {
@@ -30,14 +31,35 @@ export const actions: ActionTree<ITranscriptionState, IRootState> = {
     commit('deleteTranscription', transcriptionId);
   },
 
-  uploadTranscriptions({ commit }, transcriptionList): any {
+  uploadTranscriptions({ commit }, transcriptionList: ITranscription[]): any {
+    if (
+      !transcriptionList ||
+      !transcriptionList.length ||
+      listHasInvalidFields(transcriptionList)
+    ) {
+      return commit(
+        'uploadError',
+        `The list you're trying to upload is empty or has invalid or non saved fields`
+      );
+    }
+
     axios
       .post(
         'https://www.mocky.io/v2/5ae1c5792d00004d009d7e5c',
         transcriptionList
       )
-      .then((response) => response, (error) => commit('uploadError'));
+      .then(
+        (response) => response,
+        (error) => {
+          commit(
+            'uploadError',
+            'An error occurred while uploading transcriptions to the server'
+          );
+        }
+      );
+  },
 
-    commit('uploadTranscriptions');
+  dismissError({commit}: any, index: number) {
+    commit('dismissError', index);
   }
 };

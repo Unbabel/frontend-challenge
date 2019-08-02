@@ -174,14 +174,25 @@
   position: absolute;
   right: 20px;
   top: 20px;
-  width: 200px;
-  padding: 10px;
-  background-color: rgba(220, 53, 69, 0.9);
-  border-radius: 5px;
+  z-index: 99999;
 
   &-error {
+    width: 200px;
+    padding: 10px;
+    background-color: colormapper($color-map, error-color);
+    border-radius: 5px;
+    margin-bottom: 10px;
+    position: relative;
+
+    &--dismiss {
+      position: absolute;
+      right: 10px;
+      font-weight: bold;
+      color: colormapper($color-map, white);
+    }
+
     &--title, &--description {
-      color: white;
+      color: colormapper($color-map, white);
     }
   }
 }
