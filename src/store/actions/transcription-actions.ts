@@ -6,9 +6,7 @@ import { listHasInvalidFields } from '@/utils/array-utils/array-utils';
 
 export const actions: ActionTree<ITranscriptionState, IRootState> = {
   getTranscriptions({ commit }): any {
-    axios({
-      url: 'https://www.mocky.io/v2/5ae1c5792d00004d009d7e5c'
-    }).then(
+    axios.get('https://www.mocky.io/v2/5ae1c5792d00004d009d7e5c').then(
       (response) => {
         const payload: ITranscription[] = response && response.data;
         commit('transcriptionListLoaded', payload);
@@ -19,8 +17,8 @@ export const actions: ActionTree<ITranscriptionState, IRootState> = {
     );
   },
 
-  addTranscription({ commit }, transcriptionList: ITranscription[]): any {
-    commit('addTranscription', transcriptionList);
+  addTranscription({ commit }): any {
+    commit('addTranscription');
   },
 
   editTranscription({ commit }: any, payload: any): any {
@@ -59,7 +57,7 @@ export const actions: ActionTree<ITranscriptionState, IRootState> = {
       );
   },
 
-  dismissError({commit}: any, index: number) {
+  dismissError({ commit }: any, index: number) {
     commit('dismissError', index);
   }
 };

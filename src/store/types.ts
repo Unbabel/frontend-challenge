@@ -7,7 +7,7 @@ export interface ITranscription {
 
 export interface IChangeObject {
   id: number;
-  field: string;
+  field: 'voice' | 'text';
   newValue: string;
 }
 

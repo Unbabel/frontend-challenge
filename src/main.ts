@@ -9,7 +9,7 @@ import SvgIcon from 'vue-svgicon';
 Vue.config.productionTip = false;
 
 Vue.use(SvgIcon, {
-  classPrefix: 'AppIcon-',
+  tagName: 'svgicon'
 });
 
 new Vue({

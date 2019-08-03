@@ -15,7 +15,11 @@ import SvgIcon from 'vue-svgicon';
 
 const namespace: string = 'transcription';
 
-@Component
+@Component({
+  components: {
+    svgicon: SvgIcon
+  }
+})
 export default class AddRow extends Vue {
   @Action('addTranscription', { namespace }) private addTranscription: any;
 }

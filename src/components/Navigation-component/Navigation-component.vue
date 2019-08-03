@@ -25,9 +25,14 @@ import '../icons/upload';
 import '../icons/fetch-document';
 import {actions} from '../../store/actions/transcription-actions';
 import { ITranscriptionState, ITranscription } from '../../store/types';
+import SvgIcon from 'vue-svgicon';
 const namespace: string = 'transcription';
 
-@Component
+@Component({
+  components: {
+    svgicon: SvgIcon
+  }
+})
 export default class NavigationComponent extends Vue {
   private isLoading: boolean = false;
   private isUploading: boolean = false;

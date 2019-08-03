@@ -7,12 +7,30 @@ exports[`Add Row Component Tests Snapshot test 1`] = `
   <button
     class="add-row-button"
   >
-    <svgicon
-      height="1.7rem"
-      name="add-row"
-      original="true"
-      width="1.7rem"
-    />
+    <svg
+      class="svg-icon svg-fill"
+      style="width: 1.7rem; height: 1.7rem;"
+      version="1.1"
+      viewBox="0 0 32 32"
+    >
+      <g
+        fill="none"
+        fill-rule="evenodd"
+      >
+        <circle
+          cx="16"
+          cy="16"
+          fill="#D0D4DA"
+          pid="0"
+          r="16"
+        />
+        <path
+          d="M20.52 16.84h-3.48v3.4h-2.58v-3.4H11V14.4h3.46V11h2.58v3.4h3.48z"
+          fill="#FFF"
+          pid="1"
+        />
+      </g>
+    </svg>
   </button>
 </div>
 `;

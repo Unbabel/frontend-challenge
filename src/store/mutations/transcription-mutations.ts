@@ -49,7 +49,7 @@ export const mutations: MutationTree<ITranscriptionState> = {
     state: ITranscriptionState,
     changeObject: IChangeObject
   ): any {
-    if (!changeObject.newValue) {
+    if (!changeObject.newValue || !changeObject) {
       const errorMessage = `The ${changeObject.field} field is invalid`;
 
       state.errors.push(errorMessage);
@@ -63,7 +63,8 @@ export const mutations: MutationTree<ITranscriptionState> = {
       (transcription: ITranscription) => transcription.id === changeObject.id
     );
 
-    return state.transcriptionList[index][changeObject.field] = changeObject.newValue;
+    return (state.transcriptionList[index][changeObject.field] =
+      changeObject.newValue);
   },
 
   deleteTranscription(state, transcriptionId) {
@@ -82,9 +83,18 @@ export const mutations: MutationTree<ITranscriptionState> = {
         );
       }
     }
+
+    return state.errors.push(
+      'An error occurred while deleting the transcription'
+    );
   },
 
   uploadError(state, message: string) {
+    if (!message) {
+      message =
+        'A problem occurred while uploading, please try again in a few minutes';
+    }
+
     state.errors.push(message);
 
     setTimeout(() => {

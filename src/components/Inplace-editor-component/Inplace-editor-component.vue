@@ -56,6 +56,7 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 import { Action } from 'vuex-class';
 import '../icons/checked';
 import { ITranscription, IChangeObject } from '../../store/types';
+import SvgIcon from 'vue-svgicon';
 
 const namespace: string = 'transcription';
 
@@ -71,7 +72,11 @@ Vue.directive('focus', {
     }
 });
 
-@Component
+@Component({
+  components: {
+    svgicon: SvgIcon
+  }
+})
 export default class InplaceEditor extends Vue {
   private isInputVisible: boolean = false;
   private isTextareaVisible: boolean = false;
@@ -94,7 +99,7 @@ export default class InplaceEditor extends Vue {
     return this.isTextareaVisible = !this.isTextareaVisible;
   }
 
-  private editRow(rowId: number, field: string, newValue: string) {
+  private editRow(rowId: number, field: 'voice' | 'text', newValue: string) {
     const obj: IChangeObject = {
       id: rowId,
       field,
