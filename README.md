@@ -1,54 +1,34 @@
-<div align="center">
-    <!-- Dependency Status -->
-    <a href="https://david-dm.org/migcarva/frontend-challenge">
-        <img src="https://david-dm.org/migcarva/frontend-challenge.svg" alt="Dependency Status" />
-    </a>
-    <!-- devDependency Status -->
-    <a href="https://david-dm.org/migcarva/frontend-challenge#info=devDependencies">
-        <img src="https://david-dm.org/migcarva/frontend-challenge/dev-status.svg" alt="devDependency Status" />
-    </a>
-    <!-- Build Status -->
-    <a href="https://travis-ci.org/migcarva/frontend-challenge">
-        <img src="https://travis-ci.org/migcarva/frontend-challenge.svg" alt="Build Status" />
-    </a>
-</div>
+# frontend-challenge
 
-#Unbabel Frontend Challenge
-
-This is my solution for the proposed exercise. I finished it using React, as it is my framework of choise, but I've a branch with a Vue based solution.
-
-I used React-Boilerplate as a way to streamline the initial boilerplating setup, but also because I do appreciate the work done by those guys - it's realy a production ready solution.
-
-wip!
-
-## Commands
-
-Install all dependencies:
-```Shell
-npm i
+## Project setup
+```
+yarn install
 ```
 
-Start the development server running on `http://localhost:3000`
-```Shell
-npm run start
+### Compiles and hot-reloads for development
+```
+yarn run serve
 ```
 
-Start the production server
-```Shell
-npm run start:production
+### Compiles and minifies for production
+```
+yarn run build
 ```
 
-Preps your app for deployment (does not run tests). Optimizes and minifies all files, piping them to the `build` folder.
-```Shell
-npm run build
+### Run your tests
+```
+yarn run test
 ```
 
-Tests your application with the unit tests specified in the `**/tests/*.js` files
-throughout the application.  
-Testing
-```Shell
-npm run test
+### Lints and fixes files
+```
+yarn run lint
 ```
 
-The app is built for optimal performance: assets are
-minified and served gzipped.
+### Run your unit tests
+```
+yarn run test:unit
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
