@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Logo /> should render a h1 1`] = `
+<a
+  aria-current="page"
+  class="active"
+  href="/"
+>
+  <h1
+    class="H1-sc-1uc3xdc-0 jfHfyl"
+  >
+    <span>
+      T
+    </span>
+    <span>
+      r
+    </span>
+    <span>
+      a
+    </span>
+    <span>
+      n
+    </span>
+    <span>
+      s
+    </span>
+    <span>
+      c
+    </span>
+    <span>
+      r
+    </span>
+    <span>
+      i
+    </span>
+    <span>
+      p
+    </span>
+    <span>
+      t
+    </span>
+    <span>
+      i
+    </span>
+    <span>
+      o
+    </span>
+    <span>
+      n
+    </span>
+    <span>
+      s
+    </span>
+  </h1>
+</a>
+`;
