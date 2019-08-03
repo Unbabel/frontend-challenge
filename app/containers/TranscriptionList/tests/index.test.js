@@ -4,8 +4,8 @@ import { Provider } from 'react-redux';
 import { browserHistory } from 'react-router-dom';
 import { render } from '@testing-library/react';
 
-import TranscriptionListItem from 'TranscriptionList/index';
 import configureStore from 'configureStore';
+import TranscriptionListItem from '../index';
 
 describe('<TranscriptionListItem />', () => {
   it('should render the loading indicator when its loading', () => {

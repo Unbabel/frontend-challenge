@@ -4,8 +4,8 @@ import { render } from '@testing-library/react';
 import Div from '../Div';
 
 const renderComponent = (props = {}) => {
-  const utils = render(<Div {...props}>Div</Div>);
-  const wrapper = utils.queryByText('Div');
+  const utils = render(<Div {...props} />);
+  const wrapper = utils.container.firstChild;
   return { ...utils, wrapper };
 };
 
@@ -13,7 +13,7 @@ describe('<Div />', () => {
   it('should render a <div> tag', () => {
     const { wrapper } = renderComponent();
     expect(wrapper).toBeInTheDocument();
-    expect(wrapper.tagName).toBe('DIV');
+    expect(wrapper.tagName).toEqual('DIV');
   });
 
   it('should have a class attribute', () => {

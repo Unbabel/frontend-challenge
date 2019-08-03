@@ -1,15 +1,15 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 
-import Section from '../Wrapper';
+import Section from '../Section';
 
 const renderComponent = (props = {}) => {
-  const utils = render(<Section {...props}>Wrapper</Section>);
-  const wrapper = utils.queryByText('Wrapper');
+  const utils = render(<Section {...props}>Section</Section>);
+  const wrapper = utils.queryByText('Section');
   return { ...utils, wrapper };
 };
 
-describe('<Wrapper />', () => {
+describe('<Section />', () => {
   it('should render a <div> tag', () => {
     const { wrapper } = renderComponent();
     expect(wrapper).toBeInTheDocument();

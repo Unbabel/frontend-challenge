@@ -5,8 +5,8 @@ import { IntlProvider } from 'react-intl';
 import { ConnectedRouter } from 'connected-react-router/immutable';
 import { createMemoryHistory } from 'history';
 
-import Header from 'Header/index';
 import configureStore from 'configureStore';
+import Header from '../index';
 
 describe('<Header />', () => {
   const history = createMemoryHistory();

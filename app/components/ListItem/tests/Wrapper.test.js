@@ -1,9 +1,9 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 
-import Li from '../Wrapper';
+import Li from '../Li';
 
-describe('<Wrapper />', () => {
+describe('<Li />', () => {
   it('should render an <li> tag', () => {
     const { container } = render(<Li />);
     const element = container.querySelector('li');

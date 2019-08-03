@@ -26,7 +26,7 @@ import P from './P';
 
 import messages from './messages';
 
-function TranscriptionList({ intl, state, error, transcriptions, createItem, loadData, toastManager }) {
+function TranscriptionList({ intl, state, error, transcriptions, createItem, toastManager }) {
   useEffect(() => {
     const toast = {};
     switch (state) {
@@ -114,7 +114,7 @@ TranscriptionList.propTypes = {
   error: PropTypes.oneOfType([PropTypes.object, PropTypes.bool]),
   transcriptions: PropTypes.oneOfType([PropTypes.array, PropTypes.bool]),
   createItem: PropTypes.func,
-  loadData: PropTypes.func,
+  toastManager: PropTypes.any,
 };
 
 const mapStateToProps = createStructuredSelector({

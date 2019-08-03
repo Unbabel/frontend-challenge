@@ -125,7 +125,7 @@ module.exports = options => ({
       NODE_ENV: 'development',
     }),
     new SpriteLoaderPlugin({
-      plainSprite: true
+      plainSprite: true,
     }),
   ]),
   resolve: {

@@ -3,7 +3,7 @@
  */
 
 import React from 'react';
-import { getByText, render } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import { IntlProvider } from 'react-intl';
 
 import { TranscriptionListItem } from '../index';
