@@ -1,6 +1,6 @@
 <template>
   <div class="add-row">
-    <button @click="getRow()">
+    <button class="add-row-button" @click="addTranscription">
       <svgicon name="add-row" height="1.7rem" width="1.7rem" :original="true"></svgicon>
     </button>
   </div>
@@ -11,16 +11,13 @@ import { Component, Vue } from 'vue-property-decorator';
 import { Action } from 'vuex-class';
 import '../icons/add-row';
 import { ITranscriptionState } from '../../store/types';
+import SvgIcon from 'vue-svgicon';
 
 const namespace: string = 'transcription';
 
 @Component
 export default class AddRow extends Vue {
   @Action('addTranscription', { namespace }) private addTranscription: any;
-
-  private getRow() {
-    this.addTranscription();
-  }
 }
 </script>
 

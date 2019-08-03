@@ -7,9 +7,7 @@ Vue.use(Vuex);
 
 const store: StoreOptions<IRootState> = {
   state: {
-    transcriptions: {
-      list: []
-    }
+    app: ''
   },
   modules: {
     transcription

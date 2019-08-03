@@ -5,10 +5,11 @@
         @click="toggleInput()"
         v-if="!isInputVisible"
         class="inplace-editor--voice"
-      >{{transcriptionInfo.voice || 'Write your transcription title here'}}</h3>
+      >{{(transcriptionInfo && transcriptionInfo.voice) || 'Write your transcription title here'}}</h3>
       <div v-if="isInputVisible">
         <label for="voice" class="visually-hidden">Edit {{transcriptionInfo.voice || 'voice'}} title</label>
         <input
+          class="inplace-editor--voice-input"
           name="voice"
           placeholder="Write your transcription title here"
           v-focus
@@ -28,10 +29,11 @@
         @click="toggleTextarea()"
         v-if="!isTextareaVisible"
         class="inplace-editor--text"
-      >{{transcriptionInfo.text || 'Write your transcription text here'}}</p>
+      >{{(transcriptionInfo && transcriptionInfo.text) || 'Write your transcription text here'}}</p>
       <div v-if="isTextareaVisible">
         <label for="text" class="visually-hidden">Edit {{transcriptionInfo.text || 'text'}} title</label>
         <textarea
+          class="inplace-editor--text-textarea"
           name="text"
           ref="text"
           placeholder="Write your transcription text here"

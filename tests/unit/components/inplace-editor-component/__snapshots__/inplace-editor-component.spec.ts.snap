@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Add Row Component Tests Snapshot test 1`] = `
+<div
+  class="item-info"
+>
+  <div
+    class="inplace-editor"
+  >
+    <h3
+      class="inplace-editor--voice"
+    >
+      Write your transcription title here
+    </h3>
+     
+    <!---->
+  </div>
+   
+  <div
+    class="inplace-editor"
+  >
+    <p
+      class="inplace-editor--text"
+    >
+      Write your transcription text here
+    </p>
+     
+    <!---->
+  </div>
+</div>
+`;

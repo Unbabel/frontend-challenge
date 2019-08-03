@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Add Row Component Tests Snapshot test 1`] = `
+<nav
+  class="navigation"
+>
+  <div
+    class="navigation--wrapper"
+  >
+    <h2
+      class="navigation--app-title"
+    >
+      Transcription
+    </h2>
+     
+    <ul
+      class="navigation--buttons"
+    >
+      <li>
+        <button
+          class="upload-transcriptions navigation--buttons--button"
+        >
+          <svgicon
+            height="1.5rem"
+            name="upload"
+            original="true"
+            width="1.5rem"
+          />
+        </button>
+      </li>
+       
+      <li>
+        <button
+          class="get-transcriptions"
+        >
+          <svgicon
+            height="1.5rem"
+            name="fetch-document"
+            original="true"
+            width="1.5rem"
+          />
+        </button>
+      </li>
+    </ul>
+  </div>
+</nav>
+`;

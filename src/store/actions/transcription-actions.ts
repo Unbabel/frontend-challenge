@@ -5,7 +5,7 @@ import { IRootState } from '../types';
 import { listHasInvalidFields } from '@/utils/array-utils/array-utils';
 
 export const actions: ActionTree<ITranscriptionState, IRootState> = {
-  fetchData({ commit }): any {
+  getTranscriptions({ commit }): any {
     axios({
       url: 'https://www.mocky.io/v2/5ae1c5792d00004d009d7e5c'
     }).then(

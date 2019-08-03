@@ -17,7 +17,5 @@ export interface ITranscriptionState {
 }
 
 export interface IRootState {
-  transcriptions: {
-    list: ITranscription[];
-  };
+  app: string;
 }

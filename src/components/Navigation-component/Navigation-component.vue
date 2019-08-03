@@ -4,12 +4,12 @@
       <h2 class="navigation--app-title">Transcription</h2>
       <ul class="navigation--buttons">
         <li>
-          <button class="upload-data navigation--buttons--button" @click="uploadData()">
+          <button class="upload-transcriptions navigation--buttons--button" @click="uploadData()">
             <svgicon name="upload" height="1.5rem" width="1.5rem" :original="true"></svgicon>
           </button>
         </li>
         <li>
-          <button class="fetch-data" @click="getData()">
+          <button class="get-transcriptions" @click="getData()">
             <svgicon name="fetch-document" height="1.5rem" width="1.5rem" :original="true"></svgicon>
           </button>
         </li>
@@ -33,7 +33,7 @@ export default class NavigationComponent extends Vue {
   private isUploading: boolean = false;
 
   @State('transcription') private transcription!: ITranscriptionState;
-  @Action('fetchData', { namespace }) private fetchData: any;
+  @Action('getTranscriptions', { namespace }) private getTranscriptions: any;
   @Action('uploadTranscriptions', { namespace }) private uploadTranscriptions: any;
 
   get transcriptionList() {
@@ -47,7 +47,7 @@ export default class NavigationComponent extends Vue {
   }
 
   private getData() {
-    this.fetchData();
+    this.getTranscriptions();
   }
 
   private uploadData() {

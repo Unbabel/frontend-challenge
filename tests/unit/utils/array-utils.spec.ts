@@ -1,5 +1,5 @@
 
-import * as arrayUtils from './array-utils';
+import * as arrayUtils from '../../../src/utils/array-utils/array-utils';
 import { ITranscription } from '@/store/types';
 
 describe('Test array utils', () => {
