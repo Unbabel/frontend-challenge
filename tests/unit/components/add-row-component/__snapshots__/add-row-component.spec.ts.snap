@@ -5,7 +5,9 @@ exports[`Add Row Component Tests Snapshot test 1`] = `
   class="add-row"
 >
   <button
+    aria-pressed="false"
     class="add-row-button"
+    role="button"
   >
     <svg
       class="svg-icon svg-fill"

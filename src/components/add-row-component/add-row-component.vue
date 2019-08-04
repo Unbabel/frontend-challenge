@@ -1,6 +1,6 @@
 <template>
   <div class="add-row">
-    <button class="add-row-button" @click="addTranscription">
+    <button class="add-row-button" aria-pressed="false" role="button" @click="addTranscription">
       <svgicon name="add-row" height="1.7rem" width="1.7rem" :original="true"></svgicon>
     </button>
   </div>

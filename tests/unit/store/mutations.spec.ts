@@ -1,4 +1,7 @@
-import { mutations } from '../../../src/store/mutations/transcription-mutations';
+import {
+  mutations,
+  setError
+} from '../../../src/store/mutations/transcription-mutations';
 import {
   ITranscriptionState,
   ITranscription,
@@ -24,11 +27,15 @@ describe('', () => {
     }
   ];
 
-  let transcriptionsMutations: any;
   let state: ITranscriptionState;
 
+  const mockTranscription: ITranscription = {
+    id: 1,
+    text: '',
+    voice: 'Test'
+  };
+
   beforeEach(() => {
-    transcriptionsMutations = mutations;
     state = {
       transcriptionList: [],
       errors: []
@@ -75,12 +82,6 @@ describe('', () => {
       newValue: 'Test Value'
     };
 
-    const mockTranscription: ITranscription = {
-      id: 1,
-      text: '',
-      voice: 'Test'
-    };
-
     state.transcriptionList.push(mockTranscription);
 
     mutations.editTranscription(state, changeObjectMock);
@@ -95,17 +96,21 @@ describe('', () => {
       newValue: 'Test Value'
     };
 
-    const mockTranscription: ITranscription = {
-      id: 1,
-      text: '',
-      voice: 'Test'
-    };
-
     state.transcriptionList.push(mockTranscription);
 
     mutations.editTranscription(state, changeObjectMock);
 
     expect(state.transcriptionList[0].text).toBe(changeObjectMock.newValue);
+  });
+
+  test('Should throw error when no change object is passed', () => {
+    const errorMessage = 'No change was made';
+    const changeObjectMock = '';
+
+    mutations.editTranscription(state, changeObjectMock);
+
+    expect(state.errors.length).toBe(1);
+    expect(state.errors[0]).toBe(errorMessage);
   });
 
   test('Editing throws error when executed with no new value', () => {
@@ -117,6 +122,8 @@ describe('', () => {
 
     const errorMessage = `The ${changeObjectMock.field} field is invalid`;
 
+    state.transcriptionList.push(mockTranscription);
+
     mutations.editTranscription(state, changeObjectMock);
 
     expect(state.errors.length).toBe(1);
@@ -124,12 +131,6 @@ describe('', () => {
   });
 
   test('Deleting a trancription', () => {
-    const mockTranscription: ITranscription = {
-      id: 1,
-      text: '',
-      voice: 'Test'
-    };
-
     state.transcriptionList.push(mockTranscription);
 
     mutations.deleteTranscription(state, 1);
@@ -168,5 +169,18 @@ describe('', () => {
     mutations.dismissError(state, 0);
 
     expect(state.errors.length).toBe(0);
+  });
+
+  test('Helper method setError test', () => {
+    const errorMessage = 'Test Error';
+
+    setError(state, errorMessage);
+
+    expect(state.errors.length).toBe(1);
+    expect(state.errors[0]).toBe(errorMessage);
+
+    setTimeout(() => {
+      expect(state.errors.length).toBe(0);
+    }, 3000);
   });
 });

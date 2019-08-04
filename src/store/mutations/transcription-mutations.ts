@@ -37,11 +37,7 @@ export const mutations: MutationTree<ITranscriptionState> = {
     } else {
       const errorMessage = 'Please fill the fields before adding a new row';
 
-      state.errors.push(errorMessage);
-
-      setTimeout(() => {
-        state.errors = [];
-      }, 3000);
+      return setError(state, errorMessage);
     }
   },
 
@@ -49,14 +45,16 @@ export const mutations: MutationTree<ITranscriptionState> = {
     state: ITranscriptionState,
     changeObject: IChangeObject
   ): any {
-    if (!changeObject.newValue || !changeObject) {
+    if (!changeObject) {
+      const errorMessage = 'No change was made';
+
+      return setError(state, errorMessage);
+    }
+
+    if (!changeObject.newValue) {
       const errorMessage = `The ${changeObject.field} field is invalid`;
 
-      state.errors.push(errorMessage);
-
-      setTimeout(() => {
-        state.errors = [];
-      }, 3000);
+      setError(state, errorMessage);
     }
 
     const index = state.transcriptionList.findIndex(
@@ -72,41 +70,44 @@ export const mutations: MutationTree<ITranscriptionState> = {
       (item: ITranscription) => item.id === transcriptionId
     );
 
+    let errorMessage: string;
+
     if (transcriptionToDelete) {
       const index = state.transcriptionList.indexOf(transcriptionToDelete);
 
       if (index > -1) {
         return state.transcriptionList.splice(index, 1);
       } else {
-        state.errors.push('An error occurred while deleting the transcription');
+        errorMessage = 'An error occurred while deleting the transcription';
 
-        setTimeout(() => {
-          state.errors = [];
-        }, 3000);
+        return setError(state, errorMessage);
       }
     }
 
-    state.errors.push('An error occurred while deleting the transcription');
+    errorMessage = 'An error occurred while deleting the transcription';
 
-    return setTimeout(() => {
-      state.errors = [];
-    }, 3000);
+    return setError(state, errorMessage);
   },
 
-  uploadError(state, message: string) {
-    if (!message) {
-      message =
+  uploadError(state, errorMessage: string) {
+    if (!errorMessage) {
+      errorMessage =
         'A problem occurred while uploading, please try again in a few minutes';
     }
 
-    state.errors.push(message);
-
-    setTimeout(() => {
-      state.errors = [];
-    }, 3000);
+    return setError(state, errorMessage);
   },
 
   dismissError(state, index) {
     return state.errors.splice(index, 1);
   }
 };
+
+// Helper method to handle error settling
+export function setError(state: ITranscriptionState, message: string) {
+  state.errors.push(message);
+
+  setTimeout(() => {
+    state.errors = [];
+  }, 3000);
+}

@@ -2,11 +2,17 @@
   <ul class="item-list">
     <li
       class="item-list--item"
-      v-for="transcription in transcriptionList"
-      v-bind:key="transcription.id"
+      v-for="(transcription, index) in transcriptionList"
+      v-bind:key="index"
+      :tabindex="index + 2"
     >
       <div class="delete-icon">
-        <button class="delete-button" @click="deleteRow(transcription.id)">
+        <button
+          aria-pressed="false"
+          role="button"
+          class="delete-button"
+          @click="deleteRow(transcription.id)"
+        >
           <svgicon
             class="person-icon"
             name="delete"
@@ -59,6 +65,7 @@ export default class ItemsList extends Vue {
   @Prop() private transcriptionList!: ITranscription[];
   @Action('deleteTranscription', { namespace })
   private deleteTranscription: any;
+  private previousTabIndex: number = 0;
 
   private deleteRow(rowId: number) {
     this.deleteTranscription(rowId);

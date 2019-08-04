@@ -16,7 +16,6 @@
 .input-highlight {
   @include transition-mixin(all, 0.3s, ease-in-out);
 
-  outline: none;
   box-shadow: none;
   border: solid 2px colormapper($color-map, highlight-color);
   border-radius: 3px;

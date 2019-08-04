@@ -8,8 +8,8 @@
         class="subtitle"
       >{{titles && titles.subtitle && titles.title ? titles.subtitle : "Please refresh the page or try again in a bit"}}</h2>
     </hgroup>
-    <div class="landing-page--links">
-      <router-link tag="a" to="/transcription-list">Transcriptions</router-link>
+    <div class="landing-page--links" tabindex="0">
+      <router-link title="Link to transcriptions page" tag="a" to="/transcription-list" >Transcriptions</router-link>
     </div>
   </main>
 </template>
@@ -32,7 +32,9 @@ export default class DefaultLayout extends Vue {
 @import "../../styles/Tools/tools";
 
 .landing-page {
-  height: 100vh;
+  height: -webkit-fill-available;
+  height: -moz-available;
+  height: stretch;
   background-image: -webkit-linear-gradient(
     38.5deg,
     colormapper($color-map, main-background-color) 28%,

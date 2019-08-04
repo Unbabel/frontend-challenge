@@ -1,8 +1,18 @@
 <template>
   <transition name="fade">
     <div class="toast" v-if="errorList && errorList.length">
-      <section class="toast-error" v-for="(error, index) in errorList" v-bind:key="index">
-        <button class="toast-error--dismiss" @click="dismissToast(index)"> X </button>
+      <section
+        :tabindex="index"
+        class="toast-error"
+        v-for="(error, index) in errorList"
+        v-bind:key="index"
+      >
+        <button
+          aria-pressed="false"
+          role="button"
+          class="toast-error--dismiss"
+          @click="dismissToast(index)"
+        >X</button>
         <h3 class="toast-error--title">Error</h3>
         <p
           class="toast-error--description"

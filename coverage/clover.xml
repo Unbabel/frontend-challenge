@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1564948957512" clover="3.2.0">
+  <project timestamp="1564948957512" name="All files">
+    <metrics statements="172" coveredstatements="131" conditionals="51" coveredconditionals="37" methods="33" coveredmethods="24" elements="256" coveredelements="192" complexity="0" loc="172" ncloc="172" packages="13" files="13" classes="13">
+      <package name="src">
+        <metrics statements="5" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <file name="router.ts" path="C:\Users\joaor\OneDrive\Desktop\frontend-challenge\src\router.ts">
+          <metrics statements="5" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+          <line num="1" count="0" type="stmt"/>
+          <line num="2" count="0" type="stmt"/>
+          <line num="3" count="0" type="stmt"/>
+          <line num="4" count="0" type="stmt"/>
+          <line num="6" count="0" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.Inplace-editor-component">
+        <metrics statements="24" coveredstatements="22" conditionals="8" coveredconditionals="8" methods="5" coveredmethods="4"/>
+        <file name="Inplace-editor-component.vue" path="C:\Users\joaor\OneDrive\Desktop\frontend-challenge\src\components\Inplace-editor-component\Inplace-editor-component.vue">
+          <metrics statements="24" coveredstatements="22" conditionals="8" coveredconditionals="8" methods="5" coveredmethods="4"/>
+          <line num="55" count="2" type="stmt"/>
+          <line num="56" count="2" type="stmt"/>
+          <line num="57" count="2" type="stmt"/>
+          <line num="59" count="2" type="stmt"/>
+          <line num="61" count="2" type="stmt"/>
+          <line num="64" count="2" type="stmt"/>
+          <line num="66" count="4" type="stmt"/>
+          <line num="69" count="0" type="stmt"/>
+          <line num="70" count="0" type="stmt"/>
+          <line num="80" count="2" type="stmt"/>
+          <line num="81" count="8" type="stmt"/>
+          <line num="82" count="8" type="stmt"/>
+          <line num="84" count="2" type="stmt"/>
+          <line num="90" count="2" type="stmt"/>
+          <line num="93" count="3" type="stmt"/>
+          <line num="94" count="3" type="stmt"/>
+          <line num="98" count="3" type="stmt"/>
+          <line num="99" count="3" type="stmt"/>
+          <line num="103" count="2" type="stmt"/>
+          <line num="109" count="2" type="cond" truecount="4" falsecount="0"/>
+          <line num="110" count="1" type="stmt"/>
+          <line num="113" count="2" type="cond" truecount="4" falsecount="0"/>
+          <line num="114" count="1" type="stmt"/>
+          <line num="117" count="2" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.Navigation-component">
+        <metrics statements="29" coveredstatements="29" conditionals="10" coveredconditionals="6" methods="8" coveredmethods="8"/>
+        <file name="Navigation-component.vue" path="C:\Users\joaor\OneDrive\Desktop\frontend-challenge\src\components\Navigation-component\Navigation-component.vue">
+          <metrics statements="29" coveredstatements="29" conditionals="10" coveredconditionals="6" methods="8" coveredmethods="8"/>
+          <line num="1" count="1" type="stmt"/>
+          <line num="4" count="1" type="stmt"/>
+          <line num="6" count="1" type="stmt"/>
+          <line num="8" count="1" type="stmt"/>
+          <line num="11" count="1" type="stmt"/>
+          <line num="13" count="1" type="stmt"/>
+          <line num="15" count="1" type="stmt"/>
+          <line num="17" count="1" type="stmt"/>
+          <line num="19" count="1" type="stmt"/>
+          <line num="21" count="1" type="stmt"/>
+          <line num="23" count="1" type="stmt"/>
+          <line num="25" count="1" type="stmt"/>
+          <line num="26" count="1" type="stmt"/>
+          <line num="28" count="2" type="stmt"/>
+          <line num="29" count="2" type="stmt"/>
+          <line num="30" count="2" type="stmt"/>
+          <line num="34" count="1" type="cond" truecount="3" falsecount="1"/>
+          <line num="35" count="1" type="stmt"/>
+          <line num="39" count="1" type="stmt"/>
+          <line num="43" count="1" type="stmt"/>
+          <line num="48" count="1" type="stmt"/>
+          <line num="50" count="1" type="stmt"/>
+          <line num="54" count="1" type="stmt"/>
+          <line num="58" count="1" type="stmt"/>
+          <line num="63" count="1" type="stmt"/>
+          <line num="65" count="1" type="stmt"/>
+          <line num="67" count="1" type="cond" truecount="2" falsecount="2"/>
+          <line num="68" count="2" type="cond" truecount="1" falsecount="1"/>
+          <line num="69" count="1" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.add-row-component">
+        <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <file name="add-row-component.vue" path="C:\Users\joaor\OneDrive\Desktop\frontend-challenge\src\components\add-row-component\add-row-component.vue">
+          <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+          <line num="10" count="1" type="stmt"/>
+          <line num="11" count="1" type="stmt"/>
+          <line num="12" count="1" type="stmt"/>
+          <line num="14" count="1" type="stmt"/>
+          <line num="16" count="1" type="stmt"/>
+          <line num="23" count="1" type="stmt"/>
+          <line num="24" count="1" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.default-layout-component">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <file name="default-layout-component.vue" path="C:\Users\joaor\OneDrive\Desktop\frontend-challenge\src\components\default-layout-component\default-layout-component.vue">
+          <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+          <line num="18" count="1" type="stmt"/>
+          <line num="22" count="2" type="stmt"/>
+          <line num="23" count="1" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.items-list-component">
+        <metrics statements="12" coveredstatements="12" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <file name="items-list-component.vue" path="C:\Users\joaor\OneDrive\Desktop\frontend-challenge\src\components\items-list-component\items-list-component.vue">
+          <metrics statements="12" coveredstatements="12" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+          <line num="48" count="1" type="stmt"/>
+          <line num="49" count="1" type="stmt"/>
+          <line num="50" count="1" type="stmt"/>
+          <line num="51" count="1" type="stmt"/>
+          <line num="52" count="1" type="stmt"/>
+          <line num="53" count="1" type="stmt"/>
+          <line num="56" count="1" type="stmt"/>
+          <line num="64" count="1" type="stmt"/>
+          <line num="65" count="1" type="stmt"/>
+          <line num="67" count="1" type="stmt"/>
+          <line num="68" count="4" type="stmt"/>
+          <line num="71" count="1" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.toast-component">
+        <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <file name="toast-component.vue" path="C:\Users\joaor\OneDrive\Desktop\frontend-challenge\src\components\toast-component\toast-component.vue">
+          <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+          <line num="26" count="1" type="stmt"/>
+          <line num="27" count="1" type="stmt"/>
+          <line num="30" count="1" type="stmt"/>
+          <line num="33" count="2" type="stmt"/>
+          <line num="34" count="1" type="stmt"/>
+          <line num="35" count="1" type="stmt"/>
+          <line num="36" count="1" type="stmt"/>
+          <line num="38" count="4" type="stmt"/>
+          <line num="41" count="1" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.store">
+        <metrics statements="5" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <file name="store.ts" path="C:\Users\joaor\OneDrive\Desktop\frontend-challenge\src\store\store.ts">
+          <metrics statements="5" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+          <line num="1" count="0" type="stmt"/>
+          <line num="2" count="0" type="stmt"/>
+          <line num="4" count="0" type="stmt"/>
+          <line num="6" count="0" type="stmt"/>
+          <line num="8" count="0" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.store.actions">
+        <metrics statements="16" coveredstatements="9" conditionals="7" coveredconditionals="4" methods="4" coveredmethods="0"/>
+        <file name="transcription-actions.ts" path="C:\Users\joaor\OneDrive\Desktop\frontend-challenge\src\store\actions\transcription-actions.ts">
+          <metrics statements="16" coveredstatements="9" conditionals="7" coveredconditionals="4" methods="4" coveredmethods="0"/>
+          <line num="2" count="1" type="stmt"/>
+          <line num="5" count="1" type="stmt"/>
+          <line num="7" count="1" type="stmt"/>
+          <line num="9" count="1" type="stmt"/>
+          <line num="11" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="12" count="0" type="stmt"/>
+          <line num="15" count="0" type="stmt"/>
+          <line num="21" count="1" type="stmt"/>
+          <line num="25" count="2" type="stmt"/>
+          <line num="29" count="0" type="stmt"/>
+          <line num="33" count="1" type="cond" truecount="1" falsecount="1"/>
+          <line num="38" count="0" type="stmt"/>
+          <line num="44" count="1" type="stmt"/>
+          <line num="50" count="0" type="stmt"/>
+          <line num="52" count="0" type="stmt"/>
+          <line num="61" count="1" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.store.modules">
+        <metrics statements="5" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <file name="transcriptions.ts" path="C:\Users\joaor\OneDrive\Desktop\frontend-challenge\src\store\modules\transcriptions.ts">
+          <metrics statements="5" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+          <line num="2" count="0" type="stmt"/>
+          <line num="3" count="0" type="stmt"/>
+          <line num="6" count="0" type="stmt"/>
+          <line num="11" count="0" type="stmt"/>
+          <line num="13" count="0" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.store.mutations">
+        <metrics statements="40" coveredstatements="35" conditionals="18" coveredconditionals="15" methods="5" coveredmethods="3"/>
+        <file name="transcription-mutations.ts" path="C:\Users\joaor\OneDrive\Desktop\frontend-challenge\src\store\mutations\transcription-mutations.ts">
+          <metrics statements="40" coveredstatements="35" conditionals="18" coveredconditionals="15" methods="5" coveredmethods="3"/>
+          <line num="3" count="1" type="stmt"/>
+          <line num="8" count="1" type="stmt"/>
+          <line num="10" count="2" type="cond" truecount="3" falsecount="1"/>
+          <line num="11" count="0" type="stmt"/>
+          <line num="13" count="2" type="cond" truecount="1" falsecount="1"/>
+          <line num="19" count="1" type="stmt"/>
+          <line num="21" count="1" type="stmt"/>
+          <line num="23" count="1" type="stmt"/>
+          <line num="24" count="0" type="stmt"/>
+          <line num="29" count="2" type="stmt"/>
+          <line num="35" count="2" type="cond" truecount="2" falsecount="0"/>
+          <line num="36" count="1" type="stmt"/>
+          <line num="38" count="1" type="stmt"/>
+          <line num="40" count="1" type="stmt"/>
+          <line num="48" count="4" type="cond" truecount="2" falsecount="0"/>
+          <line num="49" count="1" type="stmt"/>
+          <line num="51" count="1" type="stmt"/>
+          <line num="54" count="3" type="cond" truecount="2" falsecount="0"/>
+          <line num="55" count="1" type="stmt"/>
+          <line num="57" count="1" type="stmt"/>
+          <line num="60" count="3" type="stmt"/>
+          <line num="61" count="3" type="stmt"/>
+          <line num="64" count="3" type="stmt"/>
+          <line num="69" count="2" type="stmt"/>
+          <line num="70" count="1" type="stmt"/>
+          <line num="75" count="2" type="cond" truecount="2" falsecount="0"/>
+          <line num="76" count="1" type="stmt"/>
+          <line num="78" count="1" type="cond" truecount="1" falsecount="1"/>
+          <line num="79" count="1" type="stmt"/>
+          <line num="81" count="0" type="stmt"/>
+          <line num="83" count="0" type="stmt"/>
+          <line num="87" count="1" type="stmt"/>
+          <line num="89" count="1" type="stmt"/>
+          <line num="93" count="2" type="cond" truecount="2" falsecount="0"/>
+          <line num="94" count="1" type="stmt"/>
+          <line num="98" count="2" type="stmt"/>
+          <line num="102" count="1" type="stmt"/>
+          <line num="108" count="7" type="stmt"/>
+          <line num="110" count="7" type="stmt"/>
+          <line num="111" count="0" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.utils.array-utils">
+        <metrics statements="5" coveredstatements="5" conditionals="4" coveredconditionals="4" methods="5" coveredmethods="5"/>
+        <file name="array-utils.ts" path="C:\Users\joaor\OneDrive\Desktop\frontend-challenge\src\utils\array-utils\array-utils.ts">
+          <metrics statements="5" coveredstatements="5" conditionals="4" coveredconditionals="4" methods="5" coveredmethods="5"/>
+          <line num="16" count="1" type="stmt"/>
+          <line num="18" count="7" type="stmt"/>
+          <line num="19" count="7" type="stmt"/>
+          <line num="32" count="5" type="stmt"/>
+          <line num="33" count="29" type="cond" truecount="2" falsecount="0"/>
+        </file>
+      </package>
+      <package name="src.views">
+        <metrics statements="12" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <file name="Transcription-List.vue" path="C:\Users\joaor\OneDrive\Desktop\frontend-challenge\src\views\Transcription-List.vue">
+          <metrics statements="12" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="2" coveredmethods="0"/>
+          <line num="13" count="0" type="stmt"/>
+          <line num="14" count="0" type="stmt"/>
+          <line num="15" count="0" type="stmt"/>
+          <line num="16" count="0" type="stmt"/>
+          <line num="17" count="0" type="stmt"/>
+          <line num="18" count="0" type="stmt"/>
+          <line num="30" count="0" type="stmt"/>
+          <line num="31" count="0" type="stmt"/>
+          <line num="34" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="40" count="0" type="stmt"/>
+          <line num="44" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="49" count="0" type="stmt"/>
+        </file>
+      </package>
+    </metrics>
+  </project>
+</coverage>

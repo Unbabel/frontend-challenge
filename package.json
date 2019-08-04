@@ -9,7 +9,7 @@
     "icons": "vsvg -s src/assets/ -t src/components/icons",
     "prebuild": "npm run icons",
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build": "vue-cli-service build && npm run test",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit",
     "clear_jest": "jest --clearCache"

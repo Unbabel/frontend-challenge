@@ -1,16 +1,22 @@
-import Vue from 'vue';
-import { shallowMount, createLocalVue } from '@vue/test-utils';
 import DefaultLayout from '@/components/default-layout-component/default-layout-component.vue';
-import Vuex from 'vuex';
-import { ITranscription } from '@/store/types';
+import { shallowMount } from '@vue/test-utils';
+import Vue from 'vue';
 
 describe('Default layout component tests', () => {
   let wrapper: any;
 
   test('Snapshot test', () => {
-    const Constructor = Vue.extend(DefaultLayout);
-    const vm = new Constructor().$mount();
-    expect(vm.$el).toMatchSnapshot();
+    const titles = {
+      title: 'Test Title',
+      subtitle: 'Test Subtitle'
+    };
+
+    wrapper = shallowMount(DefaultLayout, {
+      propsData: { titles },
+      stubs: ['router-link']
+    });
+
+    expect(wrapper).toMatchSnapshot();
   });
 
   test('Should display the values on props when mounted with props', () => {
@@ -20,7 +26,8 @@ describe('Default layout component tests', () => {
     };
 
     wrapper = shallowMount(DefaultLayout, {
-      propsData: { titles }
+      propsData: { titles },
+      stubs: ['router-link']
     });
 
     expect(wrapper.find('.main-title').text()).toBe(titles.title);
@@ -34,7 +41,8 @@ describe('Default layout component tests', () => {
     };
 
     wrapper = shallowMount(DefaultLayout, {
-      propsData: {}
+      propsData: {},
+      stubs: ['router-link']
     });
 
     expect(wrapper.find('.main-title').text()).toBe(titles.title);

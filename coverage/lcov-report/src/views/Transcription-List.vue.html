@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/views/Transcription-List.vue</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="..\..\prettify.css" />
+    <link rel="stylesheet" href="..\..\base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(..\..\sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="..\..\index.html">All files</a> / <a href="index.html">src/views</a> Transcription-List.vue
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>0/13</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/4</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/2</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>0/12</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&lt;template&gt;
+  &lt;div class="item-list-container"&gt;
+    &lt;Toast v-bind:errorList="errorList" /&gt;
+    &lt;header&gt;
+      &lt;NavigationComponent /&gt;
+    &lt;/header&gt;
+    &lt;ItemsList v-bind:transcriptionList="transcriptionList" /&gt;
+    &lt;AddRow /&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+&nbsp;
+&lt;script lang="ts"&gt;
+<span class="cstat-no" title="statement not covered" >import { Component, Vue } from 'vue-property-decorator';</span>
+<span class="cstat-no" title="statement not covered" >import { State, Action } from 'vuex-class';</span>
+<span class="cstat-no" title="statement not covered" >import NavigationComponent from '@/components/Navigation-component/Navigation-component.vue';</span>
+<span class="cstat-no" title="statement not covered" >import AddRow from '@/components/add-row-component/add-row-component.vue';</span>
+<span class="cstat-no" title="statement not covered" >import Toast from '@/components/toast-component/toast-component.vue';</span>
+<span class="cstat-no" title="statement not covered" >import ItemsList from '@/components/items-list-component/items-list-component.vue';</span>
+import { transcription } from '../store/modules/transcriptions';
+import { ITranscriptionState } from '../store/types';
+&nbsp;
+@Component({
+  components: {
+    NavigationComponent,
+    AddRow,
+    ItemsList,
+    Toast
+  }
+})
+<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" >export default class TranscriptionList extends Vue {</span></span>
+<span class="cstat-no" title="statement not covered" >  @State('transcription') private transcription!: ITranscriptionState;</span>
+&nbsp;
+<span class="fstat-no" title="function not covered" >  get transcriptionList() {</span>
+<span class="cstat-no" title="statement not covered" >    const transcriptionList =</span>
+      this.transcription.transcriptionList &amp;&amp;
+      this.transcription.transcriptionList.length &gt; 0
+        ? this.transcription.transcriptionList
+        : [];
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    return transcriptionList;</span>
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  get errorList() {</span>
+<span class="cstat-no" title="statement not covered" >    const errorList =</span>
+      this.transcription.errors &amp;&amp; this.transcription.errors.length &gt; 0
+        ? this.transcription.errors
+        : [];
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    return errorList;</span>
+  }
+}
+&lt;/script&gt;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sun Aug 04 2019 21:02:37 GMT+0100 (GMT+01:00)
+</div>
+</div>
+<script src="..\..\prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="..\..\sorter.js"></script>
+</body>
+</html>

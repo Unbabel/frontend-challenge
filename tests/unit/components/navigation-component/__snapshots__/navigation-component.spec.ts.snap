@@ -2,6 +2,7 @@
 
 exports[`Add Row Component Tests Snapshot test 1`] = `
 <nav
+  aria-label="Data upload and obtention buttons"
   class="navigation"
 >
   <div
@@ -15,10 +16,17 @@ exports[`Add Row Component Tests Snapshot test 1`] = `
      
     <ul
       class="navigation--buttons"
+      role="toolbar"
     >
-      <li>
+      <li
+        tabindex="1"
+      >
         <button
+          aria-posinset="1"
+          aria-pressed="false"
+          aria-setsize="2"
           class="upload-transcriptions navigation--buttons--button"
+          role="button"
         >
           <svg
             class="svg-icon svg-fill"
@@ -45,9 +53,15 @@ exports[`Add Row Component Tests Snapshot test 1`] = `
         </button>
       </li>
        
-      <li>
+      <li
+        tabindex="2"
+      >
         <button
+          aria-posinset="1"
+          aria-pressed="false"
+          aria-setsize="2"
           class="get-transcriptions"
+          role="button"
         >
           <svg
             class="svg-icon svg-fill"
