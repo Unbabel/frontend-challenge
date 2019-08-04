@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import DefaultLayout from './views/Default-Layout.vue';
+import DefaultLayout from './components/default-layout-component/default-layout-component.vue';
 import TranscriptionList from './views/Transcription-List.vue';
 
 Vue.use(Router);

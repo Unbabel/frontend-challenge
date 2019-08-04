@@ -1,4 +1,4 @@
-import NavigationComponent from '@/components/Navigation-component/Navigation-component.vue';
+import NavigationComponent from '@/components/navigation-component/navigation-component.vue';
 import { createLocalVue, shallowMount } from '@vue/test-utils';
 import Vue from 'vue';
 import Vuex from 'vuex';

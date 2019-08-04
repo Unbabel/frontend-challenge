@@ -1,7 +1,7 @@
 <template>
   <transition name="fade">
-    <div class="toast" v-if="transcriptionErrors && transcriptionErrors.length">
-      <section class="toast-error" v-for="(error, index) in transcriptionErrors" v-bind:key="index">
+    <div class="toast" v-if="errorList && errorList.length">
+      <section class="toast-error" v-for="(error, index) in errorList" v-bind:key="index">
         <button class="toast-error--dismiss" @click="dismissToast(index)"> X </button>
         <h3 class="toast-error--title">Error</h3>
         <p
@@ -13,7 +13,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Vue, Prop } from 'vue-property-decorator';
 import { Action, State } from 'vuex-class';
 import { ITranscriptionState } from '../../store/types';
 
@@ -21,6 +21,7 @@ const namespace: string = 'transcription';
 
 @Component
 export default class Toast extends Vue {
+  @Prop() private errorList!: string[];
   @State('transcription') private transcription!: ITranscriptionState;
   @Action('dismissError', { namespace }) private dismissError: any;
 
@@ -29,16 +30,13 @@ export default class Toast extends Vue {
   private dismissToast(index: number) {
     this.dismissError(index);
   }
-
-  get transcriptionErrors() {
-    const transcriptionErrors = this.transcription.errors;
-
-    return transcriptionErrors;
-  }
 }
 </script>
 
 <style lang="scss">
+@import "../../styles/index.scss";
+@import "../../styles/Tools/tools";
+
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.5s;

@@ -3,10 +3,10 @@
     <hgroup class="landing-page--titles">
       <h1
         class="main-title"
-      >{{titles.title && titles.subtitle ? titles.title : "A Problem occurred"}}</h1>
+      >{{titles && titles.title && titles.subtitle ? titles.title : "A Problem occurred"}}</h1>
       <h2
         class="subtitle"
-      >{{titles.subtitle && titles.title ? titles.subtitle : "Please refresh the page or try again in a bit"}}</h2>
+      >{{titles && titles.subtitle && titles.title ? titles.subtitle : "Please refresh the page or try again in a bit"}}</h2>
     </hgroup>
     <div class="landing-page--links">
       <router-link tag="a" to="/transcription-list">Transcriptions</router-link>
@@ -16,6 +16,7 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator';
+import VueRouter from 'vue-router';
 
 @Component
 export default class DefaultLayout extends Vue {
@@ -27,8 +28,8 @@ export default class DefaultLayout extends Vue {
 </script>
 
 <style lang="scss">
-@import "../styles/index.scss";
-@import "../styles/Tools/tools";
+@import "../../styles/index.scss";
+@import "../../styles/Tools/tools";
 
 .landing-page {
   height: 100vh;

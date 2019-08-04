@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Item list component tests Snapshot test 1`] = `
+<ul
+  class="item-list"
+/>
+`;

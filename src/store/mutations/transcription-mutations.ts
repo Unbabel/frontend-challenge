@@ -78,15 +78,19 @@ export const mutations: MutationTree<ITranscriptionState> = {
       if (index > -1) {
         return state.transcriptionList.splice(index, 1);
       } else {
-        return state.errors.push(
-          'An error occurred while deleting the transcription'
-        );
+        state.errors.push('An error occurred while deleting the transcription');
+
+        setTimeout(() => {
+          state.errors = [];
+        }, 3000);
       }
     }
 
-    return state.errors.push(
-      'An error occurred while deleting the transcription'
-    );
+    state.errors.push('An error occurred while deleting the transcription');
+
+    return setTimeout(() => {
+      state.errors = [];
+    }, 3000);
   },
 
   uploadError(state, message: string) {

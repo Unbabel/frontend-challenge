@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Default layout component tests Snapshot test 1`] = `
+<main
+  class="landing-page"
+>
+  <hgroup
+    class="landing-page--titles"
+  >
+    <h1
+      class="main-title"
+    >
+      A Problem occurred
+    </h1>
+     
+    <h2
+      class="subtitle"
+    >
+      Please refresh the page or try again in a bit
+    </h2>
+  </hgroup>
+   
+  <div
+    class="landing-page--links"
+  >
+    <router-link
+      tag="a"
+      to="/transcription-list"
+    >
+      Transcriptions
+    </router-link>
+  </div>
+</main>
+`;

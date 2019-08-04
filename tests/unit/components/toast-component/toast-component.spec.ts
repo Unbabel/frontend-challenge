@@ -15,13 +15,12 @@ describe('Toast Component Tests', () => {
 
   beforeEach(() => {
     actions = {
-      getTranscriptions: jest.fn(() => true),
-      uploadTranscriptions: jest.fn(() => true)
+      dismissError: jest.fn(() => true)
     };
 
     state = {
       transcriptionList: [],
-      errors: ['']
+      errors: []
     };
 
     store = new Vuex.Store({
@@ -45,12 +44,47 @@ describe('Toast Component Tests', () => {
 
   test('Should have error placeholder when loaded', () => {
     const errorMessage = 'An unexpected error occurred please refresh the page';
+    const errorList = [''];
 
     wrapper = shallowMount(Toast, {
       store,
-      localVue
+      localVue,
+      propsData: { errorList }
     });
 
+    expect(wrapper.findAll('.toast-error').length).toBe(1);
     expect(wrapper.find('.toast-error--description').text()).toBe(errorMessage);
+  });
+
+  test('Should display a list of errors', () => {
+    const errorMessage = 'Test Error Message';
+    const errorList = [errorMessage];
+
+    wrapper = shallowMount(Toast, {
+      store,
+      localVue,
+      propsData: { errorList }
+    });
+
+    expect(wrapper.findAll('.toast-error').length).toBe(1);
+    expect(wrapper.find('.toast-error--description').text()).toBe(errorMessage);
+  });
+
+  test('Should dismiss error on close button click', () => {
+    const errorMessage = 'An unexpected error occurred please refresh the page';
+    const errorList = [''];
+
+    wrapper = shallowMount(Toast, {
+      store,
+      localVue,
+      propsData: { errorList }
+    });
+
+    expect(wrapper.findAll('.toast-error').length).toBe(1);
+    expect(wrapper.find('.toast-error--description').text()).toBe(errorMessage);
+
+    wrapper.findAll('.toast-error--dismiss').trigger('click');
+
+    expect(actions.dismissError).toHaveBeenCalled();
   });
 });

@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import { shallowMount, createLocalVue } from '@vue/test-utils';
-import InplaceEditor from '@/components/Inplace-editor-component/Inplace-editor-component.vue';
+import InplaceEditor from '@/components/inplace-editor-component/inplace-editor-component.vue';
 import Vuex from 'vuex';
 import { ITranscription } from '@/store/types';
 
