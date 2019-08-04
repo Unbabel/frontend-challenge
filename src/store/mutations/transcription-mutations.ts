@@ -54,7 +54,7 @@ export const mutations: MutationTree<ITranscriptionState> = {
 
       state.errors.push(errorMessage);
 
-      return setTimeout(() => {
+      setTimeout(() => {
         state.errors = [];
       }, 3000);
     }
