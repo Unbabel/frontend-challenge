@@ -41,7 +41,7 @@
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator';
 import { State, Action } from 'vuex-class';
-import InplaceEditor from '../inplace-editor-component/inplace-editor-component.vue';
+import InplaceEditor from '@/components/inplace-editor-component/inplace-editor-component.vue';
 import SvgIcon from 'vue-svgicon';
 import '../icons/delete';
 import '../icons/person';
