@@ -12,7 +12,7 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import { State, Action } from 'vuex-class';
-import NavigationComponent from '@/components/navigation-component/navigation-component.vue';
+import NavigationComponent from '@/components/Navigation-component/Navigation-component.vue';
 import AddRow from '@/components/add-row-component/add-row-component.vue';
 import Toast from '@/components/toast-component/toast-component.vue';
 import ItemsList from '@/components/items-list-component/items-list-component.vue';
