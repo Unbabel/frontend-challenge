@@ -27,7 +27,7 @@ const transcriptionsModule = {
   },
   getters: {
     transcriptions: state => state.transcriptions,
-    state: state => state.status,
+    status: state => state.status,
     error: state => state.error
   },
   actions: {
@@ -44,7 +44,7 @@ const transcriptionsModule = {
     async [ACTIONS.SAVE]({ commit, state }) {
       commit(MUTATIONS.SAVE);
       try {
-        API.transcriptions.save(state.transcriptions);
+        await API.transcriptions.save(state.transcriptions);
         return commit(MUTATIONS.SAVING_SUCCESS);
       } catch (error) {
         console.error(error);
