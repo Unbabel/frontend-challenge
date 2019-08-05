@@ -9,18 +9,17 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
+
 import { ACTIONS } from "@/store/modules/transcriptions/constants";
 
 export default {
   name: "Header",
-  methods: {
-    loadData: function() {
-      this.$store.dispatch(ACTIONS.LOAD);
-    },
-    uploadData: function() {
-      this.$store.dispatch(ACTIONS.SAVE);
-    }
-  }
+
+  methods: mapActions("transcriptions", {
+    loadData: ACTIONS.LOAD,
+    uploadData: ACTIONS.SAVE
+  })
 };
 </script>
 

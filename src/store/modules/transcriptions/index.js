@@ -19,6 +19,7 @@ const getNewTranscription = list => {
 };
 
 const transcriptionsModule = {
+  namespaced: true,
   state: {
     transcriptions: [],
     state: STATE.INITIAL,
