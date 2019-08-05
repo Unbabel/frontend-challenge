@@ -6,7 +6,7 @@
         <p>{{ item.text }}</p>
       </li>
     </ul>
-    <button v-if="status === 'loaded'" v-on:click="addRow">add row</button>
+    <button v-if="status !== 'initial'" v-on:click="addRow">add row</button>
   </div>
 </template>
 
