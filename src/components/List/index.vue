@@ -6,7 +6,7 @@
         <p>{{ item.text }}</p>
       </li>
     </ul>
-    <button v-on:click="addRow">add row</button>
+    <button v-if="status === 'loaded'" v-on:click="addRow">add row</button>
   </div>
 </template>
 
@@ -20,6 +20,13 @@ export default {
     items: {
       required: true,
       type: Array
+    },
+    status: {
+      required: true,
+      type: String
+    },
+    error: {
+      type: Object
     }
   },
 

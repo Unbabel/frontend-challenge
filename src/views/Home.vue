@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <List :items="transcriptions" />
+    <List :items="transcriptions" :status="status" :error="error" />
   </div>
 </template>
 
@@ -14,6 +14,6 @@ export default {
   components: {
     List
   },
-  computed: mapGetters("transcriptions", ["transcriptions"])
+  computed: mapGetters("transcriptions", ["transcriptions", "status", "error"])
 };
 </script>

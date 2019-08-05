@@ -4,7 +4,7 @@ const getType = type => {
   return `${NAMESPACE}${type}`;
 };
 
-export const STATE = {
+export const STATUS = {
   INITIAL: "initial",
   ERROR: "error",
   LOADING: "loading",

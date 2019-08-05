@@ -1,7 +1,7 @@
 import API from "@/internals/api/sdk";
 import { getNextId } from "@/internals/utils";
 
-import { STATE, ACTIONS, MUTATIONS, ERRORS } from "./constants";
+import { STATUS, ACTIONS, MUTATIONS, ERRORS } from "./constants";
 
 /**
  * Get a new Transcripiton object
@@ -10,7 +10,6 @@ import { STATE, ACTIONS, MUTATIONS, ERRORS } from "./constants";
  */
 const getNewTranscription = list => {
   const id = getNextId(list);
-  debugger;
 
   return {
     id,
@@ -23,7 +22,7 @@ const transcriptionsModule = {
   namespaced: true,
   state: {
     transcriptions: [],
-    status: STATE.INITIAL,
+    status: STATUS.INITIAL,
     error: false
   },
   getters: {
@@ -73,25 +72,25 @@ const transcriptionsModule = {
     },
 
     [MUTATIONS.LOAD](state) {
-      state.status = STATE.LOADING;
+      state.status = STATUS.LOADING;
     },
     [MUTATIONS.LOADING_SUCCESS](state, transcriptions) {
       state.transcriptions = transcriptions;
-      state.status = STATE.LOADED;
+      state.status = STATUS.LOADED;
     },
     [MUTATIONS.LOADING_ERROR](state, error) {
-      state.status = STATE.ERROR;
+      state.status = STATUS.ERROR;
       state.error = error;
     },
 
     [MUTATIONS.SAVE](state) {
-      state.status = STATE.SAVING;
+      state.status = STATUS.SAVING;
     },
     [MUTATIONS.SAVING_SUCCESS](state) {
-      state.status = STATE.SAVED;
+      state.status = STATUS.SAVED;
     },
     [MUTATIONS.SAVING_ERROR](state, error) {
-      state.status = STATE.ERROR;
+      state.status = STATUS.ERROR;
       state.error = error;
     }
   }
