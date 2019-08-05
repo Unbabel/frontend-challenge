@@ -2,21 +2,15 @@ import axios from "axios";
 
 import { API } from "@/internals/settings";
 
-const getPath = path => {
-  return `${API.host}${path}`;
-};
-
-const endpoints = {
-  transcriptios: getPath(API.endpoints.transcriptions)
-};
-
 export default {
   transcriptios: {
     load: async () => {
-      return axios.get(endpoints.transcriptios);
+      console.log('SDK :: load() :', API.ENDPOINTS.transcriptions);
+      return await axios.get(API.ENDPOINTS.transcriptions);
     },
     save: async transcriptions => {
-      return axios.post(endpoints.transcriptios, transcriptions);
+      console.log('SDK :: save() :', API.ENDPOINTS.transcriptions, transcriptions);
+      return await axios.post(API.ENDPOINTS.transcriptions, transcriptions);
     }
   }
 };
