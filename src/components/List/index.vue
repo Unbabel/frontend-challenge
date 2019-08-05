@@ -1,14 +1,21 @@
 <template>
   <ul>
-    <li>transcription 1</li>
-    <li>transcription 2</li>
-    <li>transcription 3</li>
+    <li v-for="item in items" :key="item.id">
+      <p>{{item.voice}}</p>
+      <p>{{item.text}}</p>
+    </li>
   </ul>
 </template>
 
 <script>
 export default {
-  name: "List"
+  name: "List",
+  props: {
+    items: {
+      required: true,
+      type: Array
+    }
+  }
 };
 </script>
 

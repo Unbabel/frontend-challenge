@@ -22,19 +22,20 @@ const transcriptionsModule = {
   namespaced: true,
   state: {
     transcriptions: [],
-    state: STATE.INITIAL,
+    status: STATE.INITIAL,
     error: false
   },
   getters: {
     transcriptions: state => state.transcriptions,
-    state: state => state.state,
+    state: state => state.status,
     error: state => state.error
   },
   actions: {
-    [ACTIONS.LOAD]({ commit }) {
+    async [ACTIONS.LOAD]({ commit }) {
       commit(MUTATIONS.LOAD);
       try {
-        return commit(MUTATIONS.LOADING_SUCCESS, API.transcriptions.load());
+        const transcriptions = await API.transcriptions.load();
+        return commit(MUTATIONS.LOADING_SUCCESS, transcriptions.data);
       } catch (error) {
         console.error(error);
         commit(MUTATIONS.LOADING_ERROR, ERRORS.LOADING);
@@ -71,25 +72,25 @@ const transcriptionsModule = {
     },
 
     [MUTATIONS.LOAD](state) {
-      state.state = STATE.LOADING;
+      state.status = STATE.LOADING;
     },
     [MUTATIONS.LOADING_SUCCESS](state, transcriptions) {
       state.transcriptions = transcriptions;
-      state.state = STATE.LOADED;
+      state.status = STATE.LOADED;
     },
     [MUTATIONS.LOADING_ERROR](state, error) {
-      state.state = STATE.ERROR;
+      state.status = STATE.ERROR;
       state.error = error;
     },
 
     [MUTATIONS.SAVE](state) {
-      state.state = STATE.SAVING;
+      state.status = STATE.SAVING;
     },
     [MUTATIONS.SAVING_SUCCESS](state) {
-      state.state = STATE.SAVED;
+      state.status = STATE.SAVED;
     },
     [MUTATIONS.SAVING_ERROR](state, error) {
-      state.state = STATE.ERROR;
+      state.status = STATE.ERROR;
       state.error = error;
     }
   }
