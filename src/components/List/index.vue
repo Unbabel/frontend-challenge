@@ -2,8 +2,7 @@
   <div>
     <ul>
       <li v-for="item in items" :key="item.id">
-        <p>{{ item.voice }}</p>
-        <p>{{ item.text }}</p>
+        <ListItem :item="item" />
       </li>
     </ul>
     <button v-if="status !== 'initial'" v-on:click="addRow">add row</button>
@@ -12,9 +11,14 @@
 
 <script>
 import { mapMutations } from "vuex";
+import ListItem from '@/components/ListItem';
 import { MUTATIONS } from "@/store/modules/transcriptions/constants";
 export default {
   name: "List",
+
+  components: {
+    ListItem
+  },
 
   props: {
     items: {
