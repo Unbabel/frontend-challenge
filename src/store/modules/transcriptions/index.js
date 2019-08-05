@@ -10,6 +10,7 @@ import { STATE, ACTIONS, MUTATIONS, ERRORS } from "./constants";
  */
 const getNewTranscription = list => {
   const id = getNextId(list);
+  debugger;
 
   return {
     id,
