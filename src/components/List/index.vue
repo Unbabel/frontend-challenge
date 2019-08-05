@@ -30,7 +30,7 @@ export default {
       type: String
     },
     error: {
-      type: Object
+      type: [Object, Boolean]
     }
   },
 
