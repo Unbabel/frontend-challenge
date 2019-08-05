@@ -1,13 +1,13 @@
 import axios from "axios";
 
-import { api } from "@/internals/settings";
+import { API } from "@/internals/settings";
 
 const getPath = path => {
-  return `${api.host}${path}`;
+  return `${API.host}${path}`;
 };
 
 const endpoints = {
-  transcriptios: getPath(api.endpoints.transcriptions)
+  transcriptios: getPath(API.endpoints.transcriptions)
 };
 
 export default {
