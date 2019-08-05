@@ -1,11 +1,10 @@
-import axios from "axios";
+import axios from  "@/internals/config/axios";
 
 import { API } from "@/internals/settings";
 
 export default {
-  transcriptios: {
+  transcriptions: {
     load: async () => {
-      console.log('SDK :: load() :', API.ENDPOINTS.transcriptions);
       return await axios.get(API.ENDPOINTS.transcriptions);
     },
     save: async transcriptions => {

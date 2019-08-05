@@ -18,7 +18,7 @@ const getNewTranscription = list => {
   };
 };
 
-export default {
+const transcriptionsModule = {
   state: {
     transcriptions: [],
     state: STATE.INITIAL,
@@ -30,7 +30,7 @@ export default {
     error: state => state.error
   },
   actions: {
-    async [ACTIONS.LOAD]({ commit }) {
+    [ACTIONS.LOAD]({ commit }) {
       commit(MUTATIONS.LOAD);
       try {
         return commit(MUTATIONS.LOADING_SUCCESS, API.transcriptions.load());
@@ -93,3 +93,5 @@ export default {
     }
   }
 };
+
+export default transcriptionsModule;
