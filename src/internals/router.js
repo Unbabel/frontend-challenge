@@ -17,5 +17,14 @@ export default new Router({
       name: "about",
       component: () => import("@/views/About")
     },
+    {
+      path: "/404",
+      name: "Not Found",
+      component: () => import("@/views/NotFound")
+    },
+    {
+      path: "*",
+      redirect: "/404"
+    }
   ]
 });
