@@ -1,22 +1,28 @@
 <template>
-  <div>
-    <ul>
-      <li v-for="item in items" :key="item.id">
-        <ListItem :item="item" />
-      </li>
-    </ul>
-    <button v-if="status !== 'initial'" v-on:click="addRow">add row</button>
-  </div>
+  <main>
+    <Container>
+      <ul>
+        <li v-for="item in items" :key="item.id">
+          <ListItem :item="item" />
+        </li>
+      </ul>
+      <button v-if="status !== 'initial'" v-on:click="addRow">add row</button>
+    </Container>
+  </main>
 </template>
 
 <script>
 import { mapMutations } from "vuex";
+
 import ListItem from '@/components/ListItem';
+import Container from '@/components/ui/Container';
+
 import { MUTATIONS } from "@/store/modules/transcriptions/constants";
 export default {
   name: "List",
 
   components: {
+    Container,
     ListItem
   },
 
