@@ -32,9 +32,13 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import "@/assets/scss/main.scss";
+
 header {
+  background-color: $color-header-bg;
+  max-height: $rules-header-height;
+  box-shadow: $box-shadow-default;
   nav {
-    border: 1px solid red;
   }
 }
 </style>
