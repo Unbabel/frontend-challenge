@@ -1,1 +1,14 @@
-@import "utils/reset";
+@import "./utils/_reset";
+@import "./utils/_variables";
+@import "./utils/_mixins";
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-family: $font-open-sans;
+}
+
+body{
+  background: $color-main-bg;
+}

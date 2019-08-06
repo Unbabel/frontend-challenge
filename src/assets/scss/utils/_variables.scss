@@ -1,40 +1,27 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,500,600&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600&display=swap');
 
-//  FONTS
+$color-white: #FFF;
+$color-blue: #34A5FF;
+$color-purple: #859EFF;
+$color-grey: #BFC4CE;
+$color-grey-light: #D0D4DA;
+$color-grey-dark: #8F97A8;
+$color-main-bg: #F6F7F8;
+$color-header-bg: $color-white;
+$color-header-title: #414C5E;
+$color-transcription-title: #566074;
+$color-transcription-body: #778195;
+$color-transcription-border: #EAEDEF;
+
+$rules-max-width: 46.125rem;
+$rules-header-height: 4.3125rem;
+$rules-gutter: 1.5rem;
+
 $font-not-loaded: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 $font-open-sans: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 $font-montserrat: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
-// COLORS:
-$white: #FFF;
-$blue: #34A5FF;
-$purple: #859EFF;
-$grey: #BFC4CE;
-$grey-light: #D0D4DA;
-$grey-dark: #8F97A8;
-$main-bg: #F6F7F8;
-$header-bg: $white;
-$header-title: #414C5E;
-$transcription-title: #566074;
-$transcription-body: #778195;
-$transcription-border: #EAEDEF;
-
-// DIMENSIONS
-$max-width: 46.125rem;
-$header-height: 4.3125rem;
-$gutter: 1.5rem;
-
-// FONTS
-$font-size-normal: 1em!default;
-$font-size-large: 1.125em!default;
-$font-weight-normal: 400;
-$font-weight-medium: 500;
-$font-weight-semibold: 600;
-$default-line-height: 1.4em;
-
-// timings and easings (if needed)
-$default-time: 250ms;
-$default-loader-time: 400ms;
-$default-easing: ease-in-out;
-$ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+$time-default: 300ms;
+$easing-default: ease-in-out;
+$easing-ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
