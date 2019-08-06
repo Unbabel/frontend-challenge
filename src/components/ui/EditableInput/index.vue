@@ -1,17 +1,18 @@
 <template>
   <div>
-    <h1 @click="setEditing" v-if="!isEditing">
+    <p @click="setEditing" v-if="!isEditing">
       {{ item.voice }}
-    </h1>
-    <input
-      type="text"
-      ref="input"
+    </p>
+    <textarea
+      cols="40"
+      class="input-body"
+      ref="textarea"
       v-model="item.voice"
       v-if="isEditing || isInputEmpty"
-      placeholder="Title..."
+      placeholder="Body..."
       @blur="resetEditing"
       @keyup.enter="resetEditing"
-    />
+    ></textarea>
   </div>
 </template>
 
@@ -43,7 +44,7 @@ export default {
     setEditing() {
       this.isEditing = true;
       this.$nextTick(() => {
-        this.$refs.input.focus();
+        this.$refs.textarea.focus();
       });
     },
     resetEditing() {
@@ -55,7 +56,7 @@ export default {
     }
   },
   watch: {
-    "item.voice": function(val) {
+    "item.text": function(val) {
       this.isEditing = true;
       this.checkIfInputIsEmpty(val);
     }
@@ -73,25 +74,27 @@ div {
     margin-bottom: 2px;
   }
 
-  h1,
-  input {
+  p,
+  textarea {
     width: 100%;
-    font-family: $font-montserrat;
-    font-weight: 600;
-    color: $color-transcription-title;
     font-size: 16px;
+    font-weight: 400;
+    font-family: $font-open-sans;
     line-height: 1.3rem;
     padding: 0 4px;
     box-sizing: border-box;
     border: 0;
     border-bottom: 2px solid transparent;
+    color: $color-transcription-body;
   }
-  input {
+  textarea {
     display: inline-block;
     border: 0;
-    border-bottom: 2px solid $color-blue;
+    border-bottom: 2px solid $color-purple;
     width: 100%;
     outline: none;
+    max-height: 1.5rem;
+    overflow: hidden;
   }
 }
 </style>

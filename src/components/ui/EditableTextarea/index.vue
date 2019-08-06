@@ -89,7 +89,7 @@ div {
   textarea{
     display: inline-block;
     border: 0;
-    border-bottom: 2px solid $color-blue;
+    border-bottom: 2px solid $color-purple;
     width: 100%;
     outline: none;
   }
