@@ -5,6 +5,9 @@
         <li v-for="item in items" :key="item.id">
           <ListItem :item="item" />
         </li>
+        <li v-if="items.length === 0">
+          <p>No transcripts available.</p>
+        </li>
       </ul>
       <button v-if="status !== 'initial'" v-on:click="addRow">add row</button>
     </Container>
@@ -53,5 +56,10 @@ main {
 ul {
   list-style: none;
   background-color: $color-white;
+
+  p {
+    padding: $rules-gutter;
+    color: $color-grey;
+  }
 }
 </style>
