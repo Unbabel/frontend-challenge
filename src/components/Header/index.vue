@@ -32,8 +32,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "@/assets/scss/main.scss";
-
 header {
   background-color: $color-header-bg;
   max-height: $rules-header-height;
