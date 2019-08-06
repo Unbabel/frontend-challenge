@@ -1,8 +1,8 @@
 <template>
   <article>
     <Checkbox :id="item.id" />
-    <div>
-      <i>person</i>
+    <div class="form">
+      <Icon :name="person" />
       <form :action="updateItem">
         <EditableInput type="text" :item="item" v-on:change="updateItem()" />
         <EditableInput type="multiline" :item="item" />
@@ -17,6 +17,7 @@ import { mapMutations } from "vuex";
 
 import Checkbox from "@/components/ui/Checkbox";
 import EditableInput from "@/components/ui/EditableInput";
+import Icon from "@/components/ui/Icon";
 
 import { MUTATIONS } from "@/store/modules/transcriptions/constants";
 export default {
@@ -24,7 +25,8 @@ export default {
 
   components: {
     Checkbox,
-    EditableInput
+    EditableInput,
+    Icon
   },
 
   props: {
@@ -51,11 +53,14 @@ article {
 
   input[type="checkbox"] {
     margin-right: 1rem;
+    flex-shrink: 1;
   }
-  > div:nth-child(2) {
+
+  .form {
     margin-right: 1rem;
     display: flex;
     width: 100%;
+
     form {
       width: 100%;
       display: flex;
