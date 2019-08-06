@@ -93,8 +93,8 @@ div {
   span,
   .input-body,
   .input-title {
+    width: 100%;
     font-size: 16px;
-    line-height: 28px;
     padding: 0 4px;
     box-sizing: border-box;
     border: 0;
