@@ -15,12 +15,6 @@ export default {
       required: true,
       type: Number
     }
-  },
-
-  data: function() {
-    return {
-      checkedNames: []
-    };
   }
 };
 </script>
