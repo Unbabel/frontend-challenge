@@ -1,7 +1,9 @@
 import Vue from "@/internals/config/vue";
 import router from "@/internals/config/router";
 import store from "@/store";
+
 import "@/internals/registerServiceWorker";
+import "@/assets/scss/main.scss";
 
 import App from "@/App.vue";
 
