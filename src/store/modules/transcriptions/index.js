@@ -14,7 +14,8 @@ const getNewTranscription = list => {
   return {
     id,
     voice: "",
-    text: ""
+    text: "",
+    checked: {}
   };
 };
 
@@ -28,7 +29,7 @@ const transcriptionsModule = {
   getters: {
     transcriptions: state => state.transcriptions,
     status: state => state.status,
-    error: state => state.error
+    error: state => state.error,
   },
   actions: {
     async [ACTIONS.LOAD]({ commit }) {
@@ -53,6 +54,13 @@ const transcriptionsModule = {
     }
   },
   mutations: {
+    [MUTATIONS.TOGGLE_CHECKED](state, id) {
+      state.checked = {
+        ...state.checked,
+        [id]: !state.checked[id]
+      };
+      console.log(state.checked);
+    },
     [MUTATIONS.ADD](state) {
       state.transcriptions = [
         ...state.transcriptions,

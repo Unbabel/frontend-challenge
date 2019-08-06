@@ -22,6 +22,7 @@ export const ACTIONS = {
 };
 
 export const MUTATIONS = {
+  TOGGLE_CHECKED: getType("TOGGLE_CHECKED"),
   ADD: getType("ADD"),
   UPDATE: getType("UPDATE"),
   DELETE: getType("DELETE"),
