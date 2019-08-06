@@ -1,19 +1,21 @@
 <template>
-  <div>
+  <article>
     <input type="checkbox" />
-    <i>person</i>
     <div>
-      <input type="text" v-model="item.voice" />
-      <textarea
-        name=""
-        id=""
-        cols="30"
-        rows="10"
-        v-model="item.text"
-      ></textarea>
+      <i>person</i>
+      <form action="">
+        <input type="text" v-model="item.voice" />
+        <textarea
+                name=""
+                id=""
+                cols="30"
+                rows="10"
+                v-model="item.text"
+        ></textarea>
+      </form>
     </div>
     <button v-on:click="deleteItem(item.id)">delete</button>
-  </div>
+  </article>
 </template>
 
 <script>
@@ -35,4 +37,35 @@ export default {
 };
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+article {
+  border-bottom: 1px solid $color-transcription-border;
+  background-color: $color-white;
+  padding: $rules-gutter;
+  display: flex;
+  align-items: flex-start;
+
+  input[type='checkbox'] {
+    margin-right: 1rem;
+  }
+  div {
+    margin-right: 1rem;
+    display: flex;
+    width: 100%;
+    form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    i {
+      margin-right: .5rem;
+    }
+  }
+  button {
+    visibility: hidden;
+  }
+  &:hover button {
+    visibility: visible;
+  }
+}
+</style>

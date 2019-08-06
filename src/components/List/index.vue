@@ -14,8 +14,8 @@
 <script>
 import { mapMutations } from "vuex";
 
-import ListItem from '@/components/ListItem';
-import Container from '@/components/ui/Container';
+import ListItem from "@/components/ListItem";
+import Container from "@/components/ui/Container";
 
 import { MUTATIONS } from "@/store/modules/transcriptions/constants";
 export default {
@@ -46,4 +46,12 @@ export default {
 };
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+main {
+  padding: $rules-gutter 0;
+}
+ul {
+  list-style: none;
+  background-color: $color-white;
+}
+</style>

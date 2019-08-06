@@ -37,8 +37,10 @@ header {
   max-height: $rules-header-height;
   background-color: $color-header-bg;
   box-shadow: $box-shadow-default;
+  box-sizing: border-box;
 
   > div {
+    padding: $rules-gutter;
     display: flex;
     justify-content: space-between;
     align-items: center;
