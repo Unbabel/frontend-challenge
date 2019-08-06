@@ -26,15 +26,6 @@ export default {
 </script>
 <style scoped lang="scss">
 label {
-  --uiToggleSize: 16px;
-  --uiToggleIndent: 0.4em;
-  --uiToggleBorderWidth: 2px;
-  --uiToggleColor: $color-purple;
-  --uiToggleDisabledColor: $color-grey;
-  --uiToggleBgColor: $color-white;
-  --uiToggleArrowWidth: 2px;
-  --uiToggleArrowColor: $color-white;
-
   display: inline-block;
   position: relative;
 }
