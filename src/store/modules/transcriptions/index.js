@@ -68,6 +68,7 @@ const transcriptionsModule = {
       ];
     },
     [MUTATIONS.UPDATE](state, { id, key, value }) {
+      debugger;
       const index = state.indexOf(item => item.id === id);
       if (index >= 0) {
         state.transcriptions[index][key] = value;

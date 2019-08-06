@@ -3,15 +3,9 @@
     <Checkbox :id="item.id" />
     <div>
       <i>person</i>
-      <form action="">
-        <input type="text" v-model="item.voice" />
-        <textarea
-          name=""
-          id=""
-          cols="30"
-          rows="10"
-          v-model="item.text"
-        ></textarea>
+      <form :action="updateItem">
+        <TitleInput type="text" :item="item" v-on:change="updateItem()" />
+        <TitleInput type="multiline" :item="item" />
       </form>
     </div>
     <button v-on:click="deleteItem(item.id)">delete</button>
@@ -21,14 +15,16 @@
 <script>
 import { mapMutations } from "vuex";
 
-import Checkbox from '@/components/ui/Checkbox';
+import Checkbox from "@/components/ui/Checkbox";
+import TitleInput from "@/components/ui/TitleInput";
 
 import { MUTATIONS } from "@/store/modules/transcriptions/constants";
 export default {
   name: "ListItem",
 
   components: {
-    Checkbox
+    Checkbox,
+    TitleInput
   },
 
   props: {
@@ -39,7 +35,8 @@ export default {
   },
 
   methods: mapMutations("transcriptions", {
-    deleteItem: MUTATIONS.DELETE
+    deleteItem: MUTATIONS.DELETE,
+    updateItem: MUTATIONS.UPDATE
   })
 };
 </script>
