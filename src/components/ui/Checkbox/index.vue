@@ -1,6 +1,6 @@
 <template>
-  <label for="checkbox">
-    <input type="checkbox" id="checkbox" />
+  <label :for="`checkbox-${id}`">
+    <input type="checkbox" :id="`checkbox-${id}`" />
     <span class="box">
       <span class="arrow"></span>
     </span>

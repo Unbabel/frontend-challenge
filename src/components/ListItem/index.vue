@@ -1,6 +1,6 @@
 <template>
   <article>
-    <Checkbox />
+    <Checkbox :id="item.id" />
     <div>
       <i>person</i>
       <form action="">
