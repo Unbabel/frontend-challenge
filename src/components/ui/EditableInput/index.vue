@@ -11,7 +11,8 @@
       type="text"
       ref="input"
       v-model="item.voice"
-      v-if="(type !== 'multiline' && isEditing) || isInputEmpty"
+      v-if="(type !== 'multiline' && isEditing) || (type !== 'multiline' && isInputEmpty) "
+      placeholder="Title..."
       @blur="resetEditing"
       @keyup.enter="resetEditing"
     />
@@ -19,7 +20,8 @@
       class="input-body"
       ref="input"
       v-model="item.text"
-      v-if="(type === 'multiline' && isEditing) || isInputEmpty"
+      v-if="(type === 'multiline' && isEditing) || (type === 'multiline' && isInputEmpty) "
+      placeholder="Body..."
       @blur="resetEditing"
       @keyup.enter="resetEditing"
     ></textarea>
