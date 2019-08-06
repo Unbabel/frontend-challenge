@@ -4,8 +4,8 @@
     <div class="form">
       <Icon :name="`person`" :width="26" :height="26" />
       <form :action="updateItem">
-        <EditableInput type="text" :item="item" />
-        <EditableInput type="multiline" :item="item" />
+        <EditableInput :item="item" />
+        <EditableTextarea type="multiline" :item="item" />
       </form>
     </div>
     <button v-on:click="deleteItem(item.id)">
@@ -19,6 +19,7 @@ import { mapMutations } from "vuex";
 
 import Checkbox from "@/components/ui/Checkbox";
 import EditableInput from "@/components/ui/EditableInput";
+import EditableTextarea from "@/components/ui/EditableTextarea";
 import Icon from "@/components/ui/Icon";
 
 import { MUTATIONS } from "@/store/modules/transcriptions/constants";
@@ -28,6 +29,7 @@ export default {
   components: {
     Checkbox,
     EditableInput,
+    EditableTextarea,
     Icon
   },
 

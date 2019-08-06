@@ -1,17 +1,17 @@
 <template>
   <div>
-    <h1 @click="setEditing" v-if="!isEditing">
-      {{ item.voice }}
-    </h1>
-    <input
-      type="text"
-      ref="input"
-      v-model="item.voice"
+    <p @click="setEditing" v-if="!isEditing">
+      {{ item.text }}
+    </p>
+    <textarea
+      class="input-body"
+      ref="textarea"
+      v-model="item.text"
       v-if="isEditing || isInputEmpty"
-      placeholder="Title..."
+      placeholder="Body..."
       @blur="resetEditing"
       @keyup.enter="resetEditing"
-    />
+    ></textarea>
   </div>
 </template>
 
@@ -33,9 +33,9 @@ export default {
     };
   },
   mounted() {
-    const { voice } = this.item;
-    this.checkIfInputIsEmpty(voice);
-    if (voice === "") {
+    const { text } = this.item;
+    this.checkIfInputIsEmpty(text);
+    if (text === "") {
       this.isEditing = true;
     }
   },
@@ -43,19 +43,19 @@ export default {
     setEditing() {
       this.isEditing = true;
       this.$nextTick(() => {
-        this.$refs.input.focus();
+        this.$refs.textarea.focus();
       });
     },
     resetEditing() {
       this.isEditing = false;
-      this.checkIfInputIsEmpty(this.item.voice);
+      this.checkIfInputIsEmpty(this.item.text);
     },
     checkIfInputIsEmpty(value) {
       value === "" ? (this.isInputEmpty = true) : (this.isInputEmpty = false);
     }
   },
   watch: {
-    "item.voice": function(val) {
+    "item.text": function(val) {
       this.isEditing = true;
       this.checkIfInputIsEmpty(val);
     }
@@ -73,25 +73,32 @@ div {
     margin-bottom: 2px;
   }
 
-  h1,
-  input {
+  p,
+  textarea {
     width: 100%;
-    font-family: $font-montserrat;
-    font-weight: 600;
-    color: $color-transcription-title;
     font-size: 16px;
+    font-weight: 400;
+    font-family: $font-open-sans;
     line-height: 1.3rem;
     padding: 0 4px;
     box-sizing: border-box;
     border: 0;
     border-bottom: 2px solid transparent;
+    color: $color-transcription-body;
   }
-  input {
+  textarea{
     display: inline-block;
     border: 0;
     border-bottom: 2px solid $color-blue;
     width: 100%;
     outline: none;
+  }
+
+  textarea {
+    min-height: 8rem;
+    min-width: 100%;
+    max-width: 100%;
+    overflow: hidden;
   }
 }
 </style>
