@@ -6,7 +6,6 @@ html,
 body {
   height: 100%;
   width: 100%;
-  font-family: $fonts-not-loaded;
 }
 
 body{
@@ -15,10 +14,12 @@ body{
 
 body,
 h1 {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: $fonts-not-loaded;
 }
+
 body.fontsLoaded {
   font-family: $font-open-sans;
+
   h1 {
     font-family: $font-montserrat;
   }
