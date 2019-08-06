@@ -6,9 +6,28 @@ html,
 body {
   height: 100%;
   width: 100%;
-  font-family: $font-open-sans;
+  font-family: $fonts-not-loaded;
 }
 
 body{
   background: $color-main-bg;
+}
+
+body,
+h1 {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+body.fontsLoaded {
+  font-family: $font-open-sans;
+  h1 {
+    font-family: $font-montserrat;
+  }
+}
+
+.hidden {
+  position: absolute;
+  overflow: hidden;
+  width: 0;
+  height: 0;
+  pointer-events: none;
 }
