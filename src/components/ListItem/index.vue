@@ -2,7 +2,7 @@
   <article>
     <Checkbox :id="item.id" />
     <div class="form">
-      <Icon :name="person" />
+      <Icon :name="`person`" />
       <form :action="updateItem">
         <EditableInput type="text" :item="item" v-on:change="updateItem()" />
         <EditableInput type="multiline" :item="item" />

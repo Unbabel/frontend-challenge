@@ -1,14 +1,14 @@
 <template>
   <main>
     <Container>
-      <ul>
+      <transition-group name="fade" tag="ul">
         <li v-for="item in items" :key="item.id">
           <ListItem :item="item" />
         </li>
-        <li v-if="items.length === 0">
+        <li v-if="items.length === 0" :key="+1">
           <p>No transcripts available.</p>
         </li>
-      </ul>
+      </transition-group>
       <section>
         <button v-if="status !== 'initial'" v-on:click="addRow">
           <Icon :name="`add-row`" />
@@ -74,8 +74,16 @@ section {
   text-align: center;
   padding: $rules-gutter;
   box-sizing: border-box;
+}
 
-  button {
-  }
+.fade-enter-active,
+.fade-leave-active {
+  transition: all $time-default $easing-default;
+  opacity: 1;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>
