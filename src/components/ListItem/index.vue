@@ -8,7 +8,9 @@
         <EditableInput type="multiline" :item="item" />
       </form>
     </div>
-    <button v-on:click="deleteItem(item.id)">delete</button>
+    <button v-on:click="deleteItem(item.id)">
+      <Icon :name="`delete`" :width="16" :height="20" />
+    </button>
   </article>
 </template>
 

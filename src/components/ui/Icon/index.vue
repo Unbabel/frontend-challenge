@@ -34,16 +34,22 @@ export default {
 <style scoped lang="scss">
 span {
   color: $color-grey;
-  &:hover {
-    color: $color-purple;
-  }
 
   &.person {
     color: $color-blue;
   }
 
-  &.action {
-    color: $color-blue;
+  &.upload,
+  &.fetch-document {
+    color: $color-grey-dark;
+  }
+
+  &.add-row {
+    color: $color-grey-light;
+  }
+
+  &:hover {
+    color: $color-purple;
   }
 }
 </style>

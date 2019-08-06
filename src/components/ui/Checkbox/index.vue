@@ -159,7 +159,7 @@ input:not(:disabled):checked ~ .box:after {
 
 input:not(:disabled):checked ~ .box .arrow:before {
   opacity: 1;
-  transition: opacity 0.1s ease-out 0.3s, width 0.1s ease-out 0.5s,
-    height 0.2s ease-out 0.3s;
+  transition: opacity 0.1s ease-out 0.2s, width 0.1s ease-out 0.3s,
+    height 0.2s ease-out 0.2s;
 }
 </style>

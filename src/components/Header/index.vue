@@ -3,8 +3,12 @@
     <Container>
       <h1>Transcriptions</h1>
       <nav>
-        <button v-on:click="uploadData">upload</button>
-        <button v-on:click="loadData">download</button>
+        <button v-on:click="uploadData">
+          <Icon :name="`upload`" :width="24" :height="24" />
+        </button>
+        <button v-on:click="loadData">
+          <Icon :name="`fetch-document`" :width="24" :height="24" />
+        </button>
       </nav>
     </Container>
   </header>
@@ -13,7 +17,8 @@
 <script>
 import { mapActions } from "vuex";
 
-import Container from '@/components/ui/Container';
+import Container from "@/components/ui/Container";
+import Icon from "@/components/ui/Icon";
 
 import { ACTIONS } from "@/store/modules/transcriptions/constants";
 
@@ -21,7 +26,8 @@ export default {
   name: "Header",
 
   components: {
-    Container
+    Container,
+    Icon
   },
 
   methods: mapActions("transcriptions", {
@@ -47,7 +53,9 @@ header {
   }
 
   nav {
-    *:last-child {
+    height: 100%;
+
+    button:last-child {
       margin-left: $rules-gutter;
     }
   }
