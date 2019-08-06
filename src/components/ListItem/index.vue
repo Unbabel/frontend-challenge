@@ -2,9 +2,9 @@
   <article>
     <Checkbox :id="item.id" />
     <div class="form">
-      <Icon :name="`person`" />
+      <Icon :name="`person`" :width="26" :height="26" />
       <form :action="updateItem">
-        <EditableInput type="text" :item="item" v-on:change="updateItem()" />
+        <EditableInput type="text" :item="item" />
         <EditableInput type="multiline" :item="item" />
       </form>
     </div>
@@ -53,8 +53,9 @@ article {
   display: flex;
   align-items: flex-start;
 
-  input[type="checkbox"] {
-    margin-right: 1rem;
+  > label {
+    top: 5px;
+    margin-right: 16px;
     flex-shrink: 1;
   }
 
@@ -62,6 +63,10 @@ article {
     margin-right: 1rem;
     display: flex;
     width: 100%;
+
+    span {
+      margin-right: 8px;
+    }
 
     form {
       width: 100%;
