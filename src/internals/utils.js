@@ -11,6 +11,5 @@ export function getNextId(list) {
   const idList = list.map(item => item.id);
   const lastId = Math.max(0, ...idList);
 
-  debugger;
   return lastId + 1;
 }
