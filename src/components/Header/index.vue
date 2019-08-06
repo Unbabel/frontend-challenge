@@ -1,7 +1,7 @@
 <template>
   <header>
     <Container>
-      <h1>Transcriptions</h1>
+      <Logo />
       <nav>
         <button v-on:click="uploadData">
           <Icon :name="`upload`" :width="24" :height="24" />
@@ -18,6 +18,7 @@
 import { mapActions } from "vuex";
 
 import Container from "@/components/ui/Container";
+import Logo from "@/components/ui/Logo";
 import Icon from "@/components/ui/Icon";
 
 import { ACTIONS } from "@/store/modules/transcriptions/constants";
@@ -27,6 +28,7 @@ export default {
 
   components: {
     Container,
+    Logo,
     Icon
   },
 
