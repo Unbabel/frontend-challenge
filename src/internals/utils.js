@@ -9,7 +9,7 @@ export function getNextId(list) {
   };
 
   const idList = list.map(item => item.id);
-  const lastId = Math.max(0, idList);
+  const lastId = Math.max(0, ...idList);
 
   return lastId + 1;
 }

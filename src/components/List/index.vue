@@ -1,15 +1,19 @@
 <template>
   <main>
     <Container>
-      <ul>
+      <transition-group name="fade" tag="ul">
         <li v-for="item in items" :key="item.id">
           <ListItem :item="item" />
         </li>
-        <li v-if="items.length === 0">
+        <li v-if="items.length === 0" :key="+1">
           <p>No transcripts available.</p>
         </li>
-      </ul>
-      <button v-if="status !== 'initial'" v-on:click="addRow">add row</button>
+      </transition-group>
+      <section>
+        <button v-if="status !== 'initial'" v-on:click="addRow">
+          <Icon :name="`add-row`" />
+        </button>
+      </section>
     </Container>
   </main>
 </template>
@@ -19,6 +23,7 @@ import { mapMutations } from "vuex";
 
 import ListItem from "@/components/ListItem";
 import Container from "@/components/ui/Container";
+import Icon from "@/components/ui/Icon";
 
 import { MUTATIONS } from "@/store/modules/transcriptions/constants";
 export default {
@@ -26,7 +31,8 @@ export default {
 
   components: {
     Container,
-    ListItem
+    ListItem,
+    Icon
   },
 
   props: {
@@ -61,5 +67,23 @@ ul {
     padding: $rules-gutter;
     color: $color-grey;
   }
+}
+
+section {
+  width: 100%;
+  text-align: center;
+  padding: $rules-gutter;
+  box-sizing: border-box;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: all $time-default $easing-ease-in-expo;
+  opacity: 1;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>

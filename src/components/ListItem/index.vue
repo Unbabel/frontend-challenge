@@ -1,14 +1,16 @@
 <template>
   <article>
     <Checkbox :id="item.id" />
-    <div>
-      <i>person</i>
+    <div class="form">
+      <Icon :name="`person`" :width="26" :height="26" />
       <form :action="updateItem">
-        <TitleInput type="text" :item="item" v-on:change="updateItem()" />
-        <TitleInput type="multiline" :item="item" />
+        <EditableInput type="text" :item="item" />
+        <EditableInput type="multiline" :item="item" />
       </form>
     </div>
-    <button v-on:click="deleteItem(item.id)">delete</button>
+    <button v-on:click="deleteItem(item.id)">
+      <Icon :name="`delete`" :width="16" :height="20" />
+    </button>
   </article>
 </template>
 
@@ -16,7 +18,8 @@
 import { mapMutations } from "vuex";
 
 import Checkbox from "@/components/ui/Checkbox";
-import TitleInput from "@/components/ui/TitleInput";
+import EditableInput from "@/components/ui/EditableInput";
+import Icon from "@/components/ui/Icon";
 
 import { MUTATIONS } from "@/store/modules/transcriptions/constants";
 export default {
@@ -24,7 +27,8 @@ export default {
 
   components: {
     Checkbox,
-    TitleInput
+    EditableInput,
+    Icon
   },
 
   props: {
@@ -49,13 +53,21 @@ article {
   display: flex;
   align-items: flex-start;
 
-  input[type="checkbox"] {
-    margin-right: 1rem;
+  > label {
+    top: 5px;
+    margin-right: 16px;
+    flex-shrink: 1;
   }
-  > div:nth-child(2) {
+
+  .form {
     margin-right: 1rem;
     display: flex;
     width: 100%;
+
+    span {
+      margin-right: 8px;
+    }
+
     form {
       width: 100%;
       display: flex;

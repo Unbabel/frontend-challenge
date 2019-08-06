@@ -25,6 +25,16 @@ body.fontsLoaded {
   }
 }
 
+button {
+  outline: none;
+  background-color: transparent;
+  border: none;
+
+  &:active {
+    transform: translateY(1px);
+  }
+}
+
 .hidden {
   position: absolute;
   overflow: hidden;

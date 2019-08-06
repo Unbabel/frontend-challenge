@@ -1,23 +1,27 @@
 <template>
   <div>
-    <h1 @click="setEditing" v-if="!isEditing">
-      {{ type === 'multiline' ? item.text : item.voice }}
+    <h1 @click="setEditing" v-if="type !== 'multiline' && !isEditing">
+      {{ item.voice }}
     </h1>
+    <span @click="setEditing" v-if="type === 'multiline' && !isEditing">
+      {{ item.text }}
+    </span>
     <input
-      class="edit-title"
+      class="input-title"
       type="text"
       ref="input"
       v-model="item.voice"
-      v-if="(type !== 'multiline' && isEditing) || isInputEmpty"
+      v-if="(type !== 'multiline' && isEditing) || (type !== 'multiline' && isInputEmpty) "
+      placeholder="Title..."
       @blur="resetEditing"
       @keyup.enter="resetEditing"
     />
     <textarea
-      class="edit-text"
-      type="text"
+      class="input-body"
       ref="input"
       v-model="item.text"
-      v-if="(type === 'multiline' && isEditing) || isInputEmpty"
+      v-if="(type === 'multiline' && isEditing) || (type === 'multiline' && isInputEmpty) "
+      placeholder="Body..."
       @blur="resetEditing"
       @keyup.enter="resetEditing"
     ></textarea>
@@ -79,21 +83,48 @@ export default {
 div {
   display: inline-block;
   vertical-align: top;
-  width: calc(100% - 94px);
-  margin-left: 7px;
-  h1,
-  .edit-title {
-    color: #566074;
-    font-family: $font-montserrat;
-    font-size: 16px;
-    font-weight: 600;
-    line-height: 28px;
+  width: 100%;
+
+  &:first-of-type {
+    margin-bottom: 2px;
   }
-  .edit-title {
+
+  h1,
+  span,
+  .input-body,
+  .input-title {
+    font-size: 16px;
+    line-height: 28px;
+    padding: 0 4px;
+    box-sizing: border-box;
+    border: 0;
+    border-bottom: 2px solid transparent;
+  }
+  .input-body,
+  .input-title {
     display: inline-block;
     border: 0;
-    border: 1px solid #eaedef;
+    border-bottom: 2px solid $color-blue;
     width: 100%;
+    outline: none;
+  }
+  span {
+    font-weight: 400;
+    font-family: $font-open-sans;
+    color: $color-transcription-body;
+  }
+
+  h1 {
+    font-family: $font-montserrat;
+    font-weight: 600;
+    color: $color-transcription-title;
+  }
+
+  textarea {
+    min-height: 8rem;
+    min-width: 100%;
+    max-width: 100%;
+    overflow: hidden;
   }
 }
 </style>
