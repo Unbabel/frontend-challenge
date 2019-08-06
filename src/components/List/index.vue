@@ -78,7 +78,7 @@ section {
 
 .fade-enter-active,
 .fade-leave-active {
-  transition: all $time-default $easing-default;
+  transition: all $time-default $easing-ease-in-expo;
   opacity: 1;
 }
 
