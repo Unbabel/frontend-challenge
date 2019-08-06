@@ -4,8 +4,8 @@
     <div>
       <i>person</i>
       <form :action="updateItem">
-        <TitleInput type="text" :item="item" v-on:change="updateItem()" />
-        <TitleInput type="multiline" :item="item" />
+        <EditableInput type="text" :item="item" v-on:change="updateItem()" />
+        <EditableInput type="multiline" :item="item" />
       </form>
     </div>
     <button v-on:click="deleteItem(item.id)">delete</button>
@@ -16,7 +16,7 @@
 import { mapMutations } from "vuex";
 
 import Checkbox from "@/components/ui/Checkbox";
-import TitleInput from "@/components/ui/TitleInput";
+import EditableInput from "@/components/ui/EditableInput";
 
 import { MUTATIONS } from "@/store/modules/transcriptions/constants";
 export default {
@@ -24,7 +24,7 @@ export default {
 
   components: {
     Checkbox,
-    TitleInput
+    EditableInput
   },
 
   props: {
