@@ -33,10 +33,21 @@ export default {
 
 <style scoped lang="scss">
 header {
-  background-color: $color-header-bg;
+  height: 100%;
   max-height: $rules-header-height;
+  background-color: $color-header-bg;
   box-shadow: $box-shadow-default;
+
+  > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
   nav {
+    *:last-child {
+      margin-left: $rules-gutter;
+    }
   }
 }
 </style>

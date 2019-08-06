@@ -15,3 +15,10 @@ export default {
   }
 };
 </script>
+
+<style>
+div {
+  width: inherit;
+  height: inherit;
+}
+</style>
