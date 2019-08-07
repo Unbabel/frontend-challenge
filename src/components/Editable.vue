@@ -10,6 +10,7 @@
     </p>
     <textarea
       cols="40"
+      ref="textarea"
       :class="type"
       :placeholder="placeholder"
       v-model="lValue"
@@ -58,6 +59,9 @@ export default {
   methods: {
     setEditing() {
       this.isEditing = true;
+      this.$nextTick(() => {
+        this.$refs.textarea.focus();
+      });
     },
     resetEditing() {
       this.isEditing = false;
