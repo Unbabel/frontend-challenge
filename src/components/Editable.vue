@@ -1,14 +1,20 @@
 <template>
   <div>
-    <p @click="setEditing" v-if="!isEditing" :aria-hidden="!isEditing">
-      {{ item.text }}
+    <p
+      @click="setEditing"
+      v-if="!isEditing"
+      :aria-hidden="!isEditing"
+      :class="type"
+    >
+      {{ value }}
     </p>
     <textarea
-      class="input-body"
+      cols="40"
       ref="textarea"
-      v-model="item.text"
+      :class="type"
+      :placeholder="placeholder"
+      v-model="value"
       v-if="isEditing || isInputEmpty"
-      placeholder="Body..."
       @blur="resetEditing"
       @keyup.enter="resetEditing"
     ></textarea>
@@ -17,13 +23,19 @@
 
 <script>
 export default {
+  name: "Editable",
   props: {
-    item: {
-      type: Object,
-      required: true
-    },
     type: {
+      type: String,
+      default: "title"
+    },
+    value: {
+      required: true,
       type: String
+    },
+    placeholder: {
+      type: String,
+      default: "Title..."
     }
   },
   data() {
@@ -33,9 +45,8 @@ export default {
     };
   },
   mounted() {
-    const { text } = this.item;
-    this.checkIfInputIsEmpty(text);
-    if (text === "") {
+    this.checkIfInputIsEmpty(this.value);
+    if (this.value === "") {
       this.isEditing = true;
     }
   },
@@ -48,14 +59,14 @@ export default {
     },
     resetEditing() {
       this.isEditing = false;
-      this.checkIfInputIsEmpty(this.item.text);
+      this.checkIfInputIsEmpty(this.value);
     },
     checkIfInputIsEmpty(value) {
       value === "" ? (this.isInputEmpty = true) : (this.isInputEmpty = false);
     }
   },
   watch: {
-    "item.text": function(val) {
+    value: function(val) {
       this.isEditing = true;
       this.checkIfInputIsEmpty(val);
     }
@@ -85,20 +96,25 @@ div {
     border: 0;
     border-bottom: 2px solid transparent;
     color: $color-transcription-body;
+
+    &.title {
+      font-weight: 600;
+      font-family: $font-montserrat;
+    }
   }
-  textarea{
+  textarea {
     display: inline-block;
     border: 0;
     border-bottom: 2px solid $color-purple;
     width: 100%;
     outline: none;
-  }
-
-  textarea {
-    min-height: 8rem;
-    min-width: 100%;
-    max-width: 100%;
     overflow: hidden;
+    min-height: 8rem;
+
+    &.title {
+      max-height: 1.5rem;
+      min-height: 1rem;
+    }
   }
 }
 </style>

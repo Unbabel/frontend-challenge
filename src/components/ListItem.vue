@@ -4,8 +4,8 @@
     <div class="form">
       <Icon :name="`person`" :width="26" :height="26" />
       <form :action="updateItem">
-        <EditableInput :item="item" />
-        <EditableTextarea :item="item" />
+        <Editable :value="item.voice" />
+        <Editable :value="item.text" :placeholder="`Body...`" :type="`body`" />
       </form>
     </div>
     <button v-on:click="deleteItem(item.id)">
@@ -17,8 +17,7 @@
 <script>
 import { mapMutations } from "vuex";
 
-import EditableInput from "@/components/EditableTitle";
-import EditableTextarea from "@/components/EditableBody";
+import Editable from "@/components/Editable";
 import Checkbox from "@/components/ui/Checkbox";
 import Icon from "@/components/ui/Icon";
 
@@ -28,8 +27,7 @@ export default {
 
   components: {
     Checkbox,
-    EditableInput,
-    EditableTextarea,
+    Editable,
     Icon
   },
 
