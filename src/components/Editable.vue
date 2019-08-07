@@ -6,14 +6,14 @@
       :aria-hidden="!isEditing"
       :class="type"
     >
-      {{ value }}
+      {{ lValue }}
     </p>
     <textarea
       cols="40"
       ref="textarea"
       :class="type"
       :placeholder="placeholder"
-      v-model="value"
+      v-model="lValue"
       v-if="isEditing || isInputEmpty"
       @blur="resetEditing"
       @keyup.enter="resetEditing"
@@ -22,6 +22,7 @@
 </template>
 
 <script>
+// const createDOMPurify = require("dompurify");
 export default {
   name: "Editable",
   props: {
@@ -40,13 +41,14 @@ export default {
   },
   data() {
     return {
+      lValue: this.value,
       isEditing: false,
       isInputEmpty: false
     };
   },
   mounted() {
-    this.checkIfInputIsEmpty(this.value);
-    if (this.value === "") {
+    this.checkIfInputIsEmpty(this.lValue);
+    if (this.lValue === "") {
       this.isEditing = true;
     }
   },
@@ -59,15 +61,22 @@ export default {
     },
     resetEditing() {
       this.isEditing = false;
-      this.checkIfInputIsEmpty(this.value);
+      this.checkIfInputIsEmpty(this.lValue);
     },
     checkIfInputIsEmpty(value) {
       value === "" ? (this.isInputEmpty = true) : (this.isInputEmpty = false);
-    }
+    },
+    // purify(value) {
+    //   const DOMPurify = createDOMPurify(window);
+    //   return DOMPurify.sanitize(value);
+    // }
   },
   watch: {
-    value: function(val) {
+    lValue: function(val) {
       this.isEditing = true;
+      // const purifiedValue = this.purify(val);
+      // console.log(purifiedValue);
+      // this.checkIfInputIsEmpty(purifiedValue);
       this.checkIfInputIsEmpty(val);
     }
   }

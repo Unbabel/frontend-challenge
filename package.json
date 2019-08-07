@@ -11,6 +11,7 @@
   "dependencies": {
     "axios": "^0.19.0",
     "core-js": "2.6.9",
+    "dompurify": "^1.0.11",
     "fontfaceobserver": "^2.1.0",
     "register-service-worker": "1",
     "vue": "2.6.10",
