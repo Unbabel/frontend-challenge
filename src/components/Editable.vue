@@ -22,7 +22,8 @@
 </template>
 
 <script>
-// const createDOMPurify = require("dompurify");
+const createDOMPurify = require("dompurify");
+
 export default {
   name: "Editable",
   props: {
@@ -41,16 +42,23 @@ export default {
   },
   data() {
     return {
+      DOMPurify: false,
       lValue: this.value,
       isEditing: false,
       isInputEmpty: false
     };
   },
   mounted() {
+    this.DOMPurify = createDOMPurify(window);
+    this.$el.addEventListener("textarea", this.resizeTextarea);
     this.checkIfInputIsEmpty(this.lValue);
+
     if (this.lValue === "") {
       this.isEditing = true;
     }
+  },
+  beforeDestroy() {
+    this.$el.removeEventListener("input", this.resizeTextarea);
   },
   methods: {
     setEditing() {
@@ -66,18 +74,23 @@ export default {
     checkIfInputIsEmpty(value) {
       value === "" ? (this.isInputEmpty = true) : (this.isInputEmpty = false);
     },
-    // purify(value) {
-    //   const DOMPurify = createDOMPurify(window);
-    //   return DOMPurify.sanitize(value);
-    // }
+    resizeTextarea(event) {
+      debugger;
+      console.log(event.target.scrollHeight);
+      event.target.style.height = "auto";
+      event.target.style.height = event.target.scrollHeight + "px";
+    },
+    purify(value) {
+
+      return this.DOMPurify.sanitize(value);
+    }
   },
   watch: {
     lValue: function(val) {
       this.isEditing = true;
-      // const purifiedValue = this.purify(val);
-      // console.log(purifiedValue);
-      // this.checkIfInputIsEmpty(purifiedValue);
-      this.checkIfInputIsEmpty(val);
+      const purifiedValue = this.purify(val);
+      this.lValue = purifiedValue;
+      this.checkIfInputIsEmpty(purifiedValue);
     }
   }
 };
@@ -118,11 +131,11 @@ div {
     width: 100%;
     outline: none;
     overflow: hidden;
-    min-height: 8rem;
+    /*min-height: 8rem;*/
 
     &.title {
-      max-height: 1.5rem;
-      min-height: 1rem;
+      /*max-height: 1.5rem;*/
+      /*min-height: 1rem;*/
     }
   }
 }

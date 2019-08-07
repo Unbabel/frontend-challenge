@@ -11,5 +11,6 @@ export function getNextId(list) {
   const idList = list.map(item => item.id);
   const lastId = Math.max(0, ...idList);
 
-  return lastId + 1;
+  const id = lastId + Math.floor(Math.random() * 10000);
+  return id;
 }

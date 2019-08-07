@@ -12,7 +12,7 @@ const getNewTranscription = list => {
   const id = getNextId(list);
 
   return {
-    id,
+    tempId: id,
     voice: "",
     text: ""
   };

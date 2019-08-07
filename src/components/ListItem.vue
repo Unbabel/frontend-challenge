@@ -1,6 +1,6 @@
 <template>
   <article>
-    <Checkbox :id="item.id" />
+    <Checkbox :id="item.id || item.tempId" />
     <div class="form">
       <Icon :name="`person`" :width="26" :height="26" />
       <form :action="updateItem">
