@@ -103,6 +103,10 @@ export default {
 <style scoped lang="scss">
 main {
   padding: $rules-gutter 0;
+
+  @media screen and (max-width: $rules-max-width) {
+    padding: $rules-gutter;
+  }
 }
 ul {
   list-style: none;

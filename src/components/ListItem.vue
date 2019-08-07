@@ -79,6 +79,10 @@ article {
   }
   button {
     visibility: hidden;
+
+    @media screen and (max-width: $rules-max-width) {
+      visibility: visible;
+    }
   }
 
   &:hover button {

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="">
     <p
       @click="setEditing"
       v-if="!isEditing"
@@ -10,13 +10,11 @@
     </p>
     <textarea
       cols="40"
-      ref="textarea"
       :class="type"
       :placeholder="placeholder"
       v-model="lValue"
-      v-if="isEditing || isInputEmpty"
+      v-if="isEditing || noValue"
       @blur="resetEditing"
-      @keyup.enter="resetEditing"
     ></textarea>
   </div>
 </template>
@@ -45,50 +43,37 @@ export default {
       DOMPurify: false,
       lValue: this.value,
       isEditing: false,
-      isInputEmpty: false
+      noValue: false
     };
   },
   mounted() {
     this.DOMPurify = createDOMPurify(window);
-    this.$el.addEventListener("textarea", this.resizeTextarea);
-    this.checkIfInputIsEmpty(this.lValue);
+    const purifiedValue = this.purify(this.lValue);
+    this.checkIfInputIsEmpty(purifiedValue);
 
     if (this.lValue === "") {
       this.isEditing = true;
     }
   },
-  beforeDestroy() {
-    this.$el.removeEventListener("input", this.resizeTextarea);
-  },
   methods: {
     setEditing() {
       this.isEditing = true;
-      this.$nextTick(() => {
-        this.$refs.textarea.focus();
-      });
     },
     resetEditing() {
       this.isEditing = false;
       this.checkIfInputIsEmpty(this.lValue);
     },
     checkIfInputIsEmpty(value) {
-      value === "" ? (this.isInputEmpty = true) : (this.isInputEmpty = false);
-    },
-    resizeTextarea(event) {
-      debugger;
-      console.log(event.target.scrollHeight);
-      event.target.style.height = "auto";
-      event.target.style.height = event.target.scrollHeight + "px";
+      value === "" ? (this.noValue = true) : (this.noValue = false);
     },
     purify(value) {
-
       return this.DOMPurify.sanitize(value);
     }
   },
   watch: {
-    lValue: function(val) {
+    lValue: function(value) {
       this.isEditing = true;
-      const purifiedValue = this.purify(val);
+      const purifiedValue = this.purify(value);
       this.lValue = purifiedValue;
       this.checkIfInputIsEmpty(purifiedValue);
     }
@@ -128,14 +113,15 @@ div {
     display: inline-block;
     border: 0;
     border-bottom: 2px solid $color-purple;
-    width: 100%;
     outline: none;
     overflow: hidden;
-    /*min-height: 8rem;*/
+    width: 100%;
+    max-width: 600px;
+    min-height: 6rem;
 
     &.title {
-      /*max-height: 1.5rem;*/
-      /*min-height: 1rem;*/
+      max-height: 1.5rem;
+      min-height: 1rem;
     }
   }
 }
