@@ -2,23 +2,26 @@
   <div>
     <Header />
     <router-view />
+    <Footer />
   </div>
 </template>
 
 <script>
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 export default {
   name: "Base",
   components: {
-    Header
+    Header,
+    Footer
   }
 };
 </script>
 
 <style>
-div {
+> div {
+  position: relative;
   width: inherit;
-  height: inherit;
 }
 </style>

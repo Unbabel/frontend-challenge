@@ -1,12 +1,14 @@
 <template>
-  <div class="home">
-    <vue-helmet title="Transcriptions | Home" />
+  <main class="home">
+    <vue-headful
+      title="HOME // Unbabel Frontend Challenge"
+      description="Unbabel Frontend Challenge"
+    />
     <List :items="transcriptions" :status="status" :error="error" />
-  </div>
+  </main>
 </template>
 
 <script>
-import VueHelmet from "vue-helmet";
 import { mapGetters } from "vuex";
 
 import List from "@/components/List";
@@ -14,9 +16,13 @@ import List from "@/components/List";
 export default {
   name: "home",
   components: {
-    VueHelmet,
     List
   },
   computed: mapGetters("transcriptions", ["transcriptions", "status", "error"])
 };
 </script>
+<style scoped lang="scss">
+main {
+  min-height: 80vh;
+}
+</style>

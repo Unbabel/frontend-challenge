@@ -1,6 +1,9 @@
 <template>
   <main>
-    <vue-helmet title="Transcriptions | About" />
+    <vue-headful
+      title="ABOUT // Unbabel Frontend Challenge"
+      description="Unbabel Frontend Challenge"
+    />
     <Container>
       <h3>Unbabel Frontend Challenge</h3>
       <h6>by Miguel Carvalho</h6>
@@ -112,12 +115,9 @@
   </main>
 </template>
 <script>
-import VueHelmet from "vue-helmet";
-
 import Container from "@/components/ui/Container";
 export default {
   components: {
-    VueHelmet,
     Container
   }
 };
@@ -126,7 +126,7 @@ export default {
 main {
   padding: $rules-gutter;
 
-  > div:first-of-type {
+  > div {
     background-color: $color-white;
     padding: 48px;
     box-sizing: border-box;

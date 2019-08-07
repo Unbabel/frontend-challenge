@@ -1,43 +1,98 @@
 <template>
   <div id="app">
-    <svg class="hidden" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <svg
+      class="hidden"
+      xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+    >
       <defs>
         <symbol viewBox="0 0 32 32" id="add-row">
           <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
             <g id="add-row_add-row">
-              <circle id="add-row_button-background" fill="currentColor" cx="16" cy="16" r="16" />
-              <polygon id="add-row_plus" fill="#FFFFFF" points="20.52 16.84 17.04 16.84 17.04 20.24 14.46 20.24 14.46 16.84 11 16.84 11 14.4 14.46 14.4 14.46 11 17.04 11 17.04 14.4 20.52 14.4" />
+              <circle
+                id="add-row_button-background"
+                fill="currentColor"
+                cx="16"
+                cy="16"
+                r="16"
+              ></circle>
+              <polygon
+                id="add-row_plus"
+                fill="#FFFFFF"
+                points="20.52 16.84 17.04 16.84 17.04 20.24 14.46 20.24 14.46 16.84 11 16.84 11 14.4 14.46 14.4 14.46 11 17.04 11 17.04 14.4 20.52 14.4"
+              ></polygon>
             </g>
           </g>
         </symbol>
         <symbol viewBox="0 0 16 20" id="delete">
           <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-            <path d="M3.42857143,20 L12.5714286,20 C13.8285714,20 14.8571429,19 14.8571429,17.7777778 L14.8571429,4.44444444 L1.14285714,4.44444444 L1.14285714,17.7777778 C1.14285714,19 2.17142857,20 3.42857143,20 Z M12,1.11111111 L10.8571429,0 L5.14285714,0 L4,1.11111111 L0,1.11111111 L0,3.33333333 L16,3.33333333 L16,1.11111111 L12,1.11111111 Z" id="delete_delete" fill="currentColor" />
+            <path
+              d="M3.42857143,20 L12.5714286,20 C13.8285714,20 14.8571429,19 14.8571429,17.7777778 L14.8571429,4.44444444 L1.14285714,4.44444444 L1.14285714,17.7777778 C1.14285714,19 2.17142857,20 3.42857143,20 Z M12,1.11111111 L10.8571429,0 L5.14285714,0 L4,1.11111111 L0,1.11111111 L0,3.33333333 L16,3.33333333 L16,1.11111111 L12,1.11111111 Z"
+              id="delete_delete"
+              fill="currentColor"
+            ></path>
           </g>
         </symbol>
         <symbol viewBox="0 0 24 24" id="fetch-document">
           <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
             <g id="fetch-document_plus-sign">
-              <polygon id="fetch-document_artboard" points="0 0 24 0 24 24 0 24" />
-              <path d="M4,6 L2,6 L2,20 C2,21.1 2.9,22 4,22 L18,22 L18,20 L4,20 L4,6 Z M20,2 L8,2 C6.9,2 6,2.9 6,4 L6,16 C6,17.1 6.9,18 8,18 L20,18 C21.1,18 22,17.1 22,16 L22,4 C22,2.9 21.1,2 20,2 Z M19,11 L15,11 L15,15 L13,15 L13,11 L9,11 L9,9 L13,9 L13,5 L15,5 L15,9 L19,9 L19,11 Z" id="fetch-document_button-plus" fill="currentColor" fill-rule="nonzero" />
+              <polygon
+                id="fetch-document_artboard"
+                points="0 0 24 0 24 24 0 24"
+              ></polygon>
+              <path
+                d="M4,6 L2,6 L2,20 C2,21.1 2.9,22 4,22 L18,22 L18,20 L4,20 L4,6 Z M20,2 L8,2 C6.9,2 6,2.9 6,4 L6,16 C6,17.1 6.9,18 8,18 L20,18 C21.1,18 22,17.1 22,16 L22,4 C22,2.9 21.1,2 20,2 Z M19,11 L15,11 L15,15 L13,15 L13,11 L9,11 L9,9 L13,9 L13,5 L15,5 L15,9 L19,9 L19,11 Z"
+                id="fetch-document_button-plus"
+                fill="currentColor"
+                fill-rule="nonzero"
+              ></path>
             </g>
           </g>
         </symbol>
         <symbol viewBox="0 0 26 26" id="person">
           <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
             <g id="person_person">
-              <rect id="person_head" fill="currentColor" x="0" y="0" width="26" height="26" rx="13" />
-              <polygon id="person_nose" fill="#FFFFFF" points="13.4482759 12.5517241 17.4140288 16.5862069 13.4482759 17.3991447" />
-              <circle id="person_eye-right" fill="#FFFFFF" cx="19.7241379" cy="10.7586207" r="1.79310345" />
-              <circle id="person_eye-left" fill="#FFFFFF" cx="8.06896552" cy="10.7586207" r="1.79310345" />
+              <rect
+                id="person_head"
+                fill="currentColor"
+                x="0"
+                y="0"
+                width="26"
+                height="26"
+                rx="13"
+              ></rect>
+              <polygon
+                id="person_nose"
+                fill="#FFFFFF"
+                points="13.4482759 12.5517241 17.4140288 16.5862069 13.4482759 17.3991447"
+              ></polygon>
+              <circle
+                id="person_eye-right"
+                fill="#FFFFFF"
+                cx="19.7241379"
+                cy="10.7586207"
+                r="1.79310345"
+              ></circle>
+              <circle
+                id="person_eye-left"
+                fill="#FFFFFF"
+                cx="8.06896552"
+                cy="10.7586207"
+                r="1.79310345"
+              ></circle>
             </g>
           </g>
         </symbol>
         <symbol viewBox="0 0 24 24" id="upload">
           <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
             <g id="upload_upload">
-              <polygon id="upload_artboard" points="0 0 24 0 24 24 0 24" />
-              <path d="M9,16 L15,16 L15,10 L19,10 L12,3 L5,10 L9,10 L9,16 Z M5,18 L19,18 L19,20 L5,20 L5,18 Z" id="upload_arrow-upload" fill="currentColor" fill-rule="nonzero" />
+              <polygon id="upload_artboard" points="0 0 24 0 24 24 0 24"></polygon>
+              <path
+                d="M9,16 L15,16 L15,10 L19,10 L12,3 L5,10 L9,10 L9,16 Z M5,18 L19,18 L19,20 L5,20 L5,18 Z"
+                id="upload_arrow-upload"
+                fill="currentColor"
+                fill-rule="nonzero"
+              ></path>
             </g>
           </g>
         </symbol>

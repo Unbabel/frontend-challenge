@@ -1,14 +1,9 @@
 <template>
-  <div class="about">
-    <vue-helmet title="Transcriptions | Detail" />
+  <main class="about">
+    <vue-headful
+      title="DETAIL // Unbabel Frontend Challenge"
+      description="Unbabel Frontend Challenge"
+    />
     <h1>This is the transcription detail</h1>
-  </div>
+  </main>
 </template>
-<script>
-import VueHelmet from "vue-helmet";
-export default {
-  components: {
-    VueHelmet
-  }
-};
-</script>
