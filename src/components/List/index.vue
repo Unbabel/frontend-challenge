@@ -1,12 +1,18 @@
 <template>
   <main>
     <Container>
-      <transition-group name="fade" tag="ul">
+      <transition-group name="fade" tag="ul" v-if="items">
         <li v-for="item in items" :key="item.id">
           <ListItem :item="item" />
         </li>
-        <li v-if="items.length === 0" :key="+1">
+        <li v-if="status === 'loading'" key="loading">
+          <Spinner />
+        </li>
+        <li v-if="status === 'initial'" key="initial">
           <p>No transcripts available.</p>
+        </li>
+        <li v-if="status !== 'initial' && items.length === 0" key="no-item">
+          <p>No transcripts. Add a new one or download again.</p>
         </li>
       </transition-group>
       <section>
@@ -24,6 +30,7 @@ import { mapMutations } from "vuex";
 import ListItem from "@/components/ListItem";
 import Container from "@/components/ui/Container";
 import Icon from "@/components/ui/Icon";
+import Spinner from "@/components/ui/Spinner";
 
 import { MUTATIONS } from "@/store/modules/transcriptions/constants";
 export default {
@@ -32,7 +39,8 @@ export default {
   components: {
     Container,
     ListItem,
-    Icon
+    Icon,
+    Spinner
   },
 
   props: {
@@ -78,7 +86,7 @@ section {
 
 .fade-enter-active,
 .fade-leave-active {
-  transition: all $time-default $easing-ease-in-expo;
+  transition: all 100ms $easing-default;
   opacity: 1;
 }
 
