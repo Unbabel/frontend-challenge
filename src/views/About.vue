@@ -117,6 +117,7 @@
 <script>
 import Container from "@/components/ui/Container";
 export default {
+  name: "About",
   components: {
     Container
   }

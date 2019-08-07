@@ -11,23 +11,13 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
-
 import Container from "@/components/ui/Container";
-
-import { ACTIONS } from "@/store/modules/transcriptions/constants";
-
 export default {
-  name: "Header",
+  name: "Footer",
 
   components: {
     Container
-  },
-
-  methods: mapActions("transcriptions", {
-    loadData: ACTIONS.LOAD,
-    uploadData: ACTIONS.SAVE
-  })
+  }
 };
 </script>
 
