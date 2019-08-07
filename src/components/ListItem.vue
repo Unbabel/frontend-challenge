@@ -17,9 +17,9 @@
 <script>
 import { mapMutations } from "vuex";
 
+import EditableInput from "@/components/EditableTitle";
+import EditableTextarea from "@/components/EditableBody";
 import Checkbox from "@/components/ui/Checkbox";
-import EditableInput from "@/components/ui/EditableInput";
-import EditableTextarea from "@/components/ui/EditableTextarea";
 import Icon from "@/components/ui/Icon";
 
 import { MUTATIONS } from "@/store/modules/transcriptions/constants";
