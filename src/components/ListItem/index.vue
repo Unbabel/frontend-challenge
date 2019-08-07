@@ -5,7 +5,7 @@
       <Icon :name="`person`" :width="26" :height="26" />
       <form :action="updateItem">
         <EditableInput :item="item" />
-        <EditableTextarea type="multiline" :item="item" />
+        <EditableTextarea :item="item" />
       </form>
     </div>
     <button v-on:click="deleteItem(item.id)">

@@ -14,7 +14,7 @@ const getNewTranscription = list => {
   return {
     id,
     voice: "",
-    text: "",
+    text: ""
   };
 };
 
@@ -28,7 +28,7 @@ const transcriptionsModule = {
   getters: {
     transcriptions: state => state.transcriptions,
     status: state => state.status,
-    error: state => state.error,
+    error: state => state.error
   },
   actions: {
     async [ACTIONS.LOAD]({ commit }) {
@@ -37,18 +37,20 @@ const transcriptionsModule = {
         const transcriptions = await API.transcriptions.load();
         return commit(MUTATIONS.LOADING_SUCCESS, transcriptions.data);
       } catch (error) {
-        console.error(error);
         commit(MUTATIONS.LOADING_ERROR, ERRORS.LOADING);
       }
     },
     async [ACTIONS.SAVE]({ commit, state }) {
-      commit(MUTATIONS.SAVE);
-      try {
-        await API.transcriptions.save(state.transcriptions);
-        return commit(MUTATIONS.SAVING_SUCCESS);
-      } catch (error) {
-        console.error(error);
-        commit(MUTATIONS.SAVING_ERROR, ERRORS.SAVING);
+      if (state.transcriptions.length === 0) {
+        return commit(MUTATIONS.SAVING_ERROR, ERRORS.NO_CHANGES);
+      } else {
+        commit(MUTATIONS.SAVE);
+        try {
+          await API.transcriptions.save(state.transcriptions);
+          return commit(MUTATIONS.SAVING_SUCCESS, state.transcriptions);
+        } catch (error) {
+          commit(MUTATIONS.SAVING_ERROR, ERRORS.SAVING);
+        }
       }
     }
   },
@@ -73,6 +75,8 @@ const transcriptionsModule = {
 
     [MUTATIONS.LOAD](state) {
       state.status = STATUS.LOADING;
+      state.error = false;
+      state.transcriptions = [];
     },
     [MUTATIONS.LOADING_SUCCESS](state, transcriptions) {
       state.transcriptions = transcriptions;
@@ -86,8 +90,9 @@ const transcriptionsModule = {
     [MUTATIONS.SAVE](state) {
       state.status = STATUS.SAVING;
     },
-    [MUTATIONS.SAVING_SUCCESS](state) {
+    [MUTATIONS.SAVING_SUCCESS](state, transcriptions) {
       state.status = STATUS.SAVED;
+      state.transcriptions = transcriptions;
     },
     [MUTATIONS.SAVING_ERROR](state, error) {
       state.status = STATUS.ERROR;

@@ -1,17 +1,17 @@
 <template>
   <main>
     <Container>
-      <transition-group name="fade" tag="ul" v-if="items">
+      <transition-group name="fade" tag="ul">
         <li v-for="item in items" :key="item.id">
           <ListItem :item="item" />
         </li>
-        <li v-if="status === 'loading'" key="loading">
+        <li v-if="status === 'loading'" :key="`loading`">
           <Spinner />
         </li>
-        <li v-if="status === 'initial'" key="initial">
+        <li v-if="status === 'initial'" :key="`initial`">
           <p>No transcripts available.</p>
         </li>
-        <li v-if="status !== 'initial' && items.length === 0" key="no-item">
+        <li v-if="status !== 'initial' && items.length === 0" :key="`no-item`">
           <p>No transcripts. Add a new one or download again.</p>
         </li>
       </transition-group>
@@ -25,6 +25,7 @@
 </template>
 
 <script>
+import Vue from "vue";
 import { mapMutations } from "vuex";
 
 import ListItem from "@/components/ListItem";
@@ -53,13 +54,55 @@ export default {
       type: String
     },
     error: {
-      type: [Object, Boolean]
+      type: [String, Boolean]
     }
   },
 
   methods: mapMutations("transcriptions", {
     addRow: MUTATIONS.ADD
-  })
+  }),
+
+  watch: {
+    status: function() {
+      if (this.status === "loaded") {
+        Vue.toasted
+          .show("Data loaded", {
+            type: "success"
+          })
+          .goAway(1000);
+      }
+      if (this.status === "saved") {
+        Vue.toasted
+          .show("Data saved", {
+            type: "success"
+          })
+          .goAway(1000);
+      }
+    },
+    error: function() {
+      if (this.error === "loading") {
+        Vue.toasted
+          .show("Error loading", {
+            type: "error"
+          })
+          .goAway(1000);
+      }
+      if (this.error === "saving") {
+        Vue.toasted
+          .show("Error saving", {
+            type: "error"
+          })
+          .goAway(1000);
+      }
+      if (this.error === "no-changes") {
+        Vue.toasted
+          .show("Nothing to save", {
+            type: "error"
+          })
+          .goAway(1000);
+      }
+    }
+  }
 };
 </script>
 

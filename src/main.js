@@ -13,7 +13,7 @@ import App from "@/App.vue";
 const openSansObserver = new FontFaceObserver("Open Sans", {});
 const montserratObserver = new FontFaceObserver("Montserrat", {});
 
-// When Open Sans is loaded, add a font-family using Open Sans to the body
+// When Open Sans and Montserrat are loaded
 Promise.all([openSansObserver.load(), montserratObserver.load()]).then(
   function addBodyClass() {
     document.body.classList.add("fontsLoaded");

@@ -9,7 +9,7 @@
       ref="textarea"
       v-model="item.voice"
       v-if="isEditing || isInputEmpty"
-      placeholder="Body..."
+      placeholder="Title..."
       @blur="resetEditing"
       @keyup.enter="resetEditing"
     ></textarea>

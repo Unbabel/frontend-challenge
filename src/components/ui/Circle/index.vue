@@ -1,5 +1,5 @@
 <template>
-  <div :style="style"></div>
+  <div :style="style" />
 </template>
 <script>
 export default {
