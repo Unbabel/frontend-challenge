@@ -2,21 +2,17 @@
   <main>
     <Container>
       <transition-group name="fade" tag="ul">
-        <li v-for="item in items" :key="item.id">
+        <li v-for="item in items" :key="item.id || item.tempId">
           <ListItem :item="item" />
         </li>
-        <li v-if="status === 'loading'" :key="`loading`">
-          <Spinner />
-        </li>
-        <li v-if="status === 'initial'" :key="`initial`">
-          <p>No transcripts available.</p>
-        </li>
-        <li v-if="status !== 'initial' && items.length === 0" :key="`no-item`">
-          <p>No transcripts. Add a new one or download again.</p>
-        </li>
       </transition-group>
+      <ul>
+        <li v-if="items.length === 0" :key="`no-item`">
+          <p>No transcripts. Add a new one or download.</p>
+        </li>
+      </ul>
       <section>
-        <button v-if="status !== 'initial'" v-on:click="addRow">
+        <button v-on:click="addRow">
           <Icon :name="`add-row`" />
         </button>
       </section>
@@ -31,7 +27,6 @@ import { mapMutations } from "vuex";
 import ListItem from "@/components/ListItem";
 import Container from "@/components/ui/Container";
 import Icon from "@/components/ui/Icon";
-import Spinner from "@/components/ui/Spinner";
 
 import { MUTATIONS } from "@/store/modules/transcriptions/constants";
 export default {
@@ -40,8 +35,7 @@ export default {
   components: {
     Container,
     ListItem,
-    Icon,
-    Spinner
+    Icon
   },
 
   props: {
@@ -109,6 +103,10 @@ export default {
 <style scoped lang="scss">
 main {
   padding: $rules-gutter 0;
+
+  @media screen and (max-width: $rules-max-width) {
+    padding: $rules-gutter;
+  }
 }
 ul {
   list-style: none;

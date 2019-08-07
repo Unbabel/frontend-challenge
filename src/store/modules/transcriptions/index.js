@@ -12,7 +12,7 @@ const getNewTranscription = list => {
   const id = getNextId(list);
 
   return {
-    id,
+    tempId: id,
     voice: "",
     text: ""
   };
@@ -76,7 +76,6 @@ const transcriptionsModule = {
     [MUTATIONS.LOAD](state) {
       state.status = STATUS.LOADING;
       state.error = false;
-      state.transcriptions = [];
     },
     [MUTATIONS.LOADING_SUCCESS](state, transcriptions) {
       state.transcriptions = transcriptions;

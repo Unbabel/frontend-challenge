@@ -1,11 +1,11 @@
 <template>
   <article>
-    <Checkbox :id="item.id" />
+    <Checkbox :id="item.id || item.tempId" />
     <div class="form">
       <Icon :name="`person`" :width="26" :height="26" />
       <form :action="updateItem">
-        <EditableInput :item="item" />
-        <EditableTextarea :item="item" />
+        <Editable :value="item.voice" />
+        <Editable :value="item.text" :placeholder="`Body...`" :type="`body`" />
       </form>
     </div>
     <button v-on:click="deleteItem(item.id)">
@@ -17,9 +17,8 @@
 <script>
 import { mapMutations } from "vuex";
 
+import Editable from "@/components/Editable";
 import Checkbox from "@/components/ui/Checkbox";
-import EditableInput from "@/components/ui/EditableInput";
-import EditableTextarea from "@/components/ui/EditableTextarea";
 import Icon from "@/components/ui/Icon";
 
 import { MUTATIONS } from "@/store/modules/transcriptions/constants";
@@ -28,8 +27,7 @@ export default {
 
   components: {
     Checkbox,
-    EditableInput,
-    EditableTextarea,
+    Editable,
     Icon
   },
 
@@ -81,6 +79,10 @@ article {
   }
   button {
     visibility: hidden;
+
+    @media screen and (max-width: $rules-max-width) {
+      visibility: visible;
+    }
   }
 
   &:hover button {
