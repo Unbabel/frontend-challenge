@@ -25,29 +25,29 @@ wip!
 
 Install all dependencies:
 ```Shell
-npm i
+yarn
 ```
 
 Start the development server running on `http://localhost:3000`
 ```Shell
-npm run start
+yarn start
 ```
 
 Start the production server
 ```Shell
-npm run start:production
+yarn start:production
 ```
 
 Preps your app for deployment (does not run tests). Optimizes and minifies all files, piping them to the `build` folder.
 ```Shell
-npm run build
+yarn build
 ```
 
 Tests your application with the unit tests specified in the `**/tests/*.js` files
 throughout the application.  
 Testing
 ```Shell
-npm run test
+yarn test
 ```
 
 The app is built for optimal performance: assets are
