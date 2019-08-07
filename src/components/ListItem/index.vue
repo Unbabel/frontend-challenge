@@ -82,6 +82,7 @@ article {
   button {
     visibility: hidden;
   }
+
   &:hover button {
     visibility: visible;
   }

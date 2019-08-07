@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p @click="setEditing" v-if="!isEditing">
+    <p @click="setEditing" v-if="!isEditing" :aria-hidden="!isEditing">
       {{ item.text }}
     </p>
     <textarea
