@@ -1,8 +1,8 @@
 <template>
   <label :for="`checkbox-${id}`">
     <input type="checkbox" :id="`checkbox-${id}`" />
-    <span class="box">
-      <span class="arrow"></span>
+    <span class="box" :aria-hidden="true">
+      <span class="arrow" :aria-hidden="true"></span>
     </span>
   </label>
 </template>

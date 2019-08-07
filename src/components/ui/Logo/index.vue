@@ -1,5 +1,5 @@
 <template>
-  <a href="/">
+  <router-link to="/">
     <h1>
       <span>T</span>
       <span>r</span>
@@ -16,7 +16,7 @@
       <span>n</span>
       <span>s</span>
     </h1>
-  </a>
+  </router-link>
 </template>
 <script>
 export default {

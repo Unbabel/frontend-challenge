@@ -1,7 +1,11 @@
 <template>
-  <div class="home">
+  <main class="home">
+    <vue-headful
+      title="HOME // Unbabel Frontend Challenge"
+      description="Unbabel Frontend Challenge"
+    />
     <List :items="transcriptions" :status="status" :error="error" />
-  </div>
+  </main>
 </template>
 
 <script>
@@ -17,3 +21,8 @@ export default {
   computed: mapGetters("transcriptions", ["transcriptions", "status", "error"])
 };
 </script>
+<style scoped lang="scss">
+main {
+  min-height: 80vh;
+}
+</style>

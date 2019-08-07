@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p @click="setEditing" v-if="!isEditing">
+    <p @click="setEditing" v-if="!isEditing" :aria-hidden="!isEditing">
       {{ item.voice }}
     </p>
     <textarea
@@ -78,8 +78,8 @@ div {
   textarea {
     width: 100%;
     font-size: 16px;
-    font-weight: 400;
-    font-family: $font-open-sans;
+    font-weight: 600;
+    font-family: $font-montserrat;
     line-height: 1.3rem;
     padding: 0 4px;
     box-sizing: border-box;
