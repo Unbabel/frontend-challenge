@@ -20,14 +20,7 @@
 </template>
 <script>
 export default {
-  name: "Checkbox",
-
-  props: {
-    id: {
-      required: true,
-      type: Number
-    }
-  }
+  name: "Logo",
 };
 </script>
 <style scoped lang="scss">
