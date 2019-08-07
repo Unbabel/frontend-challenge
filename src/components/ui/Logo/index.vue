@@ -20,7 +20,7 @@
 </template>
 <script>
 export default {
-  name: "Logo",
+  name: "Logo"
 };
 </script>
 <style scoped lang="scss">

@@ -1,18 +1,29 @@
 <template>
   <main>
     <Container>
-      <transition-group name="fade" tag="ul" v-if="items">
+      <transition-group name="fade" tag="ul">
         <li v-for="item in items" :key="item.id">
           <ListItem :item="item" />
         </li>
-        <li v-if="status === 'loading'" key="loading">
+        <li v-if="status === 'loading'" :key="`loading`">
           <Spinner />
         </li>
-        <li v-if="status === 'initial'" key="initial">
+        <li v-if="status === 'initial'" :key="`initial`">
           <p>No transcripts available.</p>
         </li>
-        <li v-if="status !== 'initial' && items.length === 0" key="no-item">
+        <li
+          v-if="
+            status !== 'initial' && status !== 'error' && items.length === 0
+          "
+          :key="`no-item`"
+        >
           <p>No transcripts. Add a new one or download again.</p>
+        </li>
+        <li v-if="status === 'error'" :key="`error`">
+          <div class="error">
+            <p v-if="error === 'loading'">Loading Error!</p>
+            <p v-if="error === 'saving'">Saving Error!</p>
+          </div>
         </li>
       </transition-group>
       <section>
@@ -53,7 +64,7 @@ export default {
       type: String
     },
     error: {
-      type: [Object, Boolean]
+      type: [String, Boolean]
     }
   },
 

@@ -38,6 +38,7 @@ const transcriptionsModule = {
         return commit(MUTATIONS.LOADING_SUCCESS, transcriptions.data);
       } catch (error) {
         console.error(error);
+        console.log(ERRORS.LOADING);
         commit(MUTATIONS.LOADING_ERROR, ERRORS.LOADING);
       }
     },
@@ -48,6 +49,7 @@ const transcriptionsModule = {
         return commit(MUTATIONS.SAVING_SUCCESS);
       } catch (error) {
         console.error(error);
+        console.log(ERRORS.SAVING);
         commit(MUTATIONS.SAVING_ERROR, ERRORS.SAVING);
       }
     }
