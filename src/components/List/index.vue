@@ -94,6 +94,13 @@ export default {
           })
           .goAway(1000);
       }
+      if (this.error === "no-changes") {
+        Vue.toasted
+          .show("Nothing to save", {
+            type: "error"
+          })
+          .goAway(1000);
+      }
     }
   }
 };

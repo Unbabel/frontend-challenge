@@ -35,5 +35,6 @@ export const MUTATIONS = {
 
 export const ERRORS = {
   LOADING: "loading",
-  SAVING: "saving"
+  SAVING: "saving",
+  NO_CHANGES: "no-changes"
 };

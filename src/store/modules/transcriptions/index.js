@@ -41,12 +41,16 @@ const transcriptionsModule = {
       }
     },
     async [ACTIONS.SAVE]({ commit, state }) {
-      commit(MUTATIONS.SAVE);
-      try {
-        const transcriptions = await API.transcriptions.save(state.transcriptions);
-        return commit(MUTATIONS.SAVING_SUCCESS, transcriptions);
-      } catch (error) {
-        commit(MUTATIONS.SAVING_ERROR, ERRORS.SAVING);
+      if (state.transcriptions.length === 0) {
+        return commit(MUTATIONS.SAVING_ERROR, ERRORS.NO_CHANGES);
+      } else {
+        commit(MUTATIONS.SAVE);
+        try {
+          await API.transcriptions.save(state.transcriptions);
+          return commit(MUTATIONS.SAVING_SUCCESS, state.transcriptions);
+        } catch (error) {
+          commit(MUTATIONS.SAVING_ERROR, ERRORS.SAVING);
+        }
       }
     }
   },
@@ -72,6 +76,7 @@ const transcriptionsModule = {
     [MUTATIONS.LOAD](state) {
       state.status = STATUS.LOADING;
       state.error = false;
+      state.transcriptions = [];
     },
     [MUTATIONS.LOADING_SUCCESS](state, transcriptions) {
       state.transcriptions = transcriptions;
@@ -82,12 +87,12 @@ const transcriptionsModule = {
       state.error = error;
     },
 
-    [MUTATIONS.SAVE](state, transcriptions) {
+    [MUTATIONS.SAVE](state) {
       state.status = STATUS.SAVING;
-      state.transcriptions = transcriptions;
     },
-    [MUTATIONS.SAVING_SUCCESS](state) {
+    [MUTATIONS.SAVING_SUCCESS](state, transcriptions) {
       state.status = STATUS.SAVED;
+      state.transcriptions = transcriptions;
     },
     [MUTATIONS.SAVING_ERROR](state, error) {
       state.status = STATUS.ERROR;
