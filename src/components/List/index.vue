@@ -5,18 +5,17 @@
         <li v-for="item in items" :key="item.id">
           <ListItem :item="item" />
         </li>
+      </transition-group>
+      <ul>
         <li v-if="status === 'loading'" :key="`loading`">
           <Spinner />
         </li>
-        <li v-if="status === 'initial'" :key="`initial`">
-          <p>No transcripts available.</p>
+        <li v-if="items.length === 0" :key="`no-item`">
+          <p>No transcripts. Add a new one or download.</p>
         </li>
-        <li v-if="status !== 'initial' && items.length === 0" :key="`no-item`">
-          <p>No transcripts. Add a new one or download again.</p>
-        </li>
-      </transition-group>
+      </ul>
       <section>
-        <button v-if="status !== 'initial'" v-on:click="addRow">
+        <button v-on:click="addRow">
           <Icon :name="`add-row`" />
         </button>
       </section>
