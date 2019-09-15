@@ -1,12 +1,19 @@
 <template>
   <div>
-    <h1>Homepage</h1>
+    <Header title="Transcriptions">
+      <div>menu</div>
+    </Header>
   </div>
 </template>
 
 <script>
+import Header from '../components/Header' 
+
 export default {
   name: 'Home',
+  components: {
+    Header
+  }
 }
 </script>
 
