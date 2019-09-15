@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     Challenge
+    <router-view></router-view>
   </div>
 </template>
 
