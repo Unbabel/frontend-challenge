@@ -25,7 +25,10 @@ export default {
 <style scoped>
 ul {
   list-style: none;
-  margin: 0;
+  margin: 20px 0;
   padding: 0;
+}
+li {
+  margin-bottom: 20px;
 }
 </style>
