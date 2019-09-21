@@ -29,12 +29,10 @@ export default {
   },
   methods: {
     uploadData() {
-      // eslint-disable-next-line
-      console.log('upload')
+      this.$store.dispatch('saveTranscriptions')
     },
     loadData() {
-      // eslint-disable-next-line
-      console.log('load')
+      this.$store.dispatch('getTranscriptions')
     }
   }
 }

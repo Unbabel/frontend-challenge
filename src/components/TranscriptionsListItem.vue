@@ -9,8 +9,8 @@
       </IconButton>
     </div>
     <div class="contents">
-      <h2>{{ item.title }}</h2>
-      <p>{{ item.description }}</p>
+      <h2>{{ item.voice }}</h2>
+      <p>{{ item.text }}</p>
     </div> 
     <div>
       <IconButton title="Delete item" :onClick="deleteItem">

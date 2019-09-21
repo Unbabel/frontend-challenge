@@ -13,10 +13,10 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import Header from '@/components/Header' 
 import TranscriptionsMenu from '@/components/TranscriptionsMenu'
 import TranscriptionsList from '@/components/TranscriptionsList'
-
 import IconButton from '@/components/IconButton'
 import AddIcon from '@/assets/add-row.svg'
 
@@ -30,18 +30,7 @@ export default {
     AddIcon
   },
   computed: {
-    transcriptions() {
-      return [
-        {
-          title: "Item 1",
-          description: "test"
-        },
-        {
-          title: "Item 2",
-          description: "test"
-        }
-      ]
-    }
+    ...mapState(['transcriptions'])
   },
   methods: {
     newItem() {
