@@ -1,7 +1,7 @@
 <template>
   <div class="list-item">
-    <div>
-      <Checkbox />
+    <div class="item-checkbox">
+      <Checkbox :id="checkboxId" />
     </div>
     <div>
       <IconButton title="Delete item" :onClick="deleteItem">
@@ -13,7 +13,7 @@
       <p>{{ item.text }}</p>
     </div> 
     <div>
-      <IconButton title="Delete item" :onClick="deleteItem" class="deleteButton">
+      <IconButton title="Delete item" :onClick="deleteItem" class="delete-button">
         <DeleteIcon />
       </IconButton>
     </div>
@@ -37,6 +37,11 @@ export default {
   props: {
     item: Object
   },
+  computed:{
+    checkboxId(){
+      return `checkbox${this.item.id}`
+    }
+  },
   methods: {
     deleteItem(){
       this.$store.dispatch('deleteTranscription', this.item.id)
@@ -52,11 +57,14 @@ export default {
   justify-content: stretch;
   align-items: flex-start;
 }
-.list-item .deleteButton{
+.item-checkbox {
+  padding-top: 4px;
+}
+.delete-button{
   transition: opacity 0.5s ease;
   opacity: 0;
 }
-.list-item:hover .deleteButton{
+.list-item:hover .delete-button{
   opacity: 1;
 }
 .contents {
