@@ -18,6 +18,7 @@ body {
   margin: 0;
   padding: 0;
   background: #f6f7f8;
+  font: 16px "Open Sans", Arial, sans-serif;
 }
 
 #app {

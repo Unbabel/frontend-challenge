@@ -34,5 +34,8 @@ export default {
 
 h1 {
   margin: 0;
+  font: 18px "Montserrat", Arial, sans-serif;
+  font-weight: 500;
+  color: #414C5E;
 }
 </style>

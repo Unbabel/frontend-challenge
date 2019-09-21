@@ -80,8 +80,12 @@ export default {
 }
 h2 {
   margin: 0;
+  font: 16px "Montserrat", Arial, sans-serif;
+  font-weight: 600;
+  color: #566074;
 }
 p{
   margin: 0;
+  color: #778195;
 }
 </style>
