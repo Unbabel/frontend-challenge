@@ -10,6 +10,9 @@ export default new Vuex.Store({
   mutations: {
     setTranscriptions(state, transcriptions) {
       state.transcriptions = transcriptions;
+    },
+    deleteTranscription(state, id) {
+      state.transcriptions = state.transcriptions.filter(t => t.id !== id);
     }
   },
   actions: {
@@ -25,6 +28,9 @@ export default new Vuex.Store({
         method: "POST",
         body: JSON.stringify(context.state.transcriptions)
       });
+    },
+    deleteTranscription(context, id) {
+      context.commit("deleteTranscription", id);
     }
   }
 });

@@ -39,8 +39,7 @@ export default {
   },
   methods: {
     deleteItem(){
-      // eslint-disable-next-line
-      console.log('delete');
+      this.$store.dispatch('deleteTranscription', this.item.id)
     }
   }
 }
