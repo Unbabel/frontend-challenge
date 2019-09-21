@@ -25,7 +25,7 @@ export default {
 <style scoped>
 ul {
   list-style: none;
-  margin: 20px 0;
+  margin: 0 0 20px;
   padding: 0;
   background: #FFF;
   border: 1px solid #e6e6e6;
