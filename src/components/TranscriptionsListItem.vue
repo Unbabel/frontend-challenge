@@ -4,7 +4,7 @@
       <Checkbox :id="checkboxId" />
     </div>
     <div>
-      <IconButton title="Delete item" :onClick="deleteItem">
+      <IconButton title="Link item" :onClick="goToItem">
         <PersonIcon />
       </IconButton>
     </div>
@@ -45,6 +45,13 @@ export default {
   methods: {
     deleteItem(){
       this.$store.dispatch('deleteTranscription', this.item.id)
+    },
+    goToItem(){
+      const { id } = this.$route.params
+      if (id == this.item.id) {
+        return
+      }
+      this.$router.push(`/transcriptions/${this.item.id}`)
     }
   }
 }

@@ -10,6 +10,11 @@ export default new VueRouter({
       path: "/",
       name: "home",
       component: Home
+    },
+    {
+      path: "/transcriptions/:id",
+      name: "transcription-item",
+      component: Home
     }
   ]
 });
