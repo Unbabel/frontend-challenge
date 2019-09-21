@@ -79,7 +79,7 @@ export default {
   text-align: left;
 }
 h2 {
-  margin: 0;
+  margin: 5px 0;
   font: 16px "Montserrat", Arial, sans-serif;
   font-weight: 600;
   color: #566074;
