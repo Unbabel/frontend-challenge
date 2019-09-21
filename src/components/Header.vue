@@ -19,7 +19,7 @@ export default {
 <style scoped>
 .header {
   background: #FFF;
-  box-shadow: 0 1px 3px 0 #666;
+  box-shadow: 0 1px 3px 0 #CCC;
 }
 
 .container {
