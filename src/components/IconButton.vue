@@ -19,5 +19,6 @@ button {
   background: none;
   border: none;
   -webkit-appearance: none; 
+  cursor: pointer;
 }
 </style>

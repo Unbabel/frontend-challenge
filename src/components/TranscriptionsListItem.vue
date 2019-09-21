@@ -13,7 +13,7 @@
       <p>{{ item.text }}</p>
     </div> 
     <div>
-      <IconButton title="Delete item" :onClick="deleteItem">
+      <IconButton title="Delete item" :onClick="deleteItem" class="deleteButton">
         <DeleteIcon />
       </IconButton>
     </div>
@@ -52,6 +52,13 @@ export default {
   flex-flow: row nowrap;
   justify-content: stretch;
   align-items: flex-start;
+}
+.list-item .deleteButton{
+  transition: opacity 0.5s ease;
+  opacity: 0;
+}
+.list-item:hover .deleteButton{
+  opacity: 1;
 }
 .contents {
   flex: 1 1 auto;
