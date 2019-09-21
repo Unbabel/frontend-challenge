@@ -27,8 +27,13 @@ ul {
   list-style: none;
   margin: 20px 0;
   padding: 0;
+  background: #FFF;
+  border: 1px solid #e6e6e6;
 }
 li {
-  margin-bottom: 20px;
+  padding: 20px;
+}
+li + li{
+  border-top: 1px solid #e6e6e6;
 }
 </style>

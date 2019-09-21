@@ -4,7 +4,7 @@
       <TranscriptionsMenu />
     </Header>
     <div class="container">
-      <TranscriptionsList :items="transcriptions" />
+      <TranscriptionsList v-if="transcriptions.length > 0" :items="transcriptions" />
       <IconButton title="Add item" :onClick="newItem">
         <AddIcon />
       </IconButton>
