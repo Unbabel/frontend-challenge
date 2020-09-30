@@ -73,7 +73,7 @@ The data above is enough to complete challenge. We also include the source Sketc
 
 ## Bonus points:
 
-- Keeping in mind accessibility
-- Adding tests to your components and app
-- Using a store (Vuex) to manage the application data
-- Using vue-router to prepare the app for a future where it would have multiple routes
+- Keeping in mind accessibility.
+- Adding tests to your components and app.
+- Using a store (Vuex) to manage the application data.
+- Using vue-router to prepare the app for a future where it would have multiple routes.
