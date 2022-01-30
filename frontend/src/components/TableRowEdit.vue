@@ -1,14 +1,18 @@
 <template>
   <div style="width: 100%;">
-    <input v-model="title" class="title" :placeholder="$t('titlePlaceholder')" />
+    <input
+      v-model="title"
+      class="title"
+      :placeholder="$t('titlePlaceholder')"
+    >
     <textarea
-    v-model="content"
-    ref="textarea"
-    class="content"
-    :placeholder="$t('contentPlaceholder')"
-    rows="1"
-    @focus="resize"
-    @keyup="resize"
+      ref="textarea"
+      v-model="content"
+      class="content"
+      :placeholder="$t('contentPlaceholder')"
+      rows="1"
+      @focus="resize"
+      @keyup="resize"
     />
   </div>
 </template>
@@ -28,9 +32,6 @@ export default {
       content: this.value[this.contentProp]
     }
   },
-  mounted() {
-    this.resize();
-  },
   watch:{
     value (val) {
       this.title = val[this.titleProp],
@@ -42,6 +43,9 @@ export default {
      content () {
        this.save()
     }
+  },
+  mounted() {
+    this.resize();
   },
   methods: {
     save () {

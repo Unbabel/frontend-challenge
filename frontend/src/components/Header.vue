@@ -1,9 +1,11 @@
 <template>
   <div class="container">
     <div class="container-max-width container-line">
-      <div class="title">{{ $t('transcriptions.title') }}</div>
+      <div class="title">
+        {{ $t('transcriptions.title') }}
+      </div>
       <div class="actions">
-        <LocaleSelector/>
+        <LocaleSelector />
         <UploadSvg @click="upload()" />
         <FetchSvg @click="fetch()" />
       </div>

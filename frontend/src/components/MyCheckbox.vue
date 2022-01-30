@@ -1,8 +1,8 @@
 <template>
-<label class="container">
-        <input type="checkbox">
-        <span class="checkmark"></span>
-      </label>
+  <label class="container">
+    <input type="checkbox">
+    <span class="checkmark" />
+  </label>
 </template>
 
 <script>

@@ -1,16 +1,31 @@
 <template>
   <div>
     <Header />
-    <div v-if="isDataLoaded" class="data-container">
-      <Table :value="rows" @input="setRows" />
+    <div
+      v-if="isDataLoaded"
+      class="data-container"
+    >
+      <Table
+        :value="rows"
+        @input="setRows"
+      />
       <div class="actions-data-container">
-        <AddRowSvg class="add-row-btn" @click="addEmptyRow()" />
+        <AddRowSvg
+          class="add-row-btn"
+          @click="addEmptyRow()"
+        />
       </div>
     </div>
-    <div v-else-if="!errorLoadingData" class="no-data-container">
+    <div
+      v-else-if="!errorLoadingData"
+      class="no-data-container"
+    >
       {{ $t("noDataLoaded") }}
     </div>
-    <div v-else class="no-data-container">
+    <div
+      v-else
+      class="no-data-container"
+    >
       {{ $t("errorLoadingData") }}
     </div>
   </div>
@@ -26,10 +41,10 @@ import { v4 as uuidv4 } from 'uuid'
 
 export default {
   name: 'Transcriptions',
-  mixins: [iconsMixin],
   components: {
     Header, Table
   },
+  mixins: [iconsMixin],
   computed: {
      ...mapState(["rows", "isDataLoaded", "errorLoadingData"])
   },

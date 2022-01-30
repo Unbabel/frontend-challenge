@@ -1,7 +1,11 @@
 <template>
   <div>
     <select v-model="$i18n.locale">
-      <option v-for="(lang, i) in languages" :key="`lang-${i}`" :value="lang">
+      <option
+        v-for="(lang, i) in languages"
+        :key="`lang-${i}`"
+        :value="lang"
+      >
         {{ lang }}
       </option>
     </select>

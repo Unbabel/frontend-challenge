@@ -1,10 +1,25 @@
 <template>
   <div>
-    <div v-for="(row, index) in value" :key="row.id" class="data-table-line container-max-width" @mouseover="showDeleteBtnIndex = index" @mouseout="showDeleteBtnIndex = null">
+    <div
+      v-for="(row, index) in value"
+      :key="row.id"
+      class="data-table-line container-max-width"
+      @mouseover="showDeleteBtnIndex = index"
+      @mouseout="showDeleteBtnIndex = null"
+    >
       <MyCheckbox />
       <PersonSvg />
-      <TableRowEdit v-model="value[index]" style="flex-grow: 1" :titleProp="titleProp" :contentProp="contentProp" />
-      <DeleteSvg class="deleteBtn" :class="showDeleteBtnIndex === index ? 'deleteBtnVisible' : ''" @click="removeRowById(row.id)" />
+      <TableRowEdit
+        v-model="value[index]"
+        style="flex-grow: 1"
+        :title-prop="titleProp"
+        :content-prop="contentProp"
+      />
+      <DeleteSvg
+        class="deleteBtn"
+        :class="showDeleteBtnIndex === index ? 'deleteBtnVisible' : ''"
+        @click="removeRowById(row.id)"
+      />
     </div>
   </div>
 </template>
@@ -17,11 +32,11 @@ import MyCheckbox from '@/components/MyCheckbox.vue'
 
 export default {
   name: 'Table',
-  mixins: [iconsMixin],
    components: {
     TableRowEdit,
     MyCheckbox
   },
+  mixins: [iconsMixin],
   props: {
     value: { type: Array, default: () => [] },
     titleProp: { type: String, default: "voice" },
