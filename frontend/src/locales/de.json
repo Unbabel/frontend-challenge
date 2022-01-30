@@ -4,5 +4,6 @@
     },
     "titlePlaceholder": "Titelplatzhalter",
     "contentPlaceholder": "Inhaltsplatzhalter",
-    "noDataLoaded": "Bitte klicken Sie auf das + Symbol, um Daten zu laden"
+    "noDataLoaded": "Bitte klicken Sie auf das + Symbol, um Daten zu laden",
+    "errorLoadingData": "Beim Laden der Daten ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut"
   }

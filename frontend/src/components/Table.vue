@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-for="(row, index) in value" :key="row.id" class="data-table-line container-max-width" @mouseover="showDeleteBtnIndex = index" @mouseout="showDeleteBtnIndex = null">
-      <input type="checkbox">
+      <MyCheckbox />
       <PersonSvg />
       <TableRowEdit v-model="value[index]" style="flex-grow: 1" :titleProp="titleProp" :contentProp="contentProp" />
       <DeleteSvg class="deleteBtn" :class="showDeleteBtnIndex === index ? 'deleteBtnVisible' : ''" @click="removeRowById(row.id)" />
@@ -13,12 +13,14 @@
 import TableRowEdit from '@/components/TableRowEdit.vue'
 import iconsMixin from '@/mixins/iconsMixin.js'
 import { mapActions } from 'vuex'
+import MyCheckbox from '@/components/MyCheckbox.vue'
 
 export default {
   name: 'Table',
   mixins: [iconsMixin],
    components: {
-    TableRowEdit
+    TableRowEdit,
+    MyCheckbox
   },
   props: {
     value: { type: Array, default: () => [] },
@@ -71,4 +73,7 @@ export default {
 .deleteBtnVisible {
   visibility: visible;
 }
+
+
+
 </style>

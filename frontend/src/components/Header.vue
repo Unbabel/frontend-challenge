@@ -27,22 +27,20 @@ export default {
      ...mapState(["rows"])
   },
   methods: {
-     ...mapActions(['setRows']),
+     ...mapActions(['setRows', 'errorLoadingData']),
      async fetch(){
       try {
         const { data } = await this.$axios.get(process.env.VUE_APP_FETCH_URL)
         this.setRows(data)
       } catch (e) {
-        console.log(e)
-        // todo error page
+        this.errorLoadingData(e)
       }
     },
     async upload(){
       try {
         await this.$axios.post(process.env.VUE_APP_UPLOAD_URL, this.rows)
       } catch (e) {
-        console.log(e)
-        // todo error page
+         this.errorLoadingData(e)
       }
     }
   } 

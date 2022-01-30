@@ -8,8 +8,11 @@
         <AddRowSvg class="add-row-btn" @click="addEmptyRow()" />
       </div>
     </div>
-    <div v-else class="no-data-container">
+    <div v-else-if="!errorLoadingData" class="no-data-container">
       {{ $t("noDataLoaded") }}
+    </div>
+    <div v-else class="no-data-container">
+      {{ $t("errorLoadingData") }}
     </div>
     
   </div>
@@ -30,10 +33,10 @@ export default {
     Header, Table
   },
   computed: {
-     ...mapState(["rows", "isDataLoaded"])
+     ...mapState(["rows", "isDataLoaded", "errorLoadingData"])
   },
   methods : {
-    ...mapActions(['setRows', 'addRow']),
+    ...mapActions(['addRow', 'setRows']),
      addEmptyRow () {
        this.addRow({ id: uuidv4() })
     }
