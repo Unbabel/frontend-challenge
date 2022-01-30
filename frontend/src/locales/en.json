@@ -2,6 +2,7 @@
     "transcriptions": {
       "title": "Transcriptions"
     },
-    "titlePlaceholder": "xxxxxx",
-    "contentPlaceholder": "xxxxxx"
+    "titlePlaceholder": "Title placeholder",
+    "contentPlaceholder": "Content placeholder",
+    "noDataLoaded": "Please click on + icon to load data"
   }

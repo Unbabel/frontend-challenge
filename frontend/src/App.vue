@@ -9,7 +9,7 @@
       </div>
     </div>
     <div v-else class="no-data-container">
-      no data
+      {{ $t("noDataLoaded") }}
     </div>
     
   </div>
@@ -62,6 +62,9 @@ export default {
   padding: 40px;
   display: flex;
   justify-content: center;
+  background: white;
+  margin: 40px;
+  color: #566074;
 }
 
 .actions-data-container {

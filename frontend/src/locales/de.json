@@ -2,6 +2,7 @@
     "transcriptions": {
       "title": "Transkriptionen"
     },
-    "titlePlaceholder": "xxxxxx",
-    "contentPlaceholder": "xxxxxx"
+    "titlePlaceholder": "Titelplatzhalter",
+    "contentPlaceholder": "Inhaltsplatzhalter",
+    "noDataLoaded": "Bitte klicken Sie auf das + Symbol, um Daten zu laden"
   }
