@@ -1,0 +1,9 @@
+{
+    "transcriptions": {
+      "title": "Transcriptions"
+    },
+    "titlePlaceholder": "Title placeholder",
+    "contentPlaceholder": "Content placeholder",
+    "noDataLoaded": "Please click on + icon to load data",
+    "errorLoadingData": "There was an error loading data, please try again later"
+  }
