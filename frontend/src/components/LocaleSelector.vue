@@ -23,9 +23,6 @@ export default {
 
 </script>
 
-
-
-
 <style scoped>
 select {
   border: 2px solid #8F97A8;

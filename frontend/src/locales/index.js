@@ -11,7 +11,6 @@ export const languages = {
   de: de,
 }
 
-
 Vue.use(VueI18n)
 
 const messages = Object.assign(languages)

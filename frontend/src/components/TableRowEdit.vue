@@ -33,10 +33,6 @@ export default {
     }
   },
   watch:{
-    value (val) {
-      this.title = val[this.titleProp],
-      this.content = val[this.contentProp]
-    },
     title () {
       this.save()
     },
