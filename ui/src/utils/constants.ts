@@ -1,7 +1,7 @@
 export const CONSTANTS = {
   API: {
-    GET_LIST: "",
-    POST_LIST: "",
+    GET_LIST: "http://www.mocky.io/v2/5ae1c5792d00004d009d7e5c",
+    POST_LIST: "http://www.mocky.io/v2/5ae1c5792d00004d009d7e5c",
   },
   ROUTES: {
     HOME: {
@@ -14,6 +14,17 @@ export const CONSTANTS = {
     },
     WILDCARD: "/:pathMatch(.*)*",
   },
-  STORE: {},
+  STORE: {
+    ACTIONS: {
+      FETCH_DATA: "FETCH_DATA",
+      SEND_DATA: "SEND_DATA",
+      SAVE_DATA: "SAVE_DATA",
+    },
+    MUTATIONS: {
+      FETCHING_DATA: "FETCHING_DATA",
+      SET_DATA: "SET_FETCHED_DATA",
+      UPDATE_DATA: "UPDATE_DATA",
+    },
+  },
   COMMON: {},
 };
