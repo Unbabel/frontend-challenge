@@ -1,7 +1,7 @@
 <template>
   <div class="msg">
-    <h1 class="code">404</h1>
-    <router-link to="/" class="link">Go to the list</router-link>
+    <h1 class="font-montserrat code">404</h1>
+    <router-link to="/" class="font-open-sans link">Go to the list</router-link>
   </div>
 </template>
 
@@ -12,13 +12,11 @@
 }
 
 .code {
-  font-family: "Montserrat", sans-serif;
-  font-size: 40px;
+  font-size: 60px;
   font-weight: 600;
 }
 
 .link {
-  font-family: "Open Sans", sans-serif;
   font-size: 20px;
   text-decoration: none;
   padding: 16px;

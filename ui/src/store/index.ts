@@ -41,6 +41,9 @@ export default createStore({
           commit(CONSTANTS.STORE.MUTATIONS.FETCHING_DATA, false);
         });
     },
+    [CONSTANTS.STORE.ACTIONS.REMOVE_ITEM]: ({ commit }, id) => {
+      commit(CONSTANTS.STORE.MUTATIONS.DELETE_ITEM, id);
+    },
   },
   mutations: {
     [CONSTANTS.STORE.MUTATIONS.FETCHING_DATA]: (
@@ -54,6 +57,9 @@ export default createStore({
       data: ApiDataResult
     ) => {
       state.list = [...data];
+    },
+    [CONSTANTS.STORE.MUTATIONS.DELETE_ITEM]: (state: State, id: number) => {
+      state.list = state.list.filter((item) => item.id !== id);
     },
   },
 });

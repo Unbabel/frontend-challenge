@@ -19,11 +19,13 @@ export const CONSTANTS = {
       FETCH_DATA: "FETCH_DATA",
       SEND_DATA: "SEND_DATA",
       SAVE_DATA: "SAVE_DATA",
+      REMOVE_ITEM: "REMOVE_ITEM",
     },
     MUTATIONS: {
       FETCHING_DATA: "FETCHING_DATA",
       SET_DATA: "SET_FETCHED_DATA",
       UPDATE_DATA: "UPDATE_DATA",
+      DELETE_ITEM: "DELETE_ITEM",
     },
   },
   COMMON: {},
