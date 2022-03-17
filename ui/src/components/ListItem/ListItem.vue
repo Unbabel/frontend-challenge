@@ -9,8 +9,20 @@
       title="Profile picture"
     />
     <span>
-      <h2 class="font-montserrat item-title">{{ item.voice }}</h2>
-      <p class="item-text">{{ item.text }}</p>
+      <input-text
+        classes="font-montserrat item-title"
+        :content="item.voice"
+        :editAction="updateItem"
+        tag="h2"
+        type="voice"
+      />
+      <input-text
+        classes="item-text"
+        :content="item.text"
+        :editAction="updateItem"
+        tag="p"
+        type="text"
+      />
     </span>
     <div class="opacity-transition item-action">
       <button type="button" @click="removeItem">
@@ -26,7 +38,7 @@
   </li>
 </template>
 
-<style scoped>
+<style>
 .item {
   grid-template-columns: auto auto 1fr auto;
   grid-column-gap: 12px;
@@ -59,17 +71,22 @@
 import { defineComponent, PropType } from "vue";
 import { ListItem } from "@/store/types";
 import InputCheckbox from "../InputCheckbox/InputCheckbox.vue";
+import InputText from "../InputText/InputText.vue";
 
 export default defineComponent({
-  components: { InputCheckbox },
+  components: { InputCheckbox, InputText },
   name: "ListItem",
   props: {
     item: { type: Object as PropType<ListItem>, required: true },
     deleteAction: { type: Function, required: true },
+    updateAction: { type: Function, required: true },
   },
   methods: {
     removeItem() {
       this.deleteAction(this.item.id);
+    },
+    updateItem(value: string, type: string) {
+      this.updateAction(this.item.id, value, type);
     },
   },
 });

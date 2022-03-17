@@ -6,6 +6,7 @@
     <list-item
       v-for="item in list"
       :deleteAction="removeItem"
+      :updateAction="updateItem"
       :item="item"
       :key="item.id"
     />
@@ -39,6 +40,9 @@ export default defineComponent({
   methods: {
     removeItem(id: number) {
       store.dispatch(CONSTANTS.STORE.ACTIONS.REMOVE_ITEM, id);
+    },
+    updateItem(id: number, value: string, type: string) {
+      store.dispatch(CONSTANTS.STORE.ACTIONS.UPDATE_ITEM, { id, value, type });
     },
   },
 });

@@ -1,7 +1,7 @@
 import { createStore } from "vuex";
 import { API } from "@/utils/api";
 import { CONSTANTS } from "@/utils/constants";
-import { ApiDataResult, State } from "./types";
+import { ApiDataResult, State, UpdateParams } from "./types";
 
 const getDefaultState = (): State => ({
   fetched: false,
@@ -33,8 +33,8 @@ export default createStore({
       commit(CONSTANTS.STORE.MUTATIONS.FETCHING_DATA, true);
 
       return await API.sendData(state.list)
-        .then((data: ApiDataResult) => {
-          commit(CONSTANTS.STORE.MUTATIONS.SET_DATA, data);
+        .then(() => {
+          // TODO: Add message for success upload instead of setting the data again
           return;
         })
         .finally(() => {
@@ -43,6 +43,9 @@ export default createStore({
     },
     [CONSTANTS.STORE.ACTIONS.REMOVE_ITEM]: ({ commit }, id) => {
       commit(CONSTANTS.STORE.MUTATIONS.DELETE_ITEM, id);
+    },
+    [CONSTANTS.STORE.ACTIONS.UPDATE_ITEM]: ({ commit }, params) => {
+      commit(CONSTANTS.STORE.MUTATIONS.UPDATE_DATA, params);
     },
   },
   mutations: {
@@ -60,6 +63,23 @@ export default createStore({
     },
     [CONSTANTS.STORE.MUTATIONS.DELETE_ITEM]: (state: State, id: number) => {
       state.list = state.list.filter((item) => item.id !== id);
+    },
+    [CONSTANTS.STORE.MUTATIONS.UPDATE_DATA]: (
+      state: State,
+      params: UpdateParams
+    ) => {
+      const { id, value, type } = params;
+
+      state.list = state.list.map((item) => {
+        if (item.id === id) {
+          item = {
+            ...item,
+            [type]: value,
+          };
+        }
+
+        return item;
+      });
     },
   },
 });

@@ -13,3 +13,9 @@ export type State = {
 };
 
 export type ApiDataResult = List;
+
+export type UpdateParams = {
+  id: number;
+  value: string;
+  type: string;
+};

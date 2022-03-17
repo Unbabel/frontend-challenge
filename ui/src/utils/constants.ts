@@ -20,6 +20,7 @@ export const CONSTANTS = {
       SEND_DATA: "SEND_DATA",
       SAVE_DATA: "SAVE_DATA",
       REMOVE_ITEM: "REMOVE_ITEM",
+      UPDATE_ITEM: "UPDATE_ITEM",
     },
     MUTATIONS: {
       FETCHING_DATA: "FETCHING_DATA",
