@@ -30,11 +30,12 @@
 
 <style scoped>
 .toolbar {
-  position: sticky;
+  position: fixed;
   height: 69px;
   width: 100%;
   background: white;
   box-shadow: 0 2px 3px rgba(51, 51, 51, 0.29);
+  z-index: 1;
 }
 
 .toolbar-content {

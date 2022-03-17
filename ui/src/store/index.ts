@@ -1,13 +1,8 @@
 import { createStore } from "vuex";
 import { API } from "@/utils/api";
 import { CONSTANTS } from "@/utils/constants";
+import { getDefaultState, createNewListItem } from "@/utils/helpers";
 import { ApiDataResult, State, UpdateParams } from "./types";
-
-const getDefaultState = (): State => ({
-  fetched: false,
-  fetching: false,
-  list: [],
-});
 
 export default createStore({
   state: () => getDefaultState(),
@@ -27,6 +22,7 @@ export default createStore({
         })
         .finally(() => {
           commit(CONSTANTS.STORE.MUTATIONS.FETCHING_DATA, false);
+          commit(CONSTANTS.STORE.MUTATIONS.FETCHED_DATA);
         });
     },
     [CONSTANTS.STORE.ACTIONS.SEND_DATA]: async ({ commit, state }) => {
@@ -40,6 +36,9 @@ export default createStore({
         .finally(() => {
           commit(CONSTANTS.STORE.MUTATIONS.FETCHING_DATA, false);
         });
+    },
+    [CONSTANTS.STORE.ACTIONS.ADD_ITEM]: ({ commit }) => {
+      commit(CONSTANTS.STORE.MUTATIONS.ADD_DATA);
     },
     [CONSTANTS.STORE.ACTIONS.REMOVE_ITEM]: ({ commit }, id) => {
       commit(CONSTANTS.STORE.MUTATIONS.DELETE_ITEM, id);
@@ -55,11 +54,18 @@ export default createStore({
     ) => {
       state.fetching = bool;
     },
+    [CONSTANTS.STORE.MUTATIONS.FETCHED_DATA]: (state: State) => {
+      state.fetched = true;
+    },
     [CONSTANTS.STORE.MUTATIONS.SET_DATA]: (
       state: State,
       data: ApiDataResult
     ) => {
-      state.list = [...data];
+      const baseList = state.fetched ? [] : state.list;
+      state.list = [...baseList, ...data];
+    },
+    [CONSTANTS.STORE.MUTATIONS.ADD_DATA]: (state: State) => {
+      state.list = [...state.list, createNewListItem()];
     },
     [CONSTANTS.STORE.MUTATIONS.DELETE_ITEM]: (state: State, id: number) => {
       state.list = state.list.filter((item) => item.id !== id);

@@ -1,5 +1,5 @@
 <template>
-  <div class="msg">
+  <div class="flex column align-center justify-center msg">
     <h1 class="font-montserrat code">404</h1>
     <router-link to="/" class="font-open-sans link">Go to the list</router-link>
   </div>
@@ -7,13 +7,13 @@
 
 <style scoped>
 .msg {
-  margin: 0 auto;
-  text-align: center;
+  height: 100vh;
 }
 
 .code {
-  font-size: 60px;
+  font-size: 160px;
   font-weight: 600;
+  margin-bottom: 40px;
 }
 
 .link {
@@ -21,7 +21,7 @@
   text-decoration: none;
   padding: 16px;
   background: black;
-  color: gray;
+  color: white;
   border-radius: 4px;
 }
 </style>

@@ -65,6 +65,12 @@
 .item:hover .opacity-transition {
   opacity: 1;
 }
+
+@media only screen and (max-width: 768px) {
+  .opacity-transition {
+    opacity: 1;
+  }
+}
 </style>
 
 <script lang="ts">

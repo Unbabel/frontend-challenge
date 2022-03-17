@@ -52,6 +52,9 @@ button:hover {
 .justify-between {
   justify-content: space-between;
 }
+.justify-center {
+  justify-content: center;
+}
 
 .fixed-max-width {
   max-width: 738px;

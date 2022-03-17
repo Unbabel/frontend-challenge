@@ -6,12 +6,15 @@
 
     <span v-else class="flex align-center">
       <component
+        ref="editInput"
         :is="tagType"
         :class="classes"
         :value="value"
         @input="updateValue"
       />
-      <button @click="save" class="save-button">Save</button>
+      <button @click="save" :disabled="!value.length" class="save-button">
+        Save
+      </button>
     </span>
   </span>
 </template>
@@ -31,13 +34,23 @@ export default defineComponent({
   data() {
     return {
       tagType: this.tag === "p" ? "textarea" : "input",
-      editMode: false,
+      editMode: !this.content,
       value: this.content,
     };
   },
   methods: {
+    focusInput() {
+      // Delay the focus() because the component is not present yet
+      setTimeout(() => {
+        if (this.$refs.editInput) {
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          (this.$refs as any).editInput.focus();
+        }
+      }, 100);
+    },
     edit() {
       this.editMode = true;
+      this.focusInput();
     },
     updateValue(e: Event) {
       const target = e.target as HTMLInputElement;
@@ -60,6 +73,8 @@ textarea {
 
 textarea {
   width: 90%;
+  margin-top: -1px;
+  height: 80px;
 }
 
 .save-button {
@@ -69,5 +84,10 @@ textarea {
   background: green;
   color: white;
   border-radius: 3px;
+}
+
+.save-button:disabled {
+  opacity: 0.5;
+  cursor: default;
 }
 </style>
