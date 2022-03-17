@@ -5,7 +5,11 @@
     >
       <h1 class="font-montserrat toolbar-title">Transcriptions</h1>
       <div>
-        <button class="toolbar-action" type="button" @click="uploadContent">
+        <button
+          class="toolbar-action toolbar-action--upload"
+          type="button"
+          @click="uploadContent"
+        >
           <img
             src="@/assets/upload.svg"
             width="24"
@@ -14,7 +18,11 @@
             title="Upload transcriptions"
           />
         </button>
-        <button class="toolbar-action" type="button" @click="getContent">
+        <button
+          class="toolbar-action toolbar-action--get"
+          type="button"
+          @click="getContent"
+        >
           <img
             src="@/assets/fetch-document.svg"
             width="24"

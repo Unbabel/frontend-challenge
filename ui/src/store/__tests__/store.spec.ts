@@ -126,7 +126,6 @@ describe("Store", () => {
 
     test("list", () => {
       expect(store.getters.list).toBeDefined;
-      console.log(store.getters.list);
       expect(store.getters.list.length).toEqual(0);
     });
   });

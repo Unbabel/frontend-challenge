@@ -25,7 +25,7 @@
       />
     </span>
     <div class="opacity-transition item-action">
-      <button type="button" @click="removeItem">
+      <button type="button" class="item-action--remove" @click="removeItem">
         <img
           src="@/assets/delete.svg"
           width="16"
