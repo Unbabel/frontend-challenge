@@ -18,11 +18,11 @@ export default createStore({
       return await API.getData()
         .then((data: ApiDataResult) => {
           commit(CONSTANTS.STORE.MUTATIONS.SET_DATA, data);
+          commit(CONSTANTS.STORE.MUTATIONS.FETCHED_DATA);
           return;
         })
         .finally(() => {
           commit(CONSTANTS.STORE.MUTATIONS.FETCHING_DATA, false);
-          commit(CONSTANTS.STORE.MUTATIONS.FETCHED_DATA);
         });
     },
     [CONSTANTS.STORE.ACTIONS.SEND_DATA]: async ({ commit, state }) => {
@@ -43,7 +43,10 @@ export default createStore({
     [CONSTANTS.STORE.ACTIONS.REMOVE_ITEM]: ({ commit }, id) => {
       commit(CONSTANTS.STORE.MUTATIONS.DELETE_ITEM, id);
     },
-    [CONSTANTS.STORE.ACTIONS.UPDATE_ITEM]: ({ commit }, params) => {
+    [CONSTANTS.STORE.ACTIONS.UPDATE_ITEM]: (
+      { commit },
+      params: UpdateParams
+    ) => {
       commit(CONSTANTS.STORE.MUTATIONS.UPDATE_DATA, params);
     },
   },

@@ -41,6 +41,7 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-vue": "^8.0.3",
+    "fetch-mock-jest": "^1.5.1",
     "jest": "^27.0.5",
     "prettier": "^2.4.1",
     "ts-jest": "^27.0.4",

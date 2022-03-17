@@ -1,9 +1,9 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from "vue-router";
 import { CONSTANTS } from "@/utils/constants";
-import HomeView from "../views/HomeView.vue";
-import NotFoundView from "../views/NotFound.vue";
+import HomeView from "@/views/HomeView.vue";
+import NotFoundView from "@/views/NotFound.vue";
 
-const routes: Array<RouteRecordRaw> = [
+export const routes: Array<RouteRecordRaw> = [
   {
     path: CONSTANTS.ROUTES.HOME.PATH,
     name: CONSTANTS.ROUTES.HOME.NAME,
