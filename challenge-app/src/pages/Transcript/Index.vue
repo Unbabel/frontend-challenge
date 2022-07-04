@@ -1,14 +1,55 @@
 <template>
-  <p class="test-title">Transcript</p>
-  <Icon icon="add-row" />
+  <div class="transcript">
+    <Header>
+      <template #content>
+        <div class="transcript-header">
+          <h2 class="transcript-title">
+            Transcriptions
+          </h2>
+          <Button
+              icon="upload"
+          />
+          <Button
+              icon="fetch-document"
+              @click="fetchTranscriptions()"
+          />
+        </div>
+      </template>
+    </Header>
+
+  </div>
+
 </template>
 
 <script setup>
-import Icon from "#app/components/Icon.vue";
+import {useStore} from "vuex";
+import {computed} from "vue";
+// UI
+import Header from "#app/layout/Header.vue";
+import Button from "#app/components/Button.vue";
+
+
+const store = useStore();
+
+const transcriptionsList = computed(() => store.getters["transcription/getList"]);
+
+const fetchTranscriptions = async () => {
+  await store.dispatch("transcription/fetchList");
+}
+
 </script>
 
 <style lang="scss">
-.test-title {
-  @include app_title;
+.transcript {
+  @extend .layout;
+
+  &-header {
+    display: grid;
+    grid-template-columns: 1fr repeat(2, $gap_primary);
+    grid-column-gap: $gap_primary;
+  }
+  &-title {
+    @include app_title;
+  }
 }
 </style>
