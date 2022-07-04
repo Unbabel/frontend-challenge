@@ -1,0 +1,14 @@
+jspm_packages/**
+dist/**
+node_modules/**
+vendor/**
+polyfill/**
+webpack/**
+test/build/**
+test/test-runner-old/**
+assets/**
+coverage/**
+svg-icons
+gruntfile.js
+.eslintrc.js
+**/cli.mjs
