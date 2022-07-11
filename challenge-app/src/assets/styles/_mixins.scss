@@ -24,3 +24,11 @@
   line-height: 22px;
   color: $grey_light;
 }
+
+@mixin input_text {
+  border: none;
+  background: transparent;
+  &:focus {
+    outline: none;
+  }
+}

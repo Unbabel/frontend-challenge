@@ -1,19 +1,13 @@
 <template>
-  <button
-      class="button"
-      :disabled="loading"
-  >
-    <Icon
-        v-if="icon"
-        :icon="icon"
-    />
+  <button class="button" :disabled="loading">
+    <Icon v-if="icon" :icon="icon" />
     <slot name="label"></slot>
   </button>
 </template>
 
 <script setup>
 import Icon from "./Icon.vue";
-import {toRefs} from "vue";
+import { toRefs } from "vue";
 
 const props = defineProps({
   icon: {
@@ -22,11 +16,11 @@ const props = defineProps({
   },
   loading: {
     type: Boolean,
-    default: false,
+    default: false
   }
 });
 
-const {icon, loading} = toRefs(props);
+const { icon, loading } = toRefs(props);
 </script>
 
 <style scoped lang="scss">
@@ -34,14 +28,13 @@ const {icon, loading} = toRefs(props);
   border: none;
   background: transparent;
   cursor: pointer;
-  transition: .5s;
+  transition: 0.5s;
   &:hover {
-    filter: brightness(.85);
+    filter: brightness(0.85);
   }
   &[disabled] {
-    opacity: .8;
-    transition: .5s;
+    opacity: 0.8;
+    transition: 0.5s;
   }
 }
-
 </style>

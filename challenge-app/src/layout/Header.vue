@@ -4,12 +4,9 @@
       <slot name="content"></slot>
     </div>
   </header>
-
 </template>
 
-<script setup>
-
-</script>
+<script setup></script>
 
 <style scoped lang="scss">
 .header {
@@ -20,6 +17,4 @@
     @extend .wrapper;
   }
 }
-
-
 </style>
