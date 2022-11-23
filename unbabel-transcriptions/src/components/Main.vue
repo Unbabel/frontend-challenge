@@ -1,8 +1,15 @@
 <script>
 import axios from 'axios';
 import { API_URL } from '../api/url';
+import Checkbox from './Checkbox.vue';
+
+// TODO: customise checkbox
+// TODO: add funcionality to to add button at bottom
 
 export default {
+  components: {
+    Checkbox,
+  },
   data() {
     return { transcriptions: null };
   },
@@ -25,19 +32,21 @@ export default {
       <header class="container__header">
         <h1>Transcriptions</h1>
         <div class="container__header__actions">
-          <span
-            ><img
+          <button class="button">
+            <img
               src="../assets/upload.svg"
               alt="Upload icon, an arrow pointing up"
-          /></span>
-          <span
-            ><img
+            />
+          </button>
+          <button class="button">
+            <img
               src="../assets/fetch-document.svg"
               alt="An icon with a plus sign, inside a square"
-          /></span>
+            />
+          </button>
         </div>
       </header>
-      <hr />
+
       <main class="container__main">
         <div
           class="container__main__card"
@@ -47,7 +56,7 @@ export default {
           <div class="sup">
             <div class="initial">
               <div class="intital__profile">
-                <input type="checkbox" name="voice" />
+                <input type="checkbox" />
                 <img
                   src="../assets/person.svg"
                   alt="Blue ball representing a human face"
@@ -70,7 +79,7 @@ export default {
         </div>
 
         <div class="container__main__action">
-          <button>
+          <button class="button">
             <img
               src="../assets/add-row.svg"
               alt="Round button with a plus sign inside"
@@ -94,7 +103,6 @@ section {
   flex-direction: column;
   margin: 30px 30px;
   width: 100%;
-  max-width: 710px;
   border: 2px solid lightgrey;
   background-color: white;
 }
@@ -102,27 +110,29 @@ section {
 .container__header {
   display: flex;
   justify-content: space-between;
-  padding: 5px 10px;
+  padding: 5px 80px;
   align-items: center;
-  background-color: white;
+  background-color: #fff;
   border-bottom: 2px solid lightgray;
   font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
 }
 
 .container__header__actions {
   width: 100%;
-  max-width: 60px;
+  max-width: 70px;
   display: flex;
   justify-content: space-between;
 }
 
 .container__main {
-  padding: 10px;
+  padding: 70px;
+  background-color: #f6f7f8;
 }
 
 .container__main__card {
   border: 1px solid lightgray;
-  background-color: white;
+  background-color: #fff;
   padding: 12px 12px;
 }
 
@@ -178,6 +188,12 @@ section {
 }
 
 .container__main__action > button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.button {
   border: none;
   background-color: transparent;
   cursor: pointer;
