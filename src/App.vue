@@ -1,10 +1,13 @@
 <script lang="ts">
 import { Options, Vue } from 'vue-class-component';
+import Header from './components/Header.vue';
 import { IData } from './utils/Data.model';
 import * as DataAPI from "./utils/DataAPI";
 
 @Options({
-  components: {},
+  components: {
+    Header
+  },
 })
 export default class App extends Vue {
 
@@ -17,8 +20,8 @@ export default class App extends Vue {
 
 <template>
   <div class="app">
-
-  </div>
+    <Header />
+  </div> 
 </template>
 
 <style>
@@ -27,7 +30,11 @@ export default class App extends Vue {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  color: #404243;
+}
+
+body {
+  margin: 0;
+  background-color: #ededed;
 }
 </style>

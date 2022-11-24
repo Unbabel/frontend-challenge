@@ -1,7 +1,13 @@
+import { IData } from '@/utils/Data.model'
 import { createStore } from 'vuex'
 
-export default createStore({
-  state: {
+interface State {
+  transcriptions: IData[];
+}
+
+export default createStore<State>({
+  state: {  
+    transcriptions: []
   },
   mutations: {
   },
