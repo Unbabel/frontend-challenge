@@ -8,4 +8,17 @@ describe('Main Component', () => {
     expect(wrapper.text()).toContain('Transcriptions');
     expect(wrapper.html()).toMatchSnapshot();
   });
+
+  it('should render Loading', () => {
+    const wrapper = mount(Main, {
+      data() {
+        return {
+          loading: true,
+        };
+      },
+    });
+
+    expect(wrapper.text()).toContain('Loading...');
+    expect(wrapper.html()).toMatchSnapshot();
+  });
 });
