@@ -2,14 +2,14 @@
 export default {
   name: 'Checkbox',
   props: {
-    val: String,
+    val: String | Number,
   },
 };
 </script>
 
 <template>
-  <input type="checkbox" id="{{val}}" />
-  <label for="{{val}}"></label>
+  <input type="checkbox" :id="val" />
+  <label :for="val"></label>
 </template>
 
 <style scoped>
@@ -24,6 +24,7 @@ export default {
   display: inline-block;
   color: #666;
   line-height: 16px;
+  margin-top: 5px;
 }
 
 [type='checkbox'] + label::before {
@@ -38,20 +39,17 @@ export default {
   border-radius: 1px;
 }
 
-[type='checkbox']:checked + label::before {
+[type='checkbox']:checked + label::after {
   content: '';
   position: absolute;
   left: 0;
   top: 0;
   width: 16px;
   height: 16px;
-  outline: 2px solid red;
-  background: #fff;
-  border-radius: 1px;
-}
-
-[type='checkbox']:checked + label::after {
-  background-size: contain;
+  outline: 2px solid #859eff;
   background-image: url(../assets/check-mark-svgrepo-com.svg);
+  background-size: contain;
+  background-color: #859eff;
+  border-radius: 1px;
 }
 </style>
