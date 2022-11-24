@@ -1,0 +1,17 @@
+// Vitest Snapshot v1
+
+exports[`Main Component > should render Main without crash 1`] = `
+"<section data-v-3fa90f43=\\"\\">
+  <div class=\\"container\\" data-v-3fa90f43=\\"\\">
+    <header class=\\"container__header\\" data-v-c970699f=\\"\\" data-v-3fa90f43=\\"\\">
+      <h1 data-v-c970699f=\\"\\">Transcriptions</h1>
+      <div class=\\"container__header__actions\\" data-v-c970699f=\\"\\"><button class=\\"container__header__actions__button\\" data-v-c970699f=\\"\\"><img src=\\"/src/assets/upload.svg\\" alt=\\"Upload icon, an arrow pointing up\\" data-v-c970699f=\\"\\"></button><button class=\\"container__header__actions__button\\" data-v-c970699f=\\"\\"><img src=\\"/src/assets/fetch-document.svg\\" alt=\\"An icon with a plus sign, inside a square\\" data-v-c970699f=\\"\\"></button></div>
+    </header>
+    <main class=\\"container__main\\" data-v-3fa90f43=\\"\\">
+      <!--v-if-->
+      <p class=\\"container__main__message\\" data-v-3fa90f43=\\"\\"> Click on <img src=\\"/src/assets/fetch-document.svg\\" alt=\\"An icon with a plus sign, inside a square\\" data-v-3fa90f43=\\"\\"> to display the transcriptions </p>
+      <!--v-if-->
+    </main>
+  </div>
+</section>"
+`;
