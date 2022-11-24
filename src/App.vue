@@ -1,19 +1,25 @@
-<template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
-</template>
-
 <script lang="ts">
 import { Options, Vue } from 'vue-class-component';
-import HelloWorld from './components/HelloWorld.vue';
+import { IData } from './utils/Data.model';
+import * as DataAPI from "./utils/DataAPI";
 
 @Options({
-  components: {
-    HelloWorld,
-  },
+  components: {},
 })
-export default class App extends Vue {}
+export default class App extends Vue {
+
+  async created(): Promise<void> {
+    const res: IData[] = await DataAPI.getData();
+    console.log(res);
+  }
+}
 </script>
+
+<template>
+  <div class="app">
+
+  </div>
+</template>
 
 <style>
 #app {
