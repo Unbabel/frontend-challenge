@@ -1,9 +1,12 @@
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
 import store from '../store';
+import Item from "./Item.vue";
 
 @Options({
-  components: {}
+  components: {
+    Item
+  }
 })
 
 export default class ListItems extends Vue {
@@ -17,16 +20,16 @@ export default class ListItems extends Vue {
 
 <template>
   <div class="list">
-        <div class="list__item"
-          v-for="(transcription, index) in $store.state.transcriptions"
-          :key="transcription.id">
-          {{transcription + index}}
-        </div>
-        <div v-if="$store.state.transcriptions.length" class="list__action">
-          <button class="list__action--button" @click="addTranscriptions">
-            <img src="../assets/add-row.svg" alt="icon with a plus sign" />
-          </button>
-        </div>
+    <div class="list__item"
+        v-for="(transcription, index) in $store.state.transcriptions"
+        :key="transcription.id">
+        <Item :index="index"/>
+      </div>
+      <div v-if="$store.state.transcriptions.length" class="list__action">
+        <button class="list__action--button" @click="addTranscriptions">
+          <img src="../assets/add-row.svg" alt="icon with a plus sign" />
+        </button>
+    </div>
   </div>
 
 </template>
@@ -37,16 +40,18 @@ export default class ListItems extends Vue {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    margin: 20px 80px;
+    margin: 10px auto;
     background-color: white;
+    max-width: 45rem;
 
     &__item {
-      border: .5px solid rgb(237, 236, 236);
-      padding: 15px 15px;
+      border: 1px solid rgb(228, 227, 227);
+      padding: 15px 15px 0px 15px;
     }
 
     &__action {
-      margin-top: 15px;
+      padding-top: 15px;
+      background-color: #f0f3f3;
 
       &--button {
         border: none;

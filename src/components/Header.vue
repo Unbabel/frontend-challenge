@@ -37,7 +37,8 @@ export default class Header extends Vue {
     background-color: #fff;
     border-bottom: 2px solid #c7c7c7;
     font-family: 'Montserrat', sans-serif;
-    font-size: 16px;
+    font-weight: 500;
+    font-size: 18px;
 
     &__options {
     display: flex;
