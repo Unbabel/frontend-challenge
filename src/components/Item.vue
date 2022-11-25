@@ -1,10 +1,14 @@
 <script lang="ts">
 import { Options, Vue } from 'vue-class-component';
+import Checkbox from './Checkbox.vue';
 
 @Options({
   props: {
     index: Number
   },
+  components: { 
+    Checkbox
+  }
 })
 
 export default class Item extends Vue {
@@ -15,8 +19,10 @@ export default class Item extends Vue {
 <template>
   <div class="item">
       <div class="item__header">
-          <img src="../assets/person.svg" alt="human face icon" />
-        <input v-model="$store.state.transcriptions[index].voice" type="text" class="item__header--title" />
+        <Checkbox />
+        <img src="../assets/person.svg" alt="human face icon" />
+        <input v-model="$store.state.transcriptions[index].voice"
+         placeholder="transcription voice" type="text" class="item__header--title" />
         <button class="item__header--button">
           <img src="../assets/delete.svg" alt="trash icon" />
         </button>
@@ -24,7 +30,8 @@ export default class Item extends Vue {
       <div class="item__textarea">
         <textarea rows="3" cols="80"
           v-model="$store.state.transcriptions[index].text"
-          class="item__textarea--content">
+          class="item__textarea--content"
+          placeholder="transcription text">
         </textarea>
       </div>
   </div>
@@ -58,7 +65,7 @@ export default class Item extends Vue {
     }
 
     &__textarea {
-      margin-left: 37px;
+      margin-left: 70px;
       float: left;
 
       &--content {

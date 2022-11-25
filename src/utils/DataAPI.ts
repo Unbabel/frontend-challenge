@@ -8,7 +8,7 @@ const headers = {
 };
 
 export const getData = () =>
-  fetch(`${api}/books`, { headers })
+  fetch(`${api}`, { headers })
     .then((res) => res.json())
     .then((data) => data);
 

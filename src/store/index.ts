@@ -15,6 +15,7 @@ export default createStore<State>({
       try {
         const res = await getData();
         state.transcriptions = res;
+        console.log(res)
       } catch(error) {
         console.log('Fetch error: ', error);
       }
