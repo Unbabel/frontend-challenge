@@ -1,26 +1,22 @@
 <script lang="ts">
 import { Options, Vue } from 'vue-class-component';
 import Header from './components/Header.vue';
-import { IData } from './utils/Data.model';
-import * as DataAPI from "./utils/DataAPI";
+import ListItems from './components/ListItems.vue';
 
 @Options({
   components: {
-    Header
+    Header,
+    ListItems
   },
 })
 export default class App extends Vue {
-
-  async created(): Promise<void> {
-    const res: IData[] = await DataAPI.getData();
-    console.log(res);
-  }
 }
 </script>
 
 <template>
   <div class="app">
     <Header />
+    <ListItems />
   </div> 
 </template>
 
@@ -31,6 +27,8 @@ export default class App extends Vue {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #404243;
+  margin: 10px;
+  border: 2px solid lightgrey;
 }
 
 body {

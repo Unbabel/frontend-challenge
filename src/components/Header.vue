@@ -1,8 +1,15 @@
-<script Lang="ts">
+<script lang="ts">
 import { Vue } from "vue-class-component";
+import store from '../store';
 
 export default class Header extends Vue {
+   getTranscriptions = (): void => {
+     store.dispatch('getTranscriptions');
+  }
 
+  postTranscriptions = (): void => {
+     store.dispatch('postTranscriptions');
+  }
 }
 </script>
 
@@ -10,10 +17,10 @@ export default class Header extends Vue {
   <header class="header">
     <h1>Transcriptions</h1>
     <div class="header__options">
-      <button class="header__options--button">
+      <button @click="postTranscriptions" class="header__options--button">
         <img src="../assets/upload.svg" alt="arrow icon pointing up" />
       </button>
-      <button class="header__options--button">
+      <button @click="getTranscriptions" class="header__options--button">
         <img src="../assets/fetch-document.svg" alt="icon with a plus sign" />
       </button>
     </div>

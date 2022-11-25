@@ -1,6 +1,6 @@
 import { IData } from '@/utils/Data.model';
 import { createStore } from 'vuex';
-import * as DataAPI from "../utils/dataAPI";
+import { getData, postData } from '../utils/DataAPI';
 
 interface State {
   transcriptions: IData[];
@@ -13,8 +13,8 @@ export default createStore<State>({
   mutations: {
     async GET_TRANSCRIPTIONS (state) {
       try {
-        const res = await DataAPI.getData();
-        state.transcriptions.push(res);
+        const res = await getData();
+        state.transcriptions = res;
       } catch(error) {
         console.log('Fetch error: ', error);
       }
@@ -27,7 +27,7 @@ export default createStore<State>({
     },
     async POST_TRANSCRIPTIONS (state) {
       try {
-        const res = await DataAPI.postData(state.transcriptions);
+        const res = await postData(state.transcriptions);
         console.log(res);
       } catch(error) {
         console.log('Fetch error: ', error);
