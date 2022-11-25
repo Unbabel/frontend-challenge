@@ -23,8 +23,8 @@ export default createStore<State>({
     ADD_TRANSCRIPTIONS (state, transcription: IData) {
       state.transcriptions.push(transcription)
     },
-    DELETE_TRANSCRIPTIONS (state, transcription: IData) {
-      state.transcriptions = state.transcriptions.filter(t => t !== transcription);
+    DELETE_TRANSCRIPTIONS (state, i: number) {
+      state.transcriptions = state.transcriptions.filter((_, index) => index !== i);
     },
     async POST_TRANSCRIPTIONS (state) {
       try {

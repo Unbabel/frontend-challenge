@@ -1,6 +1,7 @@
 <script lang="ts">
 import { Options, Vue } from 'vue-class-component';
 import Checkbox from './Checkbox.vue';
+import store from '../store';
 
 @Options({
   props: {
@@ -12,6 +13,9 @@ import Checkbox from './Checkbox.vue';
 })
 
 export default class Item extends Vue {
+   deleteTranscriptions = (index: number): void => {
+     store.dispatch('deleteTranscriptions', index);
+  }
 
 }
 </script>
@@ -23,12 +27,12 @@ export default class Item extends Vue {
         <img src="../assets/person.svg" alt="human face icon" />
         <input v-model="$store.state.transcriptions[index].voice"
          placeholder="transcription voice" type="text" class="item__header--title" />
-        <button class="item__header--button">
+        <button class="item__header--button" @click="deleteTranscriptions(index)">
           <img src="../assets/delete.svg" alt="trash icon" />
         </button>
       </div>
       <div class="item__textarea">
-        <textarea rows="3" cols="80"
+        <textarea rows="4" cols="80"
           v-model="$store.state.transcriptions[index].text"
           class="item__textarea--content"
           placeholder="transcription text">
@@ -39,14 +43,14 @@ export default class Item extends Vue {
 
 <style lang="scss">
   .item { 
-    &__header{
+    &__header {
       display: flex;
       align-content: center;
       justify-content: flex-start;
 
       &--title {
         float: left;
-        width: 100%;
+        width: 30%;
         height: auto;
         font-family: 'Montserrat', sans-serif;
         font-weight: 600;
@@ -56,7 +60,14 @@ export default class Item extends Vue {
         margin-left: 10px;
       }
 
+      &--title:hover {
+        border: 1px solid #6272b19f;
+        border-radius: 5px;
+        padding: 3px;
+      }
+
       &--button {
+        display: none;
         margin-left: auto;
         border: none;
         background-color: transparent;
@@ -79,7 +90,16 @@ export default class Item extends Vue {
         border: none;
         color: #778195;
       }
+
+      &--content:hover {
+        border: 1px solid #6272b19f;
+        border-radius: 5px;
+        padding: 4px;
+      }
     }
   }
 
+  .item:hover > .item__header >.item__header--button {
+    display: block;
+  }
 </style>
