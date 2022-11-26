@@ -13,10 +13,16 @@ import store from '../store';
 })
 
 export default class Item extends Vue {
-   deleteTranscriptions = (index: number): void => {
+  deleteTranscriptions = (index: number): void => {
      store.dispatch('deleteTranscriptions', index);
   }
 
+  mounted(): void {
+    (this.$refs as HTMLFormElement).textarea.style.height = "auto";
+    this.$nextTick(() => {
+      (this.$refs as HTMLFormElement).textarea.style.height = (this.$refs as HTMLFormElement).textarea.scrollHeight + 'px';
+    })
+  }
 }
 </script>
 
@@ -32,7 +38,7 @@ export default class Item extends Vue {
         </button>
       </div>
       <div class="item__textarea">
-        <textarea rows="4" cols="80"
+        <textarea cols="80" ref="textarea"
           v-model="$store.state.transcriptions[index].text"
           class="item__textarea--content"
           placeholder="transcription text">
@@ -50,7 +56,7 @@ export default class Item extends Vue {
 
       &--title {
         float: left;
-        width: 30%;
+        width: 25%;
         height: auto;
         font-family: 'Montserrat', sans-serif;
         font-weight: 600;
@@ -89,6 +95,7 @@ export default class Item extends Vue {
         resize: none;
         border: none;
         color: #778195;
+        margin: 5px 0 10px 0;
       }
 
       &--content:hover {
@@ -101,5 +108,5 @@ export default class Item extends Vue {
 
   .item:hover > .item__header >.item__header--button {
     display: block;
-  }
+  } 
 </style>

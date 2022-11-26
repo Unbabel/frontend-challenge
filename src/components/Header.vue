@@ -3,7 +3,7 @@ import { Vue } from "vue-class-component";
 import store from '../store';
 
 export default class Header extends Vue {
-   getTranscriptions = (): void => {
+  getTranscriptions = (): void => {
      store.dispatch('getTranscriptions');
   }
 
@@ -37,6 +37,7 @@ export default class Header extends Vue {
     background-color: #fff;
     border-bottom: 2px solid #c7c7c7;
     font-family: 'Montserrat', sans-serif;
+    color:#414C5E;
     font-weight: 500;
     font-size: 18px;
 
