@@ -20,15 +20,17 @@ export default class ListItems extends Vue {
 
 <template>
   <div class="list">
-    <div class="list__item"
-        v-for="(transcription, index) in $store.state.transcriptions"
-        :key="transcription.id">
-        <Item :index="index"/>
+    <TransitionGroup name="fade">
+      <div class="list__item"
+          v-for="(transcription, index) in $store.state.transcriptions"
+          :key="transcription.id">
+          <Item :index="index"/>
       </div>
-      <div v-if="$store.state.transcriptions.length" class="list__action">
-        <button class="list__action--button" @click="addTranscriptions">
-          <img src="../assets/add-row.svg" alt="icon with a plus sign" />
-        </button>
+    </TransitionGroup>
+    <div v-if="$store.state.transcriptions.length" class="list__action">
+      <button class="list__action--button" @click="addTranscriptions">
+        <img src="../assets/add-row.svg" alt="icon with a plus sign" />
+      </button>
     </div>
   </div>
 
@@ -60,4 +62,20 @@ export default class ListItems extends Vue {
       }
     }
   }
+
+.fade-move,
+.fade-enter-active,
+.fade-leave-active {
+  transition: all 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+  transform: translateX(30px);
+}
+
+.fade-leave-active {
+  position: absolute;
+}
 </style>
