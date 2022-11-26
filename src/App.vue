@@ -1,22 +1,13 @@
 <script lang="ts">
-import { Options, Vue } from 'vue-class-component';
-import Header from './components/Header.vue';
-import ListItems from './components/ListItems.vue';
+import { Vue } from 'vue-class-component';
 
-@Options({
-  components: {
-    Header,
-    ListItems
-  },
-})
 export default class App extends Vue {
 }
 </script>
 
 <template>
   <div class="app">
-    <Header />
-    <ListItems />
+  <router-view />
   </div> 
 </template>
 

@@ -30,6 +30,7 @@ export default createStore<State>({
       try {
         const res = await postData(state.transcriptions);
         console.log(res);
+        window.alert('Your request has been sent successfully')
       } catch(error) {
         console.log('Fetch error: ', error);
       }
