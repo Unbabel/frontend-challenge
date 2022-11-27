@@ -17,11 +17,11 @@ export default class Header extends Vue {
   <header class="header">
     <h1>Transcriptions</h1>
     <div class="header__options">
-      <button @click="postTranscriptions" class="header__options--button">
+      <button @click="postTranscriptions" class="header__options--button" data-test="post-transcriptions">
         <img src="../assets/upload.svg" alt="arrow icon pointing up" />
       </button>
       <button @click="getTranscriptions" class="header__options--button">
-        <img src="../assets/fetch-document.svg" alt="icon with a plus sign" />
+        <img src="../assets/fetch-document.svg" alt="icon with a plus sign" data-test="get-transcriptions"/>
       </button>
     </div>
   </header>

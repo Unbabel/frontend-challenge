@@ -1,33 +1,16 @@
 import { mount } from "@vue/test-utils";
 import Item from '@/components/Item.vue';
-
-const mockData = [
-  {
-      "id": 1,
-      "voice": "test 1",
-      "text": "This is a one line sentence made to show how it fits"
-  },
-  {
-      "id": 2,
-      "voice": "test 2",
-      "text": "Lorem ipsum dolor sit amet"
-  },
-  {
-      "id": 3,
-      "voice": "test 3",
-      "text": "Lorem ipsum dolor sit amet"
-  }
-]
+import * as mocks from '../../src/utils/mocks';
 
 const $store = {
   state: {
-    transcriptions: mockData
+    transcriptions: mocks.mockData
   },
   commit: jest.fn()
 }
 
-describe('Item.vue', () => {
-  it('should render the correct number of Items', () => {
+describe.skip('Item.vue', () => {
+  it('should render item with the correct header', () => {
     const wrapper = mount(Item, {
       global: {
         mocks: {
@@ -35,9 +18,22 @@ describe('Item.vue', () => {
         }
       }
     })
-    const items = wrapper.findAll(".list__item");
+    const item = wrapper.findAll(".item__header");
 
-    expect(items).toHaveLength(3);
+    expect(item).toContain(mocks.mockData[0].voice);
+  })
+
+  it('should render item with the correct textarea content', () => {
+    const wrapper = mount(Item, {
+      global: {
+        mocks: {
+          $store
+        }
+      }
+    })
+    const item = wrapper.findAll(".item__textarea--content");
+
+    expect(item).toContain(mocks.mockData[0].text);
   })
 })
 
