@@ -15,10 +15,8 @@ export default class Home extends Vue {
 </script>
 
 <template>
-  <div>
     <Header />
-    <ListItems /> 
-  </div>
+    <ListItems />
 </template>
 
 <style>

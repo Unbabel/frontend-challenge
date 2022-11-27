@@ -1,29 +1,33 @@
-# frontend-challenge
+# Transcriptions App
 
-## Project setup
-```
-npm install
-```
+## Description
+This project has been made using Vue 3 and TypeScript 
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## Set up
+1. Make sure Node and npm are installed from the terminal. Steps:
 
-### Compiles and minifies for production
-```
-npm run build
-```
+    ```
+    npm install
+    ```
 
-### Run your unit tests
-```
-npm run test:unit
-```
+2. Start the project.
 
-### Lints and fixes files
-```
-npm run lint
-```
+    ```
+    npm run serve
+    ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+3. Now you can visit http://localhost:8080 to view the client
+
+4. To run the Tests: 
+
+    ```
+    npm run test:unit
+    ```
+
+## Notes
+
+* Data used from Mock API (http://www.mocky.io/v2/5ae1c5792d00004d009d7e5c)
+
+
+
+  

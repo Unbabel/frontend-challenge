@@ -31,7 +31,7 @@ export default class Header extends Vue {
 <style lang="scss">
  .header {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     padding: 0px 100px;
     align-items: center;
     background-color: #fff;
