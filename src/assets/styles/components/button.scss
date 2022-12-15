@@ -5,10 +5,9 @@
 
   padding: 0 8px;
   height: 40px;
-
-  &:hover {
-    cursor: pointer;
-  }
+  transition: background-color 0.15s ease-in, transform 0.15s ease-in;
+  cursor: pointer;
+  outline: 0;
 
   &:hover,
   &:focus {
