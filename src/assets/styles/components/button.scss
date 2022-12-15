@@ -1,0 +1,22 @@
+@use '../utils/mixins.scss';
+
+.button {
+  @include mixins.button-reset;
+
+  padding: 0 8px;
+  height: 40px;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:hover,
+  &:focus {
+    background: #e2e2e2;
+  }
+
+  &:active {
+    background-color: #c8c8c8;
+    transform: translateY(1px);
+  }
+}

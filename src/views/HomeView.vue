@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import TheWelcome from "../components/TheWelcome.vue";
+import TemplateHeader from '@/components/layout/TemplateHeader.vue';
 </script>
 
 <template>
+  <TemplateHeader />
   <main>
-    <TheWelcome />
+    <div class="container">List</div>
   </main>
 </template>
