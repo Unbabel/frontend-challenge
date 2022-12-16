@@ -1,6 +1,7 @@
 {
   "extends": "./tsconfig.app.json",
-  "exclude": [],
+  "include": ["tests/**/*"],
+  "exclude": ["cypress/**/*"],
   "compilerOptions": {
     "composite": true,
     "lib": [],

@@ -16,4 +16,11 @@ export default defineConfig({
   },
 
   plugins: [vue(), svgLoader()],
+
+  // https://github.com/vitest-dev/vitest
+  test: {
+    include: ['tests/**/*.test.ts'],
+    environment: 'jsdom',
+    root: 'tests',
+  },
 });
