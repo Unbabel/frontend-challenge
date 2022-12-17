@@ -20,10 +20,10 @@ defineProps({
       <div class="transcription-item__content">
         <div class="transcription-item__wrapper">
           <h2 class="transcription-item__title montserrat-font-family">
-            {{ transcription.title }}
+            {{ transcription.voice }}
           </h2>
           <p class="transcription-item__description">
-            {{ transcription.description }}
+            {{ transcription.text }}
           </p>
         </div>
       </div>

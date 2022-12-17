@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import UploadIcon from '@/assets/icons/upload.svg?component'
 import FetchDocumentIcon from '@/assets/icons/fetch-document.svg?component'
+import { useTranscriptionsStore } from '@/composables/transcriptions'
+
+const { fetchTranscriptions, uploadTranscriptions } = useTranscriptionsStore()
 </script>
 
 <template>
@@ -11,11 +14,11 @@ import FetchDocumentIcon from '@/assets/icons/fetch-document.svg?component'
           Transcriptions
         </h1>
         <div class="template-header__buttons">
-          <button class="button">
+          <button class="button" data-cy="upload-button" @click="uploadTranscriptions">
             <UploadIcon />
           </button>
 
-          <button class="button" data-cy="fetch-button">
+          <button class="button" data-cy="fetch-button" @click="fetchTranscriptions">
             <FetchDocumentIcon />
           </button>
         </div>
