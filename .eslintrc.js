@@ -9,4 +9,8 @@ module.exports = {
       extends: ['plugin:cypress/recommended'],
     },
   ],
+  rules: {
+    '@typescript-eslint/brace-style': 'off',
+    'curly': 'off',
+  },
 }
