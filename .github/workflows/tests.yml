@@ -6,7 +6,7 @@ name: Testing the project
 on: [push]
 
 jobs:
-  tests:
+  tests-e2e:
 
     runs-on: ubuntu-latest
 
@@ -21,7 +21,7 @@ jobs:
     - run: npm run build-only --if-present
     - run: npm run test:e2e
   
-  test-unit:
+  tests-unit:
 
     runs-on: ubuntu-latest
 
