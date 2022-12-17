@@ -4,6 +4,6 @@
   "compilerOptions": {
     "composite": true,
     "lib": [],
-    "types": ["node", "jsdom", "vite-svg-loader"]
+    "types": ["node", "jsdom", "vite-svg-loader", "vite/client"]
   }
 }
