@@ -12,7 +12,7 @@ defineProps({
 </script>
 
 <template>
-  <div class="transcription-list">
+  <div class="transcription-list" data-cy="transcriptions-list">
     <ul v-if="transcriptions.length">
       <li v-for="transcription in transcriptions" :key="transcription.id">
         <TranscriptionItem :transcription="transcription" />

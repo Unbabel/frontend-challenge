@@ -15,7 +15,7 @@ import FetchDocumentIcon from '@/assets/icons/fetch-document.svg?component'
             <UploadIcon />
           </button>
 
-          <button class="button">
+          <button class="button" data-cy="fetch-button">
             <FetchDocumentIcon />
           </button>
         </div>
