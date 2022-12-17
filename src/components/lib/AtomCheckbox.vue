@@ -1,22 +1,22 @@
+<script lang="ts" setup>
+import { ref } from 'vue'
+
+const emit = defineEmits(['update:modelValue'])
+
+const checked = ref(false)
+const change = () => {
+  const newValue = !checked.value
+  emit('update:modelValue', newValue)
+  checked.value = newValue
+}
+</script>
+
 <template>
   <label class="atom-checkbox">
-    <input type="checkbox" class="atom-checkbox__input" :checked="checked" @change="change" />
-    <span class="atom-checkbox__checkmark"></span>
+    <input type="checkbox" class="atom-checkbox__input" :checked="checked" @change="change">
+    <span class="atom-checkbox__checkmark" />
   </label>
 </template>
-
-<script lang="ts" setup>
-import { ref } from 'vue';
-
-const emit = defineEmits(['update:modelValue']);
-
-const checked = ref(false);
-const change = () => {
-  const newValue = !checked.value;
-  emit('update:modelValue', newValue);
-  checked.value = newValue;
-};
-</script>
 
 <style lang="scss" scoped>
 .atom-checkbox {

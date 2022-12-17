@@ -4,7 +4,7 @@ exports[`TemplateHeader.vue > should render 1`] = `
 "<header class=\\"template-header\\" data-v-45ec03a1=\\"\\">
   <div class=\\"container\\" data-v-45ec03a1=\\"\\">
     <div class=\\"template-header__content content\\" data-v-45ec03a1=\\"\\">
-      <h1 class=\\"template-header__title montserrat-font-family\\" data-v-45ec03a1=\\"\\">Transcriptions</h1>
+      <h1 class=\\"template-header__title montserrat-font-family\\" data-v-45ec03a1=\\"\\"> Transcriptions </h1>
       <div class=\\"template-header__buttons\\" data-v-45ec03a1=\\"\\"><button class=\\"button\\" data-v-45ec03a1=\\"\\"><svg width=\\"24\\" height=\\"24\\" xmlns=\\"http://www.w3.org/2000/svg\\" data-v-45ec03a1=\\"\\">
             <g fill=\\"none\\" fill-rule=\\"evenodd\\">
               <path d=\\"M0 0h24v24H0z\\"></path>

@@ -1,22 +1,8 @@
-<template>
-  <TemplateHeader />
-  <main>
-    <div class="container home">
-      <div class="wrapper">
-        <TranscriptionList :transcriptions="transcriptions" />
-      </div>
-      <div class="home__button">
-        <AddTranscription @add-row="addRow" />
-      </div>
-    </div>
-  </main>
-</template>
-
 <script setup lang="ts">
-import { ref } from 'vue';
-import TemplateHeader from '@/components/layout/TemplateHeader.vue';
-import TranscriptionList from '@/components/transcription/TranscriptionList.vue';
-import AddTranscription from '@/components/transcription/AddTranscription.vue';
+import { ref } from 'vue'
+import TemplateHeader from '@/components/layout/TemplateHeader.vue'
+import TranscriptionList from '@/components/transcription/TranscriptionList.vue'
+import AddTranscription from '@/components/transcription/AddTranscription.vue'
 
 const transcriptions = ref([
   { id: '1', title: 'Title example #1', description: 'Description example' },
@@ -31,15 +17,29 @@ const transcriptions = ref([
     title: 'Title example #3',
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
   },
-]);
+])
 
 const addRow = () => {
   transcriptions.value.push({
     ...transcriptions.value[2],
     id: `${transcriptions.value.length + 1}`,
-  });
-};
+  })
+}
 </script>
+
+<template>
+  <TemplateHeader />
+  <main>
+    <div class="container home">
+      <div class="wrapper">
+        <TranscriptionList :transcriptions="transcriptions" />
+      </div>
+      <div class="home__button">
+        <AddTranscription @add-row="addRow" />
+      </div>
+    </div>
+  </main>
+</template>
 
 <style lang="scss" scoped>
 .wrapper {

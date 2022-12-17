@@ -1,3 +1,16 @@
+<script setup lang="ts">
+import type { PropType } from 'vue'
+import TranscriptionItem from './TranscriptionItem.vue'
+import type { Transcription } from '@/types/transcription'
+
+defineProps({
+  transcriptions: {
+    type: Array as PropType<Transcription[]>,
+    default: () => [],
+  },
+})
+</script>
+
 <template>
   <div class="transcription-list">
     <ul v-if="transcriptions.length">
@@ -5,22 +18,11 @@
         <TranscriptionItem :transcription="transcription" />
       </li>
     </ul>
-    <p class="content" v-else>No transcriptions found, try to download or add</p>
+    <p v-else class="content">
+      No transcriptions found, try to download or add
+    </p>
   </div>
 </template>
-
-<script setup lang="ts">
-import type { Transcription } from '@/types/transcription';
-import type { PropType } from 'vue';
-import TranscriptionItem from './TranscriptionItem.vue';
-
-defineProps({
-  transcriptions: {
-    type: Array as PropType<Transcription[]>,
-    default: () => [],
-  },
-});
-</script>
 
 <style lang="scss" scoped>
 .transcription-list {

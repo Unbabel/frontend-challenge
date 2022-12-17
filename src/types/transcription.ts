@@ -1,5 +1,5 @@
-export type Transcription = {
-  id: string;
-  title: string;
-  description: string;
-};
+export interface Transcription {
+  id: string
+  title: string
+  description: string
+}

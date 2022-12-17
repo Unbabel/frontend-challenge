@@ -1,8 +1,15 @@
+<script setup lang="ts">
+import UploadIcon from '@/assets/icons/upload.svg?component'
+import FetchDocumentIcon from '@/assets/icons/fetch-document.svg?component'
+</script>
+
 <template>
   <header class="template-header">
     <div class="container">
       <div class="template-header__content content">
-        <h1 class="template-header__title montserrat-font-family">Transcriptions</h1>
+        <h1 class="template-header__title montserrat-font-family">
+          Transcriptions
+        </h1>
         <div class="template-header__buttons">
           <button class="button">
             <UploadIcon />
@@ -16,11 +23,6 @@
     </div>
   </header>
 </template>
-
-<script setup lang="ts">
-import UploadIcon from '@/assets/icons/upload.svg?component';
-import FetchDocumentIcon from '@/assets/icons/fetch-document.svg?component';
-</script>
 
 <style lang="scss" scoped>
 .template-header {

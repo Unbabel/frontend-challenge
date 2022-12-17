@@ -1,17 +1,17 @@
+<script lang="ts" setup>
+import AddRowIcon from '@/assets/icons/add-row.svg?component'
+
+const emit = defineEmits(['addRow'])
+const click = () => {
+  emit('addRow')
+}
+</script>
+
 <template>
-  <button @click="click" class="add-transcription">
+  <button class="add-transcription" @click="click">
     <AddRowIcon />
   </button>
 </template>
-
-<script lang="ts" setup>
-import AddRowIcon from '@/assets/icons/add-row.svg?component';
-
-const emit = defineEmits(['add-row']);
-const click = () => {
-  emit('add-row');
-};
-</script>
 
 <style lang="scss" scoped>
 @use '@/assets/styles/utils/mixins.scss';
