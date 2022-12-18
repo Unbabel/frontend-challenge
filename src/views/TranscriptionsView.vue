@@ -1,14 +1,13 @@
 <script setup lang="ts">
-import { ref, toRef } from 'vue'
+import { storeToRefs } from 'pinia'
 import TemplateHeader from '@/components/layout/TemplateHeader.vue'
 import TranscriptionList from '@/components/transcription/TranscriptionList.vue'
 import AddTranscription from '@/components/transcription/AddTranscription.vue'
 import { useTranscriptionsStore } from '@/composables/transcriptions'
 
-const transcriptionsStore = useTranscriptionsStore()
-const addRow = () => {
-  transcriptionsStore.addRow()
-}
+const store = useTranscriptionsStore()
+const { addRow } = store
+const { transcriptions } = storeToRefs(store)
 </script>
 
 <template>
@@ -16,7 +15,7 @@ const addRow = () => {
   <main>
     <div class="container home">
       <div class="wrapper">
-        <TranscriptionList :transcriptions="transcriptionsStore.getTranscriptions" />
+        <TranscriptionList :transcriptions="transcriptions" />
       </div>
       <div class="home__button">
         <AddTranscription @add-row="addRow" />

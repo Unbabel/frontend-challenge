@@ -23,7 +23,7 @@ export default class TranscriptionsModel {
 
   createTranscription() {
     this.transcriptions.push({
-      id: `${this.transcriptions.length + 1}`,
+      id: this.transcriptions.length + 1,
       voice: 'New voice',
       text: 'New description text',
     })

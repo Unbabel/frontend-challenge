@@ -4,13 +4,13 @@ import TranscriptionsModel from '@/models/TranscriptionsModel'
 
 export const useTranscriptionsStore = defineStore('transcriptions', () => {
   const model = new TranscriptionsModel()
-  const transcriptions = ref(model.transcriptions)
+  const transcriptions = ref([...model.transcriptions])
   const getTranscriptions = computed(() => {
     return transcriptions.value
   })
 
   function syncWithModel() {
-    transcriptions.value = model.transcriptions
+    transcriptions.value = [...model.transcriptions]
   }
 
   async function fetchTranscriptions() {

@@ -1,5 +1,5 @@
 export interface Transcription {
-  id: string
+  id: number
   voice: string
   text: string
 }
