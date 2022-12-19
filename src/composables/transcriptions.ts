@@ -1,5 +1,6 @@
 import { acceptHMRUpdate, defineStore } from 'pinia'
 import { ref } from 'vue'
+import type { UpdateField } from '@/models/TranscriptionsModel'
 import TranscriptionsModel from '@/models/TranscriptionsModel'
 
 export const useTranscriptionsStore = defineStore('transcriptions', () => {
@@ -29,12 +30,18 @@ export const useTranscriptionsStore = defineStore('transcriptions', () => {
     syncWithModel()
   }
 
+  function updateTranscriptionById(id: number, field: UpdateField, value: string) {
+    model.updateTranscriptionById(id, field, value)
+    syncWithModel()
+  }
+
   return {
     transcriptions,
     fetchTranscriptions,
     uploadTranscriptions,
     addRow,
     removeTranscriptionById,
+    updateTranscriptionById,
   }
 })
 

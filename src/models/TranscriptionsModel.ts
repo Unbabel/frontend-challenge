@@ -2,6 +2,11 @@ import { type TranscriptionsClientInterface, transcriptionsClient } from '@/serv
 import type { Transcription } from '@/types/transcription'
 import { getRandomNumber } from '@/utils/getRandomNumber'
 
+export enum UpdateField {
+  Voice = 'voice',
+  Text = 'text',
+}
+
 export default class TranscriptionsModel {
   transcriptions: Transcription[]
   apiClient: TranscriptionsClientInterface
@@ -34,7 +39,11 @@ export default class TranscriptionsModel {
     this.transcriptions = this.transcriptions.filter(t => t.id !== id)
   }
 
-  getTranscriptions() {
-    return this.transcriptions
+  updateTranscriptionById(id: number, field: UpdateField, value: string) {
+    for (let i = 0; i < this.transcriptions.length; i++) {
+      if (this.transcriptions[i].id === id) {
+        this.transcriptions[i][field] = value
+      }
+    }
   }
 }
