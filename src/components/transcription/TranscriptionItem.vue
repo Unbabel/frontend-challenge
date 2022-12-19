@@ -116,7 +116,7 @@ const handleDescriptionEnter = (e: KeyboardEvent) => {
 
   &__button {
     position: absolute;
-    top: 0.5rem;
+    top: 0.8rem;
     right: 0.5rem;
     display: none;
   }
@@ -164,6 +164,12 @@ const handleDescriptionEnter = (e: KeyboardEvent) => {
     font-weight: 600;
     color: var(--color-gray-2);
     font-size: 16px;
+  }
+
+  &__title:hover,
+  &__description:hover {
+    background-color: var(--color-background);
+    cursor: text;
   }
 
   &__description {
