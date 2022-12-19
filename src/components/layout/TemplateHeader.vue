@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import UploadIcon from '@/assets/icons/upload.svg?component'
 import FetchDocumentIcon from '@/assets/icons/fetch-document.svg?component'
-import { useTranscriptionsStore } from '@/composables/transcriptions'
+import { useTranscriptionsStore } from '@/composables/useTranscriptionsStore'
 
 const { fetchTranscriptions, uploadTranscriptions } = useTranscriptionsStore()
 </script>

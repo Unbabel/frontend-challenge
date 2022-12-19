@@ -5,7 +5,7 @@ import type { Transcription } from '@/types/transcription'
 import AtomCheckbox from '@/components/lib/AtomCheckbox.vue'
 import PersonIcon from '@/assets/icons/person.svg?component'
 import TrashIcon from '@/assets/icons/delete.svg?component'
-import { useTranscriptionsStore } from '@/composables/transcriptions'
+import { useTranscriptionsStore } from '@/composables/useTranscriptionsStore'
 import { UpdateField } from '@/models/TranscriptionsModel'
 
 const props = defineProps({

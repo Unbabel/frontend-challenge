@@ -3,7 +3,7 @@ import { storeToRefs } from 'pinia'
 import TemplateHeader from '@/components/layout/TemplateHeader.vue'
 import TranscriptionList from '@/components/transcription/TranscriptionList.vue'
 import AddTranscription from '@/components/transcription/AddTranscription.vue'
-import { useTranscriptionsStore } from '@/composables/transcriptions'
+import { useTranscriptionsStore } from '@/composables/useTranscriptionsStore'
 
 const store = useTranscriptionsStore()
 const { addRow } = store

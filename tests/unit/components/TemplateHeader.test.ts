@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils'
 import { beforeEach, describe, expect, it } from 'vitest'
 import { createPinia, setActivePinia } from 'pinia'
-import { useTranscriptionsStore } from '@/composables/transcriptions'
+import { useTranscriptionsStore } from '@/composables/useTranscriptionsStore'
 import TemplateHeader from '@/components/layout/TemplateHeader.vue'
 
 describe('TemplateHeader.vue', () => {
