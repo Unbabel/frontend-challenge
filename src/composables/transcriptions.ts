@@ -24,11 +24,17 @@ export const useTranscriptionsStore = defineStore('transcriptions', () => {
     syncWithModel()
   }
 
+  function removeTranscriptionById(id: number) {
+    model.removeTranscriptionById(id)
+    syncWithModel()
+  }
+
   return {
     transcriptions,
     fetchTranscriptions,
     uploadTranscriptions,
     addRow,
+    removeTranscriptionById,
   }
 })
 

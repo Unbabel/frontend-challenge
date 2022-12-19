@@ -24,10 +24,14 @@ export default class TranscriptionsModel {
 
   createTranscription() {
     this.transcriptions.push({
-      id: getRandomNumber(),
+      id: getRandomNumber(13),
       voice: 'New voice',
       text: 'New description text',
     })
+  }
+
+  removeTranscriptionById(id: number) {
+    this.transcriptions = this.transcriptions.filter(t => t.id !== id)
   }
 
   getTranscriptions() {
