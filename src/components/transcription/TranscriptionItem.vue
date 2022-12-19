@@ -74,14 +74,14 @@ const handleDescriptionEnter = (e: KeyboardEvent) => {
             v-else
             ref="inputTitle"
             v-model="newTitle"
-            class="transcription-item__title-editor"
+            class="transcription-item__title-editor montserrat-font-family"
             @blur="saveTitle"
             @keydown.enter="saveTitle"
           >
 
           <p
             v-if="!isDescriptionEditing"
-            class="transcription-item__description"
+            class="transcription-item__description opensans-font-family"
             @click="activateEditDescription"
           >
             {{ transcription.text }}
@@ -91,7 +91,7 @@ const handleDescriptionEnter = (e: KeyboardEvent) => {
             ref="textareaDescription"
             v-model="newDescription"
             rows="5"
-            class="transcription-item__description-editor"
+            class="transcription-item__description-editor opensans-font-family"
             @keydown.enter="handleDescriptionEnter"
             @blur="saveDescription"
           />
