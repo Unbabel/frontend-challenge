@@ -1,5 +1,6 @@
 import { type TranscriptionsClientInterface, transcriptionsClient } from '@/services/api/transcriptionsClient'
 import type { Transcription } from '@/types/transcription'
+import { getRandomNumber } from '@/utils/getRandomNumber'
 
 export default class TranscriptionsModel {
   transcriptions: Transcription[]
@@ -23,7 +24,7 @@ export default class TranscriptionsModel {
 
   createTranscription() {
     this.transcriptions.push({
-      id: this.transcriptions.length + 1,
+      id: getRandomNumber(),
       voice: 'New voice',
       text: 'New description text',
     })

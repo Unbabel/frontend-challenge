@@ -1,13 +1,10 @@
 import { acceptHMRUpdate, defineStore } from 'pinia'
-import { computed, ref } from 'vue'
+import { ref } from 'vue'
 import TranscriptionsModel from '@/models/TranscriptionsModel'
 
 export const useTranscriptionsStore = defineStore('transcriptions', () => {
   const model = new TranscriptionsModel()
   const transcriptions = ref([...model.transcriptions])
-  const getTranscriptions = computed(() => {
-    return transcriptions.value
-  })
 
   function syncWithModel() {
     transcriptions.value = [...model.transcriptions]
@@ -29,7 +26,6 @@ export const useTranscriptionsStore = defineStore('transcriptions', () => {
 
   return {
     transcriptions,
-    getTranscriptions,
     fetchTranscriptions,
     uploadTranscriptions,
     addRow,

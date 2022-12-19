@@ -13,11 +13,11 @@ const { transcriptions } = storeToRefs(store)
 <template>
   <TemplateHeader />
   <main>
-    <div class="container home">
+    <div class="container transcriptions">
       <div class="wrapper">
         <TranscriptionList :transcriptions="transcriptions" />
       </div>
-      <div class="home__button">
+      <div class="transcriptions__button">
         <AddTranscription @add-row="addRow" />
       </div>
     </div>
@@ -29,7 +29,7 @@ const { transcriptions } = storeToRefs(store)
   padding-top: 1.5rem;
 }
 
-.home__button {
+.transcriptions__button {
   margin-top: 1.5rem;
   display: flex;
   justify-content: center;
