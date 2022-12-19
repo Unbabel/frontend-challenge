@@ -32,7 +32,7 @@ defineProps({
     margin: 0;
     padding-left: 0;
     list-style: none;
-    max-height: 600px;
+    max-height: 70vh;
     overflow-y: auto;
   }
 
