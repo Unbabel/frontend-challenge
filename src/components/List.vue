@@ -1,5 +1,5 @@
 <template>
-    <div>Header</div>
+    <div>List</div>
 </template>
 
 <script lang="ts">

@@ -1,8 +1,10 @@
 import { createStore } from 'vuex'
 
-export const store = createStore({
+const store = createStore({
     state() {
         return {}
     },
     mutations: {}
 })
+
+export default store
