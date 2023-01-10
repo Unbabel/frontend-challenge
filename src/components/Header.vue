@@ -60,7 +60,7 @@ export default defineComponent({
 		font-family: 'Montserrat', sans-serif;
 		font-weight: 500;
 		font-size: 18px;
-		color: #414C5E;
+		color: var(--unb-app-title);
 	}
 
 	&__buttons {

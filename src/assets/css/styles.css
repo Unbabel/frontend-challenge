@@ -1,6 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
+:root {
+    --unb-app-title: #414C5E;
+    --unb-item-title: #566074;
+    --unb-item-content: #778195;
+}
+
 body {
     margin: 0;
 }
