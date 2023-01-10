@@ -1,5 +1,7 @@
 <template>
-    <div>Header</div>
+    <header>
+        <span>{{ $t('title') }}</span>
+    </header>
 </template>
 
 <script lang="ts">
