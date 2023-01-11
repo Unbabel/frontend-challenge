@@ -46,6 +46,7 @@ export default defineComponent({
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
+		box-sizing: border-box;
 		width: 100%;
 		padding: 0 24px;
 

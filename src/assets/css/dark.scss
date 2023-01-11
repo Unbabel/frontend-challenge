@@ -5,9 +5,21 @@
         box-shadow: 0 3px 5px var(--shadow-dark);
     }
 
-    .notes {
+    .content {
         background-color: var(--background-dark);
         color: white;
+
+        .list {
+            background-color: var(--background-dark);
+
+            @media(min-width: 768px) {
+                box-shadow: 0 3px 5px var(--shadow-dark);
+            }
+
+            &__item {
+                border-bottom: 1px solid var(--shadow-dark);
+            }
+        }
     }
 
     footer {

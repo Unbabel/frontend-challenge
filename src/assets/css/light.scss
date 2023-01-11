@@ -4,8 +4,20 @@
     box-shadow: 0 3px 5px var(--shadow-light);
 }
 
-.notes {
+.content {
     background-color: var(--background-light);
+
+    .list {
+        background-color: white;
+
+        @media(min-width: 768px) {
+            box-shadow: 0 3px 5px var(--shadow-light);
+        }
+
+        &__item {
+            border-bottom: 1px solid #EAEDEF;
+        }
+    }
 }
 
 footer {

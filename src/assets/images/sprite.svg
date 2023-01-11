@@ -5,5 +5,6 @@
     <symbol id="fetch-document" width="24" height="24"><g fill="none" fill-rule="evenodd"><path d="M0 0h24v24H0z"/><path fill="#8F97A8" fill-rule="nonzero" d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6Zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2Zm-1 9h-4v4h-2v-4H9V9h4V5h2v4h4v2Z"/></g></symbol>
     <symbol id="person" width="26" height="26"><g fill="none" fill-rule="evenodd"><rect width="26" height="26" fill="#34A5FF" rx="13"/><path fill="#FFF" d="m13.448 12.552 3.966 4.034-3.966.813z"/><circle cx="19.724" cy="10.759" r="1.793" fill="#FFF"/><circle cx="8.069" cy="10.759" r="1.793" fill="#FFF"/></g></symbol>
     <symbol id="upload" width="24" height="24"><g fill="none" fill-rule="evenodd"><path d="M0 0h24v24H0z"/><path fill="#8F97A8" fill-rule="nonzero" d="M9 16h6v-6h4l-7-7-7 7h4v6Zm-4 2h14v2H5v-2Z"/></g></symbol>
+    <symbol id="checkmark" width="11" height="8"><path fill="#FFF" fill-rule="evenodd" d="M.404 4.975A1 1 0 1 1 1.818 3.56l1.65 1.65L8.418.26a1 1 0 1 1 1.414 1.414L4.175 7.332a1 1 0 0 1-1.414 0L.404 4.975Z"/></symbol>
   </defs>
 </svg>
