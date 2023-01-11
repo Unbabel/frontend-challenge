@@ -1,7 +1,7 @@
 <template>
 	<header class="header">
 		<div class="header__content">
-			<span class="header__title">{{ $t('title') }}</span>
+			<h1 class="header__title">{{ $t('title') }}</h1>
 			<section class="header__buttons">
 				<button v-for="button in buttons">
 					<svg width="24" height="24">
