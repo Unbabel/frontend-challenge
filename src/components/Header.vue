@@ -41,8 +41,6 @@ export default defineComponent({
 	justify-content: center;
 
 	height: 69px;
-	background-color: white;
-	box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
 
 	&__content {
 		display: flex;
@@ -60,7 +58,6 @@ export default defineComponent({
 		font-family: 'Montserrat', sans-serif;
 		font-weight: 500;
 		font-size: 18px;
-		color: var(--unb-app-title);
 	}
 
 	&__buttons {

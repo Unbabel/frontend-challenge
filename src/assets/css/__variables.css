@@ -1,0 +1,11 @@
+:root {
+    --unb-app-title: #414C5E;
+    --unb-item-title: #566074;
+    --unb-item-content: #778195;
+
+    --background-light: #F6F7F8;
+    --shadow-light: rgba(57, 63, 72, 0.3);
+
+    --background-dark: #161d26;
+    --shadow-dark: rgba(72, 66, 57, 0.3);
+}

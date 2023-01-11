@@ -9,5 +9,15 @@ export default defineConfig({
     alias: {
       '@': path.resolve(__dirname, './src'),
     }
+  },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `
+          @import "./src/assets/css/light.scss";
+          @import "./src/assets/css/dark.scss";
+        `
+      }
+    }
   }
 })
