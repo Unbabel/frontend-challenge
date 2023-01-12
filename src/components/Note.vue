@@ -5,23 +5,27 @@
             <svg width="26" height="26" class="icon">
                 <use href="src/assets/images/sprite.svg#person" />
             </svg>
-            <div contenteditable class="note__title" />
+            <div contenteditable class="note__title">{{ data?.voice }}</div>
             <button class="btn">
                 <svg width="16" height="20">
                     <use href="src/assets/images/sprite.svg#delete" />
                 </svg>
             </button>
         </div>
-        <div contenteditable class="note__content"></div>
+        <div contenteditable class="note__content">{{ data?.text }}</div>
     </article>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, PropType } from 'vue'
 import Checkbox from '@/components/Checkbox.vue'
+import { Note } from '@/interfaces'
 
 export default defineComponent({
-    components: { Checkbox }
+    components: { Checkbox },
+    props: {
+        data: Object as PropType<Note>
+    }
 })
 </script>
 

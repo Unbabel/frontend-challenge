@@ -1,7 +1,9 @@
 <template>
     <section class="content">
         <ul class="list">
-            <li><Note /></li>
+            <li v-for="note in notes" :key="note.id">
+                <Note :data="note" />
+            </li>
         </ul>
         <button class="btn">
             <svg width="32" height="32">
@@ -14,9 +16,13 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import Note from '@/components/Note.vue'
+import { mapState } from 'vuex';
 
 export default defineComponent({
-    components: { Note }
+    components: { Note },
+    computed: {
+        ...mapState(['notes'])
+    }
 })
 </script>
 
