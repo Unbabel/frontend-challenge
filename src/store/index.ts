@@ -5,7 +5,8 @@ import actions from './actions'
 
 const store = createStore<State>({
     state: {
-        notes: []
+        notes: [],
+        loading: false
     },
     mutations,
     actions

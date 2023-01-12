@@ -5,5 +5,6 @@ export interface Note {
 }
 
 export interface State {
-    notes: Note[]
+    notes: Note[],
+    loading: boolean
 }

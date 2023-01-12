@@ -1,6 +1,7 @@
 <template>
     <section class="content">
-        <ul class="list">
+        <Loading v-if="loading" />
+        <ul v-else class="list">
             <li v-for="note in notes" :key="note.id">
                 <Note :data="note" />
             </li>
@@ -15,13 +16,17 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import { mapState } from 'vuex'
 import Note from '@/components/Note.vue'
-import { mapState } from 'vuex';
+import Loading from '@/components/Loading.vue'
 
 export default defineComponent({
-    components: { Note },
+    components: {
+        Note,
+        Loading
+    },
     computed: {
-        ...mapState(['notes'])
+        ...mapState(['notes', 'loading'])
     }
 })
 </script>
