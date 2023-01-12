@@ -3,3 +3,7 @@ export interface Note {
     voice: string,
     text: string
 }
+
+export interface State {
+    notes: Note[]
+}

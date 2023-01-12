@@ -37,6 +37,7 @@ $footer: 36px;
     align-items: center;
     justify-content: flex-start;
 }
+
 .list {
     width: 100%;
     list-style: none;

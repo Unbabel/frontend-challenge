@@ -3,7 +3,7 @@
 		<div class="header__content">
 			<h1 class="header__title">{{ $t('title') }}</h1>
 			<section class="header__buttons">
-				<button v-for="button in buttons" class="btn">
+				<button v-for="button in buttons" :key="button.id" @click="button.action" class="btn">
 					<svg width="24" height="24">
 						<use :href="`src/assets/images/sprite.svg#${button.id}`" />
 					</svg>
@@ -15,18 +15,30 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import { mapActions } from 'vuex'
 
 export default defineComponent({
 	data: () => ({
-		buttons: [
+		buttons: [{
+			id: '',
+			action: () => { }
+		}]
+	}),
+	created() {
+		this.buttons = [
 			{
-				id: 'upload'
+				id: 'upload',
+				action: () => { }
 			},
 			{
-				id: 'fetch-document'
+				id: 'fetch-document',
+				action: () => { this.fetchNotes() }
 			}
 		]
-	})
+	},
+	methods: {
+		...mapActions(['fetchNotes'])
+	}
 })
 </script>
 
