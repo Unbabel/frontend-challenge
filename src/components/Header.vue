@@ -3,7 +3,7 @@
 		<div class="header__content">
 			<h1 class="header__title">{{ $t('title') }}</h1>
 			<section class="header__buttons">
-				<button v-for="button in buttons">
+				<button v-for="button in buttons" class="btn">
 					<svg width="24" height="24">
 						<use :href="`src/assets/images/sprite.svg#${button.id}`" />
 					</svg>
@@ -67,12 +67,6 @@ export default defineComponent({
 }
 
 button {
-	display: flex;
-	align-items: center;
-	background: none;
-	border: none;
-	padding: 0;
-	cursor: pointer;
 	margin-left: 24px;
 }
 </style>

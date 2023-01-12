@@ -26,6 +26,7 @@ $purple: #859EFF;
 .checkbox {
     border: 2px solid $purple;
     border-radius: 25%;
+    flex-shrink: 0;
 
     .checkmark {
         display: none;
