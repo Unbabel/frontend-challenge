@@ -1,11 +1,13 @@
 <template>
     <section class="content">
         <Loading v-if="loading" />
-        <ul class="list">
-            <li v-for="note in notes" :key="note.id">
-                <Note :data="note" />
-            </li>
-        </ul>
+        <Transition>
+            <TransitionGroup v-if="!listIsEmpty" tag="ul" class="list">
+                <li v-for="note in notes" :key="note.id">
+                    <Note :data="note" />
+                </li>
+            </TransitionGroup>
+        </Transition>
         <button class="btn">
             <svg width="32" height="32">
                 <use href="src/assets/images/sprite.svg#add-row" />
@@ -26,11 +28,15 @@ export default defineComponent({
         Loading
     },
     computed: {
-        ...mapState(['notes', 'loading'])
+        ...mapState(['notes', 'loading']),
+        listIsEmpty() {
+            return this.notes.length === 0
+        }
     }
 })
 </script>
 
+<style src="@/assets/css/transitions.scss" lang="scss" scoped />
 <style lang="scss" scoped>
 $header: 69px;
 $footer: 36px;
