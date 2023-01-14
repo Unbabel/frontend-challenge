@@ -18,6 +18,10 @@
 
             li {
                 border-bottom: 1px solid var(--shadow-dark);
+
+                .note__title {
+                    color: #8F97A8;
+                }
             }
         }
     }

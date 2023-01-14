@@ -6,7 +6,7 @@
                 <use href="src/assets/images/sprite.svg#person" />
             </svg>
             <CustomInput v-model="data.voice" class="note__title" />
-            <button class="btn" @click="deleteNote(data.id)">
+            <button @click="deleteNote(data.id)" class="btn">
                 <svg width="16" height="20">
                     <use href="src/assets/images/sprite.svg#delete" />
                 </svg>
@@ -79,7 +79,6 @@ article {
     &__title {
         font-family: 'Montserrat', sans-serif;
         font-weight: 600;
-        color: #566074;
         flex-grow: 1;
         line-break: anywhere;
     }
