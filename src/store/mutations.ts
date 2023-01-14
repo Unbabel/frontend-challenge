@@ -11,6 +11,9 @@ const mutations = {
          state.notes = state.notes.map(oldNote => {
             return oldNote.id === newNote.id ? newNote : oldNote
          })
+    },
+    deleteNote(state: State, id: number) {
+        state.notes = state.notes.filter(note => note.id !== id)
     }
 }
 

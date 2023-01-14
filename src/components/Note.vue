@@ -6,7 +6,7 @@
                 <use href="src/assets/images/sprite.svg#person" />
             </svg>
             <CustomInput v-model="data.voice" class="note__title" />
-            <button class="btn">
+            <button class="btn" @click="deleteNote(data.id)">
                 <svg width="16" height="20">
                     <use href="src/assets/images/sprite.svg#delete" />
                 </svg>
@@ -35,7 +35,7 @@ export default defineComponent({
         }
     },
     methods: {
-        ...mapMutations(['updateNote'])
+        ...mapMutations(['updateNote', 'deleteNote'])
     },
     watch: {
         data: {
