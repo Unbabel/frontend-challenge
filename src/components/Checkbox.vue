@@ -16,15 +16,13 @@ export default defineComponent({})
 </script>
 
 <style lang="scss" scoped>
-$purple: #859EFF;
-
 @mixin checkbox-size {
     height: 14px;
     width: 14px;
 }
 
 .checkbox {
-    border: 2px solid $purple;
+    border: 2px solid var(--unb-purple);
     border-radius: 25%;
     flex-shrink: 0;
 
@@ -44,7 +42,7 @@ input[type="checkbox"] {
         display: flex;
         align-items: center;
         justify-content: center;
-        background-color: $purple;
+        background-color: var(--unb-purple);
 
         @include checkbox-size;
     }

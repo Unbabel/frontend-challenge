@@ -1,7 +1,7 @@
 <template>
     <section class="content">
         <Loading v-if="loading" />
-        <ul v-else class="list">
+        <ul class="list">
             <li v-for="note in notes" :key="note.id">
                 <Note :data="note" />
             </li>

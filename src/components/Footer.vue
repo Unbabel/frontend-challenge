@@ -27,9 +27,6 @@ $dark: var(--background-dark);
 $button-color: #8F97A8;
 
 footer {
-    position: sticky;
-    bottom: 0;
-
     display: flex;
     justify-content: flex-end;
 
