@@ -21,23 +21,23 @@ export default defineComponent({
 	data: () => ({
 		buttons: [{
 			id: '',
-			action: () => { }
+			action: () => {}
 		}]
 	}),
 	created() {
 		this.buttons = [
 			{
 				id: 'upload',
-				action: () => { }
+				action: this.uploadNotes
 			},
 			{
 				id: 'fetch-document',
-				action: () => { this.fetchNotes() }
+				action: this.fetchNotes
 			}
 		]
 	},
 	methods: {
-		...mapActions(['fetchNotes'])
+		...mapActions(['fetchNotes', 'uploadNotes'])
 	}
 })
 </script>
