@@ -5,26 +5,45 @@
             <svg width="26" height="26" class="icon">
                 <use href="src/assets/images/sprite.svg#person" />
             </svg>
-            <div contenteditable class="note__title">{{ data?.voice }}</div>
+            <CustomInput v-model="data.voice" class="note__title" />
             <button class="btn">
                 <svg width="16" height="20">
                     <use href="src/assets/images/sprite.svg#delete" />
                 </svg>
             </button>
         </div>
-        <div contenteditable class="note__content">{{ data?.text }}</div>
+        <CustomInput v-model="data.text" class="note__content" />
     </article>
 </template>
 
 <script lang="ts">
 import { defineComponent, PropType } from 'vue'
 import Checkbox from '@/components/Checkbox.vue'
+import CustomInput from '@/components/CustomInput.vue'
 import { Note } from '@/interfaces'
+import { mapMutations } from 'vuex';
 
 export default defineComponent({
-    components: { Checkbox },
+    components: { 
+        Checkbox,
+        CustomInput
+    },
     props: {
-        data: Object as PropType<Note>
+        data: {
+            type: Object as PropType<Note>,
+            required: true
+        }
+    },
+    methods: {
+        ...mapMutations(['updateNote'])
+    },
+    watch: {
+        data: {
+            handler(newValue) {
+                this.updateNote(newValue)
+            },
+            deep: true
+        }
     }
 })
 </script>
@@ -48,12 +67,6 @@ article {
     margin-left: 16px;
     margin-right: 8px;
     flex-shrink: 0;
-}
-
-div[contenteditable] {
-    border: none;
-    outline: none;
-    font-size: 16px;
 }
 
 .note {
