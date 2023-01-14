@@ -88,7 +88,7 @@ article {
         margin-left: 68px;
         font-family: 'Open Sans', sans-serif;
         font-weight: 400;
-        color: #778195;
+        color: var(--unb-item-content);
     }
 }
 

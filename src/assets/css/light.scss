@@ -18,7 +18,7 @@
             border-bottom: 1px solid #EAEDEF;
 
             .note__title {
-                color: #566074;
+                color: var(--unb-item-title);
             }
         }
     }
@@ -29,5 +29,5 @@ footer {
 }
 
 .loading-container {
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(white, 0.5);
 }
