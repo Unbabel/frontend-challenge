@@ -8,7 +8,7 @@
                 </li>
             </TransitionGroup>
         </Transition>
-        <button class="btn">
+        <button @click="addNote" class="btn">
             <svg width="32" height="32">
                 <use href="src/assets/images/sprite.svg#add-row" />
             </svg>
@@ -18,7 +18,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { mapState } from 'vuex'
+import { mapMutations, mapState } from 'vuex'
 import Note from '@/components/Note.vue'
 import Loading from '@/components/Loading.vue'
 
@@ -32,6 +32,9 @@ export default defineComponent({
         listIsEmpty() {
             return this.notes.length === 0
         }
+    },
+    methods: {
+        ...mapMutations(['addNote'])
     }
 })
 </script>
