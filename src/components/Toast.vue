@@ -1,6 +1,6 @@
 <template>
     <dialog ref="toast" :class="`${toast.status}`">
-        <p>{{ $t(`toast.${toast.message }`) }}</p>
+        <p v-if="toast.message">{{ $t(`toast.${toast.message }`) }}</p>
     </dialog>
 </template>
 
