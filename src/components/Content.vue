@@ -17,7 +17,7 @@
 import { defineComponent } from 'vue'
 import { mapMutations, mapState } from 'vuex'
 import Note from '@/components/Note.vue'
-import Icon from '@/components/Icon.vue'
+import Icon from '@/components/icons/Icon.vue'
 
 export default defineComponent({
     components: {

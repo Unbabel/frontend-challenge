@@ -20,7 +20,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import { mapActions } from 'vuex'
-import Icon from '@/components/Icon.vue'
+import Icon from '@/components/icons/Icon.vue'
 
 export default defineComponent({
 	components: { Icon },

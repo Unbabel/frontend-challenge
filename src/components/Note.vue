@@ -3,27 +3,27 @@
         <div class="note__header">
             <Checkbox />
             <Icon name="person" class="icon" />
-            <CustomInput v-model="data.voice" class="note__title" :aria-label="$t('aria.title')" />
+            <Input v-model="data.voice" class="note__title" :aria-label="$t('aria.title')" />
             <button @click="deleteNote(data.id)" class="btn" :aria-label="$t('aria.delete')">
                 <Icon name="delete" />
             </button>
         </div>
-        <CustomInput v-model="data.text" class="note__content" :aria-label="$t('aria.content')" />
+        <Input v-model="data.text" class="note__content" :aria-label="$t('aria.content')" />
     </article>
 </template>
 
 <script lang="ts">
 import { defineComponent, PropType } from 'vue'
-import Checkbox from '@/components/Checkbox.vue'
-import CustomInput from '@/components/CustomInput.vue'
-import Icon from '@/components/Icon.vue'
+import Checkbox from '@/components/custom/Checkbox.vue'
+import Input from '@/components/custom/Input.vue'
+import Icon from '@/components/icons/Icon.vue'
 import { Note } from '@/interfaces'
 import { mapMutations } from 'vuex';
 
 export default defineComponent({
     components: { 
         Checkbox,
-        CustomInput,
+        Input,
         Icon
     },
     props: {
