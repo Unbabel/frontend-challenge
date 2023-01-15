@@ -2,14 +2,10 @@
     <article>
         <div class="note__header">
             <Checkbox />
-            <svg width="26" height="26" class="icon">
-                <use href="src/assets/images/sprite.svg#person" />
-            </svg>
+            <Icon name="person" class="icon" />
             <CustomInput v-model="data.voice" class="note__title" :aria-label="$t('aria.title')" />
             <button @click="deleteNote(data.id)" class="btn" :aria-label="$t('aria.delete')">
-                <svg width="16" height="20">
-                    <use href="src/assets/images/sprite.svg#delete" />
-                </svg>
+                <Icon name="delete" />
             </button>
         </div>
         <CustomInput v-model="data.text" class="note__content" :aria-label="$t('aria.content')" />
@@ -20,13 +16,15 @@
 import { defineComponent, PropType } from 'vue'
 import Checkbox from '@/components/Checkbox.vue'
 import CustomInput from '@/components/CustomInput.vue'
+import Icon from '@/components/Icon.vue'
 import { Note } from '@/interfaces'
 import { mapMutations } from 'vuex';
 
 export default defineComponent({
     components: { 
         Checkbox,
-        CustomInput
+        CustomInput,
+        Icon
     },
     props: {
         data: {

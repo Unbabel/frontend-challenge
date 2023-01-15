@@ -10,9 +10,7 @@
 					class="btn"
 					:aria-label="$t(`aria.${button.id}`)"
 				>
-					<svg width="24" height="24">
-						<use :href="`src/assets/images/sprite.svg#${button.id}`" />
-					</svg>
+					<Icon :name="button.id"/>
 				</button>
 			</section>
 		</div>
@@ -22,8 +20,10 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import { mapActions } from 'vuex'
+import Icon from '@/components/Icon.vue'
 
 export default defineComponent({
+	components: { Icon },
 	data: () => ({
 		buttons: [{
 			id: '',
@@ -37,7 +37,7 @@ export default defineComponent({
 				action: this.uploadNotes
 			},
 			{
-				id: 'fetch-document',
+				id: 'fetch',
 				action: this.fetchNotes
 			}
 		]

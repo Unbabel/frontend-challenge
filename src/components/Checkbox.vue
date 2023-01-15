@@ -2,17 +2,18 @@
     <label class="checkbox">
         <input type="checkbox" :aria-label="$t('aria.check')">
         <span class="checkmark">
-            <svg width="10" height="8">
-                <use href="src/assets/images/sprite.svg#checkmark" />
-            </svg>
+            <Icon name="checkmark" />
         </span>
     </label>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import Icon from '@/components/Icon.vue'
 
-export default defineComponent({})
+export default defineComponent({
+    components: { Icon }
+})
 </script>
 
 <style lang="scss" scoped>

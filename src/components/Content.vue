@@ -8,9 +8,7 @@
             </TransitionGroup>
         </Transition>
         <button @click="addNote" class="btn" :aria-label="$t('aria.add')">
-            <svg width="32" height="32">
-                <use href="src/assets/images/sprite.svg#add-row" />
-            </svg>
+            <Icon name="add" />
         </button>
     </section>
 </template>
@@ -19,9 +17,13 @@
 import { defineComponent } from 'vue'
 import { mapMutations, mapState } from 'vuex'
 import Note from '@/components/Note.vue'
+import Icon from '@/components/Icon.vue'
 
 export default defineComponent({
-    components: { Note },
+    components: {
+        Note,
+        Icon
+    },
     computed: {
         ...mapState(['notes']),
         listIsEmpty() {

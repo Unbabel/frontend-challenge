@@ -8,7 +8,7 @@
     },
     "aria": {
         "upload": "Upload notes",
-        "fetch-document": "Fetch notes",
+        "fetch": "Fetch notes",
         "check": "Check note",
         "title": "Note title",
         "content": "Note content",
