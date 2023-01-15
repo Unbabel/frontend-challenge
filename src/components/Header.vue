@@ -1,7 +1,7 @@
 <template>
 	<header class="header">
 		<div class="header__content">
-			<h1 class="header__title">{{ $t('title') }}</h1>
+			<h1 class="header__title" data-testid="header-title">{{ $t('title') }}</h1>
 			<section class="header__buttons">
 				<button
 					v-for="button in buttons"
