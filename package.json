@@ -1,0 +1,12 @@
+{
+  "name": "@pn/unbabel-challenge",
+  "version": "1.0.0",
+  "workspaces": [
+    "./app",
+    "./api"
+  ],
+  "scripts": {
+    "start": "npm run dev -w @pn/app"
+  },
+  "private": true
+}
