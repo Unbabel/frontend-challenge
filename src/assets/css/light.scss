@@ -31,3 +31,12 @@ footer {
 .loading-container {
     background-color: rgba(white, 0.5);
 }
+
+dialog {
+    box-shadow: 0 3px 5px var(--shadow-light);
+
+    p {
+        background-color: var(--background-light);
+        color: var(--unb-app-title);
+    }
+}

@@ -17,16 +17,26 @@ const actions = {
     fetchNotes({ commit }: ActionContext<State, State>): void {
         apiRequest({
             method: 'get',
-            handleSuccess: (response: AxiosResponse) => { commit('setNotes', response.data) },
-            handleError: (error: AxiosError) => { console.log('Error fetching notes', error) }
+            handleSuccess: (response: AxiosResponse) => { 
+                commit('setNotes', response.data)
+            },
+            handleError: (error: AxiosError) => { 
+                commit('setToast', { status: 'error', message: 'fetch-error' })
+                console.debug('Error fetching notes', error)
+            }
         }, commit)
     },
     uploadNotes({ commit, state }: ActionContext<State, State>): void {
         apiRequest({
             method: 'post',
             data: state.notes,
-            handleSuccess: () => { console.log('Notes uploaded') },
-            handleError: (error: AxiosError) => { console.log('Error uploading notes', error) }
+            handleSuccess: () => {
+                commit('setToast', { status: 'success', message: 'upload-success' })
+            },
+            handleError: (error: AxiosError) => {
+                commit('setToast', { status: 'error', message: 'upload-error' })
+                console.debug('Error uploading notes', error)
+            }
         }, commit)
     }
 }

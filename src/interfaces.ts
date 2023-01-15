@@ -4,9 +4,15 @@ export interface Note {
     text: string
 }
 
+export interface Toast {
+    status: 'success' | 'error' | 'none',
+    message: string
+}
+
 export interface State {
     notes: Note[],
-    loading: boolean
+    loading: boolean,
+    toast: Toast
 }
 
 export interface NotesRequest {

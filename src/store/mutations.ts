@@ -1,4 +1,4 @@
-import { Note, State } from "@/interfaces"
+import { Note, State, Toast } from "@/interfaces"
 
 const mutations = {
     setNotes(state: State, notes: Note[]) {
@@ -21,6 +21,12 @@ const mutations = {
             voice: '',
             text: ''
         })
+    },
+    setToast(state: State, toast: Toast) {
+        state.toast = toast
+    },
+    clearToast(state: State) {
+        state.toast = { status: 'none', message: '' }
     }
 }
 

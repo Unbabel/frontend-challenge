@@ -33,4 +33,13 @@
     .loading-container {
         background-color: rgba(black, 0.5);
     }
+
+    dialog {
+        box-shadow: 0 3px 5px var(--shadow-dark);
+
+        p {
+            background-color: var(--background-dark);
+            color: #8F97A8;
+        }
+    }
 }

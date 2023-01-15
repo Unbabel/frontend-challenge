@@ -1,6 +1,5 @@
 <template>
     <section class="content">
-        <Loading v-if="loading" />
         <Transition>
             <TransitionGroup v-if="!listIsEmpty" tag="ul" class="list">
                 <li v-for="note in notes" :key="note.id">
@@ -20,15 +19,11 @@
 import { defineComponent } from 'vue'
 import { mapMutations, mapState } from 'vuex'
 import Note from '@/components/Note.vue'
-import Loading from '@/components/Loading.vue'
 
 export default defineComponent({
-    components: {
-        Note,
-        Loading
-    },
+    components: { Note },
     computed: {
-        ...mapState(['notes', 'loading']),
+        ...mapState(['notes']),
         listIsEmpty() {
             return this.notes.length === 0
         }
