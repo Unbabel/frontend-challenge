@@ -5,5 +5,15 @@
         "fetch-error": "Something happened while fetching your notes",
         "upload-success": "Your notes were uploaded",
         "upload-error": "Something happened while uploading your notes"
+    },
+    "aria": {
+        "upload": "Upload notes",
+        "fetch-document": "Fetch notes",
+        "check": "Check note",
+        "title": "Note title",
+        "content": "Note content",
+        "delete": "Delete note",
+        "add": "Add note",
+        "toggle-theme": "Toggle theme"
     }
 }

@@ -5,14 +5,14 @@
             <svg width="26" height="26" class="icon">
                 <use href="src/assets/images/sprite.svg#person" />
             </svg>
-            <CustomInput v-model="data.voice" class="note__title" />
-            <button @click="deleteNote(data.id)" class="btn">
+            <CustomInput v-model="data.voice" class="note__title" :aria-label="$t('aria.title')" />
+            <button @click="deleteNote(data.id)" class="btn" :aria-label="$t('aria.delete')">
                 <svg width="16" height="20">
                     <use href="src/assets/images/sprite.svg#delete" />
                 </svg>
             </button>
         </div>
-        <CustomInput v-model="data.text" class="note__content" />
+        <CustomInput v-model="data.text" class="note__content" :aria-label="$t('aria.content')" />
     </article>
 </template>
 

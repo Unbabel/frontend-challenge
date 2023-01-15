@@ -3,7 +3,13 @@
 		<div class="header__content">
 			<h1 class="header__title">{{ $t('title') }}</h1>
 			<section class="header__buttons">
-				<button v-for="button in buttons" :key="button.id" @click="button.action" class="btn">
+				<button
+					v-for="button in buttons"
+					:key="button.id"
+					@click="button.action"
+					class="btn"
+					:aria-label="$t(`aria.${button.id}`)"
+				>
 					<svg width="24" height="24">
 						<use :href="`src/assets/images/sprite.svg#${button.id}`" />
 					</svg>
@@ -21,7 +27,7 @@ export default defineComponent({
 	data: () => ({
 		buttons: [{
 			id: '',
-			action: () => {}
+			action: () => { }
 		}]
 	}),
 	created() {

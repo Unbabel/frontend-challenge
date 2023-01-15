@@ -1,6 +1,6 @@
 <template>
     <label class="checkbox">
-        <input type="checkbox">
+        <input type="checkbox" :aria-label="$t('aria.check')">
         <span class="checkmark">
             <svg width="10" height="8">
                 <use href="src/assets/images/sprite.svg#checkmark" />

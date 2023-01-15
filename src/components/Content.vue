@@ -7,7 +7,7 @@
                 </li>
             </TransitionGroup>
         </Transition>
-        <button @click="addNote" class="btn">
+        <button @click="addNote" class="btn" :aria-label="$t('aria.add')">
             <svg width="32" height="32">
                 <use href="src/assets/images/sprite.svg#add-row" />
             </svg>

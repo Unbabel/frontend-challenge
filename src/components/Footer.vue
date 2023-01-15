@@ -2,7 +2,7 @@
     <footer>
         <div class='toggle-switch'>
             <label>
-                <input type='checkbox' @change="toggleTheme()" checked>
+                <input type='checkbox' @change="toggleTheme()" :aria-label="$t('aria.toggle-theme')" checked>
                 <span class='slider'></span>
             </label>
         </div>
