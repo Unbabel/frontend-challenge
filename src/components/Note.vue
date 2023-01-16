@@ -1,14 +1,14 @@
 <template>
-    <article>
+    <article data-testid="note">
         <div class="note__header">
-            <Checkbox />
+            <Checkbox data-testid="checkbox" />
             <Icon name="person" class="icon" />
-            <Input v-model="data.voice" class="note__title" :aria-label="$t('aria.title')" />
-            <button @click="deleteNote(data.id)" class="btn" :aria-label="$t('aria.delete')">
+            <Input v-model="data.voice" class="note__title" :aria-label="$t('aria.title')" data-testid="note-title" />
+            <button @click="deleteNote(data.id)" class="btn" :aria-label="$t('aria.delete')" data-testid="delete-button">
                 <Icon name="delete" />
             </button>
         </div>
-        <Input v-model="data.text" class="note__content" :aria-label="$t('aria.content')" />
+        <Input v-model="data.text" class="note__content" :aria-label="$t('aria.content')" data-testid="note-content" />
     </article>
 </template>
 
@@ -21,7 +21,7 @@ import { Note } from '@/interfaces'
 import { mapMutations } from 'vuex';
 
 export default defineComponent({
-    components: { 
+    components: {
         Checkbox,
         Input,
         Icon
