@@ -2,7 +2,13 @@
     <footer>
         <div class='toggle-switch'>
             <label>
-                <input type='checkbox' @change="toggleTheme()" :aria-label="$t('aria.toggle-theme')" checked>
+                <input
+                  type='checkbox'
+                  @change="toggleTheme()"
+                  :aria-label="$t('aria.toggle-theme')"
+                  data-testid="toggle-theme"
+                  checked
+                >
                 <span class='slider'></span>
             </label>
         </div>
@@ -15,7 +21,7 @@ import { defineComponent } from 'vue'
 export default defineComponent({
     methods: {
         toggleTheme() {
-            document.getElementById('app')?.classList.toggle('dark')
+            document.body.classList.toggle('dark')
         }
     }
 })
