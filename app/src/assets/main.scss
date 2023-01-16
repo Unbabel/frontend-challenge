@@ -1,0 +1,48 @@
+@import "./variables.scss";
+@import "./fonts/fonts.scss";
+@import "./typography.scss";
+
+body {
+  margin: 0;
+  background-color: $color-background;
+  width: 100vw;
+  height: 100vh;
+}
+
+#app {
+  header {
+    background-color: white;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.16), 0 1px 4px rgba(0, 0, 0, 0.23);
+  }
+
+  .app-view,
+  .app-header {
+    max-width: $app-width;
+    width: $app-width;
+  }
+
+  .app-header {
+    height: $app-header-height;
+    padding: 0 $base-spacing-size;
+    box-sizing: border-box;
+    margin: 0 auto;
+  }
+
+  .app-view {
+    margin: $base-spacing-size auto;
+  }
+
+  .app-card {
+    padding: $base-spacing-size;
+    background-color: white;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}

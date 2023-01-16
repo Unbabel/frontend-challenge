@@ -1,19 +1,20 @@
 <script setup>
-import HelloWorld from "./components/HelloWorld.vue";
-import { onMounted } from "vue";
-
-onMounted(() => {
-  console.log("on mounted");
-})
+import PageHeader from "./components/base/PageHeader.vue";
+import BaseLayout from "./layouts/BaseLayout.vue";
 </script>
 
 <template>
   <div id="app">
-    <header>
-      <HelloWorld msg="Unbabel FE Challenge" />
-    </header>
-
-    <router-view />
+    <BaseLayout>
+      <template v-slot:header>
+        <PageHeader>
+          <template v-slot:actions>
+            <RouterView name="PageActions"></RouterView>
+          </template>
+        </PageHeader>
+      </template>
+      <RouterView />
+    </BaseLayout>
   </div>
 </template>
 

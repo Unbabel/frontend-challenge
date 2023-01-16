@@ -1,6 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import HomeView from "../views/HomeView.vue";
+import TranscriptionsActions from "../views/actions/TranscriptionsActions.vue";
+import TranscriptionsView from "../views/TranscriptionsView.vue";
 
 Vue.use(VueRouter);
 
@@ -10,8 +11,18 @@ const router = new VueRouter({
   routes: [
     {
       path: "/",
-      name: "HomeView",
-      component: HomeView,
+      redirect: "/transcriptions",
+    },
+    {
+      path: "/transcriptions",
+      name: "TranscriptionsView",
+      components: {
+        default: TranscriptionsView,
+        PageActions: TranscriptionsActions,
+      },
+      meta: {
+        title: "Transcriptions",
+      },
     },
   ],
 });
