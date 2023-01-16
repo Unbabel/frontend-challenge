@@ -1,5 +1,5 @@
 <template>
-    <dialog ref="toast" :class="`${toast.status}`">
+    <dialog ref="toast" :class="`${toast.status}`" data-testid="toast">
         <p v-if="toast.message">{{ $t(`toast.${toast.message }`) }}</p>
     </dialog>
 </template>
