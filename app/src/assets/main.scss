@@ -1,5 +1,6 @@
 @import "./variables.scss";
 @import "./fonts/fonts.scss";
+@import "./spacing.scss";
 @import "./typography.scss";
 
 body {
@@ -35,6 +36,15 @@ body {
   .app-card {
     padding: $base-spacing-size;
     background-color: white;
+  }
+
+  .view-actions-container {
+    display: flex;
+    flex-direction: row;
+
+    > *:not(:last-child) {
+      margin-right: $base-spacing-size;
+    }
   }
 }
 

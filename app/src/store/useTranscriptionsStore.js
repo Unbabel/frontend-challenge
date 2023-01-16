@@ -3,6 +3,7 @@
  * Hope you don't mind not using VueX. My time restrictions demanded for a more pragmatic a simpler approach.
  */
 import { reactive, computed } from "vue";
+import TranscriptionReadModel from "../models/TranscriptionReadModel";
 
 const INITIAL_STATE = {
   transcriptions: [
@@ -27,7 +28,11 @@ const INITIAL_STATE = {
 const state = reactive({ ...INITIAL_STATE });
 
 export function useTranscriptionsStore() {
-  const transcriptions = computed(() => [...state.transcriptions]);
+  const transcriptions = computed(() => {
+    return state.transcriptions.map((transcription) => {
+      return new TranscriptionReadModel(transcription);
+    });
+  });
 
   return {
     transcriptions,
