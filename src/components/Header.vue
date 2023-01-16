@@ -9,8 +9,9 @@
 					@click="button.action"
 					class="btn"
 					:aria-label="$t(`aria.${button.id}`)"
+					:data-testid="button.id + '-button'"
 				>
-					<Icon :name="button.id"/>
+					<Icon :name="button.id" />
 				</button>
 			</section>
 		</div>
@@ -32,14 +33,8 @@ export default defineComponent({
 	}),
 	created() {
 		this.buttons = [
-			{
-				id: 'upload',
-				action: this.uploadNotes
-			},
-			{
-				id: 'fetch',
-				action: this.fetchNotes
-			}
+			{ id: 'upload', action: this.uploadNotes },
+			{ id: 'fetch', action: this.fetchNotes}
 		]
 	},
 	methods: {
