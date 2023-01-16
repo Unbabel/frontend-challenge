@@ -3,12 +3,11 @@ import Header from "@/components/Header.vue"
 import { createStore } from 'vuex'
 import { fireEvent } from '@testing-library/dom'
 import { State } from '@/interfaces'
+import { renderComponent } from './utils'
 
 describe('Header', () => {
     it('loads successfully', () => {
-        const { getByTestId } = render(Header, {
-            global: { mocks: { $t: () => {} } }
-        })
+        const { getByTestId } = renderHeader()
     
         getByTestId('header-title')
     })
@@ -30,12 +29,7 @@ describe('Header', () => {
     })
 })
 
-const renderHeader = (actions: any): RenderResult => {
+const renderHeader = (actions?: any): RenderResult => {
     const store = createStore<State>({ actions })
-    return render(Header, {
-        global: {
-            plugins: [ store ],
-            mocks: { $t: () => {} }
-        }
-    })
+    return renderComponent(Header, store)
 }
