@@ -3,7 +3,7 @@ import Header from "@/components/Header.vue"
 import { createStore } from 'vuex'
 import { fireEvent } from '@testing-library/dom'
 import { State } from '@/interfaces'
-import { renderComponent } from './utils'
+import { renderComponent } from '../utils'
 
 describe('Header', () => {
     it('loads successfully', () => {

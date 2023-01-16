@@ -1,6 +1,6 @@
 import Footer from '@/components/Footer.vue'
 import { fireEvent } from '@testing-library/dom'
-import { renderComponent } from './utils'
+import { renderComponent } from '../utils'
 
 describe('Footer', () => {
     it('loads successfully', () => {

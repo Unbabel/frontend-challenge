@@ -2,7 +2,7 @@ import { RenderResult } from '@testing-library/vue'
 import Note from "@/components/Note.vue"
 import { createStore } from 'vuex'
 import { State } from '@/interfaces'
-import { renderComponent } from './utils'
+import { renderComponent } from '../utils'
 import { fireEvent, waitFor } from '@testing-library/dom'
 
 describe('Note', () => {

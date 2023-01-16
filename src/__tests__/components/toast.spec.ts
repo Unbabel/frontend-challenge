@@ -2,7 +2,7 @@ import Toast from '@/components/custom/Toast.vue'
 import { State } from '@/interfaces'
 import { RenderResult, waitFor } from '@testing-library/vue'
 import { createStore } from 'vuex'
-import { renderComponent } from './utils'
+import { renderComponent } from '../utils'
 
 describe('Toast', () => {
     it('is closed if no message', () => {

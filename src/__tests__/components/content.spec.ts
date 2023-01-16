@@ -3,7 +3,7 @@ import Content from "@/components/Content.vue"
 import { createStore } from 'vuex'
 import { fireEvent } from '@testing-library/dom'
 import { State } from '@/interfaces'
-import { renderComponent } from './utils'
+import { renderComponent } from '../utils'
 
 describe('Content', () => {
     let state: Partial<State>
