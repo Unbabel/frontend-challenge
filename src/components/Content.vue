@@ -1,13 +1,13 @@
 <template>
-    <section class="content">
+    <section class="content" data-testid="content">
         <Transition>
-            <TransitionGroup v-if="!listIsEmpty" tag="ul" class="list">
+            <TransitionGroup v-if="!listIsEmpty" tag="ul" class="list" data-testid="list">
                 <li v-for="note in notes" :key="note.id">
                     <Note :data="note" />
                 </li>
             </TransitionGroup>
         </Transition>
-        <button @click="addNote" class="btn" :aria-label="$t('aria.add')">
+        <button @click="addNote" class="btn" :aria-label="$t('aria.add')" data-testid="add-button">
             <Icon name="add" />
         </button>
     </section>
