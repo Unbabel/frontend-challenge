@@ -10,7 +10,7 @@ const props = defineProps({
   },
 });
 
-const emit = defineEmits(["transcription-select"]);
+const emit = defineEmits(["transcription-select", "transcription-delete"]);
 </script>
 
 <template>
@@ -21,6 +21,7 @@ const emit = defineEmits(["transcription-select"]);
         :key="transcription.Id"
         :transcription="transcription"
         @select="emit('transcription-select', transcription)"
+        @delete="emit('transcription-delete', transcription)"
       ></TranscriptionsListItem>
     </template>
     <template v-else>

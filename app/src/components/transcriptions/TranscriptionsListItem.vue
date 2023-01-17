@@ -11,7 +11,7 @@ const props = defineProps({
   },
 });
 
-const emit = defineEmits(["select"]);
+const emit = defineEmits(["select", "delete"]);
 
 const isSelected = computed({
   get: () => props.transcription.IsSelected,
@@ -31,7 +31,12 @@ const isSelected = computed({
       <p class="list-item-title">{{ props.transcription.Voice }}</p>
     </div>
     <div>
-      <AppIcon class="on-hover-icon" icon-name="delete"></AppIcon>
+      <AppIcon
+        class="on-hover-icon"
+        icon-name="delete"
+        button
+        @click="emit('delete', props.transcription)"
+      ></AppIcon>
     </div>
     <p class="list-item-text">{{ props.transcription.Text }}</p>
   </li>

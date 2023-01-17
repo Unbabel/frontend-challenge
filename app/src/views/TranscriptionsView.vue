@@ -3,11 +3,18 @@ import AppIcon from "@/components/base/AppIcon.vue";
 import TranscriptionsList from "../components/transcriptions/TranscriptionsList.vue";
 import { useTranscriptionsStore } from "../store/useTranscriptionsStore";
 
-const { transcriptions, toggleTranscriptionSelectionOfId } =
-  useTranscriptionsStore();
+const {
+  transcriptions,
+  toggleTranscriptionSelectionOfId,
+  deleteTranscriptionOfId,
+} = useTranscriptionsStore();
 
 const handleTranscriptionSelection = ($transcription) => {
   toggleTranscriptionSelectionOfId($transcription.Id);
+};
+
+const handleTranscriptionDelete = ($transcription) => {
+  deleteTranscriptionOfId($transcription.Id);
 };
 </script>
 
@@ -17,6 +24,7 @@ const handleTranscriptionSelection = ($transcription) => {
       <TranscriptionsList
         :transcriptions="transcriptions"
         @transcription-select="handleTranscriptionSelection"
+        @transcription-delete="handleTranscriptionDelete"
       ></TranscriptionsList>
     </section>
     <div class="padding-all text-center">
