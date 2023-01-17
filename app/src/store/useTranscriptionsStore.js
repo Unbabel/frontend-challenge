@@ -76,7 +76,9 @@ export function useTranscriptionsStore() {
    * Action to send newly created transcriptions from the api.
    * @param {Array} transcriptions
    */
-  const saveTranscriptions = async (transcriptions) => {
+  const saveTranscriptions = async (
+    transcriptions = [...state.transcriptions]
+  ) => {
     const [error] = await createTranscriptions(transcriptions);
     if (error) () => {}; // do something if error is thrown;
   };

@@ -9,7 +9,16 @@ const fromApi = (apiTranscription) => ({
   text: apiTranscription.text,
 });
 
+const toApi = (appTranscription) => ({
+  id: appTranscription.id,
+  voice: appTranscription.voice,
+  text: appTranscription.text,
+});
+
 export function useTranscriptionsServices() {
+  /**
+   * Service function to fetch all transcriptions from Api.
+   */
   const fetchTranscriptions = async () => {
     let data, error;
     try {
@@ -21,10 +30,17 @@ export function useTranscriptionsServices() {
     return [error, data];
   };
 
+  /**
+   * Service function to save transcriptions to the Api.
+   * @param {Array} transcriptions
+   */
   const createTranscriptions = async (transcriptions) => {
     let data, error;
     try {
-      const response = await api.transcriptions.create(transcriptions);
+      const serialized = transcriptions.map((appTranscription) =>
+        toApi(appTranscription)
+      );
+      const response = await api.transcriptions.create(serialized);
       data = response;
     } catch (e) {
       error = e;
