@@ -1,6 +1,8 @@
 <script setup>
 import TranscriptionReadModel from "@/models/TranscriptionReadModel";
 import AppIcon from "@/components/base/AppIcon.vue";
+import AppCheckbox from "../base/AppCheckbox.vue";
+import { computed } from "vue";
 
 const props = defineProps({
   transcription: {
@@ -8,12 +10,19 @@ const props = defineProps({
     required: true,
   },
 });
+
+const emit = defineEmits(["select"]);
+
+const isSelected = computed({
+  get: () => props.transcription.IsSelected,
+  set: () => emit("select", props.transcription), // could call store, but prefer this logic to be on a higher view level component
+});
 </script>
 
 <template>
   <li class="transcription-list-item padding-all">
     <div>
-      <input type="checkbox" />
+      <AppCheckbox v-model="isSelected"></AppCheckbox>
     </div>
     <div>
       <AppIcon icon-name="person"></AppIcon>

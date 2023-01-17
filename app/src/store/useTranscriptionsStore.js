@@ -2,8 +2,8 @@
  * TRANSCRIPITIONS RESOURCE STORE
  * Hope you don't mind not using VueX. My time restrictions demanded for a more pragmatic a simpler approach.
  */
-import { reactive, computed } from "vue";
-import TranscriptionReadModel from "../models/TranscriptionReadModel";
+import { computed, reactive } from "vue";
+import TranscriptionReadModel from "@/models/TranscriptionReadModel";
 
 const INITIAL_STATE = {
   transcriptions: [
@@ -28,13 +28,31 @@ const INITIAL_STATE = {
 const state = reactive({ ...INITIAL_STATE });
 
 export function useTranscriptionsStore() {
+  const getIndexOfTranscriptionById = (id) => {
+    return state.transcriptions.findIndex((transcription) => {
+      return transcription.id === id;
+    });
+  };
+
   const transcriptions = computed(() => {
     return state.transcriptions.map((transcription) => {
       return new TranscriptionReadModel(transcription);
     });
   });
 
+  const toggleTranscriptionSelectionOfId = (id) => {
+    const index = getIndexOfTranscriptionById(id);
+    if (index < 0) return;
+
+    const transcription = { ...state.transcriptions[index] };
+    transcription.selected = !transcription.selected;
+    state.transcriptions.splice(index, 1, {
+      ...transcription,
+    });
+  };
+
   return {
     transcriptions,
+    toggleTranscriptionSelectionOfId,
   };
 }

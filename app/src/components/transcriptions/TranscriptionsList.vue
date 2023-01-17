@@ -9,15 +9,25 @@ const props = defineProps({
     validator: (prop) => prop.every((p) => p instanceof TranscriptionReadModel),
   },
 });
+
+const emit = defineEmits(["transcription-select"]);
 </script>
 
 <template>
   <ul>
-    <TranscriptionsListItem
-      v-for="transcription in props.transcriptions"
-      :key="transcription.Id"
-      :transcription="transcription"
-    ></TranscriptionsListItem>
+    <template v-if="props.transcriptions.length">
+      <TranscriptionsListItem
+        v-for="transcription in props.transcriptions"
+        :key="transcription.Id"
+        :transcription="transcription"
+        @select="emit('transcription-select', transcription)"
+      ></TranscriptionsListItem>
+    </template>
+    <template v-else>
+      <li class="caption text-center text-italic">
+        Not worrying about the blank state
+      </li>
+    </template>
   </ul>
 </template>
 

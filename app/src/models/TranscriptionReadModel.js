@@ -10,11 +10,11 @@ export default class TranscriptionReadModel {
   #text;
   #selected;
 
-  constructor({ id, voice, text }) {
+  constructor({ id, voice, text, selected = false }) {
     this.#id = id;
     this.#voice = voice;
     this.#text = text;
-    this.#selected = false;
+    this.#selected = selected;
   }
 
   get Id() {
