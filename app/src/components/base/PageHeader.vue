@@ -10,7 +10,7 @@ const props = defineProps({
 const vm = getCurrentInstance()?.proxy;
 const pageTitle = computed(() => {
   if (props.title) return props.title;
-  return vm.$router.currentRoute.meta.title;
+  return vm.$route.meta?.title;
 });
 </script>
 
