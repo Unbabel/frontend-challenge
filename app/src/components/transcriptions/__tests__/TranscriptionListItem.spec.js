@@ -30,7 +30,9 @@ describe("TranscriptionsListItem component", () => {
 
     expect(wrapper.classes()).toContain("transcription-list-item");
 
-    expect(wrapper.find(".list-item-title").text()).toBe(transcription.voice);
+    expect(wrapper.find("input.list-item-title").element.value).toBe(
+      transcription.voice
+    );
     expect(wrapper.find(".list-item-text").text()).toBe(transcription.text);
   });
 });
