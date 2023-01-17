@@ -3,6 +3,7 @@ import TranscriptionReadModel from "@/models/TranscriptionReadModel";
 import AppIcon from "@/components/base/AppIcon.vue";
 import AppCheckbox from "../base/AppCheckbox.vue";
 import { computed } from "vue";
+import AppInput from "../base/AppInput.vue";
 
 const props = defineProps({
   transcription: {
@@ -11,12 +12,22 @@ const props = defineProps({
   },
 });
 
-const emit = defineEmits(["select", "delete"]);
+const emit = defineEmits(["select", "delete", "update"]);
 
 const isSelected = computed({
   get: () => props.transcription.IsSelected,
   set: () => emit("select", props.transcription), // could call store, but prefer this logic to be on a higher view level component
 });
+
+const handleVoiceInputChange = ($voiceInputValue) => {
+  if ($voiceInputValue === props.transcription.Voice) return;
+  emit("update", { voice: $voiceInputValue });
+};
+const handleTextInputChange = ($focusOutEvent) => {
+  const text = $focusOutEvent.target.innerText;
+  if (text === props.transcription.Text) return;
+  emit("update", { text });
+};
 </script>
 
 <template>
@@ -27,9 +38,12 @@ const isSelected = computed({
     <div>
       <AppIcon icon-name="person"></AppIcon>
     </div>
-    <div>
-      <p class="list-item-title">{{ props.transcription.Voice }}</p>
-    </div>
+    <AppInput
+      class="list-item-title"
+      placeholder="Add voice..."
+      :value="props.transcription.Voice"
+      @change="handleVoiceInputChange"
+    ></AppInput>
     <div>
       <AppIcon
         class="on-hover-icon"
@@ -38,7 +52,13 @@ const isSelected = computed({
         @click="emit('delete', props.transcription)"
       ></AppIcon>
     </div>
-    <p class="list-item-text">{{ props.transcription.Text }}</p>
+    <div
+      class="list-item-text"
+      contenteditable
+      placeholder="Add text..."
+      v-text="props.transcription.Text"
+      @focusout="handleTextInputChange"
+    ></div>
   </li>
 </template>
 
@@ -63,6 +83,15 @@ $list-item-border-radius: 2px;
 
   .list-item-text {
     grid-column: 3 / 4;
+    outline: 0;
+    cursor: text;
+    border-radius: 5px;
+
+    &:empty:before {
+      content: attr(placeholder);
+      font-style: italic;
+      opacity: 0.5;
+    }
   }
 
   .on-hover-icon {

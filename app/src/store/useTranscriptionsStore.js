@@ -1,5 +1,6 @@
 /**
  * TRANSCRIPITIONS RESOURCE STORE
+ * Store to handle transcriptions domain state.
  * Hope you don't mind not using VueX. My time restrictions demanded for a more pragmatic a simpler approach.
  */
 import TranscriptionReadModel from "@/models/TranscriptionReadModel";
@@ -65,6 +66,21 @@ export function useTranscriptionsStore() {
   };
 
   /**
+   * Updates transcription having the given id with the patch object passed down as parameter.
+   * @param {String | Number} id - Id of the transcription to update.
+   * @param {Object} patch - Patch of transcription to be updated. Should have text or voice properties.
+   */
+  const updateTranscriptionOfId = (id, patch) => {
+    const index = getIndexOfTranscriptionById(id);
+    if (index < 0) return;
+
+    const transcription = { ...state.transcriptions[index], ...patch };
+    state.transcriptions.splice(index, 1, {
+      ...transcription,
+    });
+  };
+
+  /**
    * Removes transcription with the given id.
    * @param {Number} id
    */
@@ -103,5 +119,6 @@ export function useTranscriptionsStore() {
     getTranscriptions,
     saveTranscriptions,
     addTranscription,
+    updateTranscriptionOfId,
   };
 }

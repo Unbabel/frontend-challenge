@@ -10,7 +10,15 @@ const props = defineProps({
   },
 });
 
-const emit = defineEmits(["transcription-select", "transcription-delete"]);
+const emit = defineEmits([
+  "transcription-select",
+  "transcription-delete",
+  "transcription-update",
+]);
+
+const handleTranscriptionUpdate = (transcription, $updatePatch) => {
+  emit("transcription-update", { transcription, $updatePatch });
+};
 </script>
 
 <template>
@@ -22,6 +30,7 @@ const emit = defineEmits(["transcription-select", "transcription-delete"]);
         :transcription="transcription"
         @select="emit('transcription-select', transcription)"
         @delete="emit('transcription-delete', transcription)"
+        @update="handleTranscriptionUpdate(transcription, $event)"
       ></TranscriptionsListItem>
     </template>
     <template v-else>

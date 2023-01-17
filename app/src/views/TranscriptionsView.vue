@@ -8,6 +8,7 @@ const {
   toggleTranscriptionSelectionOfId,
   deleteTranscriptionOfId,
   addTranscription,
+  updateTranscriptionOfId,
 } = useTranscriptionsStore();
 
 const handleTranscriptionSelection = ($transcription) => {
@@ -16,6 +17,10 @@ const handleTranscriptionSelection = ($transcription) => {
 
 const handleTranscriptionDelete = ($transcription) => {
   deleteTranscriptionOfId($transcription.Id);
+};
+
+const handleTranscriptionUpdate = ({ transcription, $updatePatch }) => {
+  updateTranscriptionOfId(transcription.Id, $updatePatch);
 };
 </script>
 
@@ -26,6 +31,7 @@ const handleTranscriptionDelete = ($transcription) => {
         :transcriptions="transcriptions"
         @transcription-select="handleTranscriptionSelection"
         @transcription-delete="handleTranscriptionDelete"
+        @transcription-update="handleTranscriptionUpdate"
       ></TranscriptionsList>
     </section>
     <div class="padding-all text-center">
