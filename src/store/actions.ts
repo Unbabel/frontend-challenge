@@ -22,7 +22,6 @@ const actions = {
             },
             handleError: (error: AxiosError) => { 
                 commit('setToast', { status: 'error', message: 'fetch-error' })
-                console.debug('Error fetching notes', error)
             }
         }, commit)
     },
@@ -35,7 +34,6 @@ const actions = {
             },
             handleError: (error: AxiosError) => {
                 commit('setToast', { status: 'error', message: 'upload-error' })
-                console.debug('Error uploading notes', error)
             }
         }, commit)
     }

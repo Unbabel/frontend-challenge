@@ -4,6 +4,7 @@ import { createStore } from 'vuex'
 import { State } from '@/interfaces'
 import { renderComponent } from '../utils'
 import { fireEvent, waitFor } from '@testing-library/dom'
+import { noteMock } from '../__mocks__'
 
 describe('Note', () => {
     it('loads successfully', () => {
@@ -18,34 +19,32 @@ describe('Note', () => {
         getByTestId('checkbox')
     })
 
-    it('updates the title', () => {
+    it('updates the title', async () => {
         const mutations = { updateNote: vi.fn() }
         const spy = vi.spyOn(mutations, 'updateNote')
         const { getByText, getByTestId } = renderNote(mutations)
 
         getByText('voice')
 
-        fireEvent.change(getByTestId('note-title'), { target: { textContent: 'test' } })
+        fireEvent.input(getByTestId('note-title'), { target: { innerText: 'title' } })
 
-        getByText('test')
-        
-        waitFor(() => {
+        await waitFor(() => {
+            getByText('title')
             expect(spy).toHaveBeenCalled()
         })
     })
 
-    it('updates the content', () => {
+    it('updates the content', async () => {
         const mutations = { updateNote: vi.fn() }
         const spy = vi.spyOn(mutations, 'updateNote')
         const { getByText, getByTestId } = renderNote(mutations)
 
         getByText('text')
 
-        fireEvent.change(getByTestId('note-content'), { target: { textContent: 'test' } })
+        fireEvent.input(getByTestId('note-content'), { target: { innerText: 'content' } })
 
-        getByText('test')
-
-        waitFor(() => {
+        await waitFor(() => {
+            getByText('content')
             expect(spy).toHaveBeenCalled()
         })
     })
@@ -61,8 +60,6 @@ describe('Note', () => {
 
 const renderNote = (mutations?: any): RenderResult => {
     const store = createStore<State>({ mutations })
-    const props = {
-        data: { id: 1, voice: 'voice', text: 'text' }
-    }
+    const props = { data: noteMock }
     return renderComponent(Note, store, props)
 }
