@@ -2,13 +2,14 @@
  * TRANSCRIPITIONS RESOURCE STORE
  * Hope you don't mind not using VueX. My time restrictions demanded for a more pragmatic a simpler approach.
  */
-import { computed, reactive } from "vue";
 import TranscriptionReadModel from "@/models/TranscriptionReadModel";
+import { computed, reactive } from "vue";
 
 import { useTranscriptionsServices } from "@/services/useTranscriptionsServices";
 
 const INITIAL_STATE = {
   transcriptions: [],
+  id: 0, // for local id generation. Ideally, when uploading, it should return with definitive id.
 };
 
 /**
@@ -52,6 +53,18 @@ export function useTranscriptionsStore() {
   };
 
   /**
+   * Adds new transcription to state.
+   */
+  const addTranscription = () => {
+    state.transcriptions.push({
+      id: `local_${++state.id}`,
+      voice: null,
+      text: null,
+      selected: false,
+    });
+  };
+
+  /**
    * Removes transcription with the given id.
    * @param {Number} id
    */
@@ -89,5 +102,6 @@ export function useTranscriptionsStore() {
     deleteTranscriptionOfId,
     getTranscriptions,
     saveTranscriptions,
+    addTranscription,
   };
 }

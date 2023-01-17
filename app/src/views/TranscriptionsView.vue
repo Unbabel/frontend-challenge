@@ -7,6 +7,7 @@ const {
   transcriptions,
   toggleTranscriptionSelectionOfId,
   deleteTranscriptionOfId,
+  addTranscription,
 } = useTranscriptionsStore();
 
 const handleTranscriptionSelection = ($transcription) => {
@@ -28,7 +29,7 @@ const handleTranscriptionDelete = ($transcription) => {
       ></TranscriptionsList>
     </section>
     <div class="padding-all text-center">
-      <AppIcon icon-name="add-row"></AppIcon>
+      <AppIcon icon-name="add-row" button @click="addTranscription"></AppIcon>
     </div>
   </main>
 </template>
