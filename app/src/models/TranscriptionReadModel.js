@@ -1,7 +1,7 @@
 /**
- * Read model of the transcription.
+ * Read model of the transcription. Will serve has an helper for View Model
  * Using this to prevent secondary effects and to wrap every transcription into single source of truth properties.
- * Getters will be exposed and used across the app, what happens if the api instead of "text" sends "phrase"? We'll just have to change here.
+ * Getters will be exposed and used across the app, what happens if we want to append, prefix or capitalize something instead of using raw values? We'll just have to change here.
  */
 
 export default class TranscriptionReadModel {
