@@ -1,6 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import TranscriptionsActions from "../views/actions/TranscriptionsActions.vue";
+import NotFoundView from "../views/app/NotFoundView.vue";
 import TranscriptionsView from "../views/TranscriptionsView.vue";
 
 Vue.use(VueRouter);
@@ -11,6 +12,7 @@ const router = new VueRouter({
   routes: [
     {
       path: "/",
+      name: "home",
       redirect: "/transcriptions",
     },
     {
@@ -22,6 +24,16 @@ const router = new VueRouter({
       },
       meta: {
         title: "Transcriptions",
+      },
+    },
+    {
+      path: "*",
+      name: "NotFoundView",
+      components: {
+        default: NotFoundView,
+      },
+      meta: {
+        title: "Not Found :(",
       },
     },
   ],
