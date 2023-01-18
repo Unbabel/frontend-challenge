@@ -1,0 +1,69 @@
+@import "./variables.scss";
+@import "./fonts/fonts.scss";
+@import "./spacing.scss";
+@import "./typography.scss";
+
+body {
+  margin: 0;
+  background-color: $color-background;
+  width: 100vw;
+  height: 100vh;
+}
+
+#app {
+  header {
+    background-color: white;
+    box-shadow: 0 1px 1px rgb(0 0 0 / 10%), 0 1px 3px rgb(0 0 0 / 23%);
+  }
+
+  .app-header {
+    height: $app-header-height;
+    padding: 0 $base-spacing-size;
+    box-sizing: border-box;
+    margin: 0 auto;
+  }
+
+  .app-view {
+    margin: $base-spacing-size auto;
+  }
+
+  .app-card {
+    padding: $base-spacing-size;
+    background-color: white;
+  }
+
+  .view-actions-container {
+    display: flex;
+    flex-direction: row;
+
+    > *:not(:last-child) {
+      margin-right: $base-spacing-size;
+    }
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+@media only screen and (max-width: 737px) {
+  .app-view,
+  .app-header {
+    max-width: 100vw;
+    width: 100vw;
+  }
+}
+
+@media only screen and (min-width: 737px) {
+  .app-view,
+  .app-header {
+    max-width: $app-width;
+    width: $app-width;
+  }
+}
