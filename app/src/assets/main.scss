@@ -13,13 +13,7 @@ body {
 #app {
   header {
     background-color: white;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.16), 0 1px 4px rgba(0, 0, 0, 0.23);
-  }
-
-  .app-view,
-  .app-header {
-    max-width: $app-width;
-    width: $app-width;
+    box-shadow: 0 1px 1px rgb(0 0 0 / 10%), 0 1px 3px rgb(0 0 0 / 23%);
   }
 
   .app-header {
@@ -56,4 +50,20 @@ h5,
 h6,
 p {
   margin: 0;
+}
+
+@media only screen and (max-width: 737px) {
+  .app-view,
+  .app-header {
+    max-width: 100vw;
+    width: 100vw;
+  }
+}
+
+@media only screen and (min-width: 737px) {
+  .app-view,
+  .app-header {
+    max-width: $app-width;
+    width: $app-width;
+  }
 }

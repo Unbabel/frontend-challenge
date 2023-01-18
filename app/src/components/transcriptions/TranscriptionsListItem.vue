@@ -32,26 +32,20 @@ const handleTextInputChange = ($focusOutEvent) => {
 
 <template>
   <li class="transcription-list-item padding-all">
-    <div>
-      <AppCheckbox v-model="isSelected"></AppCheckbox>
-    </div>
-    <div>
-      <AppIcon icon-name="person"></AppIcon>
-    </div>
+    <AppCheckbox v-model="isSelected"></AppCheckbox>
+    <AppIcon icon-name="person"></AppIcon>
     <AppInput
       class="list-item-title"
       placeholder="Add voice..."
       :value="props.transcription.Voice"
       @change="handleVoiceInputChange"
     ></AppInput>
-    <div>
-      <AppIcon
-        class="on-hover-icon"
-        icon-name="delete"
-        button
-        @click="emit('delete', props.transcription)"
-      ></AppIcon>
-    </div>
+    <AppIcon
+      class="on-hover-icon"
+      icon-name="delete"
+      button
+      @click="emit('delete', props.transcription)"
+    ></AppIcon>
     <div
       class="list-item-text"
       contenteditable
@@ -70,7 +64,7 @@ $list-item-border-radius: 2px;
   margin: -1px 0; // overlapped borders
 
   display: grid;
-  grid-gap: 0 8px;
+  grid-gap: 4px 8px;
   grid-template-columns: min-content min-content auto min-content;
   align-items: center;
 
