@@ -1,6 +1,6 @@
 <template>
   <header class="bg-white w-full px-32 py-6 flex items-center justify-between">
-    <h1 class="text-lg font-primary text-heading-100 font-medium">
+    <h1 class="font-primary text-lg text-heading-100 font-medium">
       Transactions
     </h1>
     <div class="flex items-center gap-x-4">

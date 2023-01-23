@@ -1,11 +1,13 @@
 # Frontend Challenge
 
 Our goal is to understand:
+
 - How knowledgeable you are
 - How well you structure your app
 - How well can you visually reproduce a mockup
 
 Some restrictions:
+
 - Use the Vue javascript framework and its Component system
 - Don't use a UI framework like Bootstrap
 
@@ -17,7 +19,7 @@ Please fork this repo and commit your changes to the fork.
 
 Here is a preview of what we are expecting:
 
-![Sample](_README_assets/sample.png)
+![Sample](src/assets/_README_assets/sample.png)
 
 Keep in mind that we may ask you about some of the decisions you made while building the app.
 
@@ -35,7 +37,7 @@ Inside this repository you'll find a folder named `assets-for-challenge`. Inside
 
 ## Detailed comments on each element
 
-![Elements Numbered](_README_assets/challenge-elements-numbered.png)
+![Elements Numbered](src/assets/_README_assets/challenge-elements-numbered.png)
 
 **Functionality**
 
@@ -59,12 +61,13 @@ Notes:
 
 These are some and useful details about some of the elements
 
-- **3** - The checkbox is 16px wide and 16px high. The purple color is `#859EFF`
-- **6** - The font-family of the _item title_ is `Montserrat`, the weight is `SemiBold`, the size is `16px`, and the color is `#566074`
-- **7** - The font-family of the _item content_ is `Open Sans`, the weight is `Regular`, the size is `16px`, and the color is `#778195`
-- **8** - The font-family of the _app title_ is `Montserrat`, the weight is `Medium`, the size is `18px`, and the color is `#414C5E`
+- **1** - The checkbox is 16px wide and 16px high. The purple color is `#859EFF`
+- **2** - The font-family of the _item title_ is `Montserrat`, the weight is `SemiBold`, the size is `16px`, and the color is `#566074`
+- **3** - The font-family of the _item content_ is `Open Sans`, the weight is `Regular`, the size is `16px`, and the color is `#778195`
+- **4** - The font-family of the _app title_ is `Montserrat`, the weight is `Medium`, the size is `18px`, and the color is `#414C5E`
 
-The data above is enough to complete challenge. We also include the source Sketch file in the repository, in case you want to check the original file. You can find it in `_README_assets/Challenge.sketch`
+The data above is enough to complete challenge. We also include the source Sketch file in the repository, in case you want to check the original file.
+You can find it in `src/assets/_README_assets/Challenge.sketch`
 
 ## Typography
 

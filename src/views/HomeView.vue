@@ -1,7 +1,10 @@
 <template>
   <main class="container mx-auto w-full h-full">
     <TheHeader :handleFetch="handleFetch" />
-    <TransactionList :transactions="store.transactions" />
+    <TransactionList
+      v-if="store.transactions.length > 0"
+      :transactions="store.transactions"
+    />
   </main>
 </template>
 
