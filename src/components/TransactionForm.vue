@@ -7,7 +7,7 @@
       class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full"
     ></div>
     <form
-      @submit.prevent="handleSubmit"
+      @submit.prevent="handleSubmit(newTransaction)"
       class="relative top-20 mx-auto p-5 w-96 shadow-lg rounded-md bg-gray-100"
     >
       <div class="w-full py-2 border-b-2 border-gray-300">
@@ -27,20 +27,23 @@
           type="text"
           id="transaction-title"
           :required="true"
+          :maxlength="20"
+          :minlength="5"
           class="w-full font-medium text-base text-gray-700 border-2 border-gray-400 rounded py-1 px-2 focus:outline-none focus:bg-gray-200"
         />
       </div>
       <div class="flex flex-col items-start my-2 py-2 gap-2">
         <label
-          for="transaction-content"
+          for="transaction-text"
           class="text-base font-secondary font-semibold text-gray-700 pl-2"
-          >Add some content for this transaction</label
+          >Add some text for this transaction</label
         >
         <textarea
-          v-model.lazy.trim="newTransaction.content"
-          id="transaction-content"
+          v-model.lazy.trim="newTransaction.text"
+          id="transaction-text"
           rows="10"
-          :maxlength="100"
+          :maxlength="70"
+          :minlength="20"
           :spellcheck="true"
           :autocomplete="false"
           :autocapitalize="true"
@@ -72,14 +75,14 @@ import { ref } from "vue";
 const closed = ref(false);
 const newTransaction = ref({
   voice: "",
-  content: "",
-  done: false,
+  text: "",
 });
 
 const emit = defineEmits(["add-transaction"]);
 
 function handleSubmit() {
-  emit("add-transaction", newTransaction);
+  emit("add-transaction", newTransaction.value);
+  newTransaction.value = { voice: "", text: "" };
   closed.value = !closed.value;
 }
 </script>
