@@ -1,7 +1,7 @@
 <template>
   <div class="p-10 flex flex-col items-start gap-3">
     <div class="flex items-center w-full justify-between px-3">
-      <div class="flex items-center justify-start gap-3">
+      <div class="flex items-center justify-start gap-3 hover:cursor-pointer">
         <!-- Checkbox -->
         <img
           class="hover:cursor-pointer"
@@ -12,14 +12,12 @@
           {{ props.transaction.voice }}
         </h1>
       </div>
-      <img
-        class="hover:cursor-pointer"
-        src="@/assets/assets-for-challenge/delete.svg"
-        alt="Delete the doc!"
-      />
+      <transition name="delete">
+        <slot></slot>
+      </transition>
     </div>
     <p
-      class="font-secondary font-normal max-w-2xl container mx-auto text-itemContent-100 text-base"
+      class="font-secondary font-normal max-w-2xl container mx-auto text-itemContent-100 text-base hover:cursor-pointer"
     >
       {{ props.transaction.text }}
     </p>
@@ -31,3 +29,21 @@ const props = defineProps({
   transaction: {},
 });
 </script>
+
+<style scoped>
+.items-enter-from {
+  opacity: 0;
+}
+
+.items-enter-active {
+  transition: opacity 0.5s ease;
+}
+
+.items-leave-from {
+  opacity: 1;
+}
+
+.items-leave-active {
+  transition: opacity 0.5s ease;
+}
+</style>

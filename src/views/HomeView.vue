@@ -1,11 +1,13 @@
 <template>
   <main class="container mx-auto w-full h-full">
     <TheHeader :handleFetch="store.fetchTransactions" />
-    <TransactionList v-if="store.transactions.length > 0" />
+    <Loader v-if="store.loading" />
+    <TransactionList v-else />
   </main>
 </template>
 
 <script setup>
+import Loader from "../components/Loader.vue";
 import TheHeader from "../components/TheHeader.vue";
 import TransactionList from "../components/TransactionList.vue";
 

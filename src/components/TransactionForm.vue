@@ -42,7 +42,7 @@
           v-model.lazy.trim="newTransaction.text"
           id="transaction-text"
           rows="10"
-          :maxlength="70"
+          :maxlength="150"
           :minlength="20"
           :spellcheck="true"
           :autocomplete="false"
