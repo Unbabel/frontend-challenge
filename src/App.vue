@@ -1,7 +1,11 @@
 <template>
-  <HomeView />
+  <TheHeader :handleFetch="fetchTransactions" :handlePost="sendTransactions" />
+  <router-view />
 </template>
 
 <script setup>
-import HomeView from "./views/HomeView.vue";
+import TheHeader from "./components/TheHeader.vue";
+
+import { useTransactionStore } from "./stores/transactionStore";
+const { fetchTransactions, sendTransactions } = useTransactionStore();
 </script>

@@ -27,7 +27,7 @@ export const useTransactionStore = defineStore("transactions", {
       this.loading = true;
       try {
         const response = await fetch(
-          "https://www.mocky.io/v2/5ae1c5792d00004d009d7e5c",
+          "https://www.mocky.io/v2/5ae1c5792d00004d009d7e5c/",
           {
             method: "POST",
             body: JSON.stringify(this.transactions),
@@ -36,9 +36,8 @@ export const useTransactionStore = defineStore("transactions", {
             },
           }
         );
-        const result = await response.json();
-        this.res = response;
-        console.log(`response status: ${this.res} and result: ${result}`);
+        this.res = response.status;
+        return await response.json();
       } catch (error) {
         this.error = error;
       } finally {

@@ -1,5 +1,8 @@
 # Frontend Challenge
 
+#### **_Drafted Architecture_**
+
+![Sketch](src/assets/tree.png)
 Our goal is to understand:
 
 - How knowledgeable you are
