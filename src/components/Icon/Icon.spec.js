@@ -14,6 +14,6 @@ describe("Icon.vue", () => {
     wrapper = shallowMount(Icon, {
       propsData: { name: iconName },
     });
-    expect(wrapper.find(".qa-icon").props('name')).toMatch(iconName);
+    expect(wrapper.find(".qa-icon").props("name")).toMatch(iconName);
   });
 });

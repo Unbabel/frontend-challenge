@@ -24,7 +24,9 @@ describe("Checkbox.vue", () => {
     wrapper = shallowMount(Checkbox, {
       propsData: { checked: true },
     });
-    expect(wrapper.find(".qa-checkbox__input").attributes("value")).toBe("true");
+    expect(wrapper.find(".qa-checkbox__input").attributes("value")).toBe(
+      "true"
+    );
   });
   it("Has Checkbox class", () => {
     wrapper = shallowMount(Checkbox);
