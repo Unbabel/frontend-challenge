@@ -33,14 +33,14 @@
       />
     </div>
     <TransactionForm v-if="newRow" @add-transaction="addNewTransaction" />
-    <BaseToast v-if="toast.error">
+    <BaseToast v-if="toast.error" :error="toast.error">
       <div
         class="px-3 text-sm font-medium font-secondary text-center text-slate-800"
       >
         This transaction already exists in the list!
       </div>
     </BaseToast>
-    <BaseToast v-if="toast.success">
+    <BaseToast v-if="toast.success" :success="toast.success">
       <div
         class="px-3 text-sm font-medium font-secondary text-center text-slate-800"
       >
@@ -73,7 +73,9 @@ function addNewTransaction(newTransaction) {
       (e) => e.voice.toLowerCase() === newTransaction.voice.toLowerCase()
     )
   ) {
-    store.transactions.unshift({ id: lastItem[0].id + 1, ...newTransaction });
+    store.$patch((state) => {
+      state.transactions.unshift({ id: lastItem[0].id + 1, ...newTransaction });
+    });
     toast.value.success = true;
   } else {
     toast.value.error = true;

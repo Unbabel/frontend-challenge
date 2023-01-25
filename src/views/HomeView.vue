@@ -1,6 +1,9 @@
 <template>
   <main class="container mx-auto w-full h-full">
-    <TheHeader :handleFetch="store.fetchTransactions" />
+    <TheHeader
+      :handleFetch="store.fetchTransactions"
+      :handlePost="store.sendTransactions"
+    />
     <Loader v-if="store.loading" />
     <TransactionList v-else />
   </main>

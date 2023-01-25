@@ -6,6 +6,7 @@
     <div class="flex items-center gap-x-4">
       <button
         class="transform-none hover:transform transition -translate-y-1 ease-in-out"
+        @click="props.handlePost"
       >
         <img
           src="@/assets/assets-for-challenge/upload.svg"
@@ -28,11 +29,6 @@
 <script setup>
 const props = defineProps({
   handleFetch: Function,
+  handlePost: Function,
 });
 </script>
-
-<!-- don't you stress, you got it man, you the man! Put on GASHI 24 Hours. and hit these:
-  - Figure out handling a fetch request and storing data in Pinia
-  - Lay down transaction rows base components
-  - Create CRUD functionality
--->

@@ -4,10 +4,14 @@
       id="toast-danger"
       role="alert"
       class="container mx-auto fixed top-0 left-0 right-0 flex items-center justify-evenly w-full max-w-xs p-4 mb-4 text-gray-500 bg-slate-300 rounded-lg shadow"
-      :class="isToasted && 'hidden'"
+      :class="isToastClosed && 'hidden'"
     >
       <div
-        class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-white bg-red-100 rounded-lg dark:bg-red-500"
+        :class="`${
+          props.success
+            ? 'inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-white rounded-lg bg-green-600'
+            : 'inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-white rounded-lg bg-red-500'
+        }`"
       >
         <svg
           aria-hidden="true"
@@ -30,7 +34,7 @@
         class="bg-white text-slate-500 hover:text-green-500 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex h-8 w-8"
         data-dismiss-target="#toast-danger"
         aria-label="Close"
-        @click="isToasted = !isToasted"
+        @click="isToastClosed = !isToastClosed"
       >
         <span class="sr-only">Close</span>
         <svg
@@ -53,8 +57,8 @@
 
 <script setup>
 import { ref } from "vue";
-
-const isToasted = ref(false);
+const props = defineProps({ success: Boolean, error: Boolean });
+const isToastClosed = ref(false);
 </script>
 
 <style scoped>
