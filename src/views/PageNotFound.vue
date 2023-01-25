@@ -13,8 +13,9 @@ import { RouterLink } from 'vue-router'; import { RouterLink } from
     <router-link
       class="text-2xl font-semibold font-secondary text-emerald-700 hover:text-emerald-500"
       to="/"
-      >Back on track!</router-link
     >
+      Back on track!
+    </router-link>
   </div>
 </template>
 
