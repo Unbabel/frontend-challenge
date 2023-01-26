@@ -25,3 +25,26 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+.c-top-menu {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: 30px;
+  width: 100%;
+  box-shadow: 1px 1px 1px;
+  padding: 20px 10px;
+
+  .c-top-menu__inner-container {
+    grid-column: 2 / 5;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .c-top-menu__content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+}
+</style>
