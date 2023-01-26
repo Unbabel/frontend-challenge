@@ -24,3 +24,19 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+.c-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border: none;
+  width: 30px;
+  height: 30px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+</style>
