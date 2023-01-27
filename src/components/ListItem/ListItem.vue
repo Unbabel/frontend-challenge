@@ -107,3 +107,70 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+@import "../../assets/styles/variables.scss";
+
+.c-list-item {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: minmax(10px, 50px) 1fr;
+  border: 1px solid lighten($color: $third-color, $amount: 35%);
+  background-color: white;
+  padding: 20px 10px;
+  gap: 0px 15px;
+  align-items: flex-start;
+
+  .c-list-item__checkbox {
+    grid-column: 1 / 2;
+    grid-row: 1;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    align-items: flex-start;
+    padding: $vertical-spacing;
+  }
+  .c-list-item__title,
+  .c-list-item__title-input {
+    padding: $vertical-spacing 0;
+    margin: $vertical-spacing 0;
+  }
+  .c-list-item__title,
+  .c-list-item__text {
+    &:hover {
+      cursor: pointer;
+      padding: $vertical-spacing;
+      border: $border-width solid $primary-color;
+      border-radius: $border-radius;
+    }
+  }
+  .c-list-item__title,
+  .c-list-item__title-input {
+    font-family: $monserrat, sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    grid-column: 2 / 6;
+    grid-row: 1;
+  }
+  .c-list-item__text,
+  .c-list-item__text-input {
+    font-family: $open-sans, sans-serif;
+    font-size: 16px;
+    grid-column: 2 / 6;
+    grid-row: 2;
+  }
+  .c-list-item__delete-button {
+    grid-column: 6;
+    grid-row: 1;
+    justify-self: center;
+  }
+  .c-list-item__title,
+  .c-list-item__title-input,
+  .c-list-item__text,
+  .c-list-item__text-input {
+    display: flex;
+    justify-content: flex-start;
+    text-align: left;
+  }
+}
+</style>
