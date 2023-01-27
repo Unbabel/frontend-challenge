@@ -1,8 +1,9 @@
 <template>
   <main class="qa-default-layout o-default-layout">
-    <TopMenu title="My Title" type="h1" class="o-default-layout__menu">
-      <!-- <router-link to="/">Go to Home</router-link>
-      <router-link to="/about">Go to About</router-link> -->
+    <TopMenu title="Transcriptions" type="h1" class="o-default-layout__menu">
+      <!-- <router-link to="/">Go to Home</router-link>-->
+      <!-- To Simulate reaching error page -->
+      <!-- <router-link to="/spain">Go to Spain</router-link> -->
       <Button icon="upload" @click="POST_LIST(LIST)" />
       <Button icon="fetch-document" @click="GET_LIST" />
     </TopMenu>
@@ -34,6 +35,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import "../assets/styles/variables.scss";
+
 .o-default-layout {
   //Add media queries
   display: grid;
@@ -45,6 +48,14 @@ export default {
   }
   .o-default-layout__content {
     grid-column: 2 / 5;
+    margin: 10px 0;
+  }
+  @media only screen and (max-width: "640px") {
+    grid-template-columns: 1fr;
+    .o-default-layout__content,
+    .o-default-layout__menu {
+      grid-column: auto;
+    }
   }
 }
 </style>
