@@ -1,6 +1,6 @@
 <template>
   <DefaultLayout>
-    <List :list="LIST" @add="ADD_ITEM" @delete="DELETE_ITEM" />
+    <List :list="LIST" @add="ADD_ITEM" />
   </DefaultLayout>
 </template>
 
@@ -20,7 +20,7 @@ export default {
     ...mapGetters("list/", ["LIST"]),
   },
   methods: {
-    ...mapActions("list/", ["ADD_ITEM", "DELETE_ITEM"]),
+    ...mapActions("list/", ["ADD_ITEM"]),
   },
   components: {
     List,
