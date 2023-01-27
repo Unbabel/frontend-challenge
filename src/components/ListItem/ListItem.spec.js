@@ -1,5 +1,9 @@
-import { shallowMount, mount } from "@vue/test-utils";
+import { shallowMount, mount,createLocalVue } from "@vue/test-utils";
+import Vuex from 'vuex'
 import ListItem from "@/components/ListItem/ListItem.vue";
+
+const localVue = createLocalVue()
+localVue.use(Vuex)
 
 describe("ListItem.vue", () => {
   //Check if component renders
@@ -15,20 +19,39 @@ describe("ListItem.vue", () => {
   //Check if click event to check item
   let wrapper;
   let templateObject = { id: 1, text: "Text", voice: "Voice" };
+  let actions;
+  let store;
+
+  beforeEach(() => {
+    actions = {
+      DELETE_ITEM: jest.fn(),
+    }
+    store = new Vuex.Store({
+      modules: {
+        list: {
+          namespaced: true,
+          actions
+        }
+      }
+    })
+  })
+
   it("Component renders", () => {
     wrapper = shallowMount(ListItem, {
       propsData: { item: templateObject },
     });
     expect(wrapper.exists()).toBe(true);
   });
-  it("Has required components", () => {
+  it("Has required components", async () => {
     wrapper = shallowMount(ListItem, {
       propsData: { item: templateObject },
     });
-
-    expect(wrapper.findComponent({ name: "Button" }).exists()).toBe(true);
+    
     expect(wrapper.findComponent({ name: "Checkbox" }).exists()).toBe(true);
     expect(wrapper.findComponent({ name: "Title" }).exists()).toBe(true);
+
+    await wrapper.setData({ isHovered: true })
+    expect(wrapper.findComponent({ name: "Button" }).exists()).toBe(true);
   });
   it("Has ListItem class", () => {
     wrapper = shallowMount(ListItem, {
@@ -69,9 +92,12 @@ describe("ListItem.vue", () => {
   });
   it("Emits delete event", async () => {
     wrapper = mount(ListItem, {
+      store, 
+      localVue,
       propsData: { item: templateObject },
     });
+    await wrapper.setData({ isHovered: true })
     await wrapper.find(".qa-button").trigger("click");
-    expect(wrapper.emitted()).toHaveProperty("delete");
+    expect(actions.DELETE_ITEM).toHaveBeenCalled()
   });
 });
