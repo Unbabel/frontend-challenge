@@ -12,6 +12,7 @@ export default {
 
 <style lang="scss">
 @import "./assets/styles/variables.scss";
+@import "./assets/styles/transitions.scss";
 
 #app {
   font-family: $open-sans, sans-serif;
@@ -21,16 +22,11 @@ export default {
   color: #2c3e50;
 }
 
-nav {
-  padding: 30px;
+html {
+  background-color: lighten($color: $third-color, $amount: 45);
+}
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+body {
+  margin: 0;
 }
 </style>
