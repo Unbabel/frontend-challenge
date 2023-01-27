@@ -12,7 +12,7 @@
     <Title
       v-if="editMode.title === false"
       :text="item.voice"
-      type="h3"
+      type="h4"
       class="c-list-item__title"
       @dblclick.native="editMode.title = true"
     />

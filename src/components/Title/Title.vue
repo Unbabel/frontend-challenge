@@ -27,7 +27,6 @@ export default {
   margin: 0;
   font-family: $monserrat, sans-serif;
   font-weight: 600;
-  font-size: 16px;
   color: $forth-color;
   margin: $vertical-spacing $horizontal-spacing;
 }

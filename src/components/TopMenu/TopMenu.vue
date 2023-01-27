@@ -1,7 +1,7 @@
 <template>
   <nav class="qa-top-menu c-top-menu">
     <div class="c-top-menu__inner-container">
-      <Title :text="title" type="h1" />
+      <Title :text="title" type="h3" />
       <div class="c-top-menu__content">
         <slot></slot>
       </div>

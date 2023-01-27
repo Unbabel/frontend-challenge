@@ -1,6 +1,6 @@
 <template>
   <main class="qa-default-layout o-default-layout">
-    <TopMenu title="Transcriptions" type="h1" class="o-default-layout__menu">
+    <TopMenu title="Transcriptions" class="o-default-layout__menu">
       <!-- <router-link to="/">Go to Home</router-link>-->
       <!-- To Simulate reaching error page -->
       <!-- <router-link to="/spain">Go to Spain</router-link> -->
