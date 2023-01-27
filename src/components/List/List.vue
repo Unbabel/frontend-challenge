@@ -27,3 +27,17 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+@import "../../assets/styles/variables.scss";
+
+.c-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .c-list__list {
+    padding: 0;
+  }
+}
+</style>
