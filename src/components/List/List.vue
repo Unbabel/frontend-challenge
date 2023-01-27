@@ -5,7 +5,7 @@
         <ListItem v-for="item in list" :key="item.id" :item="item" />
       </Transition-group>
     </ul>
-    <Button @click="$emit('add')" icon="add-row" />
+    <Button title="Add" @click="$emit('add')" icon="add-row" />
   </section>
 </template>
 

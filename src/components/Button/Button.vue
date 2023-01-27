@@ -1,5 +1,5 @@
 <template>
-  <button class="c-button qa-button" @click="$emit('click')">
+  <button :title="title" class="c-button qa-button" @click="$emit('click')">
     <span v-if="text.length > 0">{{ text }}</span>
     <Icon v-if="icon.length > 0" :name="icon" />
   </button>
@@ -15,6 +15,10 @@ export default {
       default: "",
     },
     icon: {
+      type: String,
+      default: "",
+    },
+    title: {
       type: String,
       default: "",
     },

@@ -4,8 +4,8 @@
       <!-- <router-link to="/">Go to Home</router-link>-->
       <!-- To Simulate reaching error page -->
       <!-- <router-link to="/spain">Go to Spain</router-link> -->
-      <Button icon="upload" @click="POST_LIST(LIST)" />
-      <Button icon="fetch-document" @click="GET_LIST" />
+      <Button title="Upload" icon="upload" @click="POST_LIST(LIST)" />
+      <Button title="Download" icon="fetch-document" @click="GET_LIST" />
     </TopMenu>
     <div class="o-default-layout__content">
       <slot />

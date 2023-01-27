@@ -43,6 +43,7 @@
         v-if="isHovered"
         class="c-list-item__delete-button"
         icon="delete"
+        title="Delete"
         @click="DELETE_ITEM(item)"
       />
     </Transition>
