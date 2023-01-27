@@ -45,27 +45,6 @@ describe("List.vue", () => {
 
     expect(wrapper.findComponent({ name: "ListItem" }).exists()).toBe(true);
   });
-
-  //Handle actions with vuex
-  it.skip("Receives check change event", async () => {
-    wrapper = mount(List, {
-      propsData: { list: list },
-    });
-
-    firstItem = wrapper.findAllComponents({ name: "Checkbox" }).at(0);
-    await firstItem.trigger("click");
-    expect(firstItem.emitted().change).toHaveProperty("change");
-  });
-  //Handle actions with vuex
-  it.skip("Receives delete event", async () => {
-    wrapper = mount(List, {
-      propsData: { list: list },
-    });
-
-    firstItem = wrapper.findAllComponents({ name: "Button" }).at(0);
-    await firstItem.trigger("click");
-    expect(firstItem.emitted().change).toHaveProperty("click");
-  });
   it("Add item event", async () => {
     wrapper = mount(List, {
       propsData: { list: [] },
@@ -74,8 +53,7 @@ describe("List.vue", () => {
     await wrapper.findComponent({ name: "Button" }).trigger("click");
     expect(wrapper.emitted()).toHaveProperty("add");
 
-    await wrapper.setProps({ list: templateObject });
-
-    // expect(wrapper.props('list').length).toBeGreaterThan(0);
+    await wrapper.setProps({ list: [templateObject] });
+    expect(wrapper.props('list').length).toBeGreaterThan(0);
   });
 });

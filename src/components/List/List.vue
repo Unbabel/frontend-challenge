@@ -1,12 +1,9 @@
 <template>
   <section class="qa-list c-list">
-    <ul class="qa-list__list c-list__list">
-      <ListItem
-        v-for="item in list"
-        :key="item.id"
-        :item="item"
-        @delete="$emit('delete', item)"
-      />
+    <ul v-if="list.length > 0" class="qa-list__list c-list__list">
+      <Transition-group name="list" appear>
+        <ListItem v-for="item in list" :key="item.id" :item="item" />
+      </Transition-group>
     </ul>
     <Button @click="$emit('add')" icon="add-row" />
   </section>
