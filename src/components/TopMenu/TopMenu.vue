@@ -32,8 +32,9 @@ export default {
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: 30px;
   width: 100%;
-  box-shadow: 1px 1px 1px;
+  box-shadow: -7px 9px 6px -8px rgb(0 0 0 / 29%);
   padding: 20px 10px;
+  background-color: white;
 
   .c-top-menu__inner-container {
     grid-column: 2 / 5;

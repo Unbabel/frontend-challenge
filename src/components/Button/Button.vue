@@ -26,6 +26,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import "../../assets/styles/variables.scss";
+
 .c-button {
   display: flex;
   align-items: center;
@@ -34,6 +36,7 @@ export default {
   border: none;
   width: 30px;
   height: 30px;
+  margin: $vertical-spacing $horizontal-spacing;
 
   &:hover {
     cursor: pointer;

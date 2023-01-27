@@ -35,14 +35,15 @@ export default {
 .c-checkbox {
   display: block;
   position: relative;
-  padding-left: 35px;
-  margin-bottom: 12px;
+  margin: $vertical-spacing $horizontal-spacing;
   cursor: pointer;
   font-size: 22px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  height: $checkbox-size;
+  width: $checkbox-size;
 
   &:hover {
     .c-checkbox__checkmark {
@@ -54,8 +55,8 @@ export default {
     position: absolute;
     opacity: 0;
     cursor: pointer;
-    height: 16px;
-    width: 16px;
+    height: $checkbox-size;
+    width: $checkbox-size;
     left: 0;
     z-index: 1;
   }
@@ -73,11 +74,11 @@ export default {
     position: absolute;
     top: 0;
     left: 0;
-    height: 16px;
-    width: 16px;
+    height: $checkbox-size;
+    width: $checkbox-size;
     background-color: white;
-    border: 2px solid $primary-color;
-    border-radius: 2px;
+    border: $border-width solid $primary-color;
+    border-radius: $border-width;
   }
 
   .c-checkbox__checkmark::after {

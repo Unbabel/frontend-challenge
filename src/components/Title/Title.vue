@@ -29,5 +29,6 @@ export default {
   font-weight: 600;
   font-size: 16px;
   color: $forth-color;
+  margin: $vertical-spacing $horizontal-spacing;
 }
 </style>
