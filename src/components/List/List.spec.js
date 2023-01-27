@@ -54,6 +54,6 @@ describe("List.vue", () => {
     expect(wrapper.emitted()).toHaveProperty("add");
 
     await wrapper.setProps({ list: [templateObject] });
-    expect(wrapper.props('list').length).toBeGreaterThan(0);
+    expect(wrapper.props("list").length).toBeGreaterThan(0);
   });
 });
