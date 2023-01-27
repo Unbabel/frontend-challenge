@@ -20,13 +20,10 @@ async function GET_LIST() {
 }
 
 async function POST_LIST(payload) {
-  let response = {};
   await axios.post(API.list.postList, payload).catch(function (error) {
     // handle error
     console.log(error);
   });
-
-  return response;
 }
 
 export default { GET_LIST, POST_LIST };
