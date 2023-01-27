@@ -7,7 +7,7 @@
 <script>
 // @ is an alias to /src
 import List from "@/components/List/List.vue";
-import DefaultLayout from "@/layouts/DefaultLayout.vue";
+import DefaultLayout from "@/layouts/DefaultLayout/DefaultLayout.vue";
 
 import { mapGetters, mapActions } from "vuex";
 

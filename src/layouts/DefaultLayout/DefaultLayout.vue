@@ -35,7 +35,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "../assets/styles/variables.scss";
+@import "../../assets/styles/variables.scss";
 
 .o-default-layout {
   //Add media queries

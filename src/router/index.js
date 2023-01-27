@@ -1,6 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import HomeView from "../views/HomeView.vue";
+import HomeView from "../views/HomeView/HomeView.vue";
 
 Vue.use(VueRouter);
 
@@ -12,7 +12,9 @@ const routes = [
     // this generates a separate chunk (error.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
-      import(/* webpackChunkName: "error" */ "../views/ErrorView.vue"),
+      import(
+        /* webpackChunkName: "error" */ "../views/ErrorView/ErrorView.vue"
+      ),
   },
   {
     path: "/",

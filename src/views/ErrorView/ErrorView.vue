@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import DefaultLayout from "@/layouts/DefaultLayout.vue";
+import DefaultLayout from "@/layouts/DefaultLayout/DefaultLayout.vue";
 
 export default {
   name: "ErrorView",
