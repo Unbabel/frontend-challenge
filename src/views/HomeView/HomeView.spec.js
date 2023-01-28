@@ -12,17 +12,22 @@ describe("HomeView.vue", () => {
   //defaultLayout
   let wrapper;
   let actions;
+  let getters;
   let store;
 
   beforeEach(() => {
     actions = {
       ADD_ITEM: jest.fn(),
     };
+    getters = {
+      LIST: jest.fn(),
+    };
     store = new Vuex.Store({
       modules: {
         list: {
           namespaced: true,
           actions,
+          getters,
         },
       },
     });
