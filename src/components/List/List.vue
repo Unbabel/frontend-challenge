@@ -5,6 +5,7 @@
         <ListItem v-for="item in list" :key="item.id" :item="item" />
       </Transition-group>
     </ul>
+    <Title v-else text="Nothing to display" type="h5" />
     <Button title="Add" @click="$emit('add')" icon="add-row" />
   </section>
 </template>
@@ -12,6 +13,7 @@
 <script>
 import ListItem from "@/components/ListItem/ListItem.vue";
 import Button from "@/components/Button/Button.vue";
+import Title from "@/components/Title/Title.vue";
 
 export default {
   name: "List",
@@ -24,6 +26,7 @@ export default {
   components: {
     ListItem,
     Button,
+    Title,
   },
 };
 </script>
