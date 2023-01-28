@@ -1,10 +1,126 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1674931635861" clover="3.2.0">
-  <project timestamp="1674931635862" name="All files">
-    <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1" elements="2" coveredelements="2" complexity="0" loc="1" ncloc="1" packages="1" files="1" classes="1"/>
-    <file name="HomeView.vue" path="D:\04 - Cenas Pessoais\04 - Repositórios\frontend-challenge\src\views\HomeView\HomeView.vue">
+<coverage generated="1674931938639" clover="3.2.0">
+  <project timestamp="1674931938639" name="All files">
+    <metrics statements="24" coveredstatements="24" conditionals="11" coveredconditionals="8" methods="13" coveredmethods="13" elements="48" coveredelements="45" complexity="0" loc="24" ncloc="24" packages="14" files="18" classes="18"/>
+    <package name="src">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="App.vue" path="D:\04 - Cenas Pessoais\04 - Repositórios\frontend-challenge\src\App.vue">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="6" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.assets.images">
+      <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="add-row.svg" path="D:\04 - Cenas Pessoais\04 - Repositórios\frontend-challenge\src\assets\images\add-row.svg">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="2" type="stmt"/>
+      </file>
+      <file name="delete.svg" path="D:\04 - Cenas Pessoais\04 - Repositórios\frontend-challenge\src\assets\images\delete.svg">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+      </file>
+      <file name="fetch-document.svg" path="D:\04 - Cenas Pessoais\04 - Repositórios\frontend-challenge\src\assets\images\fetch-document.svg">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="3" type="stmt"/>
+      </file>
+      <file name="person.svg" path="D:\04 - Cenas Pessoais\04 - Repositórios\frontend-challenge\src\assets\images\person.svg">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="3" type="stmt"/>
+      </file>
+      <file name="upload.svg" path="D:\04 - Cenas Pessoais\04 - Repositórios\frontend-challenge\src\assets\images\upload.svg">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="3" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.Button">
+      <metrics statements="1" coveredstatements="1" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+      <file name="Button.vue" path="D:\04 - Cenas Pessoais\04 - Repositórios\frontend-challenge\src\components\Button\Button.vue">
+        <metrics statements="1" coveredstatements="1" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="1" count="86" type="cond" truecount="2" falsecount="0"/>
+      </file>
+    </package>
+    <package name="src.components.Checkbox">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="Checkbox.vue" path="D:\04 - Cenas Pessoais\04 - Repositórios\frontend-challenge\src\components\Checkbox\Checkbox.vue">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="64" type="stmt"/>
+        <line num="16" count="4" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.Icon">
+      <metrics statements="2" coveredstatements="2" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+      <file name="Icon.vue" path="D:\04 - Cenas Pessoais\04 - Repositórios\frontend-challenge\src\components\Icon\Icon.vue">
+        <metrics statements="2" coveredstatements="2" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="1" count="108" type="cond" truecount="2" falsecount="0"/>
+        <line num="4" count="7" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.List">
+      <metrics statements="1" coveredstatements="1" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+      <file name="List.vue" path="D:\04 - Cenas Pessoais\04 - Repositórios\frontend-challenge\src\components\List\List.vue">
+        <metrics statements="1" coveredstatements="1" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="1" count="38" type="cond" truecount="2" falsecount="0"/>
+      </file>
+    </package>
+    <package name="src.components.ListItem">
+      <metrics statements="1" coveredstatements="1" conditionals="3" coveredconditionals="2" methods="1" coveredmethods="1"/>
+      <file name="ListItem.vue" path="D:\04 - Cenas Pessoais\04 - Repositórios\frontend-challenge\src\components\ListItem\ListItem.vue">
+        <metrics statements="1" coveredstatements="1" conditionals="3" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="1" count="62" type="cond" truecount="2" falsecount="1"/>
+      </file>
+    </package>
+    <package name="src.components.TextArea">
+      <metrics statements="2" coveredstatements="2" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="TextArea.vue" path="D:\04 - Cenas Pessoais\04 - Repositórios\frontend-challenge\src\components\TextArea\TextArea.vue">
+        <metrics statements="2" coveredstatements="2" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="33" type="cond" truecount="0" falsecount="1"/>
+        <line num="11" count="4" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.TextInput">
+      <metrics statements="2" coveredstatements="2" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="TextInput.vue" path="D:\04 - Cenas Pessoais\04 - Repositórios\frontend-challenge\src\components\TextInput\TextInput.vue">
+        <metrics statements="2" coveredstatements="2" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="33" type="cond" truecount="0" falsecount="1"/>
+        <line num="9" count="4" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.Title">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="Title.vue" path="D:\04 - Cenas Pessoais\04 - Repositórios\frontend-challenge\src\components\Title\Title.vue">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="108" type="stmt"/>
+        <line num="4" count="7" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.TopMenu">
       <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-      <line num="1" count="9" type="stmt"/>
-    </file>
+      <file name="TopMenu.vue" path="D:\04 - Cenas Pessoais\04 - Repositórios\frontend-challenge\src\components\TopMenu\TopMenu.vue">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="42" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.layouts.DefaultLayout">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="DefaultLayout.vue" path="D:\04 - Cenas Pessoais\04 - Repositórios\frontend-challenge\src\layouts\DefaultLayout\DefaultLayout.vue">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="31" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.views.ErrorView">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="ErrorView.vue" path="D:\04 - Cenas Pessoais\04 - Repositórios\frontend-challenge\src\views\ErrorView\ErrorView.vue">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="9" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.views.HomeView">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="HomeView.vue" path="D:\04 - Cenas Pessoais\04 - Repositórios\frontend-challenge\src\views\HomeView\HomeView.vue">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="9" type="stmt"/>
+      </file>
+    </package>
   </project>
 </coverage>

@@ -3,15 +3,15 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for src/App.vue</title>
+    <title>Code coverage report for src/components/Title/Title.vue</title>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="../prettify.css" />
-    <link rel="stylesheet" href="../base.css" />
-    <link rel="shortcut icon" type="image/x-icon" href="../favicon.png" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="../../../favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style type='text/css'>
         .coverage-summary .sorter {
-            background-image: url(../sort-arrow-sprite.png);
+            background-image: url(../../../sort-arrow-sprite.png);
         }
     </style>
 </head>
@@ -19,7 +19,7 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../index.html">All files</a> / <a href="index.html">src</a> App.vue</h1>
+        <h1><a href="../../../index.html">All files</a> / <a href="index.html">src/components/Title</a> Title.vue</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
@@ -95,12 +95,14 @@
 <a name='L30'></a><a href='#L30'>30</a>
 <a name='L31'></a><a href='#L31'>31</a>
 <a name='L32'></a><a href='#L32'>32</a>
-<a name='L33'></a><a href='#L33'>33</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">6x</span>
+<a name='L33'></a><a href='#L33'>33</a>
+<a name='L34'></a><a href='#L34'>34</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">108x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -128,35 +130,36 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&lt;template&gt;
-  &lt;div id="app"&gt;
-    &lt;router-view /&gt;
-  &lt;/div&gt;
+  &lt;component :is="type" class="qa-title c-title"&gt;{{ text }}&lt;/component&gt;
 &lt;/template&gt;
 &nbsp;
 &lt;script&gt;
 export default {
-  name: "App",
+  name: "Title",
+  props: {
+    text: {
+      type: String,
+      default: "",
+    },
+    type: {
+      type: String,
+      default: "h1",
+      validator(value) {
+        return ["h1", "h2", "h3", "h4", "h5", "h6"].includes(value);
+      },
+    },
+  },
 };
 &lt;/script&gt;
 &nbsp;
 &lt;style lang="scss"&gt;
-@import "./assets/styles/variables.scss";
-@import "./assets/styles/transitions.scss";
-&nbsp;
-#app {
-  font-family: $open-sans, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-&nbsp;
-html {
-  background-color: lighten($color: $third-color, $amount: 45);
-}
-&nbsp;
-body {
+@import "../../assets/styles/variables.scss";
+.c-title {
   margin: 0;
+  font-family: $monserrat, sans-serif;
+  font-weight: 600;
+  color: $forth-color;
+  margin: $vertical-spacing $horizontal-spacing;
 }
 &lt;/style&gt;
 &nbsp;</pre></td></tr></table></pre>
@@ -168,14 +171,14 @@ body {
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
                 at 2023-01-28T18:52:18.589Z
             </div>
-        <script src="../prettify.js"></script>
+        <script src="../../../prettify.js"></script>
         <script>
             window.onload = function () {
                 prettyPrint();
             };
         </script>
-        <script src="../sorter.js"></script>
-        <script src="../block-navigation.js"></script>
+        <script src="../../../sorter.js"></script>
+        <script src="../../../block-navigation.js"></script>
     </body>
 </html>
     
