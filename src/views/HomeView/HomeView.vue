@@ -13,9 +13,6 @@ import { mapGetters, mapActions } from "vuex";
 
 export default {
   name: "HomeView",
-  data() {
-    return {};
-  },
   computed: {
     ...mapGetters("list/", ["LIST"]),
   },
