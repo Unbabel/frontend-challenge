@@ -3,7 +3,10 @@ import List from "@/components/List/List.vue";
 
 describe("List.vue", () => {
   // Check if component renders
-  // Check if finds ListItem components
+  //Check if finds components
+  //listItem
+  //button
+  //title
   // Check if has List class
   // Check if recive list of elements
   // Check if renders list of elements
@@ -38,12 +41,14 @@ describe("List.vue", () => {
       wrapper.findAllComponents({ name: "ListItem" }).length
     ).toBeGreaterThan(0);
   });
-  it("Has ListItem component", () => {
+  it("Has reqired components", () => {
     wrapper = mount(List, {
       propsData: { list: list },
     });
 
     expect(wrapper.findComponent({ name: "ListItem" }).exists()).toBe(true);
+    expect(wrapper.findComponent({ name: "Button" }).exists()).toBe(true);
+    expect(wrapper.findComponent({ name: "Title" }).exists()).toBe(true);
   });
   it("Add item event", async () => {
     wrapper = mount(List, {
