@@ -13,8 +13,8 @@ const onClickHandler = () => emit('onClickCallback');
 </script>
 
 <template>
-  <button class="icon-button" @click="onClickHandler" data-test="action">
-    <img :src="icon" alt="action-icon" />
+  <button class="icon-button" @click="onClickHandler" data-test="icon-button">
+    <img :src="icon" alt="button-icon" />
   </button>
 </template>
 

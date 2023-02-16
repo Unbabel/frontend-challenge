@@ -1,13 +1,16 @@
 <script setup>
 // Components
-import Item from '../components/item/Item.vue';
+import ListItem from '../components/list-item/Item.vue';
 import IconButton from '../components/icon-button/IconButton.vue';
 </script>
 
 <template>
   <div class="transcriptions-container">
     <div class="transcriptions-inner-container">
-      <Item />
+      <div class="list">
+        <ListItem />
+      </div>
+      <hr />
     </div>
     <div class="transcriptions-button-div">
       <IconButton icon='src/assets/add-row.svg' />
@@ -30,9 +33,18 @@ import IconButton from '../components/icon-button/IconButton.vue';
   border: 1px solid var(--palette-lighter-grey);
 }
 
+.list {
+  padding: 1.5rem 3.3rem 1.5rem 1.75rem;
+}
+
 .transcriptions-button-div {
   width: fit-content;
   margin: 1.5rem auto 0 auto;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--palette-lighter-grey);
 }
 
 /* @media (min-width: 1024px) {
