@@ -13,7 +13,7 @@ const onChangeHandler = (value) => console.log(value);
 
 <template>
   <Input customStyles="content-styles" :value="content" @onChangeCallback="onChangeHandler"
-    placeholder="Insert content..." />
+    placeholder="Insert content..." :rows="5" />
 </template>
 
 <style scoped>

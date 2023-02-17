@@ -9,6 +9,10 @@ defineProps({
     type: String,
     default: 'Insert text here'
   },
+  rows: {
+    type: String,
+    default: "1",
+  },
   customStyles: {
     type: String,
     default: ''
@@ -20,17 +24,19 @@ const onChangeHandler = (ev) => emit('onChangeCallback', ev.target.value);
 </script>
 
 <template>
-  <input :class="customStyles" :value="value" @input="onChangeHandler" :placeholder="placeholder" />
+  <textarea :class="customStyles" :value="value" @input="onChangeHandler" :placeholder="placeholder" :rows="rows">
+  </textarea>
 </template>
 
 <style scoped>
-input {
+textarea {
   width: 100%;
   border: 1px solid transparent;
   outline: none;
+  resize: none;
 }
 
-input:focus {
+textarea:focus {
   border: 1px solid var(--palette-lighter-grey);
   border-radius: 3px;
   background-color: var(--palette-dirty-white);
