@@ -1,11 +1,19 @@
 <script setup>
+import { computed, defineProps } from 'vue';
+const { id } = defineProps({
+  id: {
+    type: String,
+    required: true,
+  }
+});
 
+const checkboxId = computed(() => "checkbox-" + id);
 </script>
 
 <template>
   <div class="checkbox-div">
-    <input name="cssCheckbox" id="input-checkbox" type="checkbox" class="css-checkbox">
-    <label for="input-checkbox"></label>
+    <input name="cssCheckbox" :id="checkboxId" type="checkbox" class="css-checkbox">
+    <label :for="checkboxId"></label>
   </div>
 </template>
 
@@ -50,7 +58,7 @@
   content: " ";
   background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBmaWxsPSIjZmZmZmZmIiBkPSJNMTczLjg5OCA0MzkuNDA0bC0xNjYuNC0xNjYuNGMtOS45OTctOS45OTctOS45OTctMjYuMjA2IDAtMzYuMjA0bDM2LjIwMy0zNi4yMDRjOS45OTctOS45OTggMjYuMjA3LTkuOTk4IDM2LjIwNCAwTDE5MiAzMTIuNjkgNDMyLjA5NSA3Mi41OTZjOS45OTctOS45OTcgMjYuMjA3LTkuOTk3IDM2LjIwNCAwbDM2LjIwMyAzNi4yMDRjOS45OTcgOS45OTcgOS45OTcgMjYuMjA2IDAgMzYuMjA0bC0yOTQuNCAyOTQuNDAxYy05Ljk5OCA5Ljk5Ny0yNi4yMDcgOS45OTctMzYuMjA0LS4wMDF6Ii8+PC9zdmc+");
   background-repeat: no-repeat;
-  background-size: 0.6rem 1rem;
+  background-size: 0.8rem 1rem;
   background-position: center center;
   position: absolute;
   display: flex;
@@ -59,7 +67,7 @@
   text-align: center;
   background-color: var(--palette-purple);
   font-size: 1rem;
-  height: 12px;
+  height: 14px;
   width: 1rem;
 }
 </style>

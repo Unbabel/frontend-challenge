@@ -7,18 +7,16 @@ import IconButton from '../icon-button/IconButton.vue';
 
 <template>
   <div class="top-bar-container">
-    <div class="top-bar-inner-container">
+    <div class="top-bar-inner-container flex-center flex-center-row">
       <PageTitle text="Transcriptions" />
-      <div class="top-bar-actions-container">
+      <div class="top-bar-actions-container flex-center flex-center-row">
         <IconButton v-for="action in $route.meta?.actions" @onClickCallback="action.callback" :icon="action.icon" />
       </div>
     </div>
   </div>
 </template>
 
-<style scoped lang="scss">
-@use '../../assets/main.css';
-
+<style scoped>
 .top-bar-container {
   width: 100%;
   height: 4.3rem;
@@ -27,19 +25,19 @@ import IconButton from '../icon-button/IconButton.vue';
 }
 
 .top-bar-inner-container {
-  @extend .flex-center;
-  @extend .flex-center-row;
-
   height: 100%;
-  width: 60%;
+  width: 55%;
   margin: 0 auto;
   justify-content: space-between;
 }
 
 .top-bar-actions-container {
-  @extend .flex-center;
-  @extend .flex-center-row;
-
   column-gap: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .top-bar-inner-container {
+    width: 90%;
+  }
 }
 </style>
