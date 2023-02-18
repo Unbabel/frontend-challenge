@@ -7,6 +7,10 @@ const fetchTranscriptions = (context) => {
 	});
 };
 
+const sendTranscriptions = (transcriptions) => {
+	API.postTranscriptions(transcriptions);
+};
+
 const addListItem = (context) => {
 	context.commit("addListItem");
 };
@@ -15,4 +19,9 @@ const deleteListItem = (context, itemId) => {
 	context.commit("deleteListItem", itemId);
 };
 
-export default { fetchTranscriptions, addListItem, deleteListItem };
+export default {
+	fetchTranscriptions,
+	sendTranscriptions,
+	addListItem,
+	deleteListItem,
+};

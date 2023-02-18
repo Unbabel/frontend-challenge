@@ -11,6 +11,18 @@ const API = {
 			.then((result) => result)
 			.catch((error) => console.log("error", error));
 	},
+	postTranscriptions: async (body) => {
+		var requestOptions = {
+			method: "POST",
+			redirect: "follow",
+			body: body,
+		};
+
+		return await fetch(URL, requestOptions)
+			.then((response) => response.json())
+			.then((result) => result)
+			.catch((error) => console.log("error", error));
+	},
 };
 
 export default API;

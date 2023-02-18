@@ -5,7 +5,8 @@ export const topBarRouteActions = {
 		{
 			icon: "/src/assets/upload.svg",
 			callback: () => {
-				console.log("I was clicked");
+				const transcriptions = store.getters.getListItems;
+				store.dispatch("sendTranscriptions", transcriptions);
 			},
 		},
 		{
