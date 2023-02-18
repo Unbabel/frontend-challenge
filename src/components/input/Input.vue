@@ -1,12 +1,5 @@
 <script setup>
-import { onMounted, ref } from "vue";
-
-const textareaRef = ref(null);
 const emit = defineEmits(['onChangeCallback']);
-
-onMounted(() => {
-  fitToContent();
-})
 
 defineProps({
   value: {
@@ -22,25 +15,20 @@ defineProps({
   }
 });
 
-const fitToContent = () => {
-  textareaRef.value.style.height = "5px";
-  textareaRef.value.style.height = (textareaRef.value.scrollHeight) + "px";
-}
-
 const onChangeHandler = (ev) => {
-  fitToContent();
   emit('onChangeCallback', ev.target.value);
 };
 
 </script>
 
 <template>
-  <textarea ref="textareaRef" :class="customStyles" :value="value" @input="onChangeHandler" :placeholder="placeholder">
-  </textarea>
+  <div class="textarea" contenteditable :class="customStyles" :value="value" @input="onChangeHandler">{{ value ||
+  placeholder }}
+  </div>
 </template>
 
 <style scoped>
-textarea {
+.textarea {
   width: 100%;
   border: 1px solid transparent;
   outline: none;
@@ -48,7 +36,7 @@ textarea {
   max-height: 200px;
 }
 
-textarea:focus {
+.textarea:focus {
   border: 1px solid var(--palette-lighter-grey);
   border-radius: 3px;
   background-color: var(--palette-dirty-white);

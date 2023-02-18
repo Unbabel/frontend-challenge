@@ -89,7 +89,8 @@ export default {
 }
 
 .item-title-wrapper {
-  padding-top: 0.5rem;
+  width: 100%;
+  padding-top: 0.2rem;
 }
 
 .m {
