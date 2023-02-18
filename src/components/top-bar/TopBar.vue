@@ -1,8 +1,7 @@
 <script setup>
 // Components
-import PageTitle from '../page-title/PageTitle.vue';
-import IconButton from '../icon-button/IconButton.vue';
-
+import PageTitle from "../page-title/PageTitle.vue";
+import IconButton from "../icon-button/IconButton.vue";
 </script>
 
 <template>
@@ -10,7 +9,11 @@ import IconButton from '../icon-button/IconButton.vue';
     <div class="top-bar-inner-container flex-center flex-center-row">
       <PageTitle text="Transcriptions" />
       <div class="top-bar-actions-container flex-center flex-center-row">
-        <IconButton v-for="action in $route.meta?.actions" @onClickCallback="action.callback" :icon="action.icon" />
+        <IconButton
+          v-for="action in $route.meta?.actions"
+          @onClickCallback="action.callback"
+          :icon="action.icon"
+        />
       </div>
     </div>
   </div>

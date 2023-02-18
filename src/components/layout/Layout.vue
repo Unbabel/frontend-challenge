@@ -1,7 +1,6 @@
 <script setup>
-import TopBar from '../top-bar/TopBar.vue';
-import Content from '../content/Content.vue';
-
+import TopBar from "../top-bar/TopBar.vue";
+import Content from "../content/Content.vue";
 </script>
 
 <template>
@@ -11,9 +10,6 @@ import Content from '../content/Content.vue';
       <slot />
     </Content>
   </div>
-
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

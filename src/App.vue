@@ -1,5 +1,5 @@
 <script setup>
-import Layout from './components/layout/Layout.vue'
+import Layout from "./components/layout/Layout.vue";
 </script>
 
 <template>
@@ -8,6 +8,4 @@ import Layout from './components/layout/Layout.vue'
   </div>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

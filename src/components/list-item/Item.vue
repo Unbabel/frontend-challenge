@@ -1,19 +1,19 @@
 <script>
 // Store
-import { mapActions } from 'vuex';
+import { mapActions } from "vuex";
 
 // Components
-import ItemTitle from './item-title/ItemTitle.vue';
-import ItemBody from './item-body/ItemBody.vue';
-import Checkbox from '../checkbox/Checkbox.vue';
-import IconButton from '../icon-button/IconButton.vue';
+import ItemTitle from "./item-title/ItemTitle.vue";
+import ItemBody from "./item-body/ItemBody.vue";
+import Checkbox from "../checkbox/Checkbox.vue";
+import IconButton from "../icon-button/IconButton.vue";
 
 export default {
   components: {
     ItemTitle,
     ItemBody,
     Checkbox,
-    IconButton
+    IconButton,
   },
   props: {
     itemId: {
@@ -25,27 +25,30 @@ export default {
     },
     content: {
       type: String,
-    }
+    },
   },
   methods: {
     onDeleteCallback() {
       this.deleteListItem(this.itemId);
     },
     ...mapActions({
-      deleteListItem: 'deleteListItem'
-    })
+      deleteListItem: "deleteListItem",
+    }),
   },
   data() {
     return {
       showDeleteBtn: false,
-    }
-  }
-}
-
+    };
+  },
+};
 </script>
 
 <template>
-  <div class="item-container" @mouseover="showDeleteBtn = true" @mouseleave="showDeleteBtn = false">
+  <div
+    class="item-container"
+    @mouseover="showDeleteBtn = true"
+    @mouseleave="showDeleteBtn = false"
+  >
     <div class="item-cell-1">
       <Checkbox :id="itemId" />
       <div class="m" />
@@ -55,7 +58,10 @@ export default {
         <ItemTitle :text="title" />
       </div>
       <span class="delete-span" :class="showDeleteBtn && 'visible'">
-        <IconButton icon="src/assets/delete.svg" @onClickCallback="onDeleteCallback" />
+        <IconButton
+          icon="src/assets/delete.svg"
+          @onClickCallback="onDeleteCallback"
+        />
       </span>
     </div>
     <div class="item-cell-2">

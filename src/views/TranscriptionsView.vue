@@ -1,13 +1,13 @@
 <script>
 // Store
-import { mapState, mapActions } from 'vuex';
+import { mapState, mapActions } from "vuex";
 
 // Components
-import ListItem from '../components/list-item/Item.vue';
-import IconButton from '../components/icon-button/IconButton.vue';
+import ListItem from "../components/list-item/Item.vue";
+import IconButton from "../components/icon-button/IconButton.vue";
 
 const lastItem = (currItemId, lastItemId) => {
-  if (typeof (currItemId) === "number" && typeof (lastItemId) === "number") {
+  if (typeof currItemId === "number" && typeof lastItemId === "number") {
     return currItemId === lastItemId;
   }
 
@@ -17,20 +17,20 @@ const lastItem = (currItemId, lastItemId) => {
 export default {
   components: {
     ListItem,
-    IconButton
+    IconButton,
   },
   computed: {
     ...mapState({
-      listItems: 'listItems',
+      listItems: "listItems",
     }),
   },
   methods: {
     lastItem,
     ...mapActions({
-      onAddClick: 'addListItem'
-    })
-  }
-}
+      onAddClick: "addListItem",
+    }),
+  },
+};
 </script>
 
 <template>
@@ -38,15 +38,18 @@ export default {
     <div class="transcriptions-inner-container">
       <div v-for="listItem in listItems">
         <div class="list">
-          <ListItem :itemId="listItem.id.toString()" :title="listItem.voice" :content="listItem.text" />
+          <ListItem
+            :itemId="listItem.id.toString()"
+            :title="listItem.voice"
+            :content="listItem.text"
+          />
         </div>
         <hr v-if="!lastItem(listItem.id, listItems.at(-1)?.id)" />
       </div>
     </div>
     <div class="transcriptions-button-div">
-      <IconButton icon='src/assets/add-row.svg' @onClickCallback="onAddClick" />
+      <IconButton icon="src/assets/add-row.svg" @onClickCallback="onAddClick" />
     </div>
-
   </div>
 </template>
 

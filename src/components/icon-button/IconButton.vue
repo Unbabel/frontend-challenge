@@ -1,15 +1,14 @@
 <script setup>
-const emit = defineEmits(['onClickCallback']);
+const emit = defineEmits(["onClickCallback"]);
 
 defineProps({
   icon: {
     type: String,
-    required: true
+    required: true,
   },
 });
 
-const onClickHandler = () => emit('onClickCallback');
-
+const onClickHandler = () => emit("onClickCallback");
 </script>
 
 <template>

@@ -8,7 +8,7 @@ import store from "./shared/state/store";
 import "./assets/main.css";
 
 new Vue({
-	store,
-	router,
-	render: (h) => h(App),
+  store,
+  router,
+  render: (h) => h(App),
 }).$mount("#app");

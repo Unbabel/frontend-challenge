@@ -1,10 +1,10 @@
 <script setup>
-import { computed } from 'vue';
+import { computed } from "vue";
 const { id } = defineProps({
   id: {
     type: String,
     required: true,
-  }
+  },
 });
 
 const checkboxId = computed(() => "checkbox-" + id);
@@ -12,7 +12,12 @@ const checkboxId = computed(() => "checkbox-" + id);
 
 <template>
   <div class="checkbox-div">
-    <input name="cssCheckbox" :id="checkboxId" type="checkbox" class="css-checkbox">
+    <input
+      name="cssCheckbox"
+      :id="checkboxId"
+      type="checkbox"
+      class="css-checkbox"
+    />
     <label :for="checkboxId"></label>
   </div>
 </template>
@@ -33,8 +38,7 @@ const checkboxId = computed(() => "checkbox-" + id);
   border: 0;
 }
 
-
-.css-checkbox+label {
+.css-checkbox + label {
   position: relative;
   font-size: 1rem;
   cursor: pointer;
@@ -42,7 +46,7 @@ const checkboxId = computed(() => "checkbox-" + id);
   align-items: center;
 }
 
-.css-checkbox+label::before {
+.css-checkbox + label::before {
   content: " ";
   vertical-align: middle;
   height: 12px;
@@ -54,7 +58,7 @@ const checkboxId = computed(() => "checkbox-" + id);
   box-shadow: none;
 }
 
-.css-checkbox:checked+label::after {
+.css-checkbox:checked + label::after {
   content: " ";
   background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBmaWxsPSIjZmZmZmZmIiBkPSJNMTczLjg5OCA0MzkuNDA0bC0xNjYuNC0xNjYuNGMtOS45OTctOS45OTctOS45OTctMjYuMjA2IDAtMzYuMjA0bDM2LjIwMy0zNi4yMDRjOS45OTctOS45OTggMjYuMjA3LTkuOTk4IDM2LjIwNCAwTDE5MiAzMTIuNjkgNDMyLjA5NSA3Mi41OTZjOS45OTctOS45OTcgMjYuMjA3LTkuOTk3IDM2LjIwNCAwbDM2LjIwMyAzNi4yMDRjOS45OTcgOS45OTcgOS45OTcgMjYuMjA2IDAgMzYuMjA0bC0yOTQuNCAyOTQuNDAxYy05Ljk5OCA5Ljk5Ny0yNi4yMDcgOS45OTctMzYuMjA0LS4wMDF6Ii8+PC9zdmc+");
   background-repeat: no-repeat;

@@ -3,15 +3,15 @@
 .flex-center,
 .flex-center-row,
 .flex-center-column {
-	display: flex;
-	align-items: center;
-	align-content: center;
+  display: flex;
+  align-items: center;
+  align-content: center;
 }
 
 .flex-center-row {
-	flex-direction: row;
+  flex-direction: row;
 }
 
 .flex-center-column {
-	flex-direction: column;
+  flex-direction: column;
 }

@@ -17,9 +17,20 @@ defineProps({
 
 <template>
   <div class="default-page-container flex-center">
-    <img v-if="imageSrc" class="default-page-img" :src="imageSrc" alt="default-page-img">
+    <img
+      v-if="imageSrc"
+      class="default-page-img"
+      :src="imageSrc"
+      alt="default-page-img"
+    />
     <span v-if="pageLabel" class="default-page-label">{{ pageLabel }}</span>
-    <button v-if="btnLabel && btnHandler" class="default-page-btn" @click="btnHandler">{{ btnLabel }}</button>
+    <button
+      v-if="btnLabel && btnHandler"
+      class="default-page-btn"
+      @click="btnHandler"
+    >
+      {{ btnLabel }}
+    </button>
   </div>
 </template>
 
@@ -57,7 +68,6 @@ defineProps({
 }
 
 @media (max-width: 768px) {
-
   .default-page-label,
   .default-page-btn {
     font-size: 1rem;
@@ -65,7 +75,6 @@ defineProps({
 }
 
 @media (max-width: 400px) {
-
   .default-page-label,
   .default-page-btn {
     font-size: 0.7rem;

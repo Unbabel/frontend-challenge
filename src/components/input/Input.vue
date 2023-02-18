@@ -1,5 +1,5 @@
 <script setup>
-const emit = defineEmits(['onChangeCallback']);
+const emit = defineEmits(["onChangeCallback"]);
 
 defineProps({
   value: {
@@ -7,23 +7,28 @@ defineProps({
   },
   placeholder: {
     type: String,
-    default: 'Insert text here'
+    default: "Insert text here",
   },
   customStyles: {
     type: String,
-    default: ''
-  }
+    default: "",
+  },
 });
 
 const onChangeHandler = (ev) => {
-  emit('onChangeCallback', ev.target.value);
+  emit("onChangeCallback", ev.target.value);
 };
-
 </script>
 
 <template>
-  <div class="textarea" contenteditable :class="customStyles" :value="value" @input="onChangeHandler">{{ value ||
-  placeholder }}
+  <div
+    class="textarea"
+    contenteditable
+    :class="customStyles"
+    :value="value"
+    @input="onChangeHandler"
+  >
+    {{ value || placeholder }}
   </div>
 </template>
 

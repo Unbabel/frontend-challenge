@@ -3,8 +3,8 @@ defineProps({
   text: {
     type: String,
     required: true,
-    default: '',
-  }
+    default: "",
+  },
 });
 </script>
 
