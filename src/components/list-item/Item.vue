@@ -1,68 +1,118 @@
-<script setup>
+<script>
+// Store
+import { mapActions } from 'vuex';
+
 // Components
 import ItemTitle from './item-title/ItemTitle.vue';
 import ItemBody from './item-body/ItemBody.vue';
 import Checkbox from '../checkbox/Checkbox.vue';
+import IconButton from '../icon-button/IconButton.vue';
 
-defineProps({
-  title: {
-    type: String,
+export default {
+  components: {
+    ItemTitle,
+    ItemBody,
+    Checkbox,
+    IconButton
   },
-  content: {
-    type: String,
+  props: {
+    itemId: {
+      type: String,
+      required: true,
+    },
+    title: {
+      type: String,
+    },
+    content: {
+      type: String,
+    }
+  },
+  methods: {
+    onDeleteCallback() {
+      this.deleteListItem(this.itemId);
+    },
+    ...mapActions({
+      deleteListItem: 'deleteListItem'
+    })
+  },
+  data() {
+    return {
+      showDeleteBtn: false,
+    }
   }
-});
-
+}
 
 </script>
 
 <template>
-  <table class="custom-table">
-    <tr>
-      <td>
-        <Checkbox />
-      </td>
-      <td>
-        <img src="src/assets/person.svg" alt="person-icon" />
-      </td>
-      <td>
+  <div class="item-container" @mouseover="showDeleteBtn = true" @mouseleave="showDeleteBtn = false">
+    <div class="item-cell-1">
+      <Checkbox :id="itemId" />
+      <div class="m" />
+      <img src="src/assets/person.svg" alt="person-icon" />
+      <div class="half-m" />
+      <div class="item-title-wrapper">
         <ItemTitle :text="title" />
-      </td>
-    </tr>
-    <tr>
-      <td />
-      <td />
-      <td>
-        <ItemBody :content="content" />
-      </td>
-    </tr>
-  </table>
-
+      </div>
+      <span class="delete-span" :class="showDeleteBtn && 'visible'">
+        <IconButton icon="src/assets/delete.svg" @onClickCallback="onDeleteCallback" />
+      </span>
+    </div>
+    <div class="item-cell-2">
+      <ItemBody :content="content" />
+    </div>
+  </div>
 </template>
 
-<style scoped lang="scss">
-@use '../../assets/main.css';
+<style scoped>
+.item-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
 
-.custom-table {
+.item-cell-1 {
   width: 100%;
+  margin-top: 2px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
-td:nth-child(1) {
-  padding-right: 1rem;
+.item-cell-2 {
+  width: -webkit-fill-available;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-left: 4.3rem;
+  padding-right: 2rem;
 }
 
-td:nth-child(2) {
-  @extend .flex-center;
-
-  padding-right: 0.5rem;
+.item-title-wrapper {
+  padding-top: 0.5rem;
 }
 
-tr>td {
-  padding-bottom: 0.5em;
+.m {
+  margin-right: 1rem;
 }
 
-tr td:last-child {
+.half-m {
+  margin-right: 0.5rem;
+}
+
+.visible {
+  visibility: visible !important;
+}
+
+.delete-span {
   width: 100%;
-  white-space: nowrap;
+  text-align: end;
+  visibility: hidden;
+}
+
+@media (max-width: 768px) {
+  .item-cell-2 {
+    padding: 0;
+  }
 }
 </style>

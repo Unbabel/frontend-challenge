@@ -1,3 +1,5 @@
+import store from "../state/store";
+
 export const topBarRouteActions = {
 	transcriptions: [
 		{
@@ -9,7 +11,7 @@ export const topBarRouteActions = {
 		{
 			icon: "src/assets/fetch-document.svg",
 			callback: () => {
-				console.log("I was clicked");
+				store.dispatch("fetchTranscriptions");
 			},
 		},
 	],

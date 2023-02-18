@@ -1,19 +1,50 @@
-<script setup>
+<script>
+// Store
+import { mapState, mapActions } from 'vuex';
+
 // Components
 import ListItem from '../components/list-item/Item.vue';
 import IconButton from '../components/icon-button/IconButton.vue';
+
+const lastItem = (currItemId, lastItemId) => {
+  if (typeof (currItemId) === "number" && typeof (lastItemId) === "number") {
+    return currItemId === lastItemId;
+  }
+
+  return false;
+};
+
+export default {
+  components: {
+    ListItem,
+    IconButton
+  },
+  computed: {
+    ...mapState({
+      listItems: 'listItems',
+    }),
+  },
+  methods: {
+    lastItem,
+    ...mapActions({
+      onAddClick: 'addListItem'
+    })
+  }
+}
 </script>
 
 <template>
   <div class="transcriptions-container">
     <div class="transcriptions-inner-container">
-      <div class="list">
-        <ListItem />
+      <div v-for="listItem in listItems">
+        <div class="list">
+          <ListItem :itemId="listItem.id.toString()" :title="listItem.voice" :content="listItem.text" />
+        </div>
+        <hr v-if="!lastItem(listItem.id, listItems.at(-1)?.id)" />
       </div>
-      <hr />
     </div>
     <div class="transcriptions-button-div">
-      <IconButton icon='src/assets/add-row.svg' />
+      <IconButton icon='src/assets/add-row.svg' @onClickCallback="onAddClick" />
     </div>
 
   </div>
@@ -28,13 +59,12 @@ import IconButton from '../components/icon-button/IconButton.vue';
 }
 
 .transcriptions-inner-container {
-  height: 200px;
   background-color: var(--palette-white);
   border: 1px solid var(--palette-lighter-grey);
 }
 
 .list {
-  padding: 1.5rem 3.3rem 1.5rem 1.75rem;
+  padding: 1.5rem 1.3rem 1.5rem 1.75rem;
 }
 
 .transcriptions-button-div {
@@ -47,11 +77,13 @@ hr {
   border-top: 1px solid var(--palette-lighter-grey);
 }
 
-/* @media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
+@media (max-width: 768px) {
+  .transcriptions-container {
+    width: 90%;
   }
-} */
+
+  .list {
+    padding: 0.5rem 1.2rem 0.5rem 1.75rem;
+  }
+}
 </style>
