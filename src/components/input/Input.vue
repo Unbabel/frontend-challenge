@@ -1,5 +1,12 @@
 <script setup>
+import { onMounted, ref } from "vue";
+
+const textareaRef = ref(null);
 const emit = defineEmits(['onChangeCallback']);
+
+onMounted(() => {
+  fitToContent();
+})
 
 defineProps({
   value: {
@@ -9,22 +16,26 @@ defineProps({
     type: String,
     default: 'Insert text here'
   },
-  rows: {
-    type: String,
-    default: "1",
-  },
   customStyles: {
     type: String,
     default: ''
   }
 });
 
-const onChangeHandler = (ev) => emit('onChangeCallback', ev.target.value);
+const fitToContent = () => {
+  textareaRef.value.style.height = "5px";
+  textareaRef.value.style.height = (textareaRef.value.scrollHeight) + "px";
+}
+
+const onChangeHandler = (ev) => {
+  fitToContent();
+  emit('onChangeCallback', ev.target.value);
+};
 
 </script>
 
 <template>
-  <textarea :class="customStyles" :value="value" @input="onChangeHandler" :placeholder="placeholder" :rows="rows">
+  <textarea ref="textareaRef" :class="customStyles" :value="value" @input="onChangeHandler" :placeholder="placeholder">
   </textarea>
 </template>
 
@@ -34,6 +45,7 @@ textarea {
   border: 1px solid transparent;
   outline: none;
   resize: none;
+  max-height: 200px;
 }
 
 textarea:focus {

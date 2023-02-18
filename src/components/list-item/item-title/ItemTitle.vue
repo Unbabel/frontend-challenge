@@ -17,6 +17,7 @@ const onChangeHandler = (value) => console.log(value);
 
 <style scoped>
 .title-styles {
+  font-family: "Montserrat";
   font-weight: 600;
   color: var(--palette-light-grey);
 }
