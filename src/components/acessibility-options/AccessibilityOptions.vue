@@ -53,14 +53,12 @@
 		</div>
 		<Modal>
 			<h3>Accessibility Profiles</h3>
-			<div class="accessibility-option flex-center">
+			<div class="accessibility-options-grid">
 				<p>Elder</p>
 				<ToggleButton
 					:onChangeCallback="toggleElderMode"
 					:checked="isElderModeActive"
 				/>
-			</div>
-			<div class="accessibility-option flex-center">
 				<p>Color Blindness</p>
 				<ToggleButton
 					:onChangeCallback="toggleColorBlindness"
@@ -109,8 +107,17 @@
 			box-shadow: 0 0 0 0 rgba(142, 68, 173, 0);
 		}
 	}
+	h3 {
+		text-align: center;
+	}
 
 	.accessibility-option {
 		column-gap: 2rem;
+	}
+
+	.accessibility-options-grid {
+		display: grid;
+		grid-template-columns: 70% 29%;
+		align-items: center;
 	}
 </style>

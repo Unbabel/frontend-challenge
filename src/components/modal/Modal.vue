@@ -22,8 +22,12 @@
 <template>
 	<div id="custom-modal" class="modal" :class="showModal && 'modal-active'">
 		<div class="modal-content">
-			<span class="close" @click="closeModal">&times;</span>
-			<slot></slot>
+			<div class="flex-row-end">
+				<span class="close" @click="closeModal">&times;</span>
+			</div>
+			<div class="modal-slot-content">
+				<slot></slot>
+			</div>
 		</div>
 	</div>
 </template>
@@ -51,7 +55,18 @@
 		margin: 15% auto;
 		padding: 1.25rem;
 		border: 1px solid #888;
-		width: 80%;
+		width: fit-content;
+		min-width: 25%;
+	}
+
+	.modal-slot-content {
+		margin: 0rem 2rem 0.5rem 2rem;
+	}
+
+	.flex-row-end {
+		display: flex;
+		flex-direction: row;
+		justify-content: end;
 	}
 
 	.close {
