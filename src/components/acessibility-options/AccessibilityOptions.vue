@@ -1,13 +1,18 @@
 <script>
 	// Store
-	import { mapState, mapActions } from "vuex";
+	import { mapState, mapActions, mapGetters } from "vuex";
 
 	// Components
 	import Modal from "../modal/Modal.vue";
+	import ToggleButton from "../toggle-button/ToggleButton.vue";
+
+	// Utils
+	import { addOrRemoveClassNameFromElTag } from "../../shared/utils/accessibilityOptions";
 
 	export default {
 		components: {
 			Modal,
+			ToggleButton,
 		},
 		methods: {
 			...mapActions({
@@ -18,14 +23,8 @@
 				this.toggleModalVisibility();
 			},
 			toggleElderMode() {
-				const [html] = document.getElementsByTagName("html");
-				const htmlClassNames = Array.from(html.classList);
-
-				if (htmlClassNames.includes("elder")) {
-					html.classList.remove("elder");
-				} else {
-					html.classList.add("elder");
-				}
+				addOrRemoveClassNameFromElTag("html", "elder");
+				this.toggleAccessibilityOption("elder");
 			},
 			toggleColorBlindness() {
 				this.toggleAccessibilityOption("colorBlindness");
@@ -34,6 +33,9 @@
 		computed: {
 			...mapState({
 				showModal: "showModal",
+				isElderModeActive: (state) => state.accessibilityOptions.elder,
+				isColorBlindnessActive: (state) =>
+					state.accessibilityOptions.colorBlindness,
 			}),
 		},
 	};
@@ -53,11 +55,17 @@
 			<h3>Accessibility Profiles</h3>
 			<div class="accessibility-option flex-center">
 				<p>Elder</p>
-				<button @click="toggleElderMode">Toggle</button>
+				<ToggleButton
+					:onChangeCallback="toggleElderMode"
+					:checked="isElderModeActive"
+				/>
 			</div>
 			<div class="accessibility-option flex-center">
 				<p>Color Blindness</p>
-				<button @click="toggleColorBlindness">Toggle</button>
+				<ToggleButton
+					:onChangeCallback="toggleColorBlindness"
+					:checked="isColorBlindnessActive"
+				/>
 			</div>
 		</Modal>
 	</div>

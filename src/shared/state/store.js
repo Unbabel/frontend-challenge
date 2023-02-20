@@ -18,6 +18,7 @@ const store = new Vuex.Store({
 		isModalOpen: (state) => state.showModal,
 		isColorBlindnessActive: (state) =>
 			state.accessibilityOptions.colorBlindness,
+		isElderModeActive: (state) => state.accessibilityOptions.elder,
 	},
 	mutations: {
 		setListItems(state, listItems) {
@@ -68,6 +69,8 @@ const store = new Vuex.Store({
 			if (Object.keys(state.accessibilityOptions).includes(option)) {
 				state.accessibilityOptions[option] =
 					!state.accessibilityOptions[option];
+
+				saveToLocalStorage(state);
 			}
 		},
 	},

@@ -36,12 +36,6 @@
 				}`;
 			},
 		},
-		computed: {
-			...mapState({
-				isColorBlindnessActive: (state) =>
-					state.accessibilityOptions.accessibilityOptions,
-			}),
-		},
 		mounted() {
 			this.fitToContent();
 		},
