@@ -104,8 +104,8 @@ describe("AccessibilityOptions", () => {
 	});
 
 	[
-		{ clx: "acessibility-container" },
-		{ clx: "acessibility" },
+		{ clx: "accessibility-container" },
+		{ clx: "accessibility" },
 		{ clx: "accessibility-options-grid" },
 	].forEach(({ clx }) =>
 		it("has correct css classes", () => {

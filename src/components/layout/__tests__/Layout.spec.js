@@ -6,7 +6,7 @@ import { mount, createLocalVue, shallowMount } from "@vue/test-utils";
 import Layout from "../Layout.vue";
 import TopBar from "../../top-bar/TopBar.vue";
 import Content from "../../content/Content.vue";
-import AccessibilityOptions from "../../acessibility-options/AccessibilityOptions.vue";
+import AccessibilityOptions from "../../accessibility-options/AccessibilityOptions.vue";
 
 const localVue = createLocalVue();
 localVue.use(Vuex);

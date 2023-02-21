@@ -43,15 +43,15 @@
 
 <template>
 	<div>
-		<div class="acessibility-container" aria-label="Accessibility Options">
+		<div class="accessibility-container" aria-label="Accessibility Options">
 			<div
-				class="acessibility"
+				class="accessibility"
 				@click="openModal"
 				data-test="accessibility-div"
 			>
 				<img
-					src="src/assets/acessibility.svg"
-					alt="acessibility-icon"
+					src="src/assets/accessibility.svg"
+					alt="accessibility-icon"
 				/>
 			</div>
 		</div>
@@ -74,14 +74,14 @@
 </template>
 
 <style scoped>
-	.acessibility-container {
+	.accessibility-container {
 		position: fixed;
 		z-index: 10;
 		bottom: 1.25rem;
 		left: 0.625rem;
 		width: fit-content;
 	}
-	.acessibility {
+	.accessibility {
 		background: var(--palette-purple);
 		border-radius: 50%;
 		margin: 0.625rem;

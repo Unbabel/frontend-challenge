@@ -2,7 +2,7 @@
 	//  Components
 	import TopBar from "../top-bar/TopBar.vue";
 	import Content from "../content/Content.vue";
-	import AccessibilityOptions from "../acessibility-options/AccessibilityOptions.vue";
+	import AccessibilityOptions from "../accessibility-options/AccessibilityOptions.vue";
 </script>
 
 <template>

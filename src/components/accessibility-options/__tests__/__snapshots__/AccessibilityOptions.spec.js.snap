@@ -2,8 +2,8 @@
 
 exports[`AccessibilityOptions > matches snapshot 1`] = `
 "<div data-v-3ceb0956=\\"\\">
-  <div data-v-3ceb0956=\\"\\" aria-label=\\"Accessibility Options\\" class=\\"acessibility-container\\">
-    <div data-v-3ceb0956=\\"\\" data-test=\\"accessibility-div\\" class=\\"acessibility\\"><img data-v-3ceb0956=\\"\\" src=\\"src/assets/acessibility.svg\\" alt=\\"acessibility-icon\\"></div>
+  <div data-v-3ceb0956=\\"\\" aria-label=\\"Accessibility Options\\" class=\\"accessibility-container\\">
+    <div data-v-3ceb0956=\\"\\" data-test=\\"accessibility-div\\" class=\\"accessibility\\"><img data-v-3ceb0956=\\"\\" src=\\"src/assets/accessibility.svg\\" alt=\\"accessibility-icon\\"></div>
   </div>
   <modal-stub data-v-3ceb0956=\\"\\">
     <h3 data-v-3ceb0956=\\"\\">Accessibility Profiles</h3>
