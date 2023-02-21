@@ -50,8 +50,9 @@
 				data-test="accessibility-div"
 			>
 				<img
-					src="src/assets/accessibility.svg"
+					src="/src/assets/accessibility.svg"
 					alt="accessibility-icon"
+					data-test="accessibility-icon"
 				/>
 			</div>
 		</div>

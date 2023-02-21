@@ -1,17 +1,17 @@
 // Vitest Snapshot v1
 
 exports[`AccessibilityOptions > matches snapshot 1`] = `
-"<div data-v-3ceb0956=\\"\\">
-  <div data-v-3ceb0956=\\"\\" aria-label=\\"Accessibility Options\\" class=\\"accessibility-container\\">
-    <div data-v-3ceb0956=\\"\\" data-test=\\"accessibility-div\\" class=\\"accessibility\\"><img data-v-3ceb0956=\\"\\" src=\\"src/assets/accessibility.svg\\" alt=\\"accessibility-icon\\"></div>
+"<div data-v-8789ad59=\\"\\">
+  <div data-v-8789ad59=\\"\\" aria-label=\\"Accessibility Options\\" class=\\"accessibility-container\\">
+    <div data-v-8789ad59=\\"\\" data-test=\\"accessibility-div\\" class=\\"accessibility\\"><img data-v-8789ad59=\\"\\" src=\\"/src/assets/accessibility.svg\\" alt=\\"accessibility-icon\\" data-test=\\"accessibility-icon\\"></div>
   </div>
-  <modal-stub data-v-3ceb0956=\\"\\">
-    <h3 data-v-3ceb0956=\\"\\">Accessibility Profiles</h3>
-    <div data-v-3ceb0956=\\"\\" class=\\"accessibility-options-grid\\">
-      <p data-v-3ceb0956=\\"\\">Elder</p>
-      <togglebutton-stub data-v-3ceb0956=\\"\\" onchangecallback=\\"[Function]\\"></togglebutton-stub>
-      <p data-v-3ceb0956=\\"\\">Color Blindness</p>
-      <togglebutton-stub data-v-3ceb0956=\\"\\" onchangecallback=\\"[Function]\\"></togglebutton-stub>
+  <modal-stub data-v-8789ad59=\\"\\">
+    <h3 data-v-8789ad59=\\"\\">Accessibility Profiles</h3>
+    <div data-v-8789ad59=\\"\\" class=\\"accessibility-options-grid\\">
+      <p data-v-8789ad59=\\"\\">Elder</p>
+      <togglebutton-stub data-v-8789ad59=\\"\\" onchangecallback=\\"[Function]\\"></togglebutton-stub>
+      <p data-v-8789ad59=\\"\\">Color Blindness</p>
+      <togglebutton-stub data-v-8789ad59=\\"\\" onchangecallback=\\"[Function]\\"></togglebutton-stub>
     </div>
   </modal-stub>
 </div>"

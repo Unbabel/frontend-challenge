@@ -14,7 +14,7 @@
 
 <template>
 	<DefaultPage
-		image-src="src/assets/not-found.svg"
+		image-src="/src/assets/not-found.svg"
 		page-label="Ah, the dreaded 404. Let's get you back on track."
 		btn-label="Take Me Home"
 		:btn-handler="onBtnClickHandler"

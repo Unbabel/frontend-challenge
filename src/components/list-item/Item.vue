@@ -73,7 +73,11 @@
 					@onChangeCallback="editListItemTitle"
 				/>
 			</div>
-			<span class="delete-span" :class="showDeleteBtn && 'visible'">
+			<span
+				class="delete-span"
+				:class="showDeleteBtn && 'visible'"
+				data-test="delete-item-span"
+			>
 				<IconButton
 					icon="src/assets/delete.svg"
 					@onClickCallback="onDeleteCallback"

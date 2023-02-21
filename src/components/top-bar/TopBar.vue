@@ -8,7 +8,10 @@
 	<div class="top-bar-container">
 		<div class="top-bar-inner-container flex-center flex-center-row">
 			<PageTitle text="Transcriptions" />
-			<div class="top-bar-actions-container flex-center flex-center-row">
+			<div
+				class="top-bar-actions-container flex-center flex-center-row"
+				data-test="top-bar-actions"
+			>
 				<IconButton
 					v-for="action in $route.meta?.actions"
 					@onClickCallback="action.callback"

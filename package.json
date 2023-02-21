@@ -4,11 +4,10 @@
 	"scripts": {
 		"dev": "vite",
 		"build": "vite build",
-		"preview": "vite preview --port 4173",
 		"test:unit": "vitest --environment jsdom",
 		"test:coverage": "vitest --environment jsdom --coverage",
-		"test:e2e": "start-server-and-test preview http://localhost:4173/ 'cypress open --e2e'",
-		"test:e2e:ci": "start-server-and-test preview http://localhost:4173/ 'cypress run --e2e'"
+		"test:e2e": "cypress open --e2e",
+		"test:e2e:head": "cypress run --e2e"
 	},
 	"dependencies": {
 		"vue": "^2.7.7",
