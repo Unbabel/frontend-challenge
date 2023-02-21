@@ -1,0 +1,3 @@
+// Vitest Snapshot v1
+
+exports[`Input > matches snapshot 1`] = `"<textarea data-v-0f426a66=\\"\\" placeholder=\\"Insert text\\" class=\\"colorBlindness\\"></textarea>"`;

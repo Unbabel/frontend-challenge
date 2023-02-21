@@ -8,10 +8,10 @@ const initialState = {
 	},
 };
 
-const storageKey = "transcriptionsAppState";
+const localStorageKey = "transcriptionsAppState";
 
 export const retrieveLocalState = () => {
-	const state = JSON.parse(localStorage.getItem(storageKey));
+	const state = JSON.parse(localStorage.getItem(localStorageKey));
 
 	if (state) {
 		return state;
@@ -21,5 +21,5 @@ export const retrieveLocalState = () => {
 };
 
 export const saveToLocalStorage = (state) => {
-	localStorage.setItem(storageKey, JSON.stringify(state));
+	localStorage.setItem(localStorageKey, JSON.stringify(state));
 };

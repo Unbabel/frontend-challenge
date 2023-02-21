@@ -82,6 +82,4 @@
 		text-decoration: none;
 		cursor: pointer;
 	}
-	@media (max-width: 768px) {
-	}
 </style>

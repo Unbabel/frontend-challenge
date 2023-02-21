@@ -18,8 +18,12 @@
 <template>
 	<div>
 		<label class="switch">
-			<input type="checkbox" :checked="isChecked" />
-			<span class="slider" @click="onChangeCallback"></span>
+			<input type="checkbox" :checked="isChecked" teste="lol" />
+			<span
+				class="slider"
+				@click="onChangeCallback"
+				data-test="toggle-button"
+			></span>
 		</label>
 	</div>
 </template>

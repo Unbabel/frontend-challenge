@@ -1,0 +1,3 @@
+// Vitest Snapshot v1
+
+exports[`ToggleButton > matches snapshot 1`] = `"<div data-v-f41a369e=\\"\\"><label data-v-f41a369e=\\"\\" class=\\"switch\\"><input data-v-f41a369e=\\"\\" type=\\"checkbox\\" teste=\\"lol\\"><span data-v-f41a369e=\\"\\" data-test=\\"toggle-button\\" class=\\"slider\\"></span></label></div>"`;

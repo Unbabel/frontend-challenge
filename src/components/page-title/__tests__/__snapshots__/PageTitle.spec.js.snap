@@ -1,9 +1,3 @@
 // Vitest Snapshot v1
 
-exports[`PageTitle > matches snapshot 1`] = `
-VueWrapper {
-  "_emitted": {},
-  "_emittedByOrder": [],
-  "isFunctionalComponent": undefined,
-}
-`;
+exports[`PageTitle > matches snapshot 1`] = `"<span data-v-dde5e378=\\"\\" data-test=\\"page-title\\" class=\\"page-title\\"> My Title </span>"`;

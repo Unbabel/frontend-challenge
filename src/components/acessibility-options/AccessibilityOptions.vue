@@ -1,6 +1,6 @@
 <script>
 	// Store
-	import { mapState, mapActions, mapGetters } from "vuex";
+	import { mapState, mapActions } from "vuex";
 
 	// Components
 	import Modal from "../modal/Modal.vue";
@@ -44,7 +44,11 @@
 <template>
 	<div>
 		<div class="acessibility-container" aria-label="Accessibility Options">
-			<div class="acessibility" @click="openModal">
+			<div
+				class="acessibility"
+				@click="openModal"
+				data-test="accessibility-div"
+			>
 				<img
 					src="src/assets/acessibility.svg"
 					alt="acessibility-icon"
@@ -91,6 +95,10 @@
 		animation: pulse 2s infinite;
 	}
 
+	img {
+		height: 2rem;
+	}
+
 	@keyframes pulse {
 		0% {
 			transform: scale(0.95);
@@ -107,6 +115,7 @@
 			box-shadow: 0 0 0 0 rgba(142, 68, 173, 0);
 		}
 	}
+
 	h3 {
 		text-align: center;
 	}

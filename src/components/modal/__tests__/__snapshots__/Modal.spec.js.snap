@@ -1,0 +1,10 @@
+// Vitest Snapshot v1
+
+exports[`Modal > matches snapshot 1`] = `
+"<div data-v-b759700c=\\"\\" id=\\"custom-modal\\" class=\\"modal modal-active\\">
+  <div data-v-b759700c=\\"\\" class=\\"modal-content\\">
+    <div data-v-b759700c=\\"\\" class=\\"flex-row-end\\"><span data-v-b759700c=\\"\\" class=\\"close\\">×</span></div>
+    <div data-v-b759700c=\\"\\" class=\\"modal-slot-content\\"></div>
+  </div>
+</div>"
+`;

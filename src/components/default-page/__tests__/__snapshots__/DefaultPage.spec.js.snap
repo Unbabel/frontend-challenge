@@ -1,0 +1,3 @@
+// Vitest Snapshot v1
+
+exports[`DefaultPage > matches snapshot 1`] = `"<div class=\\"default-page-container flex-center\\"><img src=\\"/path/to/image\\" alt=\\"default-page-img\\" class=\\"default-page-img\\"><span class=\\"default-page-label\\">Default Page</span><button aria-label=\\"Click Me Button\\" class=\\"default-page-btn\\"> Click Me </button></div>"`;
