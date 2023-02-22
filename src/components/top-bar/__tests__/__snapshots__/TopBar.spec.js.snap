@@ -1,0 +1,9 @@
+// Vitest Snapshot v1
+
+exports[`TopBar > matches snapshot 1`] = `
+"<div data-v-83129ed2=\\"\\" class=\\"top-bar-container\\">
+  <div data-v-83129ed2=\\"\\" class=\\"top-bar-inner-container flex-center flex-center-row\\"><span data-v-dde5e378=\\"\\" data-v-83129ed2=\\"\\" data-test=\\"page-title\\" class=\\"page-title\\"> Transcriptions </span>
+    <div data-v-83129ed2=\\"\\" data-test=\\"top-bar-actions\\" class=\\"top-bar-actions-container flex-center flex-center-row\\"><button data-v-f509f990=\\"\\" data-v-83129ed2=\\"\\" data-test=\\"icon-button\\" aria-label=\\"Icon Button\\" class=\\"icon-button\\"><img data-v-f509f990=\\"\\" alt=\\"button-icon\\"></button><button data-v-f509f990=\\"\\" data-v-83129ed2=\\"\\" data-test=\\"icon-button\\" aria-label=\\"Icon Button\\" class=\\"icon-button\\"><img data-v-f509f990=\\"\\" alt=\\"button-icon\\"></button></div>
+  </div>
+</div>"
+`;

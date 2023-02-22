@@ -1,0 +1,3 @@
+// Vitest Snapshot v1
+
+exports[`ItemTitle > matches snapshot 1`] = `"<anonymous-stub data-v-52cd4611=\\"\\" value=\\"This is some title text\\" placeholder=\\"Insert title...\\" customstyles=\\"title-styles\\" onchangecallback=\\"[Function]\\"></anonymous-stub>"`;

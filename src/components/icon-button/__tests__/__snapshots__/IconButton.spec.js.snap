@@ -1,0 +1,9 @@
+// Vitest Snapshot v1
+
+exports[`IconButton > matches snapshot 1`] = `
+VueWrapper {
+  "_emitted": {},
+  "_emittedByOrder": [],
+  "isFunctionalComponent": undefined,
+}
+`;
