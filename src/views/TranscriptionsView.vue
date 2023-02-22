@@ -44,6 +44,7 @@
 			<div v-for="listItem in listItems">
 				<div class="list">
 					<ListItem
+						:key="listItem.id"
 						:itemId="listItem.id.toString()"
 						:title="listItem.voice"
 						:content="listItem.text"
