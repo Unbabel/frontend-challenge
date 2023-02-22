@@ -1,0 +1,3 @@
+// Vitest Snapshot v1
+
+exports[`Checkbox > matches snapshot 1`] = `"<div data-v-f2e07ba2=\\"\\" class=\\"checkbox-div\\"><input data-v-f2e07ba2=\\"\\" name=\\"cssCheckbox\\" id=\\"checkbox-test-checkbox\\" type=\\"checkbox\\" aria-checked=\\"\\" checked=\\"checked\\" class=\\"css-checkbox\\"><label data-v-f2e07ba2=\\"\\" for=\\"checkbox-test-checkbox\\"></label></div>"`;

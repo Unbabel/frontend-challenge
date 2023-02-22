@@ -1,0 +1,28 @@
+@import "./base.css";
+
+.flex-center,
+.flex-center-row,
+.flex-center-column {
+	display: flex;
+	align-items: center;
+	align-content: center;
+}
+
+.flex-center-row {
+	flex-direction: row;
+}
+
+.flex-center-column {
+	flex-direction: column;
+}
+
+/* Accessibility Options */
+.elder {
+	font-size: 22px;
+}
+
+.colorBlindness {
+	overflow-y: visible;
+	border: 1px solid #0c7bdc !important;
+	color: #ffc20a !important;
+}

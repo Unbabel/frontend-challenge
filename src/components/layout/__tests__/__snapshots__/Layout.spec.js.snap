@@ -1,0 +1,9 @@
+// Vitest Snapshot v1
+
+exports[`Layout > matches snapshot 1`] = `
+"<div data-v-c9bfb757=\\"\\" class=\\"layout-container\\">
+  <anonymous-stub data-v-c9bfb757=\\"\\"></anonymous-stub>
+  <anonymous-stub data-v-c9bfb757=\\"\\"></anonymous-stub>
+  <anonymous-stub data-v-c9bfb757=\\"\\"></anonymous-stub>
+</div>"
+`;
