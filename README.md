@@ -1,11 +1,13 @@
 # Frontend Challenge
 
 Our goal is to understand:
+
 - How knowledgeable you are
 - How well you structure your app
 - How well can you visually reproduce a mockup
 
 Some restrictions:
+
 - Use the Vue javascript framework and its Component system
 - Don't use a UI framework like Bootstrap
 
