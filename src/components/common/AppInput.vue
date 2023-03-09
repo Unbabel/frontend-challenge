@@ -4,6 +4,8 @@
       :value="voice"
       class="app-input__title"
       type="text"
+      placeholder="Insert a title here..."
+      @input="changeTitle($event.target.value)"
     >
   </div>
 </template>
@@ -17,6 +19,14 @@
         required: true,
       },
     },
+
+    emits: ['change-title'],
+
+    methods: {
+        changeTitle (title) {
+            this.$emit('change-title', title)
+        }
+    }
   };
   </script>
   <style lang="scss" scoped>

@@ -1,7 +1,6 @@
 <template>
   <div
     class="app-icon"
-    :placeholder="123"
     @click="executeMethod"
   >
     <img :src="getImgSrc(icon)">
@@ -25,7 +24,7 @@ export default {
       return images("./" + icon + ".svg");
     },
     executeMethod() {
-      this.$emit("executeMethod", this.icon);
+      this.$emit("executeMethod");
     },
   },
 };

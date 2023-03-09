@@ -10,8 +10,14 @@
         icon="person"
       />
       <div class="voice-transcriptions__row-editable">
-        <AppInput :voice="transcription.voice" />
-        <AppTextarea :text="transcription.text" />
+        <AppInput
+          :voice="transcription.voice"
+          @change-title="updateTitle($event, transcription)"
+        />
+        <AppTextarea
+          :text="transcription.text"
+          @change-description="updateDescription($event, transcription)"
+        />
       </div>
       <AppIcon
         icon="delete"
@@ -44,7 +50,17 @@ export default {
   },
 
   methods: {
-    ...mapActions(['removeTranscription']),
+    ...mapActions(['removeTranscription', 'updateTranscriptionTitle', 'updateTranscriptionDescription']),
+
+    async updateTitle ($event, transcription) {
+      transcription.voice = $event;
+      await this.updateTranscriptionTitle(transcription)
+    },
+
+    async updateDescription ($event, transcription) {
+      transcription.text = $event;
+      await this.updateTranscriptionDescription(transcription)
+    },
 
     async remove (transcription) {
       await this.removeTranscription(transcription)
@@ -62,9 +78,9 @@ export default {
 
 .voice-transcriptions__row {
   display: flex;
-  border-bottom: 1px solid $porcelain;
   padding-bottom: $default-size;
   padding-top: $default-size;
+  border-bottom: 1px solid $porcelain;
 }
 
 .voice-transcriptions__row-editable {

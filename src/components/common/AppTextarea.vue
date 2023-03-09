@@ -3,6 +3,8 @@
     <textarea
       :value="text"
       class="app-textarea__text"
+      placeholder="Insert a description for your voice transcription here..."
+      @input="changeDescription($event.target.value)"
     />
   </div>
 </template>
@@ -16,6 +18,14 @@
           required: true,
         }
       },
+
+      emits: ['change-description'],
+
+      methods: {
+        changeDescription (description) {
+            this.$emit('change-description', description)
+        }
+    }
     };
     </script>
     <style lang="scss" scoped>

@@ -8,6 +8,45 @@ const setTranscriptions = (state, transcriptions) => {
 
 /**
  * @param {object}  state
+ */
+const createNewTranscription = (state) => {
+    state.transcriptions.push({
+      id: state.transcriptions.at(-1).id++,
+      voice: '',
+      text: ''
+    })
+};
+
+/**
+ * @param {object}  state
+* @param {object} transcription
+ * @param {number} transcription.id
+ * @param {string} transcription.voice
+ * @param {string} transcription.text
+ */
+ const updateTranscriptionTitle = (state, transcription) => {
+  const index = state.transcriptions.findIndex(element => element.id === transcription.id);
+  if (index > -1) {
+    state.transcriptions[index] = { ...transcription, voice: transcription.voice }
+  }
+};
+
+/**
+ * @param {object}  state
+* @param {object} transcription
+ * @param {number} transcription.id
+ * @param {string} transcription.voice
+ * @param {string} transcription.text
+ */
+const updateTranscriptionDescription = (state, transcription) => {
+  const index = state.transcriptions.findIndex(element => element.id === transcription.id);
+  if (index > -1) {
+    state.transcriptions[index] = { ...transcription, text: transcription.text }
+  }
+};
+
+/**
+ * @param {object}  state
  * @param {object} transcription
  * @param {number} transcription.id
  * @param {string} transcription.voice
@@ -19,7 +58,10 @@ const setTranscriptions = (state, transcriptions) => {
 
 const mutations = {
   setTranscriptions,
-  removeTranscription
+  removeTranscription,
+  createNewTranscription,
+  updateTranscriptionTitle,
+  updateTranscriptionDescription
 }
 
 export default mutations;

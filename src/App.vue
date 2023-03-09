@@ -10,10 +10,12 @@ export default {
 
 <style lang="scss">
 #app {
-  width: 100%;
+  width: 100vw;
+  height: 100vh;
 }
 
 body {
+  margin: 0;
   max-width: 100vw;
   max-height:100vh;
   display: flex;

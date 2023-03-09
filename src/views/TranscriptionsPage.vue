@@ -13,3 +13,9 @@ export default {
   components: { VoiceTranscriptionsWrapper },
 };
 </script>
+
+<style lanbg="scss" scoped>
+  .transcriptions-page {
+    height: 100%;
+  }
+</style>

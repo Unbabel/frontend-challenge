@@ -35,6 +35,36 @@ const uploadTranscriptions = async (ctx) => {
  *
  * @returns {boolean}
  */
+ const createNewTranscription = async ({ commit }) => {
+  commit("createNewTranscription");
+};
+
+/**
+ * @param   {Store}        context
+ * @param   {Store.commit} context.commit
+ *
+ * @returns {boolean}
+ */
+ const updateTranscriptionTitle = async ({ commit }, transcription) => {
+  commit("updateTranscriptionTitle", transcription);
+};
+
+/**
+ * @param   {Store}        context
+ * @param   {Store.commit} context.commit
+ *
+ * @returns {boolean}
+ */
+ const updateTranscriptionDescription = async ({ commit }, transcription) => {
+  commit("updateTranscriptionDescription", transcription);
+};
+
+/**
+ * @param   {Store}        context
+ * @param   {Store.commit} context.commit
+ *
+ * @returns {boolean}
+ */
  const removeTranscription = async ({ commit }, transcription) => {
     commit("removeTranscription", transcription);
  };
@@ -43,6 +73,9 @@ const actions = {
   removeTranscription,
   fetchTranscriptions,
   uploadTranscriptions,
+  createNewTranscription,
+  updateTranscriptionTitle,
+  updateTranscriptionDescription
 };
 
 export default actions;
