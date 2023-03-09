@@ -20,6 +20,7 @@
         />
       </div>
       <AppIcon
+        class="voice-transcriptions__row-delete"
         icon="delete"
         @execute-method="remove(transcription)"
       />
@@ -81,6 +82,16 @@ export default {
   padding-bottom: $default-size;
   padding-top: $default-size;
   border-bottom: 1px solid $porcelain;
+  .voice-transcriptions__row-delete {
+    visibility: hidden;;
+  }
+
+  &:hover {
+
+    .voice-transcriptions__row-delete {
+      visibility: visible;
+    }
+  }
 }
 
 .voice-transcriptions__row-editable {
