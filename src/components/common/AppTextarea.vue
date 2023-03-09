@@ -1,6 +1,7 @@
 <template>
   <div class="app-textarea">
     <textarea
+      ref="textarea"
       :value="text"
       class="app-textarea__text"
       placeholder="Insert a description for your voice transcription here..."
@@ -21,6 +22,11 @@
 
       emits: ['change-description'],
 
+      mounted () {
+          const textarea = this.$refs.textarea;
+          return textarea.style.height = textarea.scrollHeight + 'px';
+      },
+
       methods: {
         changeDescription (description) {
             this.$emit('change-description', description)
@@ -29,13 +35,14 @@
     };
     </script>
     <style lang="scss" scoped>
+
   .app-textarea__text { 
     border: none;
     width: -webkit-fill-available;
     resize: none;
     color: $slate-gray;
-    background: $white;
     font-size: $default-size;
     font-family: OpenSansRegular;
+    overflow: hidden;
     }
     </style>

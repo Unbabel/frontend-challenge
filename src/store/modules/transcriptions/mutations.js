@@ -11,10 +11,12 @@ const setTranscriptions = (state, transcriptions) => {
  */
 const createNewTranscription = (state) => {
     state.transcriptions.push({
-      id: state.transcriptions.at(-1).id++,
+      id: state.transcriptions.at(-1).id + 1,
       voice: '',
       text: ''
     })
+
+    console.log('state', state.transcriptions)
 };
 
 /**

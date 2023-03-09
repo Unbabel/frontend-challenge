@@ -18,8 +18,7 @@ body {
   margin: 0;
   max-width: 100vw;
   max-height:100vh;
-  display: flex;
-  justify-content: center;
   background-color: $concrete;
+  overflow-x: hidden;
 }
 </style>

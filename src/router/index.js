@@ -1,13 +1,15 @@
-import { createRouter, createWebHistory } from "vue-router";
+import { createRouter, createWebHashHistory } from "vue-router";
 import NotFound from "@/views/NotFound";
 
 const router = createRouter({
-  history: createWebHistory(process.env.VUE_APP_BASE_URL),
+  history: createWebHashHistory(),
   routes: [
     {
       path: "/",
       name: "home",
-      component: () => import("@/views/TranscriptionsPage"),
+      // this generates a separate chunk (about.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import(/* webpackChunkName: "home" */ "@/views/HomePage"),
     },
     {
       path: "/:catchAll(.*)",

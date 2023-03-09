@@ -1,10 +1,10 @@
 <template>
-  <div class="voice-transcriptions-wrapper">
+  <div class="home-page">
     <TheHeader />
     <VoiceTranscriptions :transcriptions="transcriptions" />
     <AppIcon
       v-if="transcriptions.length > 0"
-      class="voice-transcriptions-wrapper__add-row"
+      class="home-page__add-row"
       icon="add-row"
       @execute-method="createTranscription"
     />
@@ -18,7 +18,7 @@ import VoiceTranscriptions from "@/components/transcriptions/VoiceTranscriptions
 import { mapActions, mapGetters } from 'vuex'
 
 export default {
-  name: "VoiceTranscriptionsWrapper",
+  name: "HomePage",
   components: { AppIcon, TheHeader, VoiceTranscriptions },
   computed: {
     ...mapGetters({
@@ -37,14 +37,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    .voice-transcriptions-wrapper {
-        height: 90%;
-        box-sizing: border-box;
-        box-shadow: 0px 1px 2px rgb(0 0 0 / 24%), 0px 1px 3px rgb(0 0 0 / 12%);
-    }
-
-    .voice-transcriptions-wrapper__add-row {
-      display: flex;
-      justify-content: center;
+    .home-page__add-row {
+      left: 50%;
+      position: absolute;
+      padding-bottom: $default-size;
     }
 </style>

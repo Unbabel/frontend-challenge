@@ -80,7 +80,7 @@ export default {
 .voice-transcriptions__row {
   display: flex;
   padding-bottom: $default-size;
-  padding-top: $default-size;
+  padding-top: $default-size * 2;
   border-bottom: 1px solid $porcelain;
   .voice-transcriptions__row-delete {
     visibility: hidden;;
@@ -90,6 +90,8 @@ export default {
 
     .voice-transcriptions__row-delete {
       visibility: visible;
+      height: $default-size;
+      width: $default-size;
     }
   }
 }

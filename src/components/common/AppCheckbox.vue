@@ -22,15 +22,19 @@
 
 <style lang="scss" scoped>
 
-    .app-checkbox {
-        padding-left: $default-size;
-        padding-right: $default-size;
-    }
+  .app-checkbox {
+    padding-left: $default-size;
+    padding-right: $default-size;
+  }
 
-    .app-checkbox__transcription {
-        accent-color: $purple;
-        width: $default-size;
-        height: $default-size;
-    }
+  input[type="checkbox"] {
+    width: $default-size;
+    height: $default-size;
+  }
+
+  .app-checkbox__transcription:before {
+    accent-color: $purple;
+}
+
 </style>
     
