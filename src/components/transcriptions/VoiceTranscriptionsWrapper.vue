@@ -1,13 +1,13 @@
 <template>
   <div class="voice-transcriptions-wrapper">
     <TheHeader />
-    <VoiceTranscriptions />
+    <VoiceTranscriptions :transcriptions="transcriptions" />
   </div>
 </template>
 <script>
 import TheHeader from "@/components/layout/TheHeader.vue";
 import VoiceTranscriptions from "@/components/transcriptions/VoiceTranscriptions.vue";
-import { mapActions, mapGetters } from 'vuex'
+import { mapGetters } from 'vuex'
 
 export default {
   name: "VoiceTranscriptionsWrapper",
@@ -16,24 +16,13 @@ export default {
     ...mapGetters({
       transcriptions: 'getTranscriptions',
     }),
-  },
-  async created () {
-    await this.fetchTranscriptions();
-    console.log('transcriptions', this.transcriptions.length)
-  },
-  methods: {
-    ...mapActions(['fetchTranscriptions']),
-
-    upload() {
-      console.log("upload");
-    },
-
-    fetch() {
-      console.log("fetch");
-    },
-  },
+  }
 };
 </script>
-<style lang="scss" scoped>
 
+<style lang="scss" scoped>
+    .voice-transcriptions-wrapper {
+        box-sizing: border-box;
+        border: 1px solid #EAEDEF;
+    }
 </style>

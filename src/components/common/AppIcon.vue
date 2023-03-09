@@ -1,5 +1,9 @@
 <template>
-  <div @click="executeAction">
+  <div
+    class="app-icon"
+    :placeholder="123"
+    @click="executeMethod"
+  >
     <img :src="getImgSrc(icon)">
   </div>
 </template>
@@ -14,17 +18,21 @@ export default {
     },
   },
 
-  emits: ["executeAction"],
+  emits: ["executeMethod"],
   methods: {
     getImgSrc(icon) {
       var images = require.context("@/assets/images/svg/", false, /\.svg$/);
       return images("./" + icon + ".svg");
     },
-    executeAction() {
-      console.log('emitting...')
-      this.$emit("executeAction", this.icon);
+    executeMethod() {
+      this.$emit("executeMethod", this.icon);
     },
   },
 };
 </script>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+    .app-icon {
+        padding-right: $default-size;
+        cursor: pointer;
+    }
+</style>

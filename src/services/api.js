@@ -15,8 +15,8 @@ const fetchTranscriptions = async () => {
  *
  * @returns {object}
  */
-const uploadTranscription = async (payload) => {
-  const response = await HTTP.post("/v2/5ae1c5792d00004d009d7e5c", payload);
+const uploadTranscription = async (transcriptions) => {
+  const response = await HTTP.post("/v2/5ae1c5792d00004d009d7e5c", transcriptions);
 
   return response.data;
 };

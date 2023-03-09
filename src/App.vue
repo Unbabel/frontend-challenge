@@ -18,6 +18,6 @@ body {
   max-height:100vh;
   display: flex;
   justify-content: center;
-  background-color: $porcelain;
+  background-color: $concrete;
 }
 </style>

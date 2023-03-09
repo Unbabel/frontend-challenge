@@ -9,8 +9,6 @@ import api from "@/services/api";
 const fetchTranscriptions = async ({ commit }) => {
   try {
     const { data } = await api.fetchTranscriptions();
-    console.log('data', data)
-    console.log('commit', commit)
     commit("setTranscriptions", data);
 } catch (error) {
   // handle error
@@ -18,25 +16,33 @@ const fetchTranscriptions = async ({ commit }) => {
 };
 
 /**
- * @param   {Store}          context
- * @param   {Store.dispatch} context.dispatch
- * @param   {Store.getters}  context.getters
- * @param   {object}         payload
- * @param   {number}         payload.id
- * @param   {string}         payload.voice
- * @param   {string}         payload.text
+ * @param   {Store}                 context
  *
  * @returns {object}
  */
-const uploadTranscription = async ({ id, voice, text }) => {
-  const response = await api.uploadTranscription({ id, voice, text });
-
-  return response;
+const uploadTranscriptions = async (ctx) => {
+  try {
+    const response = await api.uploadTranscription(ctx.state.transcriptions);
+    return response;
+  } catch (error) {
+    // handle error
+  }
 };
 
+/**
+ * @param   {Store}        context
+ * @param   {Store.commit} context.commit
+ *
+ * @returns {boolean}
+ */
+ const removeTranscription = async ({ commit }, transcription) => {
+    commit("removeTranscription", transcription);
+ };
+ 
 const actions = {
+  removeTranscription,
   fetchTranscriptions,
-  uploadTranscription,
+  uploadTranscriptions,
 };
 
 export default actions;
