@@ -82,11 +82,6 @@ export default {
   box-sizing: border-box;
 }
 
-.voice-transcriptions__empty {
-  background-color: $concrete;
-  text-align: center;
-}
-
 .voice-transcriptions__row {
   display: flex;
   padding-bottom: $default-size;
