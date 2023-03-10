@@ -15,7 +15,7 @@ const fetchTranscriptions = async () => {
  *
  * @returns {object}
  */
-const uploadTranscription = async (transcriptions) => {
+const uploadTranscriptions = async (transcriptions) => {
   const response = await HTTP.post("/v2/5ae1c5792d00004d009d7e5c", transcriptions);
 
   return response.data;
@@ -23,5 +23,5 @@ const uploadTranscription = async (transcriptions) => {
 
 export default {
   fetchTranscriptions,
-  uploadTranscription,
+  uploadTranscriptions,
 };

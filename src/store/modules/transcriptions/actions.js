@@ -22,7 +22,7 @@ const fetchTranscriptions = async ({ commit }) => {
  */
 const uploadTranscriptions = async (ctx) => {
   try {
-    const response = await api.uploadTranscription(ctx.state.transcriptions);
+    const response = await api.uploadTranscriptions(ctx.state.transcriptions);
     return response;
   } catch (error) {
     // handle error

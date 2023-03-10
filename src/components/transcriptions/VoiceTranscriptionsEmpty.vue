@@ -1,12 +1,14 @@
 <template>
   <div class="voice-transcriptions-empty">
     <AppButton
+      class="voice-transcriptions-empty__create"
       @click="create"
     >
       Create a new transcription
     </AppButton>
     or 
     <AppButton
+      class="voice-transcriptions-empty__fetch"
       @click="fetch"
     >
       Fetch existing ones
