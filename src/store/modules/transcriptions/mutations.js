@@ -9,14 +9,12 @@ const setTranscriptions = (state, transcriptions) => {
 /**
  * @param {object}  state
  */
-const createNewTranscription = (state) => {
+const createTranscription = (state) => {
     state.transcriptions.push({
-      id: state.transcriptions.at(-1).id + 1,
+      id: state.transcriptions.length > 0 ? state.transcriptions.at(-1).id + 1 : 0,
       voice: '',
       text: ''
     })
-
-    console.log('state', state.transcriptions)
 };
 
 /**
@@ -61,7 +59,7 @@ const updateTranscriptionDescription = (state, transcription) => {
 const mutations = {
   setTranscriptions,
   removeTranscription,
-  createNewTranscription,
+  createTranscription,
   updateTranscriptionTitle,
   updateTranscriptionDescription
 }

@@ -1,17 +1,20 @@
 <template>
   <div class="not-found">
     <h1>Page not found</h1>
-    <button
-      class="not-found__button"
+    <AppButton
       @click="redirectToHomepage"
     >
       Return to homepage
-    </button>
+    </AppButton>
   </div>
 </template>
 <script>
+import AppButton from '@/components/common/AppButton.vue'
+
 export default {
   name: 'NotFound',
+
+  components: { AppButton },
 
   methods: {
     redirectToHomepage () {
@@ -29,11 +32,15 @@ export default {
   }
 
   .not-found__button {
-    border: none;
+    border-radius: 8px;
     cursor: pointer;
     background-color: $purple;
     font-family: OpenSansRegular;
     font-size: $default-size;
-                
+         
+    &:hover {
+      background-color: $white;
+      color: $purple;
+    }
   }
 </style>

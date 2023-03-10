@@ -35,8 +35,8 @@ const uploadTranscriptions = async (ctx) => {
  *
  * @returns {boolean}
  */
- const createNewTranscription = async ({ commit }) => {
-  commit("createNewTranscription");
+ const createTranscription = async ({ commit }) => {
+  commit("createTranscription");
 };
 
 /**
@@ -73,7 +73,7 @@ const actions = {
   removeTranscription,
   fetchTranscriptions,
   uploadTranscriptions,
-  createNewTranscription,
+  createTranscription,
   updateTranscriptionTitle,
   updateTranscriptionDescription
 };

@@ -22,13 +22,24 @@
 
       emits: ['change-description'],
 
-      mounted () {
-          const textarea = this.$refs.textarea;
-          return textarea.style.height = textarea.scrollHeight + 'px';
+      data () {
+        return {
+          scrollHeight: 0
+        }
+      },
+
+       mounted () {
+          this.setHeight();
       },
 
       methods: {
+         setHeight () {
+          const textarea = this.$refs.textarea;
+          textarea.style.height = textarea.scrollHeight + 'px';
+        },
+
         changeDescription (description) {
+          this.setHeight();
             this.$emit('change-description', description)
         }
     }

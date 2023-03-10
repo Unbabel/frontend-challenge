@@ -26,11 +26,10 @@ export default {
     }),
   },
   methods: {
-    ...mapActions(['createNewTranscription']),
+    ...mapActions(['createTranscription']),
 
-    async createTranscription () {
-      console.log('createNewTranscription')
-      await this.createNewTranscription();
+    async create () {
+      await this.createTranscription();
     }
   }
 };

@@ -1,5 +1,8 @@
 <template>
   <div class="voice-transcriptions">
+    <div v-if="transcriptions.length === 0">
+      <VoiceTranscriptionsEmpty fetch-transcriptions="" />
+    </div>
     <div
       v-for="(transcription, index) in transcriptions"
       :key="index"
@@ -32,6 +35,7 @@ import AppIcon from "@/components/common/AppIcon.vue";
 import AppInput from "@/components/common/AppInput.vue";
 import AppTextarea from "@/components/common/AppTextarea.vue";
 import AppCheckbox from "@/components/common/AppCheckbox.vue";
+import VoiceTranscriptionsEmpty from "./VoiceTranscriptionsEmpty.vue";
 import { mapActions } from 'vuex'
 
 export default {
@@ -40,7 +44,8 @@ export default {
     AppIcon,
     AppInput,
     AppCheckbox,
-    AppTextarea
+    AppTextarea,
+    VoiceTranscriptionsEmpty
   },
 
   props: {
@@ -75,6 +80,11 @@ export default {
   margin: $default-size auto $default-size auto;
   width: 56%;
   box-sizing: border-box;
+}
+
+.voice-transcriptions__empty {
+  background-color: $concrete;
+  text-align: center;
 }
 
 .voice-transcriptions__row {
