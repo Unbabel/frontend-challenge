@@ -49,11 +49,12 @@
 
   .app-textarea__text { 
     border: none;
-    width: -webkit-fill-available;
+    width: 100%;
     resize: none;
     color: $slate-gray;
     font-size: $default-size;
     font-family: OpenSansRegular;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
     }
     </style>

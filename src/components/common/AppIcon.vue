@@ -17,14 +17,16 @@ export default {
     },
   },
 
-  emits: ["executeMethod"],
+  emits: ["execute-method"],
   methods: {
     getImgSrc(icon) {
-      var images = require.context("@/assets/images/svg/", false, /\.svg$/);
-      return images("./" + icon + ".svg");
+      if (icon) {
+        var images = require.context("@/assets/images/svg/", false, /\.svg$/);
+        return images("./" + icon + ".svg");
+      }
     },
     executeMethod() {
-      this.$emit("executeMethod");
+      this.$emit("execute-method");
     },
   },
 };

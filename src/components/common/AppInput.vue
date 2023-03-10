@@ -37,6 +37,7 @@
   font-size: $default-size;
   font-family: MontserratSemiBold;
   margin-bottom: $default-size;
+  width: 100%;
   }
   </style>
   
