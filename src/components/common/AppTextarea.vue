@@ -22,13 +22,7 @@
 
       emits: ['change-description'],
 
-      data () {
-        return {
-          scrollHeight: 0
-        }
-      },
-
-       mounted () {
+      mounted () {
           this.setHeight();
       },
 
