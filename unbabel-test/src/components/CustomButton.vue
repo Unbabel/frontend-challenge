@@ -1,6 +1,6 @@
 <template>
-  <button v-on:click="$emit('click')">
-    {{ this.label }} <img :src="getImgUrl(icon)" :alt="label" />
+  <button @click="$emit('click')">
+    {{ this.label }}<img :src="getImgUrl(icon)" :alt="label" />
   </button>
 </template>
 

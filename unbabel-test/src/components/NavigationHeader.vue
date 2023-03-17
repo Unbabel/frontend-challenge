@@ -16,16 +16,17 @@
 
 <script>
 import CustomButton from "@/components/CustomButton";
+import store from "@/store";
 
 export default {
   name: "NavigationHeader",
   components: { CustomButton },
   methods: {
     upload() {
-      console.log("upload function", this.$store.state.data);
+      store.dispatch("uploadMessages");
     },
     fetch() {
-      console.log("fetch function");
+      store.dispatch("getMessages");
     },
   },
 };

@@ -1,5 +1,5 @@
 <template>
-  <div class="card-data">
+  <div class="card-data" data-testid="container">
     <div class="checkbox-container">
       <CustomCheckbox />
     </div>
@@ -9,19 +9,30 @@
         <input
           type="text"
           name="title"
-          :value="this.item.voice"
+          @change="updateMessageVoice"
+          :value="item.voice"
+          :id="'voice-id-' + item.id"
           aria-label="title"
+          role="input"
         />
         <textarea
           type="text"
           name="text"
-          :value="this.item.text"
+          @change="updateMessageText"
+          :value="item.text"
+          :id="'text-id-' + item.id"
           aria-label="text"
+          role="textarea"
         />
       </div>
     </div>
     <div class="button-container">
-      <CustomButton @click="deleteItem" label="Delete" icon="delete.svg" />
+      <CustomButton
+        class="delete-btn"
+        @click="deleteItem"
+        label="Delete"
+        icon="delete.svg"
+      />
     </div>
   </div>
 </template>
@@ -29,6 +40,7 @@
 <script>
 import CustomCheckbox from "@/components/CustomCheckbox.vue";
 import CustomButton from "@/components/CustomButton.vue";
+import store from "@/store";
 
 export default {
   name: "CardData",
@@ -39,10 +51,12 @@ export default {
       voice: String,
       text: String,
     },
+    updateMessageVoice: Function,
+    updateMessageText: Function,
   },
   methods: {
     deleteItem() {
-      this.$store.commit("deleteMessage", this.id);
+      store.commit("deleteMessage", this.item.id);
     },
   },
 };
@@ -98,6 +112,13 @@ export default {
   }
   .button-container {
     display: none;
+    button {
+      background-color: #fb2c2c;
+      color: white;
+      &:hover {
+        background-color: #ff6464;
+      }
+    }
   }
 }
 </style>

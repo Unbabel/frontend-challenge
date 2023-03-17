@@ -13,6 +13,10 @@ export default {
   components: {
     CustomLayout,
   },
+  created() {
+    // Setting Language in the HTML document
+    document.documentElement.setAttribute("lang", "en");
+  },
 };
 </script>
 
