@@ -7,7 +7,9 @@ module.exports = {
     'plugin:vue/essential',
     'eslint:recommended',
     '@vue/eslint-config-typescript/recommended',
-    '@vue/eslint-config-prettier'
+    '@vue/eslint-config-prettier',
+    '@vue/typescript/recommended',
+    'prettier'
   ],
   plugins: ['@typescript-eslint', 'prettier'],
   rules: {
@@ -29,5 +31,8 @@ module.exports = {
     ],
     'spaced-comment': ['warn', 'always'],
     'vue/component-name-in-template-casing': ['error', 'PascalCase', { registeredComponentsOnly: false }]
+  },
+  parserOptions: {
+    parser: '@typescript-eslint/parser'
   }
 };

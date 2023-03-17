@@ -1,5 +1,5 @@
 import config from '@/config';
-import { VoiceData } from '../models/data';
+import type { VoiceData } from '../models/data';
 import type { HttpService } from './http';
 
 /**

@@ -3,10 +3,14 @@
   "include": ["env.d.ts", "src/**/*", "src/**/*.vue"],
   "exclude": ["src/**/__tests__/*"],
   "compilerOptions": {
-    "composite": true,
+    "target": "es5",
+    "moduleResolution": "node",
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
-    }
+    },
+  },
+  "vueCompilerOptions": {
+    "target": 2.7,
   }
 }
