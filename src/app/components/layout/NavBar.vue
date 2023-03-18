@@ -4,7 +4,7 @@
       <h1>Transcriptions</h1>
       <span class="actions">
         <UploadIcon class="icon-button" @click="upload" />
-        <FetchIcon class="icon-button" @click="add" />
+        <FetchIcon class="icon-button" @click="fetchData" />
       </span>
     </div>
   </div>
@@ -13,13 +13,16 @@
 <script setup lang="ts">
 import UploadIcon from '../icons/UploadIcon.vue';
 import FetchIcon from '../icons/FetchIcon.vue';
+import { useStore } from 'vuex';
+
+const store = useStore();
 
 function upload() {
-  return true;
+  store.dispatch('uploadTranscriptions');
 }
 
-function add() {
-  return true;
+function fetchData() {
+  store.dispatch('loadTranscriptions');
 }
 </script>
 
@@ -32,7 +35,7 @@ function add() {
   .navbar {
     display: grid;
     grid-template-columns: 1fr max-content;
-    width: $main-block-width;
+    max-width: $main-block-width;
     height: 100%;
     align-items: center;
     margin: auto;

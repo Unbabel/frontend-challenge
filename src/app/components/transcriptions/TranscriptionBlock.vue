@@ -5,22 +5,25 @@
         <SingleTranscription class="transcription" :transcription="item" />
       </div>
     </div>
-    <AddIcon class="icon-button" @click="add" />
+    <div class="icon-button" @click="add">
+      <AddIcon />
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import type { Transcription } from '@/app/models/transcription';
+import { computed } from 'vue';
+import { useStore } from 'vuex';
 import AddIcon from '../icons/AddIcon.vue';
 import SingleTranscription from './SingleTranscription.vue';
 
-const transcriptions: Transcription[] = [
-  { id: 1, voice: 'Voice 1', text: 'This is a text' },
-  { id: 2, voice: 'Voice 2', text: 'This is a text' }
-];
+const store = useStore();
+store.dispatch('loadTranscriptions');
+
+const transcriptions = computed(() => store.getters.transcriptions);
 
 function add() {
-  return true;
+  store.commit('createTranscription');
 }
 </script>
 

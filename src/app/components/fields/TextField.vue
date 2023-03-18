@@ -1,8 +1,5 @@
 <template>
-  <label class="checkbox-wrapper">
-    <input type="checkbox" @input="onInput" v-bind="$attrs" />
-    <span class="check" />
-  </label>
+  <input type="text" :value="modelValue" @input="onInput" v-bind="$attrs" />
 </template>
 
 <script setup lang="ts">
@@ -11,10 +8,10 @@ withDefaults(
     /**
      * Field value, syncable with v-model
      */
-    modelValue: boolean;
+    modelValue: string;
   }>(),
   {
-    modelValue: false
+    modelValue: ''
   }
 );
 

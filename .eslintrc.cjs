@@ -7,11 +7,10 @@ module.exports = {
     node: true
   },
   extends: [
-    'plugin:vue/essential',
+    'plugin:vue/vue3-essential',
     'eslint:recommended',
-    '@vue/eslint-config-typescript/recommended',
-    '@vue/eslint-config-prettier',
-    '@vue/typescript/recommended',
+    '@vue/eslint-config-typescript',
+    '@vue/eslint-config-prettier/skip-formatting',
     'prettier'
   ],
   plugins: ['@typescript-eslint', 'prettier'],
@@ -36,6 +35,6 @@ module.exports = {
     'vue/component-name-in-template-casing': ['error', 'PascalCase', { registeredComponentsOnly: false }]
   },
   parserOptions: {
-    parser: '@typescript-eslint/parser'
+    ecmaVersion: 'latest'
   }
 };

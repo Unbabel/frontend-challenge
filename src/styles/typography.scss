@@ -12,12 +12,14 @@ div {
   color: $grey-light;
 }
 
-label {
+label,
+.text-normal {
   font-family: 'Montserrat', sans-serif;
   color: $grey-medium;
 }
 
-h1 {
+h1,
+.title {
   font-family: 'Montserrat', sans-serif;
   font-size: 18px;
   font-weight: 600;

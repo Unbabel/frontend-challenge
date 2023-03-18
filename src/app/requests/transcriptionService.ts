@@ -5,7 +5,7 @@ import type { HttpService } from './http';
 /**
  * Data service
  */
-export class DataService {
+export class TranscriptionService {
   private http;
 
   constructor(http: HttpService) {

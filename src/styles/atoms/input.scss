@@ -1,0 +1,12 @@
+input,
+textarea {
+  width: 100%;
+  resize: none;
+
+  &,
+  &:active,
+  &:focus {
+    border: none;
+    outline: none;
+  }
+}
