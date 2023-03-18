@@ -15,13 +15,13 @@ export class HttpService {
   constructor(baseUrl: string) {
     this.axios = axios.create({
       baseURL: baseUrl,
-      headers: this.getHeaders(),
+      headers: this.getHeaders()
     });
   }
 
   protected getHeaders(): Partial<AxiosHeaders> {
     return {
-      'Content-Type': 'application/json',
+      'Content-Type': 'application/json'
     };
   }
 

@@ -1,5 +1,5 @@
 import config from '@/config';
-import type { VoiceData } from '../models/data';
+import type { Transcription } from '../models/transcription';
 import type { HttpService } from './http';
 
 /**
@@ -12,11 +12,11 @@ export class DataService {
     this.http = http;
   }
 
-  public getData(): Promise<VoiceData[]> {
-    return this.http.get<VoiceData[]>(`${config.baseUrl}5ae1c5792d00004d009d7e5c`);
+  public getData(): Promise<Transcription[]> {
+    return this.http.get<Transcription[]>(`${config.baseUrl}5ae1c5792d00004d009d7e5c`);
   }
 
-  public updateData(payload: VoiceData[]): Promise<void> {
+  public updateData(payload: Transcription[]): Promise<void> {
     return this.http.post<void>(`${config.baseUrl}5ae1c5792d00004d009d7e5c`, payload);
   }
 }

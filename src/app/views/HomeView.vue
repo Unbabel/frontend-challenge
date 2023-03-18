@@ -1,5 +1,7 @@
 <template>
-  <div>This is a homepage</div>
+  <TranscriptionBlock />
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import TranscriptionBlock from '../components/transcriptions/TranscriptionBlock.vue';
+</script>

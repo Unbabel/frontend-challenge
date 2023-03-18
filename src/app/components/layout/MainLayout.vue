@@ -15,5 +15,11 @@ import NavBar from './NavBar.vue';
 .main-layout {
   display: grid;
   grid-row: 1fr min-content;
+
+  .main-body {
+    width: $main-block-width;
+    margin: auto;
+    margin-top: 1rem;
+  }
 }
 </stlye>
