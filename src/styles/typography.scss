@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&family=Open+Sans&display=swap');
+
+* {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+p,
+span,
+div {
+  color: $grey-light;
+}
+
+label,
+.text-normal {
+  font-family: 'Montserrat', sans-serif;
+  color: $grey-medium;
+}
+
+h1,
+.title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: $grey-dark;
+}

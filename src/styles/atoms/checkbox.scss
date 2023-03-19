@@ -1,0 +1,44 @@
+// Checkbox styles
+
+.checkbox-wrapper {
+  display: block;
+  position: relative;
+  cursor: pointer;
+
+  input[type='checkbox'] {
+    visibility: hidden;
+  }
+
+  .check {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 16px;
+    width: 16px;
+    background-color: $white;
+    border: 1px solid $purple;
+
+    &:after {
+      content: '';
+      position: absolute;
+      display: none;
+      left: 4px;
+      bottom: 5px;
+      width: 4px;
+      height: 6px;
+      border: solid $white;
+      border-width: 0 3px 3px 0;
+      -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      transform: rotate(45deg);
+    }
+  }
+
+  input:checked ~ .check {
+    background-color: $purple;
+
+    &:after {
+      display: block;
+    }
+  }
+}
