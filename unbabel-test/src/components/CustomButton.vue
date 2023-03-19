@@ -1,5 +1,5 @@
 <template>
-  <button @click="$emit('click')">
+  <button @click="$emit('click')" :disabled="disable">
     {{ this.label }}<img :src="getImgUrl(icon)" :alt="label" />
   </button>
 </template>
@@ -10,6 +10,7 @@ export default {
   props: {
     label: { default: "" },
     icon: { default: "" },
+    disable: { default: undefined },
   },
   methods: {
     getImgUrl(pic) {
@@ -34,6 +35,9 @@ button {
   font-weight: 400;
   &:hover {
     background-color: #d4d4d4;
+  }
+  &:disabled {
+    cursor: not-allowed;
   }
   img {
     margin-left: 0.5rem;

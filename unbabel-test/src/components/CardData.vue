@@ -9,21 +9,27 @@
         <input
           type="text"
           name="title"
-          @change="updateMessageVoice"
-          :value="item.voice"
-          :id="'voice-id-' + item.id"
+          @input="updateMessageVoice"
+          v-model="localVoice"
+          :id="'voice-id-' + localId"
           aria-label="title"
           role="input"
         />
+        <small class="error" v-if="errorVoice"
+          >Voice text can't be blank.</small
+        >
         <textarea
           type="text"
           name="text"
-          @change="updateMessageText"
-          :value="item.text"
+          @input="updateMessageText"
+          v-model="localText"
           :id="'text-id-' + item.id"
           aria-label="text"
           role="textarea"
         />
+        <small class="error" v-if="errorText"
+          >Description text can't be blank.</small
+        >
       </div>
     </div>
     <div class="button-container">
@@ -40,7 +46,6 @@
 <script>
 import CustomCheckbox from "@/components/CustomCheckbox.vue";
 import CustomButton from "@/components/CustomButton.vue";
-import store from "@/store";
 
 export default {
   name: "CardData",
@@ -51,18 +56,52 @@ export default {
       voice: String,
       text: String,
     },
-    updateMessageVoice: Function,
-    updateMessageText: Function,
+  },
+  data() {
+    return {
+      localId: this.item.id,
+      localVoice: this.item.voice,
+      localText: this.item.text,
+      errorVoice: false,
+      errorText: false,
+    };
+  },
+  mounted() {
+    if (this.localVoice === "") {
+      this.errorVoice = true;
+    }
+    if (this.localText === "") {
+      this.errorText = true;
+    }
   },
   methods: {
     deleteItem() {
-      store.commit("deleteMessage", this.item.id);
+      this.$emit("deleteItem", this.localId);
+    },
+    updateMessageVoice() {
+      if (this.localVoice !== "") {
+        this.errorVoice = false;
+      } else {
+        this.errorVoice = true;
+      }
+      this.$emit("updateMessageVoice", this.localId, this.localVoice);
+    },
+    updateMessageText() {
+      if (this.localText !== "") {
+        this.errorText = false;
+      } else {
+        this.errorText = true;
+      }
+      this.$emit("updateMessageText", this.localId, this.localText);
     },
   },
 };
 </script>
 
 <style lang="scss">
+.error {
+  color: red;
+}
 .card-data {
   display: grid;
   grid-template-columns: 5% 80% 15%;

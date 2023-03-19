@@ -3,7 +3,12 @@
     <div class="container">
       <h1>Transcriptions</h1>
       <div class="buttons">
-        <CustomButton @click="upload" label="Upload Data" icon="upload.svg" />
+        <CustomButton
+          @click="upload"
+          label="Upload Data"
+          icon="upload.svg"
+          :disable="!isFormValid"
+        />
         <CustomButton
           @click="fetch"
           label="Get Data"
@@ -21,6 +26,11 @@ import store from "@/store";
 export default {
   name: "NavigationHeader",
   components: { CustomButton },
+  computed: {
+    isFormValid() {
+      return store.state.isFormValid;
+    },
+  },
   methods: {
     upload() {
       store.dispatch("uploadMessages");

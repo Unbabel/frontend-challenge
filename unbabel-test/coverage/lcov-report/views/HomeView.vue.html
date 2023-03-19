@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for components/NavigationHeader.vue</title>
+    <title>Code coverage report for views/HomeView.vue</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../prettify.css" />
     <link rel="stylesheet" href="../base.css" />
@@ -19,7 +19,7 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../index.html">All files</a> / <a href="index.html">components</a> NavigationHeader.vue</h1>
+        <h1><a href="../index.html">All files</a> / <a href="index.html">views</a> HomeView.vue</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
@@ -30,9 +30,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>1/2</span>
             </div>
         
             
@@ -112,28 +112,7 @@
 <a name='L47'></a><a href='#L47'>47</a>
 <a name='L48'></a><a href='#L48'>48</a>
 <a name='L49'></a><a href='#L49'>49</a>
-<a name='L50'></a><a href='#L50'>50</a>
-<a name='L51'></a><a href='#L51'>51</a>
-<a name='L52'></a><a href='#L52'>52</a>
-<a name='L53'></a><a href='#L53'>53</a>
-<a name='L54'></a><a href='#L54'>54</a>
-<a name='L55'></a><a href='#L55'>55</a>
-<a name='L56'></a><a href='#L56'>56</a>
-<a name='L57'></a><a href='#L57'>57</a>
-<a name='L58'></a><a href='#L58'>58</a>
-<a name='L59'></a><a href='#L59'>59</a>
-<a name='L60'></a><a href='#L60'>60</a>
-<a name='L61'></a><a href='#L61'>61</a>
-<a name='L62'></a><a href='#L62'>62</a>
-<a name='L63'></a><a href='#L63'>63</a>
-<a name='L64'></a><a href='#L64'>64</a>
-<a name='L65'></a><a href='#L65'>65</a>
-<a name='L66'></a><a href='#L66'>66</a>
-<a name='L67'></a><a href='#L67'>67</a>
-<a name='L68'></a><a href='#L68'>68</a>
-<a name='L69'></a><a href='#L69'>69</a>
-<a name='L70'></a><a href='#L70'>70</a>
-<a name='L71'></a><a href='#L71'>71</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">6x</span>
+<a name='L50'></a><a href='#L50'>50</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">19x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -182,97 +161,55 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&lt;template&gt;
-  &lt;nav&gt;
-    &lt;div class="container"&gt;
-      &lt;h1&gt;Transcriptions&lt;/h1&gt;
-      &lt;div class="buttons"&gt;
-        &lt;CustomButton
-          @click="upload"
-          label="Upload Data"
-          icon="upload.svg"
-          :disable="!isFormValid"
-        /&gt;
-        &lt;CustomButton
-          @click="fetch"
-          label="Get Data"
-          icon="fetch-document.svg"
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="branch-1 cbranch-no" title="branch not covered" >&lt;template&gt;</span>
+  &lt;div class="home"&gt;
+    &lt;div v-if="messages"&gt;
+      &lt;div v-for="item in messages" :key="item.id"&gt;
+        &lt;CardData
+          :item="item"
+          @updateMessageVoice="updateMessageVoice"
+          @updateMessageText="updateMessageText"
+          @deleteItem="deleteItem"
         /&gt;
       &lt;/div&gt;
+      &lt;AddCardData @addItem="addItem" /&gt;
     &lt;/div&gt;
-  &lt;/nav&gt;
+  &lt;/div&gt;
 &lt;/template&gt;
 &nbsp;
 &lt;script&gt;
-import CustomButton from "@/components/CustomButton";
+import CardData from "@/components/CardData.vue";
+import AddCardData from "@/components/AddCardData.vue";
 import store from "@/store";
 &nbsp;
 export default {
-  name: "NavigationHeader",
-  components: { CustomButton },
+  name: "HomeView",
+  components: { CardData, AddCardData },
   computed: {
-    isFormValid() {
-      return store.state.isFormValid;
+    messages() {
+      return store.state.messages;
     },
   },
   methods: {
-    upload() {
-      store.dispatch("uploadMessages");
+    addItem() {
+      store.commit("addMessage");
+      store.commit("checkFormValid");
     },
-    fetch() {
-      store.dispatch("getMessages");
+    deleteItem(id) {
+      store.commit("deleteMessage", { id });
+      store.commit("checkFormValid");
+    },
+    updateMessageVoice(id, value) {
+      store.commit("updateMessageVoice", { id, value });
+      store.commit("checkFormValid");
+    },
+    updateMessageText(id, value) {
+      store.commit("updateMessageText", { id, value });
+      store.commit("checkFormValid");
     },
   },
 };
 &lt;/script&gt;
-&nbsp;
-&lt;style scoped lang="scss"&gt;
-nav {
-  background-color: #fff;
-  border-bottom: 2px solid #c5dcff;
-  margin-bottom: 2rem;
-}
-.container {
-  max-width: 1024px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 1rem 0;
-  h1 {
-    font-family: "Montserrat", sans-serif;
-    font-weight: 500;
-    font-size: 18px;
-    color: #566074;
-    margin: 0;
-  }
-  .buttons {
-    display: flex;
-    gap: 1rem;
-  }
-}
-&lt;/style&gt;
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->

@@ -7,7 +7,6 @@
 </template>
 
 <script>
-import store from "@/store";
 export default {
   name: "AddCardData",
   data() {
@@ -19,7 +18,7 @@ export default {
   },
   methods: {
     addItem() {
-      store.commit("addMessage");
+      this.$emit("addItem");
     },
   },
 };

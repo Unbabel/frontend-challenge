@@ -7,17 +7,18 @@ Vue.use(Vuex);
 export function state() {
   return {
     messages: [],
+    isFormValid: false,
   };
 }
 
 export const mutations = {
-  async setMessages(state, data) {
+  setMessages(state, data) {
     state.messages = data;
   },
   addMessage(state) {
     if (state.messages.length === 0) {
       state.messages.push({
-        id: 1,
+        id: 4,
         voice: "",
         text: "",
       });
@@ -30,25 +31,28 @@ export const mutations = {
       });
     }
   },
-  deleteMessage(state, id) {
+  deleteMessage(state, { id }) {
     const index = state.messages.findIndex((message) => message.id === id);
     state.messages.splice(index, 1);
   },
-  updateMessageVoice(state, target) {
-    const { id, value } = target;
-    const idValue = id.split("voice-id-")[1];
+  updateMessageVoice(state, { id, value }) {
     const indexToUpdate = state.messages.findIndex(
-      (message) => message.id === Number(idValue)
+      (message) => message.id === id
     );
     state.messages[indexToUpdate].voice = value;
   },
-  updateMessageText(state, target) {
-    const { id, value } = target;
-    const idValue = id.split("text-id-")[1];
+  updateMessageText(state, { id, value }) {
     const indexToUpdate = state.messages.findIndex(
-      (message) => message.id === Number(idValue)
+      (message) => message.id === Number(id)
     );
     state.messages[indexToUpdate].text = value;
+  },
+  checkFormValid(state) {
+    const validValues = state.messages.map(
+      (message) => message.voice !== "" && message.text !== ""
+    );
+    const isValid = !validValues.includes(false);
+    state.isFormValid = isValid;
   },
 };
 
@@ -56,6 +60,7 @@ export const actions = {
   async getMessages({ commit }) {
     const data = await getMessages();
     commit("setMessages", data);
+    commit("checkFormValid");
   },
   async uploadMessages({ state }) {
     const status = await uploadMessages(state.messages);
