@@ -13,24 +13,25 @@
 
 <script setup lang="ts">
 /**
-* Transcriptions Block
-* 
-* Will display the list of loaded transcriptions and
-* allow the user to add a new entry
-*/
+ * Transcriptions Block
+ *
+ * Will display the list of loaded transcriptions and
+ * allow the user to add a new entry
+ */
 import { computed } from 'vue';
 import { useStore } from 'vuex';
 import { cloneDeep } from 'lodash';
 import AddIcon from '../icons/AddIcon.vue';
 import SingleTranscription from './SingleTranscription.vue';
+import { TrancriptionActions, TranscriptionMutations } from '@/app/store/transcriptionModule';
 
 const store = useStore();
-store.dispatch('loadTranscriptions');
+store.dispatch(TrancriptionActions.LOAD_TRANSCRIPTIONS);
 
 const transcriptions = computed(() => cloneDeep(store.getters.transcriptions));
 
 function add() {
-  store.commit('createTranscription');
+  store.commit(TranscriptionMutations.CREATE_TRANSCRIPTION);
 }
 </script>
 

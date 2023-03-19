@@ -11,11 +11,6 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
   },
-  build: {
-    commonjsOptions: {
-      esmExternals: true
-    }
-  },
   css: {
     preprocessorOptions: {
       scss: {

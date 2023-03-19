@@ -1,6 +1,5 @@
 <template>
   <div class="transcription" v-if="state.innerTranscription">
-    {{ transcription }}
     <div class="transcription-header">
       <CheckboxField v-model="state.selected" class="checkbox" />
       <PersonIcon class="person-icon" />
@@ -12,35 +11,36 @@
       </div>
     </div>
     <div class="transcription-content">
-      <TextareaField class="text-normal" v-model="state.innerTranscription.text" placeholder="Type a title..." />
+      <TextareaField class="text-normal" v-model="state.innerTranscription.text" placeholder="Type a description..." />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 /**
-* Single Transcription
-* 
-* Will display the transcription information and:
-*   - allow the user to change the title
-*   - allow the user to change the text
-*   - allow the user to select/remove the transaction entry
-*/
+ * Single Transcription
+ *
+ * Will display the transcription information and:
+ *   - allow the user to change the title
+ *   - allow the user to change the text
+ *   - allow the user to select/remove the transaction entry
+ */
 import type { Transcription } from '@/app/models/transcription';
 import { onMounted, reactive, watch } from 'vue';
 import { useStore } from 'vuex';
-import { debounce } from 'lodash';
+import { cloneDeep, debounce, isEqual } from 'lodash';
 import type { DebouncedFunc } from 'lodash';
 import CheckboxField from '../fields/CheckboxField.vue';
 import TextareaField from '../fields/TextareaField.vue';
 import TextField from '../fields/TextField.vue';
 import PersonIcon from '../icons/PersonIcon.vue';
 import TrashIcon from '../icons/TrashIcon.vue';
+import { TranscriptionMutations } from '@/app/store/transcriptionModule';
 
 const props = defineProps<{
   /**
    * Focused transcription
-   * 
+   *
    * Will auto manage the transcription, changing the store
    * state if the transcription changes
    */
@@ -55,30 +55,32 @@ const state = reactive({
 });
 
 // Transcription debounce save
-let debouncedSetTranscription!: DebouncedFunc<() => void>;
+let debouncedSetTranscription!: DebouncedFunc<(transcription: Transcription) => void>;
 
 function remove() {
-  store.commit('deleteTranscription', props.transcription.id);
+  store.commit(TranscriptionMutations.DELETE_TRANSCRIPTION, props.transcription.id);
 }
 
 onMounted(() => {
   debouncedSetTranscription = debounce((transcription: Transcription) => {
-    store.dispatch('setTranscription', transcription);
-  }, 800);
+    store.commit(TranscriptionMutations.SET_TRANSCRIPTION, transcription);
+  }, 200);
 });
 
 watch(
-  props,
+  () => props.transcription,
   () => {
-    state.innerTranscription = { ...props.transcription };
+    state.innerTranscription = cloneDeep(props.transcription);
   },
   { immediate: true }
 );
 
 watch(
-  state,
+  () => state.innerTranscription,
   () => {
-    debouncedSetTranscription(state.innerTranscription);
+    if (state.innerTranscription && !isEqual(state.innerTranscription, props.transcription)) {
+      debouncedSetTranscription(state.innerTranscription);
+    }
   },
   { deep: true }
 );

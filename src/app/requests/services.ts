@@ -8,11 +8,11 @@ export interface Services {
 
 const http = new HttpService(config.baseUrl);
 
-  /**
-   * API Services
-   * 
-   * Will return an object with the current known API services
-   */
+/**
+ * API Services
+ *
+ * Will return an object with the current known API services
+ */
 export const services: Services = {
   $transcriptionService: new TranscriptionService(http)
 };

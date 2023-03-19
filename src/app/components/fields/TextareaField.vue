@@ -5,7 +5,7 @@
 <script setup lang="ts">
 /**
  * Textarea Form Field
- * 
+ *
  * The current component will display a textarea that will
  * auto resize on:
  *  - Text input
@@ -28,9 +28,6 @@ withDefaults(
 
 const emit = defineEmits(['update:modelValue']);
 const textarea = ref({}) as Ref<HTMLElement>;
-  
-// resize observer to watch current component width
-const resize = new ResizeObserver(() => resizeArea());
 
 /**
  * On call will resize the component to match the
@@ -45,13 +42,13 @@ function resizeArea() {
 }
 
 function onInput(event: Event) {
+  resizeArea();
   const value = (event.target as HTMLInputElement).value;
   emit('update:modelValue', value);
 }
 
 onMounted(() => {
-  resize.observe(textarea.value);
+  resizeArea();
+  window.addEventListener('resize', () => resizeArea());
 });
 </script>
-
-<stlye lang="scss" scoped></stlye>

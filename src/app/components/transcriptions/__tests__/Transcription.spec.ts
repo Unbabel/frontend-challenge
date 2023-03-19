@@ -16,7 +16,7 @@ const mockTranscription: Transcription = {
 
 /**
  * Single Transaction test
- * 
+ *
  * Current test will:
  *  - Mount the component
  *  - Check if information displayed is correct

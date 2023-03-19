@@ -5,7 +5,7 @@ import { REQUEST_TIMEOUT, generateGlobals } from '@/app/helpers/testHelpers';
 
 /**
  * Multiple Transaction test
- * 
+ *
  * Current test will:
  *  - Mount the component
  *  - Wait for the requests to finish
@@ -15,7 +15,7 @@ import { REQUEST_TIMEOUT, generateGlobals } from '@/app/helpers/testHelpers';
 describe('Multiple transcriptions', () => {
   const wrapper = mount(TranscriptionBlock, { global: generateGlobals() });
 
-  beforeAll(async () =>  new Promise((r) => setTimeout(r, REQUEST_TIMEOUT)));
+  beforeAll(async () => new Promise((r) => setTimeout(r, REQUEST_TIMEOUT)));
 
   it('displays transcriptions', () => {
     const transcriptionList = wrapper.findAll('.transcription');

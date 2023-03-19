@@ -6,13 +6,7 @@ module.exports = {
   env: {
     node: true
   },
-  extends: [
-    'plugin:vue/vue3-essential',
-    'eslint:recommended',
-    '@vue/eslint-config-typescript',
-    '@vue/eslint-config-prettier/skip-formatting',
-    'prettier'
-  ],
+  extends: ['plugin:vue/vue3-essential', 'eslint:recommended', '@vue/eslint-config-typescript', 'prettier'],
   plugins: ['@typescript-eslint', 'prettier'],
   rules: {
     '@typescript-eslint/no-non-null-assertion': 'off',
@@ -35,6 +29,6 @@ module.exports = {
     'vue/component-name-in-template-casing': ['error', 'PascalCase', { registeredComponentsOnly: false }]
   },
   parserOptions: {
-    ecmaVersion: 'latest'
+    parser: '@typescript-eslint/parser'
   }
 };

@@ -3,7 +3,7 @@ import { createTranscriptionModule } from '../store/transcriptionModule';
 /**
  * Default request wait timeout
  */
-export const REQUEST_TIMEOUT = 1500;
+export const REQUEST_TIMEOUT = 2000;
 
 /**
  * Default test globals to use on component mount

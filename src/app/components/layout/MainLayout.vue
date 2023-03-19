@@ -10,9 +10,9 @@
 <script setup lang="ts">
 /**
  * Main Layout
- * 
+ *
  * Will display the `Navbar` on top and a page body bellow
- * 
+ *
  * Slots:
  *  default - body content
  */

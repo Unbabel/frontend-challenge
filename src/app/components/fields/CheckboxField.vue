@@ -8,7 +8,7 @@
 <script setup lang="ts">
 /**
  * Checkbox Form Field
- * 
+ *
  * The current component will display a custom checkbox input
  */
 

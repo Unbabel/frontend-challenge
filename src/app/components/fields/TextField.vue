@@ -5,7 +5,7 @@
 <script setup lang="ts">
 /**
  * Text Form Field
- * 
+ *
  * The current component will display a text input
  */
 
