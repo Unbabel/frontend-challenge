@@ -74,7 +74,8 @@ export const createTranscriptionModule = () => {
        * Creates new empty transcription
        */
       [TranscriptionMutations.CREATE_TRANSCRIPTION](state) {
-        state.transcriptions.push(generateNewTranscription(state.transcriptions.length + 1));
+        const maxIndex = state.transcriptions.reduce((a, b) => Math.max(a, b.id), 0);
+        state.transcriptions.push(generateNewTranscription(maxIndex + 1));
       },
       /**
        * Deletes transcription entry
