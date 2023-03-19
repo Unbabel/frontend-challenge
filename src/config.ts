@@ -1,4 +1,4 @@
 export default {
-  routerMode: 'history',
+  // API base url
   baseUrl: 'http://www.mocky.io/v2/'
 };

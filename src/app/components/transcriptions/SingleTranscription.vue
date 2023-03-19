@@ -1,5 +1,6 @@
 <template>
-  <div class="transcription">
+  <div class="transcription" v-if="state.innerTranscription">
+    {{ transcription }}
     <div class="transcription-header">
       <CheckboxField v-model="state.selected" class="checkbox" />
       <PersonIcon class="person-icon" />
@@ -17,9 +18,19 @@
 </template>
 
 <script setup lang="ts">
+/**
+* Single Transcription
+* 
+* Will display the transcription information and:
+*   - allow the user to change the title
+*   - allow the user to change the text
+*   - allow the user to select/remove the transaction entry
+*/
 import type { Transcription } from '@/app/models/transcription';
-import { reactive, watch } from 'vue';
+import { onMounted, reactive, watch } from 'vue';
 import { useStore } from 'vuex';
+import { debounce } from 'lodash';
+import type { DebouncedFunc } from 'lodash';
 import CheckboxField from '../fields/CheckboxField.vue';
 import TextareaField from '../fields/TextareaField.vue';
 import TextField from '../fields/TextField.vue';
@@ -28,7 +39,10 @@ import TrashIcon from '../icons/TrashIcon.vue';
 
 const props = defineProps<{
   /**
-   *
+   * Focused transcription
+   * 
+   * Will auto manage the transcription, changing the store
+   * state if the transcription changes
    */
   transcription: Transcription;
 }>();
@@ -36,17 +50,38 @@ const props = defineProps<{
 const store = useStore();
 
 const state = reactive({
-  innerTranscription: Object.assign({}, props.transcription),
+  innerTranscription: null as Transcription | null,
   selected: false
 });
+
+// Transcription debounce save
+let debouncedSetTranscription!: DebouncedFunc<() => void>;
 
 function remove() {
   store.commit('deleteTranscription', props.transcription.id);
 }
 
-watch(state.innerTranscription, (newTranscrition) => {
-  store.commit('setTranscription', newTranscrition);
+onMounted(() => {
+  debouncedSetTranscription = debounce((transcription: Transcription) => {
+    store.dispatch('setTranscription', transcription);
+  }, 800);
 });
+
+watch(
+  props,
+  () => {
+    state.innerTranscription = { ...props.transcription };
+  },
+  { immediate: true }
+);
+
+watch(
+  state,
+  () => {
+    debouncedSetTranscription(state.innerTranscription);
+  },
+  { deep: true }
+);
 </script>
 
 <stlye lang="scss" scoped>

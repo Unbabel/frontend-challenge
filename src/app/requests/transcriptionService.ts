@@ -3,7 +3,7 @@ import type { Transcription } from '../models/transcription';
 import type { HttpService } from './http';
 
 /**
- * Data service
+ * Transcription service
  */
 export class TranscriptionService {
   private http;
@@ -12,11 +12,19 @@ export class TranscriptionService {
     this.http = http;
   }
 
+/**
+ * Fetchs all the transcriptions from the API
+ */
   public getData(): Promise<Transcription[]> {
     return this.http.get<Transcription[]>(`${config.baseUrl}5ae1c5792d00004d009d7e5c`);
   }
 
-  public updateData(payload: Transcription[]): Promise<void> {
-    return this.http.post<void>(`${config.baseUrl}5ae1c5792d00004d009d7e5c`, payload);
+/**
+ * Updates a set of transcriptions
+ * @param payload {Transcription[]} Data to be updated
+ * @returns Promise<Transcription[]>
+ */
+  public updateData(payload: Transcription[]): Promise<Transcription[]> {
+    return this.http.post<Transcription[]>(`${config.baseUrl}5ae1c5792d00004d009d7e5c`, payload);
   }
 }

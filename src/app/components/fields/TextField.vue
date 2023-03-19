@@ -3,10 +3,17 @@
 </template>
 
 <script setup lang="ts">
+/**
+ * Text Form Field
+ * 
+ * The current component will display a text input
+ */
+
 withDefaults(
   defineProps<{
     /**
      * Field value, syncable with v-model
+     * Defaults to empty string
      */
     modelValue: string;
   }>(),

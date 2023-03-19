@@ -6,8 +6,9 @@ import type { AxiosInstance, AxiosRequestConfig } from 'axios';
  *
  * Creates an axios instance and sets the headers.
  *
- * Provides a get, put, post and delete methods to be used
- * externally
+ * Provides a get and post methods to be used externally
+ * 
+ * @argument baseURL {string} API base url
  */
 export class HttpService {
   private axios: AxiosInstance;

@@ -6,10 +6,17 @@
 </template>
 
 <script setup lang="ts">
+/**
+ * Checkbox Form Field
+ * 
+ * The current component will display a custom checkbox input
+ */
+
 withDefaults(
   defineProps<{
     /**
      * Field value, syncable with v-model
+     * Defaults to false
      */
     modelValue: boolean;
   }>(),
@@ -25,5 +32,3 @@ function onInput(event: Event) {
   emit('update:modelValue', value);
 }
 </script>
-
-<stlye lang="scss" scoped></stlye>

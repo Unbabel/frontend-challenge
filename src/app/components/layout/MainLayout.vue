@@ -8,6 +8,14 @@
 </template>
 
 <script setup lang="ts">
+/**
+ * Main Layout
+ * 
+ * Will display the `Navbar` on top and a page body bellow
+ * 
+ * Slots:
+ *  default - body content
+ */
 import NavBar from './NavBar.vue';
 </script>
 
@@ -20,6 +28,10 @@ import NavBar from './NavBar.vue';
     width: $main-block-width;
     margin: auto;
     margin-top: 1rem;
+
+    @media screen and (max-width: $main-block-width) {
+      width: 90%;
+    }
   }
 }
 </stlye>

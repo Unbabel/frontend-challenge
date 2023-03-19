@@ -3,14 +3,22 @@
     <div class="navbar">
       <h1>Transcriptions</h1>
       <span class="actions">
-        <UploadIcon class="icon-button" @click="upload" />
-        <FetchIcon class="icon-button" @click="fetchData" />
+        <UploadIcon class="icon-button upload" @click="upload" />
+        <FetchIcon class="icon-button fetch" @click="fetchData" />
       </span>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+/**
+ * Navbar Component
+ * 
+ * Will display a navbar that can:
+ *  - Upload current mutated information
+ *  - Re-download all the displayed information from the API
+ * 
+ */
 import UploadIcon from '../icons/UploadIcon.vue';
 import FetchIcon from '../icons/FetchIcon.vue';
 import { useStore } from 'vuex';

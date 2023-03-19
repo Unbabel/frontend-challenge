@@ -12,15 +12,22 @@
 </template>
 
 <script setup lang="ts">
+/**
+* Transcriptions Block
+* 
+* Will display the list of loaded transcriptions and
+* allow the user to add a new entry
+*/
 import { computed } from 'vue';
 import { useStore } from 'vuex';
+import { cloneDeep } from 'lodash';
 import AddIcon from '../icons/AddIcon.vue';
 import SingleTranscription from './SingleTranscription.vue';
 
 const store = useStore();
 store.dispatch('loadTranscriptions');
 
-const transcriptions = computed(() => store.getters.transcriptions);
+const transcriptions = computed(() => cloneDeep(store.getters.transcriptions));
 
 function add() {
   store.commit('createTranscription');
