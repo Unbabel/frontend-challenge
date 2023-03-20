@@ -16,7 +16,7 @@
           <div class="text-left transcriptionRowContent">
             <div class="d-flex justify-content-between w-100">
               <input v-if="isEdit" v-model="itemTitle" placeholder="edit me" />
-              <h4 v-else class="my-0 item-title">{{ itemTitle }}</h4>
+              <h4 v-else class="item-title">{{ itemTitle }}</h4>
               <div class="d-flex flex-row align-items-start action-buttons">
                 <CustomButton
                   :isDisabled="false"
@@ -98,10 +98,6 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.transcriptionRow {
-  padding: 1.5rem;
-  border-bottom: 1px solid #e4e8ea;
-}
 .person-image {
   height: 25px;
   width: 25px;

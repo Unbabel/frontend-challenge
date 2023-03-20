@@ -59,6 +59,9 @@ export default createStore({
           // if MOCKY accepted post and updated the list on Backed, we would update the transacription in store to the data returned by mocky after successful post like below
           // commit("updateTranscriptions", editToDataArr);
           commit("updateCurrentLoadingButton", ``);
+          setTimeout(() => {
+            alert("POST SUCCESS DATA IN CONSOLE");
+          }, 500);
         })
         .catch((e) => {
           console.log("ERROR", e);
