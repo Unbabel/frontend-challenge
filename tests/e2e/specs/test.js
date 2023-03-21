@@ -1,17 +1,19 @@
 // https://docs.cypress.io/api/table-of-contents
 
-const DEFAULT_WAIT_TIME = 3000;
+const DEFAULT_WAIT_TIME = 2000;
 
 describe("Coding challenege landing page", () => {
   it("Visits the app root url", () => {
     cy.visit("/");
+    cy.wait(DEFAULT_WAIT_TIME*2);
     cy.contains(".btn-one span", "VIEW");
   });
 });
 
 describe("Coding challenege page", () => {
   before(() => {
-    cy.visit('/viewChallenge');
+    // cy.visit('/viewChallenge');
+    cy.get(".btn-one").click()
   })
   it("Has app title", () => {
     cy.contains("#app-title", "Transcriptions");
