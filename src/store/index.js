@@ -78,8 +78,8 @@ export default createStore({
       currentArrayOfTranscription.push({
         id: getUniqueID(),
         isEdit: true,
-        voice: "Title",
-        text: "Content",
+        voice: "",
+        text: "",
       });
       commit("updateTranscriptions", currentArrayOfTranscription);
     },

@@ -6,7 +6,7 @@
         v-if="$store.state.transcriptionsArray.length"
         @search-input-changed="searchInputChanged"
       />
-      <div class="card py-0">
+      <div class="card py-0" id="transcriptions-list">
         <TranscriptionRow
           v-for="(item, index) in $store.state.transcriptionsArray.filter(
             (i) =>
@@ -30,6 +30,7 @@
             v-if="!searchText"
             :isIcon="true"
             :buttonSize="'lg'"
+            id="add-row"
             :iconUrl="require('@/assets-for-challenge/add-row@1x.png')"
           />
         </div>
@@ -44,7 +45,7 @@
           :src="require('@/assets-for-challenge/empty.png')"
         />
         <div class="d-flex justify-content-center align-items-center">
-          <h3 class="my-0">
+          <h3 class="my-0" id="no-items-message">
             No Items to display. Please fetch the item list using
             <img
               class="fetch-icon mx-2"

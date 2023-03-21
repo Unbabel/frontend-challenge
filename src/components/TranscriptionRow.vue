@@ -1,5 +1,9 @@
 <template>
-  <div class="transcriptionRow">
+  <div
+    class="transcriptionRow"
+    @mouseover="displayActionButton = true"
+    @mouseleave="displayActionButton = false"
+  >
     <div class="w-100">
       <div class="d-flex flex-row">
         <div class="customInput">
@@ -15,9 +19,17 @@
           />
           <div class="text-left transcriptionRowContent">
             <div class="d-flex justify-content-between w-100">
-              <input v-if="isEdit" v-model="itemTitle" placeholder="edit me" />
+              <input
+                v-if="isEdit"
+                class="item-title-input"
+                v-model="itemTitle"
+                placeholder="Title"
+              />
               <h4 v-else class="item-title">{{ itemTitle }}</h4>
-              <div class="d-flex flex-row align-items-start action-buttons">
+              <div
+                class="flex-row align-items-start action-buttons"
+                v-show="displayActionButton"
+              >
                 <CustomButton
                   :isDisabled="false"
                   :onButtonClick="toggleEdit"
@@ -48,7 +60,8 @@
               v-if="isEdit"
               v-model="itemContent"
               rows="5"
-              placeholder="add multiple lines"
+              class="content-textarea"
+              placeholder="Content"
             ></textarea>
             <p v-else class="mb-0 item-content">{{ itemContent }}</p>
           </div>
@@ -71,9 +84,10 @@ export default {
   },
   data() {
     return {
+      displayActionButton: false,
       isEdit: this.itemData?.isEdit ? this.itemData?.isEdit : false,
-      itemTitle: this.itemData?.voice ? this.itemData?.voice : "Title",
-      itemContent: this.itemData?.text ? this.itemData?.text : "Content",
+      itemTitle: this.itemData?.voice ? this.itemData?.voice : "",
+      itemContent: this.itemData?.text ? this.itemData?.text : "",
     };
   },
   methods: {
