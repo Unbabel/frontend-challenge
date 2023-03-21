@@ -23,6 +23,8 @@
                   :onButtonClick="toggleEdit"
                   :buttonLoading="false"
                   :isIcon="true"
+                  class="edit"
+                  :id="`edit-` + itemData.id"
                   :iconUrl="
                     isEdit
                       ? require('@/assets-for-challenge/save.png')
@@ -32,9 +34,10 @@
                 <CustomButton
                   :isDisabled="false"
                   :onButtonClick="deleteRow"
+                  class="delete"
+                  :id="`delete-` + itemData.id"
                   :buttonLoading="
-                    $store.state.currentLoadingButton ===
-                    `delete-` + itemData.id
+                    currentLoadingButton === `delete-` + itemData.id
                   "
                   :isIcon="true"
                   :iconUrl="require('@/assets-for-challenge/delete@1x.png')"
@@ -58,7 +61,7 @@
 <script>
 import CustomButton from "@/components/CustomButton.vue";
 import store from "../store";
-
+import { mapGetters } from "vuex";
 export default {
   props: {
     itemData: {
@@ -89,6 +92,11 @@ export default {
       }
       this.isEdit = !this.isEdit;
     },
+  },
+  computed: {
+    ...mapGetters({
+      currentLoadingButton: "getCurrentLoadingButton",
+    }),
   },
   components: {
     CustomButton,

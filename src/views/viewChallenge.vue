@@ -1,7 +1,7 @@
 <template>
   <div>
     <HeaderComponent />
-    <div class="container mt-4">
+    <div class="container-fluid custom-container-width mt-4">
       <SearchComponent
         v-if="$store.state.transcriptionsArray.length"
         @search-input-changed="searchInputChanged"

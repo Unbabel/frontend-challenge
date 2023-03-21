@@ -1,24 +1,22 @@
 <template>
   <div class="headerClass">
-    <div class="container py-4">
+    <div class="container-fluid custom-container-width py-4">
       <div class="d-flex justify-content-between">
-        <h3 class="my-0 mx-2">Transcriptions</h3>
+        <h3 class="my-0 mx-2" id="app-title">Transcriptions</h3>
         <div class="d-flex flex-row align-items-start mx-2">
           <CustomButton
             :isDisabled="false"
             :onButtonClick="uploadTranscriptions"
-            :buttonLoading="
-              $store.state.currentLoadingButton === `post-transcriptions`
-            "
+            id="post-transcriptions"
+            :buttonLoading="currentLoadingButton === `post-transcriptions`"
             :isIcon="true"
             :iconUrl="require('@/assets-for-challenge/upload@1x.png')"
           />
           <CustomButton
             :isDisabled="false"
+            id="fetch-transcriptions"
             :onButtonClick="loadTranscriptions"
-            :buttonLoading="
-              $store.state.currentLoadingButton === `fetch-transcriptions`
-            "
+            :buttonLoading="currentLoadingButton === `fetch-transcriptions`"
             :isIcon="true"
             :iconUrl="require('@/assets-for-challenge/fetch-document@1x.png')"
           />
@@ -30,15 +28,10 @@
 
 <script>
 import CustomButton from "@/components/CustomButton.vue";
-
 import store from "../store";
+import { mapGetters } from "vuex";
+
 export default {
-  props: {
-    keyForItem: {
-      type: Number,
-      required: false,
-    },
-  },
   methods: {
     uploadTranscriptions() {
       store.commit("updateCurrentLoadingButton", "post-transcriptions");
@@ -48,6 +41,11 @@ export default {
       store.commit("updateCurrentLoadingButton", "fetch-transcriptions");
       store.dispatch("fetchTranscriptionsAction");
     },
+  },
+  computed: {
+    ...mapGetters({
+      currentLoadingButton: "getCurrentLoadingButton",
+    }),
   },
   components: {
     CustomButton,

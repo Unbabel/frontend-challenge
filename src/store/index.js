@@ -7,7 +7,11 @@ export default createStore({
     transcriptionsArray: [],
     currentLoadingButton: ``,
   },
-  getters: {},
+  getters: {
+    getCurrentLoadingButton(state) {
+      return state.currentLoadingButton;
+    },
+  },
   mutations: {
     updateTranscriptions(state, updatedArr) {
       state.transcriptionsArray = [...updatedArr];

@@ -63,12 +63,22 @@ p {
 
   h3 {
     color: $grey-5;
-    line-height: 1.6;
+    line-height: 2;
   }
 
-  .container {
+  .custom-container-width {
     padding-left: 30px;
     padding-right: 30px;
+  }
+}
+
+.custom-container-width{
+  max-width:75%;
+  @include respond-below(lg) {
+    max-width:95%;
+  }
+  @include respond-below(sm) {
+    max-width:100%;
   }
 }
 

@@ -1,9 +1,11 @@
 <template>
   <button
     :disabled="isDisabled"
-    :class="`btn-${buttonSize} flex justify-content-center align-items-center ${
+    :class="`flex justify-content-center align-items-center ${
       buttonLoading ? 'button--loading' : ''
-    } ${isIcon ? ' icon__button ' : ''} `"
+    } ${buttonSize ? `  btn-${buttonSize} ` : ''} ${
+      isIcon ? ' icon__button ' : ''
+    } `"
     @click="onButtonClick"
   >
     <!-- display loader if button triggeres fetch to backend -->
@@ -46,18 +48,5 @@ export default {
       required: false,
     },
   },
-  data: () => ({
-    loading: false,
-  }),
 };
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-/* .headerClass {
-  -webkit-box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.43);
-  -moz-box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.43);
-  box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.43);
-  background-color: white;
-} */
-</style>
