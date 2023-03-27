@@ -16,7 +16,7 @@ import {
   TranscriptionEventTypeConstants
 } from "../../integration/transcriptions/business/constants/transcription-event-type.constants";
 
-const props = defineProps({
+defineProps({
   transcriptionAddButtonIcon: {
     type: String,
     required: false,
