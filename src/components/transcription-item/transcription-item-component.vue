@@ -100,12 +100,6 @@ function handleVoiceTextChange(transcriptionText: string): void {
   padding: 10px 20px;
   animation: fade-in .5s;
 
-  .transcription__item__icon {
-    width: 20px;
-    height: 20px;
-    background-color: blue;
-  }
-
   .transcription__item__inputs {
     flex-grow: 2;
   }
@@ -114,10 +108,7 @@ function handleVoiceTextChange(transcriptionText: string): void {
 
     :deep(.transcription__delete__button) {
       display: block;
-      background-color: darkred;
-      border-radius: 50%;
-      border: 2px solid darkred;
-      width: 20px;
+      width: 16px;
       height: 20px;
       line-height: 5px;
       color: white;

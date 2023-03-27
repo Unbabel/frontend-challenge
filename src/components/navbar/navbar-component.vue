@@ -22,13 +22,13 @@
                     title="bind_this_to_upload_message"
                     data-testid="navbar__upload__button"
                     @click.stop.prevent="Eventbus.emit(TranscriptionEventTypeConstants.UPLOAD_DATA)"
-            >UploadIconGoesHere</button>
+            ><img :src="'./assets/upload.svg'"></button>
             <button type="button"
                     class="navbar__download__button"
                     title="bind_this_to_download_message"
                     data-testid="navbar__download__button"
                     @click.stop.prevent="Eventbus.emit(TranscriptionEventTypeConstants.DOWNLOAD_DATA)"
-            >DownloadIconGoesHere</button>
+            ><img :src="'./assets/fetch-document.svg'"></button>
         </div>
 
       </div>

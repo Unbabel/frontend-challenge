@@ -2,7 +2,10 @@
   <div v-if="transcriptions.length">
     <ul class="transcription__list" data-testid="transcription__list">
       <li v-for="transcription in transcriptions" :key="transcription.id" :id="transcription.id.toString()" class="transcription__list__item" data-testid="transcription__list__item">
-        <TranscriptionItemComponent :transcription="transcription" />
+        <TranscriptionItemComponent
+            :transcription="transcription"
+            :transcriptionIcon="'./assets/person.svg'"
+            :transcriptionDeleteButtonIcon="'./assets/delete.svg'" />
       </li>
     </ul>
   </div>

@@ -8,9 +8,11 @@
           data-testid="transcription__view_no-data-message">No transcriptions available!</h2>
 
       <TranscriptionListComponent
-          :transcriptions="filteredTranscriptions" />
+          :transcriptions="filteredTranscriptions"
+      />
 
-      <TranscriptionAddButtonComponent />
+      <TranscriptionAddButtonComponent
+          :transcriptionAddButtonIcon="'./assets/add-row.svg'" />
 
     </template>
   </ViewLayout>

@@ -36,6 +36,10 @@ export function TranscriptionsStore() {
             }
         });
 
+        if(!toUpload.length) {
+            return;
+        }
+
         await Transcriptions.uploadTranscriptions(toUpload);
 
         transcriptions.value = [];
