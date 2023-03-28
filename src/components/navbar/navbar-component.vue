@@ -13,7 +13,7 @@
                       v-for="route in routes" :to="route.path"
                       :key="route.name"
                       class="navbar__link"
-                      :data-testid="`navbar__link__${route.name?.toString()}`">{{ translate(`navbar.route.${route.name}`) }}</RouterLink>
+                      :data-testid="`navbar__link__${route.name?.toString()}`">{{ translate(`navbar.route.${String(route.name)}`) }}</RouterLink>
         </div>
 
         <div class="navbar__buttons__container" data-testid="navbar__buttons__container">
