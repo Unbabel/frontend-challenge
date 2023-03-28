@@ -76,6 +76,10 @@ function inputChanged(event: Event): void {
     min-height: 120px;
     height: auto;
     max-height: 260px;
+    font-family: "Open sans";
+    font-size: 16px;
+    font-weight: 500;
+    color: #778195;
   }
 
   .text__area__input:focus-visible {
