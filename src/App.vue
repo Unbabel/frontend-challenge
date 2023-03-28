@@ -1,6 +1,6 @@
 <template>
   <div>
-    <LoaderComponent :show-loader="showLoader"/>
+    <LoaderComponent :show-loader="showLoader" />
 
     <BaseLayout>
 

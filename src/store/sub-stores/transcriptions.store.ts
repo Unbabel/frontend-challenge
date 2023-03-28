@@ -42,9 +42,10 @@ export function TranscriptionsStore() {
 
         await Transcriptions.uploadTranscriptions(toUpload);
 
-        transcriptions.value = [];
-        filteredTranscriptions.value = transcriptions.value;
-        await getAllTranscriptions();
+        for (const toUploadElement of toUpload) {
+            filteredTranscriptions.value = filteredTranscriptions.value.filter(transcription => transcription.id !== toUploadElement.id);
+        }
+
     }
 
    async function addNewTranscription(): Promise<void> {
