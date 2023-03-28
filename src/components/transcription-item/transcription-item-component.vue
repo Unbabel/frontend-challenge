@@ -98,14 +98,24 @@ function handleVoiceTextChange(transcriptionText: string): void {
 .transcription__item {
   display: flex;
   overflow: hidden;
-  padding: 10px 20px;
+  padding: 20px 30px;
   animation: fade-in .5s;
+
+  .transcription__item__checkbox {
+    padding: 4px 4px 0 4px;
+  }
+
+  .transcription__item__icon {
+    padding: 0 4px;
+  }
 
   .transcription__item__inputs {
     flex-grow: 2;
   }
 
   .transcription__item__options {
+
+    padding: 4px 4px 0 4px;
 
     :deep(.transcription__delete__button) {
       display: block;

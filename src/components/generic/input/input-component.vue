@@ -60,6 +60,9 @@ function inputChanged(event: Event): void {
 
   .input__text__input{
     border: none;
+    font-size: 16px;
+    font-weight: 600;
+    color: #566074;
   }
 
   .input__text__input:focus-visible{

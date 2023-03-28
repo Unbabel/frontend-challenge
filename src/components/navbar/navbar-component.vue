@@ -80,8 +80,9 @@ defineProps({
 
       .navbar__logo {
         margin: 0;
-        font-size: 1em;
-        font-weight: normal;
+        font-size: 18px;
+        font-weight: 600;
+        color: #414C5E;
       }
     }
 
@@ -100,6 +101,10 @@ defineProps({
         border: 0;
         background: none;
         padding: 0;
+      }
+
+      .navbar__upload__button {
+        margin-right: 20px;
       }
     }
   }
