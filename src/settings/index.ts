@@ -1,3 +1,3 @@
 export default {
-    endpoint: 'http://www.mocky.io'
+    endpoint: 'https://www.mocky.io'
 };
