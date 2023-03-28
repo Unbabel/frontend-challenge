@@ -18,14 +18,14 @@
       <div class="transcription__item_title" data-testid="transcription__item_title">
         <InputComponent :inputID="`input--${transcription.id}`"
                         :inputInitialValue="transcription.voice"
-                        :placeHolderText="'please insert transcription voice title - to be updated'"
+                        :placeHolderText="translate('transcriptionIcon.inputTitlePlaceholder')"
                         :changeHandler="handleVoiceTitleChange" />
       </div>
 
       <div class="transcription__item_text" data-testid="transcription__item_text">
         <InputTextAreaComponent :textAreaID="`textarea-${transcription.id}`"
                                 :textAreaInitialValue="transcription.text"
-                                :textAreaPlaceholderText="'please insert transcription text - to be updated'"
+                                :textAreaPlaceholderText="translate('transcriptionIcon.inputTextPlaceholder')"
                                 :changeHandler="handleVoiceTextChange" />
       </div>
 
@@ -59,6 +59,7 @@ import Eventbus from '../../eventbus';
 import {
   TranscriptionEventTypeConstants
 } from "../../integration/transcriptions/business/constants/transcription-event-type.constants";
+import {translate} from "../../language-resource";
 
 const props = defineProps({
   transcription: {

@@ -5,7 +5,7 @@
 
       <h2 v-if="!filteredTranscriptions.length"
           class="transcription__view_no-data-message"
-          data-testid="transcription__view_no-data-message">No transcriptions available!</h2>
+          data-testid="transcription__view_no-data-message">{{ translate('transcriptionView.greeting')}}</h2>
 
       <TranscriptionListComponent
           :transcriptions="filteredTranscriptions"
@@ -31,6 +31,7 @@ import TranscriptionListComponent from "../components/transcription-list/transcr
 import TranscriptionAddButtonComponent
   from "../components/transcription-add-button/transcription-add-button-component.vue";
 import {onBeforeUnmount} from "vue";
+import {translate} from '../language-resource';
 
 const transcriptionStore = Store.useTranscriptionsStore();
 const {transcriptions, filteredTranscriptions} = storeToRefs(transcriptionStore);

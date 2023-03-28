@@ -5,7 +5,7 @@
       <div class="navbar__items__container" data-testid="navbar__items__container">
 
         <div class="navbar__logo__container" data-testid="navbar__logo__container">
-          <h1 class="navbar__logo" data-testid="navbar__logo">LogoGoesHere</h1>
+          <h1 class="navbar__logo" data-testid="navbar__logo">{{translate('navbar.title')}}</h1>
         </div>
 
         <div class="navbar__routes__container" data-testid="navbar__routes__container">
@@ -13,22 +13,23 @@
                       v-for="route in routes" :to="route.path"
                       :key="route.name"
                       class="navbar__link"
-                      :data-testid="`navbar__link__${route.name?.toString()}`">{{ route.name }}</RouterLink>
+                      :data-testid="`navbar__link__${route.name?.toString()}`">{{ translate(`navbar.route.${String(route.name)}`) }}</RouterLink>
         </div>
 
         <div class="navbar__buttons__container" data-testid="navbar__buttons__container">
             <button type="button"
                     class="navbar__upload__button"
-                    title="bind_this_to_upload_message"
+                    :title="translate('navbar.optionButton.upload.title')"
                     data-testid="navbar__upload__button"
                     @click.stop.prevent="Eventbus.emit(TranscriptionEventTypeConstants.UPLOAD_DATA)"
-            ><img :src="'./assets/upload.svg'"></button>
+            ><img :src="'./assets/upload.svg'" alt="upload-icon"></button>
+
             <button type="button"
                     class="navbar__download__button"
-                    title="bind_this_to_download_message"
+                    :title="translate('navbar.optionButton.download.title')"
                     data-testid="navbar__download__button"
                     @click.stop.prevent="Eventbus.emit(TranscriptionEventTypeConstants.DOWNLOAD_DATA)"
-            ><img :src="'./assets/fetch-document.svg'"></button>
+            ><img :src="'./assets/fetch-document.svg'" alt="fetch-icon"></button>
         </div>
 
       </div>
@@ -44,6 +45,7 @@ import {
   TranscriptionEventTypeConstants
 } from "../../integration/transcriptions/business/constants/transcription-event-type.constants";
 import {PropType} from "vue";
+import {translate} from "../../language-resource";
 
 defineProps({
   routes: {
