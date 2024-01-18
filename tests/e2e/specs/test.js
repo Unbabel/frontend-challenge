@@ -59,6 +59,17 @@ describe("Coding challenege page", () => {
     cy.get('.transcriptionRow').last().find(".content-textarea").trigger('mouseover');
     cy.get('.transcriptionRow').last().find(".edit").click();
   });
+  it("Add another new row to transcriptions", () => {
+    cy.wait(DEFAULT_WAIT_TIME);
+    cy.get('#add-row').click();
+    cy.get('.transcriptionRow').last().find(".item-title-input")
+      .type("Second ONE");
+    cy.get('.transcriptionRow').last().find(".content-textarea")
+      .type("One line sentence for second row");
+    cy.wait(DEFAULT_WAIT_TIME);
+    cy.get('.transcriptionRow').last().find(".content-textarea").trigger('mouseover');
+    cy.get('.transcriptionRow').last().find(".edit").click();
+  });
 
   it("Edit transcriptions row", () => {
     cy.wait(DEFAULT_WAIT_TIME);
@@ -74,7 +85,7 @@ describe("Coding challenege page", () => {
 
   it("Search filter working", () => {
     cy.wait(DEFAULT_WAIT_TIME);
-    cy.get('.transcriptionRow').should('have.length', 4);
+    cy.get('.transcriptionRow').should('have.length', 6);
     cy.get('.search-component').find("input")
       .type("one");
     cy.wait(DEFAULT_WAIT_TIME * 3);
@@ -94,7 +105,7 @@ describe("Coding challenege page", () => {
     cy.wait(DEFAULT_WAIT_TIME);
     cy.get('.transcriptionRow').should('have.length', 1);
     cy.get('.search-component').find("input").focus().clear();
-    cy.get('.transcriptionRow').should('have.length', 3);
+    cy.get('.transcriptionRow').should('have.length', 5);
   });
 
   it("Checkbox of transcription working", () => {
