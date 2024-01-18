@@ -25,7 +25,11 @@ export default createStore({
       api
         .get(api.data_source_url)
         .then((data) => {
-          let editToDataArr = JSON.parse(JSON.stringify(data));
+          const validJsonString = data.replace(
+            /(['"])?([a-zA-Z0-9_]+)(['"])?:/g,
+            '"$2":'
+          );
+          let editToDataArr = JSON.parse(validJsonString);
           editToDataArr = editToDataArr.map((item, index) => {
             if (index !== editToDataArr.length) {
               item["isEdit"] = false;
@@ -52,7 +56,11 @@ export default createStore({
       api
         .post(currentArrayOfTranscription, api.data_source_url)
         .then((data) => {
-          let editToDataArr = JSON.parse(JSON.stringify(data));
+          const validJsonString = data.replace(
+            /(['"])?([a-zA-Z0-9_]+)(['"])?:/g,
+            '"$2":'
+          );
+          let editToDataArr = JSON.parse(validJsonString);
           editToDataArr = editToDataArr.map((item, index) => {
             if (index !== editToDataArr.length) {
               item["isEdit"] = false;

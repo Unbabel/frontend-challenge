@@ -1,7 +1,8 @@
 import axios from "axios";
 
 export const api = {
-  data_source_url: "http://www.mocky.io/v2/5ae1c5792d00004d009d7e5c",
+  data_source_url:
+    "https://run.mocky.io/v3/ebac0b77-a220-46d3-963c-ae8881c7e4c3",
 
   get: (url) => {
     return new Promise((resolve, reject) => {
