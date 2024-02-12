@@ -2,7 +2,7 @@
   <div class="transcriptions">
     <HeaderComponent @requestUpload="uploadData" />
     <ItemsComponent
-      :items="items"
+      :items="activeItems"
       @addNewItem="addNewItem"
       @deleteItem="deleteItem"
     />
@@ -10,59 +10,59 @@
 </template>
 
 <script>
+import { mapActions, mapState } from "vuex";
 import HeaderComponent from "./HeaderComponent.vue";
 import ItemsComponent from "./ItemsComponent.vue";
+import axios from "axios";
 
 export default {
   components: {
     HeaderComponent,
     ItemsComponent,
   },
-  data() {
-    return {
-      items: [
-        {
-          id: "1",
-          voice: "Voice 1",
-          text: "This is better than the films—far, far, better. Why go to the cinema, when you can stage this sort of thing in your own home?",
-        },
-        {
-          id: "2",
-          voice: "Voice 2",
-          text: "Yes, but look here, Doyle, what’s going to happen? We can’t have Laura taken off to the police-station.",
-          checked: true,
-        },
-        { id: "3", voice: "Voice 1", text: "Why not?" },
-        {
-          id: "4",
-          voice: "Voice 1",
-          text: "It’d do her all the good in the world. And I wouldn’t bail her out either.",
-        },
-      ],
-    };
+  computed: {
+    ...mapState(["items"]),
+    activeItems() {
+      return this.items.filter((item) => !item.deleted);
+    },
   },
   methods: {
-    // just a simple method to add items (locally)
+    ...mapActions(["addItem", "deleteItem", "updateItemUploadStatus"]),
     addNewItem() {
       const newItem = {
-        id: Date.now().toString(),
+        id: Date.now(),
         voice: "Title here",
-        text: "Content here",
+        text: "Content here"
       };
-      this.items.push(newItem);
+      this.addItem(newItem);
     },
-    // just a simple method to remove items (locally)
-    deleteItem(id) {
-      this.items = this.items.filter((item) => item.id !== id);
+    async uploadData() {
+      for (const item of this.items.filter((item) => !item.isUploaded)) {
+        try {
+          const response = await axios.post(
+            "https://65c568dfe5b94dfca2e00221.mockapi.io/fe-challenge",
+            item
+          );
+          console.log("Upload successful", response.data);
+          // Assuming response.data contains the new item data with the backend-assigned ID
+          this.$store.commit("UPDATE_ITEM_ID", {
+            oldId: item.id,
+            newId: response.data.id,
+          });
+        } catch (error) {
+          console.error("Upload error:", error);
+        }
+      }
     },
-    uploadData() {
-      console.log("Upload data clicked");
+
+    updateItemStatus(itemId, isUploaded) {
+      this.updateItemUploadStatus({ itemId, isUploaded });
     },
   },
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .transcriptions {
   background: #f6f7f8;
   min-height: 100%;

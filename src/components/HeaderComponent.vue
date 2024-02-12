@@ -3,7 +3,7 @@
     <div class="container">
       <div class="header__wrapper">
         <h1 class="header__title">Transcriptions</h1>
-        <button class="header__button header__button--upload" @click="uploadData">
+        <button class="header__button header__button--upload" @click="$emit('requestUpload')">
           <img
             src="@/assets/upload.svg"
             aria-label="Upload data"
@@ -23,17 +23,19 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
+
 export default {
   methods: {
-    uploadData() {
-      // upload data logic here when store is created to connect with endpoint given
-      console.log("Upload data button clicked");
+    ...mapActions(["fetchItems"]),
+    async fetchData() {
+      try {
+        await this.fetchItems();
+      } catch (error) {
+        console.error("Fetch items failed:", error);
+      }
     },
-    fetchData() {
-      // fetch data logic here when store is created to connect with endpoint given
-      console.log("Fetch data button clicked");
-    }
-  }
+  },
 };
 </script>
 
