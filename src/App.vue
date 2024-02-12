@@ -1,14 +1,9 @@
 <template>
-  <transcriptions-component />
+  <router-view></router-view>
 </template>
 
 <script>
-import TranscriptionsComponent from "@/components/TranscriptionsComponent.vue";
-
 export default {
   name: "App",
-  components: {
-    TranscriptionsComponent
-  },
 };
 </script>
