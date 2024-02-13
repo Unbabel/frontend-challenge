@@ -1,0 +1,39 @@
+// imports fonts used in project
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+
+// resets browser's default styles
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html,
+#app {
+  height: 100%;;
+}
+
+// color variables
+$black: #000000;
+
+
+// elements general styling
+.container {
+  width: 100%;
+  max-width: 738px;
+  margin: 0 auto;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+
+  &:focus {
+    outline: 1px solid #F9623E; //one of Unbabel's color for buttons
+    outline-offset: 2px;
+  }
+}
