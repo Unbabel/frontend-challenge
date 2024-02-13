@@ -1,11 +1,11 @@
 # frontend-challenge
 
-## Project setup
+## Installs all needed dependencies
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### Runs the project
 ```
 npm run serve
 ```
@@ -15,10 +15,17 @@ npm run serve
 npm run build
 ```
 
-### Lints and fixes files
+### Runs Unit Tests
 ```
-npm run lint
+npm run test:unit
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### Runs e2e Tests
+```
+npm run test:e2e:headless
+```
+
+### Link to sample page
+```
+/sample-page
+```
